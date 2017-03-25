@@ -3,9 +3,13 @@ h2
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
   .field
+    = f.label :username
+	br
+	= f.text_field :username, autofocus: true
+  .field
     = f.label :email
     br
-    = f.email_field :email, autofocus: true
+    = f.email_field :email
   .field
     = f.label :password
     - if @minimum_password_length

@@ -8,6 +8,7 @@ html
 		|  - 
 	  | ConWorkShop
     = csrf_meta_tags
+	link[href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic&subset=latin,greek,cyrillic-ext,latin-ext,cyrillic,vietnamese,greek-ext,devanagari' rel='stylesheet' type='text/css']
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body[class=phue]
@@ -61,18 +62,18 @@ html
         = yield
     footer[role="contentinfo"]
       div#social_links[role="complementary"]
-        a[href="http://facebook.com/conworkshop"]
-          img[src="/Res/img/social/facebook.png"]/
-        a[href="https://twitter.com/_conworkshop"]
-          img[src="/Res/img/social/twitter.png"]/
-        a[href="https://www.youtube.com/channel/UCJMjntBcDJWrnwBXWot4HRQ"]
-          img[src="/Res/img/social/youtube.png"]/
-        a[href="https://plus.google.com/103217402132925341355"]
-          img[src="/Res/img/social/googleplus.png"]/
-        a[href="https://www.instagram.com/conworkshop/"]
-          img[src="/Res/img/social/instagram.png"]/
-        a[href="http://conworkshop.tumblr.com/"]
-          img[src="/Res/img/social/tumblr.png"]/
+        a[href="http://facebook.com/conworkshop" target="_blank"]
+          img[src="/Res/social/facebook.png"]/
+        a[href="https://twitter.com/_conworkshop" target="_blank"]
+          img[src="/Res/social/twitter.png"]/
+        a[href="https://www.youtube.com/channel/UCJMjntBcDJWrnwBXWot4HRQ" target="_blank"]
+          img[src="/Res/social/youtube.png"]/
+        a[href="https://plus.google.com/103217402132925341355" target="_blank"]
+          img[src="/Res/social/googleplus.png"]/
+        a[href="https://www.instagram.com/conworkshop/" target="_blank"]
+          img[src="/Res/social/instagram.png"]/
+        a[href="http://conworkshop.tumblr.com/" target="_blank"]
+          img[src="/Res/social/tumblr.png"]/
       div#foot_links[role="contentinfo"]
         span
           a[href="#"] privacy
