@@ -2,9 +2,13 @@ doctype html
 html
   head
     title
-      | Cwsonrails
+	  - if content_for?(:page_title)
+	    = yield :page_title
+		|  - 
+	  | ConWorkShop
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    = render 'layouts/menu'
     = yield
