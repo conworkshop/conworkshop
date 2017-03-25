@@ -1,4 +1,4 @@
-- cur_lang_name = "Greg"
+- cur_lang_name = "greg"
 nav[role="navigation"]
   ul[role="tree"]
     - if user_signed_in?
@@ -272,7 +272,7 @@ nav[role="navigation"]
           li[role="treeitem"]
             a.nav_grey_l[href="#"] Donate
       li[role="treeitem" style="width: 20%;"]
-        a.nav_red[href=path_for('sessions#destroy')] Log out
+        a.nav_red[href="users/sign_out"] Log out
     - else
       li[role="treeitem"]
 	    a.nav_grey[href=path_for('main')] Home
@@ -290,6 +290,6 @@ nav[role="navigation"]
       li[role="treeitem"]
         a.nav_yellow[href=path_for('about')] About
       li[role="treeitem"]
-        a.nav_blue[href=path_for('sessions#init')] Login
+        a.nav_blue[href="users/sign_in"] Login
       li[role="treeitem"]
-        a.nav_orange[href=path_for('users#init')] Register
+        a.nav_orange[href="users/sign_up"] Register
