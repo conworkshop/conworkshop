@@ -1,3 +1,4 @@
+- phue = (content_for?(:page_colour) ? yield(:page_colour) : "blue")
 doctype html
 html
   head
@@ -9,6 +10,83 @@ html
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  body
-    = render 'layouts/menu'
-    = yield
+  body[class=phue]
+    div.header_btn_home
+      a[href="/" class="bg_"+phue] cws
+    div.header_btn_lang
+      a[href="#"]
+        img[src="#"]/
+    header[class="bg_"+phue role="banner"]
+      div#top_header
+        div.lang_sel.right[role="complementary"]
+          span
+            a[href="#"]
+              img#lang_sel_flag[src="#"]/
+              = (user_signed_in?) ? "LANGUAGE NAME" : "Not signed in"
+          a.round-button.pass[href="#"] ▼
+          a.round-button.pass[href="#"] ✎
+          a.round-button.alert[href="#"] ★
+          br/
+          small
+            = "%%%"
+            |  | 
+            = "%%%"
+            |  entries
+        div.head[role="heading"]
+          a[href="/"] %%todo-header-conscript%%
+          small#head_conscript_name
+            a[href="#"] %%todo-header-conscript-name%%
+        span.head_under[role="complementary"]
+          = ["Good day", "Top of the morning", "What's up", "How are you", "Greetings", "Hello there"].sample
+          | , 
+          = (user_signed_in?) ? current_user.email : "Guest"
+          |  | 
+          = Time.new.strftime("%d %B %Y, %H:%M")
+      = render 'layouts/menu'
+      div#notify_container[role="status"]
+        a.notify.pink[href="/"] succ my bigg cocc
+    main[role="main"]
+      aside[role="complementary"]
+        div#quick_links[role="presentation"]
+          a[href="#"] [bots]
+          a[href="#"] [search]
+          a[href="#"] [feedback/report]
+          a[href="#"] [help index]
+        div#path[role="navigation"]
+          span
+            a[href="/"] home
+          span
+            a[href="/about"] about
+      section#content
+        = yield
+    footer[role="contentinfo"]
+      div#social_links[role="complementary"]
+        a[href="http://facebook.com/conworkshop"]
+          img[src="/Res/img/social/facebook.png"]/
+        a[href="https://twitter.com/_conworkshop"]
+          img[src="/Res/img/social/twitter.png"]/
+        a[href="https://www.youtube.com/channel/UCJMjntBcDJWrnwBXWot4HRQ"]
+          img[src="/Res/img/social/youtube.png"]/
+        a[href="https://plus.google.com/103217402132925341355"]
+          img[src="/Res/img/social/googleplus.png"]/
+        a[href="https://www.instagram.com/conworkshop/"]
+          img[src="/Res/img/social/instagram.png"]/
+        a[href="http://conworkshop.tumblr.com/"]
+          img[src="/Res/img/social/tumblr.png"]/
+      div#foot_links[role="contentinfo"]
+        span
+          a[href="#"] privacy
+        span
+          a[href="#"] FAQs
+        span
+          a[href="#"] rules
+        span
+          a[href="#"] statistics
+        span
+          a[href="#"] graphs
+        span
+          a[href="#"] api (indev)
+      span#foot_info
+        | Current language: 
+        = "%%current-langauge-placeholder%%"
+
