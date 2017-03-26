@@ -9,16 +9,13 @@ h2
     span.hover_ico_info
       | ?
       span
-        | Maximum of #{v_options[:maximum]} characters, minimum of #{v_options[:minimum]} characters
+        | Maximum of #{v_options[:maximum]} characters, minimum of #{v_options[:minimum]} characters.
+        |  You will need this username to log in so make sure it's memorable.
     span.sbt
       | You can only use these characters: A-Z, a-z, 0-9, dashes, underscores and dots.
 	= f.text_field :username, autofocus: true, size: 38
   .field
     = f.label :email
-    span.hover_ico_warn
-      | !
-      span
-        | You will use this to login, so please choose one you will remember!
     = f.email_field :email, size: 38
   .field
     = f.label :password
