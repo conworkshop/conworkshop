@@ -612,7 +612,7 @@ a, a.mem, a.path {
 input {
   height: 22px;
   text-indent: 20px;
-  background: url("/CWS2/Res/img/input.png") no-repeat left 2px center; }
+  background: url("/Res/input.png") no-repeat left 2px center; }
   input:focus, select:focus, textarea:focus {
     color: #333; }
   input.red, input.green, input.yellow {
@@ -669,20 +669,20 @@ dt {
 dd {
   margin: 0 0 0 110px; }
 
-form div, .form div {
+form .field, form .actions, .form .field, .form .actions {
   display: inline-block;
   margin: 10px;
   width: 46%;
   vertical-align: top; }
-  form div.full_width, .form div.full_width {
+  form .full_width, .form .full_width {
     width: 92%; }
-    form div.full_width textarea, .form div.full_width textarea {
+    form .full_width textarea, .form .full_width textarea {
       max-width: 800px; }
-  form div.third, .form div.third {
+  form .third, .form .third {
     width: 30%; }
-    form div.third textarea, .form div.third textarea {
+    form .third textarea, .form .third textarea {
       max-width: 250px; }
-  form div .list, .form div .list {
+  form .list, .form .list {
     width: 95%; }
 
 label.small {
@@ -920,5 +920,23 @@ div#prof_avatar_wrapper {
     font-size: 1.2em; }
   div#prof_avatar_wrapper #prof_avatar_links {
     display: block; }
+	
+#error_explanation {
+	border: 1px solid red;
+	background: pink;
+	font-size: small;
+	padding: 10px;
+}
+#error_explanation h2 {
+	background: none;
+	font-weight: bold;
+	margin: 0;
+	color: #333;
+	font-size: small;
+	text-shadow: none;
+}
+#error_explanation ul {
+	margin: 0;
+}
 
 /*# sourceMappingURL=main.css.map */
