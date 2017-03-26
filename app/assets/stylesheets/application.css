@@ -388,8 +388,14 @@ input, form div input, form div select, form div textarea, .form div input, .for
   margin-top: 5px;
   max-width: 98%;
   color: #666;
-  background-color: #eee;
-  border: none; }
+  background-color: #e9e9e9;
+  border: none;
+    outline: none;
+    transition: .2s background-color ease-in-out;
+    -webkit-transition: .2s background-color ease-in-out;
+    -moz-transition: .2s background-color ease-in-out;
+    -o-transition: .2s background-color ease-in-out;
+}
 
 body {
   font-family: "Noto Sans", sans-serif;
@@ -684,6 +690,20 @@ form .field, form .actions, .form .field, .form .actions {
       max-width: 250px; }
   form .list, .form .list {
     width: 95%; }
+
+.form_links {
+    padding: 10px; font-size: small;
+}
+.form_links a {
+    font-weight: bold;
+}
+
+.field_with_errors {
+    display: inline;
+}
+.field_with_errors label {
+    color: red;
+}
 
 label.small {
   display: inline-block;

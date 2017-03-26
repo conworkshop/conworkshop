@@ -55,9 +55,13 @@ html
           a[href="#"] [help index]
         div#path[role="navigation"]
           span
-            a[href="/"] home
+            - if content_for?(:page_origin)
+              = yield(:page_origin)
+            - else
+              | conworkshop
           span
-            a[href="/about"] about
+            a[href="#"]
+              = controller.action_name
       section#content
         = yield
     footer[role="contentinfo"]

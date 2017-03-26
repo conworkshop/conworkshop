@@ -1,18 +1,19 @@
+- provide(:page_origin, "session")
+- provide(:page_colour, "orange")
+- provide(:page_title, "Log in")
 h2
   | Log in
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true
+    = f.label :username
+    = f.text_field :username, autofocus: true, size: 38
   .field
     = f.label :password
-    br
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
+    = f.password_field :password, autocomplete: "off", size: 38
   .actions
-    = f.submit "Log in"
+    = f.submit "✔ Let me in!", class: "button alert"
+    - if devise_mapping.rememberable?
+      .field
+        = f.check_box :remember_me
+        =< f.label :remember_me, class: "small"
 = render "users/shared/links"
