@@ -1,97 +1,103 @@
-- phue = (content_for?(:page_colour) ? yield(:page_colour) : "blue")
+- phue = content_for?(:page_colour) ? yield(:page_colour) : 'blue'
 doctype html
-html
+html lang='en'
   head
+    meta charset='UTF-8'
+
     title
-	  - if content_for?(:page_title)
-	    = yield :page_title
-		|  - 
+	  = (yield :page_title) + ' - ' if content_for?(:page_title)
 	  | ConWorkShop
+
     = csrf_meta_tags
-	link[href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic&subset=latin,greek,cyrillic-ext,latin-ext,cyrillic,vietnamese,greek-ext,devanagari' rel='stylesheet' type='text/css']
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic&subset=latin,greek,cyrillic-ext,latin-ext,cyrillic,vietnamese,greek-ext,devanagari', \
+            'application', media: 'all', :'data-turbolinks-track' => 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    = favicon_link_tag "fi_#{phue}", type: 'image/png'
+
   body[class=phue]
-    div.header_btn_home
-      a[href="/" class="bg_#{phue}"] cws
-    div.header_btn_lang
-      a[href="#"]
-        img[src="#"]/
-    header[class="bg_#{phue}" role="banner"]
-      div#top_header
-        div.lang_sel.right[role="complementary"]
+    .header_btn_home
+      = link_to 'CWS', root_path, class: "bg_#{phue}"
+    .header_btn_lang
+      a[href='#']
+        img[src='']
+
+    header[class="bg_#{phue}" role='banner']
+      #top_header
+        .lang_sel.right[role='complementary']
           span
-            a[href="#"]
-              img#lang_sel_flag[src="#"]/
-              = (user_signed_in?) ? "LANGUAGE NAME" : "Not signed in"
-          a.round-button.pass[href="#"] ▼
-          a.round-button.pass[href="#"] ✎
-          a.round-button.alert[href="#"] ★
-          br/
-          small
-            = "%%%"
-            |  | 
-            = "%%%"
-            |  entries
-        div.head[role="heading"]
-          a[href="/"] %%todo-header-conscript%%
+            a[href='#']
+              img#lang_sel_flag[src=''] = user_signed_in? ? 'LANGUAGE NAME' : 'Not signed in'
+          a.round-button.pass[href='#'] ▼
+          a.round-button.pass[href='#'] ✎
+          a.round-button.alert[href='#'] ★
+          br
+          small %%% | %%% entries
+
+        .head[role='heading']
+          a[href='/'] %%todo-header-conscript%%
           small#head_conscript_name
-            a[href="#"] %%todo-header-conscript-name%%
-        span.head_under[role="complementary"]
-          = ["Good day", "Top of the morning", "What's up", "How are you", "Greetings", "Hello there"].sample
+            a[href='#'] %%todo-header-conscript-name%%
+
+        span.head_under[role='complementary']
+          = ['Good day', 'Top of the morning', "What's up", 'How are you', 'Greetings', 'Hello there'].sample
           | , 
-          = (user_signed_in?) ? current_user.email : "Guest"
-          |  | 
-          = Time.new.strftime("%d %B %Y, %H:%M")
+          = user_signed_in? ? current_user.username : 'Guest'
+          '  |
+          = Time.now.strftime('%d %B %Y, %H:%M')
+
       = render 'layouts/menu'
-      div#notify_container[role="status"]
-        a.notify.pink[href="/"] succ my bigg cocc
-    main[role="main"]
-      aside[role="complementary"]
-        div#quick_links[role="presentation"]
-          a[href="#"] [bots]
-          a[href="#"] [search]
-          a[href="#"] [feedback/report]
-          a[href="#"] [help index]
-        div#path[role="navigation"]
+
+      #notify_container[role='status']
+        a.notify.pink[href='/'] succ my bigg cocc
+
+    main[role='main']
+      aside[role='complementary']
+        #quick_links[role='presentation']
+          a>[href='#'] [bots]
+          a>[href='#'] [search]
+          a>[href='#'] [feedback/report]
+          a[href='#'] [help index]
+
+        #path[role='navigation']
+          span = content_for?(:page_origin) ? yield(:page_origin) : 'conworkshop'
           span
-            - if content_for?(:page_origin)
-              = yield(:page_origin)
-            - else
-              | conworkshop
-          span
-            a[href="#"]
-              = controller.action_name
-      section#content
-        = yield
-    footer[role="contentinfo"]
-      div#social_links[role="complementary"]
-        a[href="http://facebook.com/conworkshop" target="_blank"]
-          img[src="/Res/social/facebook.png"]/
-        a[href="https://twitter.com/_conworkshop" target="_blank"]
-          img[src="/Res/social/twitter.png"]/
-        a[href="https://www.youtube.com/channel/UCJMjntBcDJWrnwBXWot4HRQ" target="_blank"]
-          img[src="/Res/social/youtube.png"]/
-        a[href="https://plus.google.com/103217402132925341355" target="_blank"]
-          img[src="/Res/social/googleplus.png"]/
-        a[href="https://www.instagram.com/conworkshop/" target="_blank"]
-          img[src="/Res/social/instagram.png"]/
-        a[href="http://conworkshop.tumblr.com/" target="_blank"]
-          img[src="/Res/social/tumblr.png"]/
-      div#foot_links[role="contentinfo"]
+            a[href='#'] = controller.action_name
+
+      section#content = yield
+
+    footer[role='contentinfo']
+      #social_links[role='complementary']
+        a[href='http://facebook.com/conworkshop' target='_blank']
+          = image_tag 'social/facebook.png', size: '32x32', alt: 'Facebook page'
+        a[href='https://twitter.com/_conworkshop' target='_blank']
+          = image_tag 'social/twitter.png', size: '32x32', alt: 'Twitter profile'
+        a[href='https://www.youtube.com/channel/UCJMjntBcDJWrnwBXWot4HRQ' target='_blank']
+          = image_tag 'social/youtube.png', size: '32x32', alt: 'Youtube channel'
+        a[href='https://plus.google.com/103217402132925341355' target='_blank']
+          = image_tag 'social/googleplus.png', size: '32x32', alt: 'Google+ profile'
+        a[href='https://www.instagram.com/conworkshop/' target='_blank']
+          = image_tag 'social/instagram.png', size: '32x32', alt: 'Instagram profile'
+        a[href='http://conworkshop.tumblr.com/' target='_blank']
+          = image_tag 'social/tumblr.png', size: '32x32', alt: 'Tumblr profile'
+
+      #foot_links[role='contentinfo']
         span
-          a[href="#"] privacy
+          a[href='#'] privacy
         span
-          a[href="#"] FAQs
+          a[href='#'] FAQs
         span
-          a[href="#"] rules
+          a[href='#'] rules
         span
-          a[href="#"] statistics
+          a[href='#'] statistics
         span
-          a[href="#"] graphs
+          a[href='#'] graphs
         span
-          a[href="#"] api (indev)
+          a[href='#'] api (indev)
+
       span#foot_info
-        | Current language: 
-        = "%%current-langauge-placeholder%%"
+        | Current language:
+        = '%%current-langauge-placeholder%%'
+        '  | Time now is
+        = Time.now.strftime('%d %B %Y, %H:%M')
 
