@@ -1,0 +1,18 @@
+@mixin box-shadow($vals) {
+    -webkit-box-shadow: $vals;
+       -moz-box-shadow: $vals;
+            box-shadow: $vals;
+}
+
+@mixin main-center() {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin transition($vals) {
+    -webkit-transition: $vals;
+    -moz-transition: $vals;
+    -o-transition: $vals;
+    transition: $vals;
+}

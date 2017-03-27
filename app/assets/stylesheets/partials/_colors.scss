@@ -1,0 +1,366 @@
+/* ========================================================================= */
+/*                             COLORS AND SHIT                               */
+/*           see the partials/_colors.scss file, it's easier to read.        */
+/* ========================================================================= */
+
+// Basic colors
+$white:             #fff;
+$black:             #000;
+$basically-black:   #666;
+$basically-white:   #e9e9e9;
+$lighter-black:     #333;
+$darker-white:      #ccc;
+$transparent-white: transparentize($white, 0.5);
+$transparent-black: transparentize($black, 0.5);
+$weird-black:       #999;
+
+$bg-color:      #efefef;
+$main-bg-color: #fefefe;
+$menu-bg-color: #c33;
+
+$shadow-color: transparentize($black, 0.8);
+
+$link-color:       #099;
+$link-hover-color: #066;
+
+// Header background colors
+$bg-red:    #d99;
+$bg-orange: #f6d498;
+$bg-yellow: #dd9;
+$bg-green:  #9d9;
+$bg-blue:   #9dd;
+$bg-pink:   #e9e;
+$bg-grey:   #eee;
+
+// General colors
+$pass-color:          #050;
+$pass-bg-color:       rgba(51, 204, 51, 0.4);
+$pass-bg-hover-color: opacify($pass-bg-color, 1.0 - opacity($pass-bg-color));
+$pass-disabled-color: #030;
+
+$fail-color:          #500;
+$fail-bg-color:       rgba(204, 51, 51, 0.4);
+$fail-bg-hover-color: opacify($fail-bg-color, 1.0 - opacity($fail-bg-color));
+
+$alert-color:          #520;
+$alert-bg-color:       rgba(238, 170, 51, 0.4);
+$alert-bg-hover-color: opacify($alert-bg-color, 1.0 - opacity($alert-bg-color));
+
+$pending-color:          #550;
+$pending-bg-color:       rgba(204, 204, 51, 0.4);
+$pending-bg-hover-color: opacify($pending-bg-color,
+        1.0 - opacity($pending-bg-color));
+
+$idle-color:          #055;
+$idle-bg-color:       rgba(51, 204, 204, 0.4);
+$idle-bg-hover-color: opacify($idle-bg-color, 1.0 - opacity($idle-bg-color));
+
+$match-color:          #505;
+$match-bg-color:       rgba(221, 51, 221, 0.4);
+$match-bg-hover-color: opacify($match-bg-color, 1.0 - opacity($match-bg-color));
+
+$unknown-color:          #555;
+$unknown-bg-color:       rgba(221,221,221,0.4);
+$unknown-bg-hover-color: opacify($unknown-bg-color,
+        1.0 - opacity($unknown-bg-color));
+
+// Button colors
+$bt-grey-color:          #555;
+$bt-grey-bg-color:       $darker-white;
+$bt-grey-light-color:    #777;
+$bt-grey-bg-light-color: $basically-white;
+
+$bt-disabled-color:    #aaa;
+$bt-disabled-bg-color: $basically-white;
+
+$bt-green-color:          #050;
+$bt-green-light-color:    adjust_color($bt-green-color, $lightness: 10%);
+$bt-green-bg-color:       #3c3;
+$bt-green-bg-light-color: adjust_color($bt-green-bg-color,
+                            $saturation: 40%, $lightness: 20%);
+
+$bt-red-color:          #500;
+$bt-red-light-color:    adjust_color($bt-red-color, $lightness: 10%);
+$bt-red-bg-color:       $menu-bg-color;
+$bt-red-bg-light-color: adjust_color($bt-red-bg-color,
+                            $saturation: 40%, $lightness: 20%);
+
+$bt-pink-color:          #505;
+$bt-pink-light-color:    adjust_color($bt-pink-color, $lightness: 10%);
+$bt-pink-bg-color:       #d3d;
+$bt-pink-bg-light-color: adjust_color($bt-pink-bg-color,
+                            $saturation: 40%, $lightness: 20%);
+
+$bt-orange-color:          #520;
+$bt-orange-light-color:    adjust_color($bt-orange-color, $lightness: 10%);
+$bt-orange-bg-color:       #ea3;
+$bt-orange-bg-light-color: adjust_color($bt-orange-bg-color,
+                            $saturation: 40%, $lightness: 20%);
+
+$bt-blue-color:          #055;
+$bt-blue-light-color:    adjust_color($bt-blue-color, $lightness: 10%);
+$bt-blue-bg-color:       #3cc;
+$bt-blue-bg-light-color: adjust_color($bt-blue-bg-color,
+                            $saturation: 40%, $lightness: 20%);
+
+$bt-yellow-color:          #550;
+$bt-yellow-light-color:    adjust_color($bt-yellow-color, $lightness: 10%);
+$bt-yellow-bg-color:       #cc3;
+$bt-yellow-bg-light-color: adjust_color($bt-yellow-bg-color,
+                            $saturation: 40%, $lightness: 20%);
+
+// Banner colors
+$banner-success-color:    #6a6;
+$banner-success-bg-color: #9d9;
+$banner-success-color2:   #060;
+
+$banner-error-color:    #a66;
+$banner-error-bg-color: #d99;
+$banner-error-color2:   #933;
+
+$banner-warning-color:    #aa6;
+$banner-warning-bg-color: #dd9;
+$banner-warning-color2:   #993;
+
+$banner-info-color:    #6aa;
+$banner-info-bg-color: #9dd;
+$banner-info-color2:   #399;
+
+$banner-timer-color:    #a60;
+$banner-timer-bg-color: #fc9;
+$banner-timer-color2:   #963;
+
+// List colors
+$list-green-color:       #dfd;
+$list-green-hover-color: #9c9;
+
+$list-red-color:       #fdd;
+$list-red-hover-color: #daa;
+
+$list-yellow-color:       #ffc;
+$list-yellow-hover-color: #cc9;
+
+$list-pink-color:       #fdf;
+$list-pink-hover-color: #fbf;
+
+$list-orange-color:       #fec;
+$list-orange-hover-color: #ca9;
+
+$list-blue-color:       #cff;
+$list-blue-hover-color: #9cc;
+
+$list-grey-color:       $basically-white;
+$list-grey-hover-color: $darker-white;
+
+// Feed colors
+$feed-green-color:  #090;
+$feed-yellow-color: #990;
+$feed-blue-color:   #099;
+$feed-orange-color: #960;
+
+// Language status colors
+$ls-unknown-color:     #333;
+$ls-abandoned-color:   $weird-black;
+$ls-new-color:         #960;
+$ls-progressing-color: #990;
+$ls-functional-color:  #090;
+$ls-complete-color:    #099;
+
+// Hover icon
+$hover-ico-info-bg-color: #acc;
+$hover-ico-info-color:    #066;
+
+$hover-ico-warn-bg-color: #caa;
+$hover-ico-warn-color:    #600;
+
+$hover-ico-dict-bg-color: $darker-white;
+$hover-ico-dict-color:    #666;
+
+// Header background colors
+body.red input:focus, body.red select:focus,
+body.red textarea:focus, .bg_red {
+    background-color: $bg-red;
+}
+
+body.orange input:focus, body.orange select:focus,
+body.orange textarea:focus, .bg_orange {
+    background-color: $bg-orange;
+}
+
+body.yellow input:focus, body.yellow select:focus,
+body.yellow textarea:focus, .bg_yellow {
+    background-color: $bg-yellow;
+}
+
+body.green input:focus, body.green select:focus,
+body.green textarea:focus, .bg_green {
+    background-color: $bg-green;
+}
+
+body.blue input:focus, body.blue select:focus,
+body.blue textarea:focus, .bg_blue {
+    background-color: $bg-blue;
+}
+
+body.pink input:focus, body.pink select:focus,
+body.pink textarea:focus, .bg_pink {
+    background-color: $bg-pink;
+}
+
+body.grey input:focus, body.grey select:focus,
+body.grey textarea:focus, .bg_grey {
+    background-color: $bg-grey;
+}
+
+// General colors
+a.pass, a.green, label.green, input.button.pass {
+    color: $pass-color;
+    background-color: $pass-bg-color;
+
+    &:hover, &:focus {
+        color: $pass-color;
+        background-color: $pass-bg-hover-color;
+    }
+}
+
+input.pass[readonly], input.green[readonly], select.pass[readonly] {
+    color: $pass-disabled-color !important;
+}
+
+a.fail, a.red, label.red, input.button.fail {
+    color: $fail-color;
+    background-color: $fail-bg-color;
+
+    &:hover, &:focus {
+        color: $fail-color;
+        background-color: $fail-bg-hover-color;
+    }
+}
+
+a.alert, a.orange, label.orange, input.alert {
+    color: $alert-color;
+    background-color: $alert-bg-color;
+
+    &:hover, &:focus {
+        color: $alert-color;
+        background-color: $alert-bg-hover-color;
+    }
+}
+
+a.pending, a.yellow, label.yellow, input.pending {
+    color: $pending-color;
+    background-color: $pending-bg-color;
+
+    &:hover, &:focus {
+        color: $pending-color;
+        background-color: $fail-bg-hover-color;
+    }
+}
+
+a.idle, a.blue, label.blue, input.idle {
+    color: $idle-color;
+    background-color: $idle-bg-color;
+
+    &:hover, &:focus {
+        color: $idle-color;
+        background-color: $idle-bg-hover-color;
+    }
+}
+
+a.match, a.pink, label.pink, input.match {
+    color: $match-color;
+    background-color: $match-bg-color;
+
+    &:hover, &:focus {
+        color: $match-color;
+        background-color: $match-bg-hover-color;
+    }
+}
+
+a.unknown, a.grey, label.grey, input.grey {
+    color: $unknown-color;
+    background-color: $fail-bg-color;
+
+    &:hover, &:focus {
+        color: $unknown-color;
+        background-color: $unknown-bg-hover-color;
+    }
+}
+
+// Button colors
+.nav_grey, .nav_grey:hover, .nav_grey_l:hover,
+.notify.grey:hover {
+    background-color: $bt-grey-bg-color;
+    color: $bt-grey-color;
+}
+
+.nav_green, .nav_green:hover, .nav_green_l:hover,
+.notify.green:hover {
+    background-color: $bt-green-bg-color;
+    color: $bt-green-color;
+}
+
+.nav_red, .nav_red:hover, .nav_red_l:hover,
+.notify.red:hover {
+    background-color: $bt-red-bg-color;
+    color: $bt-red-color;
+}
+
+.nav_pink, .nav_pink:hover, .nav_pink_l:hover,
+.notify.pink:hover {
+    background-color: $bt-pink-bg-color;
+    color: $bt-pink-color;
+}
+
+.nav_orange, .nav_orange:hover, .nav_orange_l:hover,
+.notify.orange:hover {
+    background-color: $bt-orange-bg-color;
+    color: $bt-orange-color;
+}
+
+.nav_blue, .nav_blue:hover, .nav_blue_l:hover,
+.notify.blue:hover {
+    background-color: $bt-blue-bg-color;
+    color: $bt-blue-color;
+}
+
+.nav_yellow, .nav_yellow:hover, .nav_yellow_l:hover,
+.notify.yellow:hover {
+    background-color: $bt-yellow-bg-color;
+    color: $bt-yellow-color;
+}
+
+.nav_grey_l, .notify.grey {
+    background-color: $bt-grey-bg-light-color;
+    color: $bt-grey-light-color;
+}
+
+.nav_green_l, .notify.green {
+    background-color: $bt-green-bg-light-color;
+    color: $bt-green-light-color;
+}
+
+.nav_red_l, .notify.red {
+    background-color: $bt-red-bg-light-color;
+    color: $bt-red-light-color;
+}
+
+.nav_pink_l, .notify.pink {
+    background-color: $bt-pink-bg-light-color;
+    color: $bt-pink-light-color;
+}
+
+.nav_orange_l, .notify.orange {
+    background-color: $bt-orange-bg-light-color;
+    color: $bt-orange-light-color;
+}
+
+.nav_blue_l, .notify.blue {
+    background-color: $bt-blue-bg-light-color;
+    color: $bt-blue-light-color;
+}
+
+.nav_yellow_l, .notify.yellow {
+    background-color: $bt-yellow-bg-light-color;
+    color: $bt-yellow-light-color;
+}

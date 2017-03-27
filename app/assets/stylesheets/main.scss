@@ -1,0 +1,825 @@
+@charset "utf-8";
+
+@import 'partials/reset';
+@import 'partials/colors';
+@import 'partials/mixins';
+
+/* ========================================================================= */
+/*                           MAIN FILE STARTS HERE                           */
+/*                  see the main.scss file, it's easier to read.             */
+/* ========================================================================= */
+
+$font-stack: 'Noto Sans', sans-serif;
+$font-size: 1em;
+$smaller-font-size:  $font-size - .2;
+$smaller-font-size2: $smaller-font-size - .05;
+
+%zero-margin-padding {
+  padding: 0;
+  margin: 0;
+}
+
+%pipe_sep > span + span:before {
+  content: " | ";
+}
+
+%chev_sep > span + span:before {
+  content: " > ";
+}
+
+%input {
+  padding: 5px;
+  text-decoration: none;
+  font-size: $font-size;
+  font-family: $font-stack;
+}
+
+%form_input {
+  display: block;
+  margin-top: 5px;
+  max-width: 98%;
+  color: $basically-black;
+  background-color: $basically-white;
+  border: none;
+  outline: none;
+
+  @include transition(.2s background-color ease-in-out);
+}
+
+body {
+  font-family: $font-stack;
+  overflow-y: scroll;
+  background-color: $bg-color;
+}
+
+main {
+  @include box-shadow(0 0 40px $shadow-color);
+  @include main-center;
+
+  overflow-y: visible;
+  background-color: $main-bg-color;
+  padding-bottom: 10px;
+  padding-top: 2px;
+  margin-top: -5px;
+
+  #quick_links {
+    float: right;
+    margin-right: 10px;
+    font-size: $smaller-font-size2;
+  }
+
+  #path {
+    @extend %chev_sep;
+
+    color: $darker-white;
+    margin-left: 10px;
+    margin-top: 5px;
+    font-size: $smaller-font-size;
+  }
+
+  #content {
+    margin: 10px;
+    color: $lighter-black;
+  }
+}
+
+header {
+  @include main-center;
+  @include box-shadow(0 0 40px $shadow-color);
+
+  .lang_sel {
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: transparentize($white, 0.3);
+    padding: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    #lang_sel_flag {
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+
+    a {
+      padding: 5px;
+      text-decoration: none;
+      font-size: $font-size;
+    }
+
+    span {
+      margin: 5px;
+    }
+  }
+
+  .head {
+    text-shadow: 0 1px 0 $transparent-white;
+    padding: 10px;
+    border-left: none;
+    border-right: none;
+    margin-top: -2px;
+    margin-bottom: 10px;
+
+    #head_conscript {
+      @extend .alpha;
+
+      color: inherit;
+      text-decoration: none;
+      border: none;
+      font-size: $font-size + .8;
+      text-shadow: 1px 1px $darker-white;
+      font-weight: bold;
+    }
+
+    #head_conscript_name, #head_conscript_name > a {
+      opacity: 0.8;
+      color: $lighter-black;
+      border: none;
+      vertical-align: bottom;
+    }
+  }
+
+  .head_under {
+    font-size: $smaller-font-size;
+    padding-left: 10px;
+  }
+}
+
+%header_btn {
+  a {
+    @include transition(.2s ease-in-out);
+    @include box-shadow(0 4px 10px -2px transparentize($black, 0.6));
+
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 50px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    opacity: 0;
+  }
+
+  &.is_shown a {
+    opacity: 1;
+  }
+}
+
+.header_btn_home {
+  @extend %header_btn;
+
+  a {
+    font-size: large;
+    color: #555;
+    left: 0;
+  }
+}
+
+.header_btn_lang {
+  @extend %header_btn;
+
+  a {
+    font-size: medium;
+    color: #444;
+    right: 0;
+
+    &:hover {
+      background-color: #e9e9e9;
+    }
+  }
+}
+
+nav {
+  @include transition(box-shadow .3s ease-in-out);
+
+  width: 100%;
+  height: 29px;
+  margin-bottom: 4px;
+  position: static;
+  box-shadow: none;
+  display: block;
+  font-size: 0.8em;
+  z-index: 999;
+  background-color: $menu-bg-color;
+
+  &.sticky_nav {
+    @include box-shadow(0 4px 10px -2px transparentize($black, 0.6));
+
+    position: fixed;
+    top: 0;
+    width: inherit;
+    height: 28px;
+  }
+
+  .nav_caret:after {
+    content: "▸";
+    float: right;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+
+  /* level 1 */
+  ul {
+    @extend %zero-margin-padding;
+
+    list-style: none;
+    position: relative;
+    display: inline-table;
+    width: 100%;
+
+    li {
+      @extend .left;
+
+      width: 16%;
+      text-indent: 10px;
+
+      a {
+        @include transition(.2s);
+
+        display: block;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+
+      &:hover > ul {
+        display: block;
+      }
+    }
+
+    /* level 2 */
+    ul {
+      @include box-shadow(0 4px 15px -2px transparentize($black, 0.7));
+
+      border-radius: 0;
+      padding: 0;
+      position: absolute;
+      top: 100%;
+      width: 20%;
+      z-index: 50;
+      display: none;
+
+      li {
+        float: none;
+        position: relative;
+        width: 100%;
+
+        a {
+          padding-top: 10px;
+          padding-bottom: 10px;
+          text-indent: 10px;
+          width: 100%;
+        }
+      }
+
+      /* level 3 */
+      ul {
+        border-radius: 0;
+        padding: 0;
+        position: absolute;
+        width: 100%;
+        left: 100%;
+        top: 0;
+
+        li {
+          position: relative;
+          width: 100%;
+
+          a {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-indent: 10px;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  color: $darker-white;
+  width: 80%;
+  margin: 10px auto 20px;
+  font-size: $smaller-font-size2;
+  text-align: center;
+
+  #social_links {
+    margin: 10px;
+    text-align: center;
+  }
+
+  #foot_links {
+    @extend %pipe_sep;
+  }
+}
+
+p {
+  font-size: $smaller-font-size;
+  margin-bottom: 10px;
+}
+
+a, a.mem, a.path {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+
+  img {
+    border: none;
+    display: inline-block;
+  }
+}
+
+input {
+  @extend %input;
+  @extend %form_input;
+
+  height: 22px;
+  text-indent: 20px;
+  background: asset-url('input.png') no-repeat left 2px center;
+
+  @at-root input:focus, select:focus, textarea:focus {
+    color: $lighter-black;
+  }
+
+  &.red, &.green, &.yellow {
+    @include transition(all .2s);
+  }
+
+  &[type="checkbox"], &[type="checkbox"]:focus {
+    @include box-shadow(none);
+
+    border: 1px solid white;
+    color: $weird-black;
+    padding: 0;
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  &[type="submit"], &[type="submit"]:focus, &[type="submit"]:active {
+    cursor: pointer;
+    padding: 7px;
+    height: auto;
+    text-indent: 0;
+    background-image: none;
+  }
+}
+
+select, textarea {
+  @extend %input;
+}
+
+input[readonly], textarea[readonly], select[disabled],
+input[readonly]:focus, textarea[readonly]:focus, select[disabled]:focus {
+  color: $weird-black;
+  text-indent: 0;
+  background: $basically-white none;
+}
+
+h1, h2, h3, .title {
+  color: $basically-black;
+  font-size: $font-size + .4;
+  padding-bottom: 5px;
+  background: $basically-white;
+  text-indent: 10px;
+  margin: 10px 0;
+  font-weight: normal;
+  text-shadow: 0 1px 0 $transparent-white;
+
+  .right {
+    font-size: $font-size - .5;
+    margin-top: 5px;
+    margin-right: 5px;
+  }
+}
+
+dl {
+  font-size: $smaller-font-size;
+  margin-left: -1em;
+}
+
+dt {
+  float: left;
+  clear: left;
+  width: 100px;
+  text-align: right;
+}
+
+dd {
+  margin: 0 0 0 110px;
+}
+
+form, .form {
+  .field, .actions {
+    display: inline-block;
+    margin: 10px;
+    width: 46%;
+    vertical-align: top;
+
+    .full_width {
+      width: 92%;
+
+      textarea {
+        max-width: 800px;
+      }
+    }
+
+    .third {
+      width: 30%;
+
+      textarea {
+        max-width: 250px;
+      }
+    }
+
+    .list {
+      width: 95%;
+    }
+
+    input, select, textarea {
+      @extend %form_input;
+    }
+  }
+}
+
+label.small {
+  display: inline-block;
+  font-size: $smaller-font-size !important;
+  color: $weird-black;
+  cursor: pointer;
+}
+
+.button {
+  @include transition(.1s);
+
+  border: none;
+  padding: 5px;
+  text-decoration: none;
+  font-size: $font-size - .1;
+  border-radius: 1px;
+  color: $darker-white;
+}
+
+.round-button {
+  @extend .button;
+
+  border-radius: 18px;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#notify_container {
+  margin-top: -5px;
+  margin-bottom: 5px;
+
+  .notify {
+    display: block;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: $smaller-font-size;
+    cursor: pointer;
+  }
+}
+
+.faux {
+  display: block;
+  padding: 5px;
+  background-color: $white;
+  text-decoration: none;
+  font-size: $smaller-font-size;
+  border: 1px solid $basically-white;
+  color: #555;
+  margin-bottom: 5px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  .hover_ico {
+    margin-top: 10px;
+  }
+}
+
+div.right {
+  padding: 5px;
+  text-decoration: none;
+  font-size: 1.0em;
+}
+
+.alpha {
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1.0;
+  }
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
+
+.sbt {
+  display: block;
+  font-size: $smaller-font-size;
+  color: $weird-black;
+}
+
+.hover_ico {
+  display: inline-block;
+  max-width: 25px;
+  min-width: 25px;
+  width: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+  font-size: $smaller-font-size2;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+
+  &:hover {
+    z-index: 10;
+
+    span {
+      margin: 0;
+      display: block;
+      font-weight: normal;
+      position: absolute;
+      text-align: left;
+      width: 200px;
+      padding: 5px;
+      background-color: inherit;
+      color: inherit;
+    }
+  }
+
+  span {
+    display: none;
+  }
+}
+
+.hover_ico_info {
+  @extend .hover_ico;
+
+  border-color: $hover-ico-info-bg-color;
+  background-color: $hover-ico-info-bg-color;
+  color: $hover-ico-info-color;
+
+  span {
+    background-color: inherit;
+    color: inherit;
+  }
+}
+
+.hover_ico_warn {
+  @extend .hover_ico;
+
+  border-color: $hover-ico-warn-bg-color;
+  background-color: $hover-ico-warn-bg-color;
+  color: $hover-ico-warn-color;
+
+  span {
+    background-color: inherit;
+    color: inherit;
+  }
+}
+
+.hover_ico_dict {
+  @extend .hover_ico;
+
+  border-color: $hover-ico-dict-bg-color;
+  background-color: $hover-ico-dict-bg-color;
+  color: $hover-ico-dict-color;
+
+  span {
+    background-color: inherit;
+    color: inherit;
+  }
+}
+
+.small-size {
+  font-size: $smaller-font-size;
+}
+
+.small_left {
+  @extend .small-size;
+
+  text-align: left;
+}
+
+.small_right {
+  @extend .small-size;
+
+  text-align: right;
+}
+
+.avatar {
+  display: inline-block;
+  font-size: $smaller-font-size2;
+  text-align: left;
+  margin-right: 5px;
+
+  img {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 25px;
+    border: 1px solid $bg-color;
+    display: block;
+  }
+}
+
+// region Banners
+.banner {
+  width: 90%;
+  padding: 5px 10px;
+  margin: 10px auto;
+
+  ul, ol {
+    margin: .5em 0;
+  }
+
+  li + li {
+    padding-top: 2px;
+  }
+
+  div, span {
+    margin: 3px 0;
+    display: inline-block;
+  }
+
+  div.banner_ico {
+    width: 10%;
+    vertical-align: middle;
+    text-align: center;
+
+    span {
+      width: 20px;
+      height: 20px;
+      padding: 2px;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: $font-size;
+    }
+  }
+
+  div.banner_text {
+    width: 89%;
+    vertical-align: middle;
+    font-size: $smaller-font-size;
+  }
+}
+
+.banner_success {
+  @extend .banner;
+
+  background-color: $banner-success-bg-color;
+  border-right: 3px solid $banner-success-color;
+  border-left: 3px solid $banner-success-color;
+
+  div.banner_ico span {
+    border: 3px solid $banner-success-color;
+    color: $banner-success-color;
+  }
+
+  div.banner_text a {
+    color: $banner-success-color2;
+  }
+}
+
+.banner_err {
+  @extend .banner;
+
+  background-color: $banner-error-bg-color;
+  border-right: 3px solid $banner-error-color;
+  border-left: 3px solid $banner-error-color;
+
+  div.banner_ico span {
+    border: 3px solid $banner-error-color;
+    color: $banner-error-color;
+  }
+
+  div.banner_text a {
+    color: $banner-error-color2;
+  }
+}
+
+.banner_warn {
+  @extend .banner;
+
+  background-color: $banner-warning-bg-color;
+  border-right: 3px solid $banner-warning-color;
+  border-left: 3px solid $banner-warning-color;
+
+  div.banner_ico span {
+    border: 3px solid $banner-warning-color;
+    color: $banner-warning-color;
+  }
+
+  div.banner_text a {
+    color: $banner-warning-color2;
+  }
+}
+
+.banner_info {
+  @extend .banner;
+
+  background-color: $banner-info-bg-color;
+  border-right: 3px solid $banner-info-color;
+  border-left: 3px solid $banner-info-color;
+
+  div.banner_ico span {
+    border: 3px solid $banner-info-color;
+    color: $banner-info-color;
+  }
+
+  div.banner_text a {
+    color: $banner-info-color2;
+  }
+}
+
+.banner_timer {
+  @extend .banner;
+
+  background-color: $banner-timer-bg-color;
+  border-right: 3px solid $banner-timer-color;
+  border-left: 3px solid $banner-timer-color;
+
+  div.banner_ico span {
+    border: 3px solid $banner-timer-color;
+    color: $banner-timer-color;
+  }
+
+  div.banner_text a {
+    color: $banner-timer-color2;
+  }
+}
+// endregion
+
+div#prof_avatar_wrapper {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+
+  #prof_uname {
+    font-size: $font-size + .2;
+  }
+
+  #prof_avatar_links {
+    display: block;
+  }
+}
+
+.form_links {
+  padding: 10px;
+  font-size: small;
+
+  a {
+    font-weight: bold;
+  }
+}
+
+.field_with_errors {
+  display: inline;
+
+  label {
+    color: red;
+  }
+}
+
+#error_explanation {
+  border: 1px solid $banner-error-color;
+  background: $banner-error-bg-color;
+  font-size: small;
+  padding: 10px;
+
+  h2 {
+    background: none;
+    font-weight: bold;
+    margin: 0;
+    color: $lighter-black;
+    font-size: small;
+    text-shadow: none;
+  }
+
+  ul {
+    margin: 0;
+  }
+}
