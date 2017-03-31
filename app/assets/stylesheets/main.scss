@@ -354,7 +354,7 @@ input {
     @include transition(all .2s);
   }
 
-  &[type="checkbox"], &[type="checkbox"]:focus {
+  &[type="checkbox"]:not(:focus), &[type="checkbox"]:focus {
     @include box-shadow(none);
 
     border: 1px solid white;
