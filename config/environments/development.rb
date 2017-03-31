@@ -53,5 +53,6 @@ Rails.application.configure do
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Sass
-  config.sass.sourcemap = :auto
+  config.sass.line_comments = false
+  config.sass.inline_source_maps = true
 end

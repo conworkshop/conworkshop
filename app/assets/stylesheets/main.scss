@@ -227,12 +227,15 @@ nav {
 
     list-style: none;
     position: relative;
-    display: inline-table;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 
     li {
       @extend .left;
 
+      flex: 1 auto;
       width: 16%;
       text-indent: 10px;
 
