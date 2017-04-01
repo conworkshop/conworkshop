@@ -4,6 +4,10 @@
 - content_for :head
   scss:
     #content {
+      p {
+        text-align: justify;
+      }
+
       h1, h2, h3, h4, h5, h6 {
         padding-bottom: unset;
         background: unset;
@@ -70,71 +74,148 @@
       }
     }
 
-h1#welcome-header[role="heading"]
+/ TODO: replace all the links with appropriate ones.
+
+h1#welcome-header[role='heading']
   ' Welcome to
   b ConWorkShop
+
 #welcome-subtext
-  | Welkom&emsp;欢迎光临&emsp;Vítáme vás&emsp;Benvido&emsp;Tikilluarit&emsp;પધારો &emsp;Benvenuto&emsp;ようこそ&emsp;
+  | Welkom&emsp;欢迎光临&emsp;Vítáme vás&emsp;Benvido&emsp;Tikilluarit&emsp;પધારો&emsp;Benvenuto&emsp;ようこそ&emsp;
   | Haere Mai&emsp;환영합니다&emsp;Добродошли&emsp;Willkommen&emsp;ยินดีต้อนรับ&emsp;Välkommen&emsp;Bem vindo
-aside#intro-text[role="complementary"]
-  .right[id="intro-video"]
-    object[data="http://www.youtube.com/embed/vPThDwMrXlE" width="560" height="315"]
+
+aside#intro-text[role='complementary']
+  .right[id='intro-video']
+    object[data='http://www.youtube.com/embed/vPThDwMrXlE' width='560' height='315']
   p
-    | However you found yourself here, Welcome! If you're an existing member,
-    =<> link_to 'please log in here', new_user_session_path
+    ' However you found yourself here, Welcome! If you're an existing member,
+    = link_to 'please log in here', new_user_session_path
     | , or if you're new, we've arranged a few points of interest about CWS here:
   ol
     li
-      a[href="#what"]
-        b What
-        |  is CWS?
+      a[href='#what']
+        b> What
+        | is CWS?
     li
-      a[href="#more"]
-        b What
-        |  sort of things do you have/do?
+      a[href='#more']
+        b> What
+        | sort of things do you have/do?
     li
-      a[href="#how"]
-        b How
-        |  do I join?
+      a[href='#how']
+        b> How
+        | do I join?
     li
-      a[href="#why"]
-        b Why
-        |  does CWS exist?
+      a[href='#why']
+        b> Why
+        | does CWS exist?
+
 section#interest-points-section
   article.faux
-    h2
-      a#what What is CWS?
+    h2: a#what What is CWS?
     p
       b CWS
-      | , or
-      b
-        u C
-        | on
-        u W
-        | ork
-        u S
-        | hop
-      | is a conlanging community and tools website started in early 2004 aimed at providing the tools and community to help you strive in your conlanging endeavours.
-      |  We are a very eclectic group of people who are enthusiastic about conlangs and concultures.
-      |  We have teenagers, students, professionals, and so on - everyone is welcome.
+      ' , or
+      b <u>C</u>on<u>W</u>ork<u>S</u>hop
+      ' , is a conlanging community and tools website started in early 2014 aimed
+      ' at providing the tools and community to help you strive in your conlanging endeavours.
+      ' We are a very eclectic group of people who are enthusiastic about conlangs and concultures.
+      | We have teenagers, students, professionals, and so on - everyone is welcome.
     p
-      | It is
-      b  completely free of charge
-      |  and will always remain so.
-      | It is a community built by conlangers, for conlangers. We are always aiming to update our tools to give you the largest range of choices possible, and we have a very helpful staff team who will help us achieve that goal.
+      ' It is
+      b> completely free of charge
+      ' and will always remain so.
+      ' It is a community built by conlangers, for conlangers. We are always aiming to update our tools our tools to
+      ' give you the largest range of choices possible, and we have a very helpful staff team who will help us achieve
+      | that goal.
     p
-      | CWS is largely geared towards conlangers with a working knowledge of language and linguistics, however we do invite everyone to join! We have a good base of members with an infinite wealth of knowledge, and we're here to help.
+      ' CWS is largely geared towards conlangers with a working knowledge of language and linguistics, however we do
+      | invite everyone to join! We have a good base of members with an infinite wealth of knowledge, and we're here to help.
+
   article.faux
-    h2
-      a#more What sort of things do you have/do?
+    h2: a#more What sort of things do you have/do?
     p
-      | Where do we start?! The site is broken up into three main sections: the
-      b
-        span.green Library
-      | , the
-      b
-        span.orange Tools
-      |  and the
-      b
-        span.blue Community
-      |  (and yes, they're colour-coded :D)
+      ' Where do we start?! The site is broken up into three main sections: the
+      b: span.green Library
+      ' , the
+      b: span.orange Tools
+      ' , and the
+      b>: span.blue Community
+      | (and yes, they're colour-coded :D)
+
+    h3.green Library
+    p
+      ' The library is your centre of language creation. There's a highly detailed dictionary to store your lexicon, to
+      ' search, edit, import and export your lexicon. There are grammar tables that automatically conjugate entries
+      ' based on rules, there are phonologies, and orthographies, and more!
+      | Some examples of some things from the creator's language (Nithalos) can be seen here:
+
+    ul
+      li: a[href='#'] Sample language summary page
+      li: a[href='#'] Sample word entry
+      li
+        a>[href='#'] Sample translated text
+        | (Universal Declaration of Human Rights, Article 1)
+      li: a[href='#'] Sample language article
+
+    h3.orange Tools
+    p
+      ' The tools section contains everything from word generators, to word banks, to lexical field vocabulary sets
+      ' (we call these "LexiBuild"),
+      a[href='#'] our conlanger's Swadesh List
+      | , and much more!
+
+    h3.blue Community
+    p
+      ' The community is where the people and languages come together. We have a bunch of clans for varied interests,
+      | active discussion boards with games, challenges, month-long events, and more!
+
+    h4 Events
+    p
+      ' CWS has a number of events - usually a month long that run throughout the year to help inspire and motivation
+      ' your language building. Check out
+      a[href='#']> the overview of our events
+      | for more information.
+
+    h4 Projects
+    p
+      ' At CWS, we love doing projects, like
+      a[href='https://www.youtube.com/watch?v=Wqu1paieMFY'] this beautiful thing
+      | .
+
+  article.faux
+    h2: a#how How do I join?
+    p
+      ' We're glad you've read this far! There are two ways you can join us. Firstly, you can login using your Facebook
+      ' account. Don't worry, the only information we use is your name and your profile picture. If you're concerned
+      ' about privacy, you can
+      a[href='#'] read our privacy information
+      | .
+
+    p
+      ' Alternatively, you can create a
+      = link_to 'standard login account', new_user_registration_path
+      ' , you know, the kind with email address and password.
+      | Don't worry, we don't share this information either.
+
+    p
+      ' Once you have an account, you can
+      => link_to 'login to CWS', new_user_session_path
+      | to be part of it.
+
+  article.faux
+    h2: a#why Why does CWS exist?
+    p
+      ' If you're interested to know, it was born out of the idea that conlangers and conlang tools are found all over
+      | the internet, and we wanted a place to centralise these in order to create one single place to go for everything.
+
+    p
+      ' CWS's integrated model also means you have the ability to do more with your language as we not only have your
+      ' lexicon, but your grammar, your phonology, your orthography, and this means these elements can interact in ways
+      ' that other sites may not be able to. Because CWS was created by conlangers, for conlangers, it will always be free.
+      ' We aren't professionals at this, so sometimes patience is appreciated, but it's worth the wait. We also welcome
+      ' feedback and suggestions to improve the site, and without those we've already received, who knows what
+      | opportunities we might have missed.
+
+    p
+      ' CWS can also be found on Social Media if you have the urge to follow or like us there. See the site footer for
+      | the links!
