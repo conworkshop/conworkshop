@@ -1,9 +1,78 @@
 - provide(:page_title, 'About')
 - provide(:page_origin, 'home')
+
+- content_for :head
+  scss:
+    #content {
+      h1, h2, h3, h4, h5, h6 {
+        padding-bottom: unset;
+        background: unset;
+        text-indent: unset;
+        margin: unset;
+        text-shadow: unset;
+        font-weight: bold;
+      }
+
+      .green {
+        color: #090;
+      }
+
+      .orange {
+        color: #990;
+      }
+
+      .blue {
+        color: #099;
+      }
+    }
+
+    #welcome-header {
+      font-size: 2.0em;
+      color: #099;
+      text-align: center;
+      font-weight: normal;
+    }
+
+    #welcome-subtext {
+      font-size: 0.8em;
+      text-align: center;
+    }
+
+    #intro-text {
+      margin-top: 10px;
+      vertical-align: top;
+
+      ol {
+        font-size: 0.8em;
+      }
+    }
+
+    #intro-video {
+      margin-left: 10px;
+      margin-bottom: 10px;
+    }
+
+    #interest-points-section {
+      font-size: 1.0em;
+
+      h2 {
+        a, a:hover, a:focus {
+          font-size: 1.2em;
+          font-weight: bold;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          color: #555;
+        }
+      }
+
+      p {
+        font-size: 1em;
+      }
+    }
+
 h1#welcome-header[role="heading"]
-  | Welcome to
-  b
-    |  ConWorkShop
+  ' Welcome to
+  b ConWorkShop
 #welcome-subtext
   | Welkom&emsp;欢迎光临&emsp;Vítáme vás&emsp;Benvido&emsp;Tikilluarit&emsp;પધારો &emsp;Benvenuto&emsp;ようこそ&emsp;
   | Haere Mai&emsp;환영합니다&emsp;Добродошли&emsp;Willkommen&emsp;ยินดีต้อนรับ&emsp;Välkommen&emsp;Bem vindo
