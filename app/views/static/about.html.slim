@@ -1,4 +1,71 @@
 - provide(:page_title, 'About')
 - provide(:page_origin, 'home')
-h1 About page
-p Sample static page y'know
+h1#welcome-header[role="heading"]
+  | Welcome to
+  b
+    |  ConWorkShop
+#welcome-subtext
+  | Welkom&emsp;欢迎光临&emsp;Vítáme vás&emsp;Benvido&emsp;Tikilluarit&emsp;પધારો &emsp;Benvenuto&emsp;ようこそ&emsp;
+  | Haere Mai&emsp;환영합니다&emsp;Добродошли&emsp;Willkommen&emsp;ยินดีต้อนรับ&emsp;Välkommen&emsp;Bem vindo
+aside#intro-text[role="complementary"]
+  .right[id="intro-video"]
+    object[data="http://www.youtube.com/embed/vPThDwMrXlE" width="560" height="315"]
+  p
+    | However you found yourself here, Welcome! If you're an existing member,
+    =<> link_to 'please log in here', new_user_session_path
+    | , or if you're new, we've arranged a few points of interest about CWS here:
+  ol
+    li
+      a[href="#what"]
+        b What
+        |  is CWS?
+    li
+      a[href="#more"]
+        b What
+        |  sort of things do you have/do?
+    li
+      a[href="#how"]
+        b How
+        |  do I join?
+    li
+      a[href="#why"]
+        b Why
+        |  does CWS exist?
+section#interest-points-section
+  article.faux
+    h2
+      a#what What is CWS?
+    p
+      b CWS
+      | , or
+      b
+        u C
+        | on
+        u W
+        | ork
+        u S
+        | hop
+      | is a conlanging community and tools website started in early 2004 aimed at providing the tools and community to help you strive in your conlanging endeavours.
+      |  We are a very eclectic group of people who are enthusiastic about conlangs and concultures.
+      |  We have teenagers, students, professionals, and so on - everyone is welcome.
+    p
+      | It is
+      b  completely free of charge
+      |  and will always remain so.
+      | It is a community built by conlangers, for conlangers. We are always aiming to update our tools to give you the largest range of choices possible, and we have a very helpful staff team who will help us achieve that goal.
+    p
+      | CWS is largely geared towards conlangers with a working knowledge of language and linguistics, however we do invite everyone to join! We have a good base of members with an infinite wealth of knowledge, and we're here to help.
+  article.faux
+    h2
+      a#more What sort of things do you have/do?
+    p
+      | Where do we start?! The site is broken up into three main sections: the
+      b
+        span.green Library
+      | , the
+      b
+        span.orange Tools
+      |  and the
+      b
+        span.blue Community
+      |  (and yes, they're colour-coded :D)
