@@ -20,4 +20,151 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  menu:
+    green:
+      dictionary:
+        dictionary: 'Dictionary'
+        add: 'Add word'
+        settings: 'Settings'
+        tools:
+          tools: 'Dictionary Tools'
+          massedit: 'Mass edit'
+          maintenance: 'Maintenance'
+          import: 'Import'
+          export: 'Export'
+          phomo: 'Dict PhoMo'
+          compare: 'Compare dictionaries'
+          homonym: 'Homonyms list'
+        roots: 'Known roots'
+        distribution: 'Word distribution'
+        pcdistribution: 'PoS/Class distribution'
+      phonology:
+        phonology: 'Phonology'
+        inventory: 'Inventory'
+        phonotactics: 'Phonotactics'
+        estimate: 'Pronunciation estimation'
+        compare: 'Compare inventory'
+      orthography:
+        orthography: 'Orthography'
+        categories: 'Categories'
+        conscript: 'Conscript'
+        distribution: 'Distribution'
+        azorder: 'Alphabetical order'
+      grammar:
+        grammar: 'Grammar'
+        typology: 'Typology'
+        forms: 'Define forms'
+        addtable: 'Add table'
+        tables: 'Grammar tables'
+        irregular: 'Irregular forms list'
+        conjugator: 'Word conjugator'
+        test: 'Grammar test'
+      literature:
+        literature: 'Literature'
+        translations: 'Translations'
+        contrans: '%{conlang} translations'
+        journal: 'Journal'
+        articles: '%{conlang} articles'
+        phrasebook: 'Phrasebook'
+      namebase: 'Namebase'
+      summary: 'Summary'
+      settings: 'Settings'
+    yellow:
+      tools: 'Tools'
+      lexicon:
+        lexicon: 'Lexicon'
+        lexibuild: 'LexiBuild'
+        wordgen2: 'Word generator'
+        wordgen3: 'WordGen³'
+        multisearch: 'Dict. multi-search'
+        wordbank: 'WordBank'
+        phomo: 'PhoMo derivation'
+        wordlinks: 'WordLink database'
+        swadesh: 'Conlanger''s Swadesh List'
+        numbers: 'Numbers 1 to 10'
+      phonetics:
+        phonetics: 'Phonetics'
+        chart: 'IPA and Phoneme chart'
+        converter: 'X-SAMPA to IPA converter'
+        phomo: 'PhoMo'
+        phonsystem: 'Phonological systems'
+      orthography:
+        orthography: 'Orthography'
+        scriptmap: 'Latin script map'
+        freqcalc: 'Frequency calculator'
+        anagram: 'Anagram generator'
+        graphemes: 'Graphemes'
+      numbers:
+        numbers: 'Numbers'
+        base: 'Base converter'
+        system: 'Number system converter'
+      typological: 'Typological database'
+      flash: 'Flash'
+      trees: 'Syntax tress'
+      forms: 'Grammar forms'
+      gallery: 'Gallery'
+    blue:
+      community: 'Community'
+      boards:
+        boards: 'Boards'
+        mine: 'My threads'
+        subscribed: 'Subscribed threads'
+        recent: 'Recent threads'
+      people:
+        people: 'People and Clans'
+        clans: 'Clans'
+        conlangers: 'Conlangers'
+        karma: 'Karma statistics'
+      languages:
+        languages: 'Languages'
+        list: 'Conlang list'
+        scripts: 'Conscripts'
+        scriptbank: 'Conscript bank'
+        browse: 'Browse dictionaries'
+        flags: 'Language flags'
+      articles:
+        articles: 'Articles'
+        all: 'All articles'
+        new: 'New article'
+        lotm: 'Language of the Month'
+      projects:
+        projects: 'Projects'
+        song: 'Song projects'
+        cwsp:
+          planet: 'CWS Planet'
+          wiki: 'CWSP Wiki'
+          latest: 'CWSP Map (latest)'
+          svg: 'CWSP Map (SVG)'
+      events: 'Events'
+      resources: 'Resources'
+    orange:
+      profile: 'Profile'
+      mailbox:
+        mailbox: 'Mailbox'
+        send: 'Send message'
+      mine:
+        mine: 'My profile'
+        karma: 'My karma'
+        edit: 'Edit profile'
+        preferences: 'Site preferences'
+        account: 'Account settings'
+      languages:
+        languages: 'Languages'
+        families: 'Language families'
+        new: 'New language'
+        dialect: 'New dialect'
+        share: 'Share language'
+        checklist: 'Language checklist'
+      awards: 'Awards'
+    logout: 'Log Out'
+    basic:
+      login: 'Log In'
+      register: 'Register'
+      about: 'About'
+      home: 'Home'
+      green:
+        browse: 'Browse'
+        conlangs: 'Conlangs'
+        dictionaries: 'Dictionaries'
+        articles: 'All articles'
+        typological: 'Typological database'

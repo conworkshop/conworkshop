@@ -1,4 +1,4 @@
-- cur_lang_name = 'greg'
+- cur_lang_name = 'Esperanto'
 nav[role='navigation']
   ul[role='tree']
     - if user_signed_in?
@@ -7,97 +7,95 @@ nav[role='navigation']
           = cur_lang_name
         ul[role='tree']
           li[role='treeitem']
-            a.nav_green_l.nav_caret[href='#'] Dictionary
+            a.nav_green_l.nav_caret[href='#'] = t('menu.green.dictionary.dictionary')
             ul[role='tree']
               li[role='treeitem']
-                a.nav_green_l[href='#'] Add word
+                a.nav_green_l[href='#'] = t('menu.green.dictionary.add')
               li[role='treeitem']
-                a.nav_green_l[href='#'] Settings
+                a.nav_green_l[href='#'] = t('menu.green.dictionary.settings')
               li
-                a.nav_green_l.nav_caret[href='#'] Dictionary tools
+                a.nav_green_l.nav_caret[href='#'] = t('menu.green.dictionary.tools.tools')
                 ul[role='tree']
                   li[role='treeitem']
-                    a.nav_green_l[href='#'] Mass edit
+                    a.nav_green_l[href='#'] = t('menu.green.dictionary.tools.massedit')
                   li[role='treeitem']
-                    a.nav_green_l[href='#'] Maintenance
+                    a.nav_green_l[href='#'] = t('menu.green.dictionary.tools.maintenance')
                   li[role='treeitem']
-                    a.nav_green_l[href='#'] Import
+                    a.nav_green_l[href='#'] = t('menu.green.dictionary.tools.import')
                   li[role='treeitem']
-                    a.nav_green_l[href='#'] Export
+                    a.nav_green_l[href='#'] = t('menu.green.dictionary.tools.export')
                   li[role='treeitem']
-                    a.nav_green_l[href='#'] Dict PhoMo
+                    a.nav_green_l[href='#'] = t('menu.green.dictionary.tools.phomo')
                   li[role='treeitem']
-                    a.nav_green_l[href='#'] Compare dictionaries
+                    a.nav_green_l[href='#'] = t('menu.green.dictionary.tools.compare')
                   li[role='treeitem']
-                    a.nav_green_l[href='#'] Homonyms list
+                    a.nav_green_l[href='#'] = t('menu.green.dictionary.tools.homonym')
               li[role='treeitem']
-                a.nav_green_l[href='#'] Known roots
+                a.nav_green_l[href='#'] = t('menu.green.dictionary.roots')
               li[role='treeitem']
-                a.nav_green_l[href='#'] Word distribution
+                a.nav_green_l[href='#'] = t('menu.green.dictionary.distribution')
               li[role='treeitem']
-                a.nav_green_l[href='#'] PoS/Class distribution
+                a.nav_green_l[href='#'] = t('menu.green.dictionary.pcdistribution')
               li[role='treeitem']
-                a.nav_green_l[href='#'] Phrasebook
+                a.nav_green_l[href='#'] = t('menu.green.literature.phrasebook')
           li[role='treeitem']
-            a.nav_green_l.nav_caret[href='#'] Phonology
+            a.nav_green_l.nav_caret[href='#'] = t('menu.green.phonology.phonology')
             ul[role='tree']
               li[role='treeitem']
-                a.nav_green_l[href='#'] Inventory
+                a.nav_green_l[href='#'] = t('menu.green.phonology.inventory')
               li[role='treeitem']
-                a.nav_green_l[href='#'] Phonotactics
+                a.nav_green_l[href='#'] = t('menu.green.phonology.phonotactics')
               li[role='treeitem']
-                a.nav_green_l[href='#'] Pronunciation estimation
+                a.nav_green_l[href='#'] = t('menu.green.phonology.estimate')
               li[role='treeitem']
-                a.nav_green_l[href='#'] Compare inventory
+                a.nav_green_l[href='#'] = t('menu.green.phonology.compare')
           li[role='treeitem']
-            a.nav_green_l.nav_caret[href='#'] Orthography
+            a.nav_green_l.nav_caret[href='#'] = t('menu.green.orthography.orthography')
             ul[role='tree']
               li[role='treeitem']
-                a.nav_green_l[href='#'] Categories
+                a.nav_green_l[href='#'] = t('menu.green.orthography.categories')
               li[role='treeitem']
-                a.nav_green_l[href='#'] Conscript
+                a.nav_green_l[href='#'] = t('menu.green.orthography.conscript')
               li[role='treeitem']
-                a.nav_green_l[href='#'] Distribution
+                a.nav_green_l[href='#'] = t('menu.green.orthography.distribution')
               li[role='treeitem']
-                a.nav_green_l[href='#'] Alphabetical order
+                a.nav_green_l[href='#'] = t('menu.green.orthography.azorder')
           li[role='treeitem']
-            a.nav_green_l.nav_caret[href='#'] Grammar
+            a.nav_green_l.nav_caret[href='#'] = t('menu.green.grammar.grammar')
             ul[role='tree']
               li[role='treeitem']
-                a.nav_green_l[href='#'] Typology
+                a.nav_green_l[href='#'] = t('menu.green.grammar.typology')
               li[role='treeitem']
-                a.nav_green_l[href='#'] Define forms
+                a.nav_green_l[href='#'] = t('menu.green.grammar.forms')
               li[role='treeitem']
-                a.nav_green_l[href='#'] Add table
+                a.nav_green_l[href='#'] = t('menu.green.grammar.addtable')
               li[role='treeitem']
-                a.nav_green_l[href='#'] Grammar tables
+                a.nav_green_l[href='#'] = t('menu.green.grammar.tables')
               li[role='treeitem']
-                a.nav_green_l[href='#'] Irregular forms list
+                a.nav_green_l[href='#'] = t('menu.green.grammar.irregular')
               li[role='treeitem']
-                a.nav_green_l[href='#'] Word conjugator
+                a.nav_green_l[href='#'] = t('menu.green.grammar.conjugator')
               li[role='treeitem']
-                a.nav_green_l[href='#'] Grammar test
+                a.nav_green_l[href='#'] = t('menu.green.grammar.test')
           li[role='treeitem']
-            a.nav_green_l.nav_caret[href='#'] Literature
+            a.nav_green_l.nav_caret[href='#'] = t('menu.green.literature.literature')
             ul[role='tree']
               li[role='treeitem']
-                a.nav_green_l[href='#'] Translations
+                a.nav_green_l[href='#'] = t('menu.green.literature.translations')
               li[role='treeitem']
-                a.nav_green_l[href='#']
-                  = cur_lang_name
-                  |  translations
+                a.nav_green_l[href='#'] = t('menu.green.literature.contrans', conlang: cur_lang_name)
               li[role='treeitem']
-                a.nav_green_l[href='#'] Journal
+                a.nav_green_l[href='#'] = t('menu.green.literature.journal')
               li[role='treeitem']
-                a.nav_green_l[href='#']
-                  = cur_lang_name
-                  |  articles
+                a.nav_green_l[href='#'] = t('menu.green.literature.articles', conlang: cur_lang_name)
+              li[role='treeitem']
+                a.nav_green_l[href='#'] = t('menu.green.literature.phrasebook')
           li[role='treeitem']
-            a.nav_green_l[href='#'] Namebase
+            a.nav_green_l[href='#'] = t('menu.green.namebase')
           li[role='treeitem']
-            a.nav_green_l[href='#'] Summary
+            a.nav_green_l[href='#'] = t('menu.green.summary')
           li[role='treeitem']
-            a.nav_green_l[href='#'] Settings
+            a.nav_green_l[href='#'] = t('menu.green.settings')
       li[role='treeitem']
         a.nav_yellow[href='#'] Tools
         ul[role='tree']
@@ -119,7 +117,7 @@ nav[role='navigation']
               li[role='treeitem']
                 a.nav_yellow_l[href='#'] WordLink database
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] Conlanger's Swadesh list
+                a.nav_yellow_l[href='#'] =t('menu.yellow.lexicon.swadesh')
               li[role='treeitem']
                 a.nav_yellow_l[href='#'] Numbers 1 to 10
           li[role='treeitem']
