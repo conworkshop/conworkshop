@@ -17,6 +17,10 @@ module ApplicationHelper
   HOVER_ICO_TYPES = { warn: '!', info: '?', dict: '✱' }.freeze
 
   def hover_ico(type, &block)
+    unless HOVER_ICO_TYPES.keys.include?(type)
+      raise ArgumentError, "unknown type, must be one of #{HOVER_ICO_TYPES.keys}"
+    end
+
     macro('hover_ico', type: type, &block)
   end
 
@@ -29,6 +33,10 @@ module ApplicationHelper
   }.freeze
 
   def banner(type, &block)
+    unless BANNER_TYPES.keys.include?(type)
+      raise ArgumentError, "unknown type, must be one of #{BANNER_TYPES.keys}"
+    end
+
     macro(
       'custom_banner',
       type: type,
