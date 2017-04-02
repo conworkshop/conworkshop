@@ -1,42 +1,44 @@
-- provide(:page_colour, "orange")
-- v_options = User.validators_on(:username).select{|x| x.is_a?(ActiveRecord::Validations::LengthValidator)}[0].options
-h2
-  | Sign up
+- provide(:page_colour, 'orange')
+- v_options = User.validators_on(:username).select { |x| x.is_a?(ActiveRecord::Validations::LengthValidator) }[0].options
+
+h2 Sign up
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
+
   .field
     = f.label :username
-    span.hover_ico_info
-      | ?
-      span
-        | Maximum of #{v_options[:maximum]} characters, minimum of #{v_options[:minimum]} characters.
-        |  You will need this username to log in so make sure it's memorable.
-    span.sbt
-      | You can only use these characters: A-Z, a-z, 0-9, dashes, underscores and dots.
+    = hover_ico :info
+      ' Maximum of #{v_options[:maximum]} characters, minimum of #{v_options[:minimum]} characters.
+      | You will need this username to log in so make sure it's memorable.
+
+    span.sbt You can only use these characters: A-Z, a-z, 0-9, dashes, underscores and dots.
+
 	= f.text_field :username, autofocus: true, size: 38
+
   .field
     = f.label :email
+
+    span.sbt Use a valid email, because we're going to send you a confirmation request.
+
     = f.email_field :email, size: 38
+
   .field
     = f.label :password
-    span.hover_ico_warn
-      | !
-      span
-        | Don't use the same password you use on other websites!
-        - if @minimum_password_length
-          =<> @minimum_password_length
-          | character minimum.
-    span.sbt
-      - if @minimum_password_length
-        = @minimum_password_length
-        |  characters minimum.
-      | Choose something you'll easily remember.
-    = f.password_field :password, autocomplete: "off", size: 38
+    = hover_ico :warn
+      ' Don't use the same password you use on other websites!
+
+    span.sbt #{@minimum_password_length} characters minimum. Choose something you'll easily remember.
+
+    = f.password_field :password, autocomplete: 'off', size: 38
+
   .field
     = f.label :password_confirmation
-    span.sbt
-      | Just type in your password again! Easy peasy.
-    = f.password_field :password_confirmation, autocomplete: "off", size: 38
+
+    span.sbt Just type in your password again! Easy peasy.
+
+    = f.password_field :password_confirmation, autocomplete: 'off', size: 38
+
   .actions
-    = f.submit "✔ Sign up", class: "button pass"
-= render "users/shared/links"
+    = f.submit '✔ Sign up', class: 'button pass'
+
+= render 'users/shared/links'
