@@ -1,5 +1,6 @@
 - provide(:page_colour, 'orange')
-- v_options = User.validators_on(:username).select { |x| x.is_a?(ActiveRecord::Validations::LengthValidator) }[0].options
+- v_options = User.validators_on(:username) \
+                  .select { |x| x.is_a?(ActiveRecord::Validations::LengthValidator) }[0].options
 
 h2 Sign up
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
@@ -13,7 +14,7 @@ h2 Sign up
 
     span.sbt You can only use these characters: A-Z, a-z, 0-9, dashes, underscores and dots.
 
-	= f.text_field :username, autofocus: true, size: 38
+    = f.text_field :username, autofocus: true, size: 38
 
   .field
     = f.label :email

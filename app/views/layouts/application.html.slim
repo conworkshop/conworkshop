@@ -5,12 +5,13 @@ html lang='en'
     meta charset='UTF-8'
 
     title
-	  = (yield :page_title) + ' - ' if content_for?(:page_title)
-	  | ConWorkShop
+      = (yield :page_title) + ' - ' if content_for?(:page_title)
+      | ConWorkShop
 
     = csrf_meta_tags
-    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic&subset=latin,greek,cyrillic-ext,latin-ext,cyrillic,vietnamese,greek-ext,devanagari', \
-            'application', media: 'all', :'data-turbolinks-track' => 'reload'
+    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400i&subset=latin,greek,' \
+        'cyrillic-ext,latin-ext,cyrillic,vietnamese,greek-ext,devanagari',
+        'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
     = favicon_link_tag "fi_#{phue}", type: 'image/png'
@@ -43,7 +44,7 @@ html lang='en'
 
         span.head_under[role='complementary']
           = ['Good day', 'Top of the morning', "What's up", 'How are you', 'Greetings', 'Hello there'].sample
-          | , 
+          ' ,
           = user_signed_in? ? current_user.username : 'Guest'
           '  |
           = Time.now.strftime('%d %B %Y, %H:%M')
