@@ -1,78 +1,77 @@
 - provide(:page_title, 'About')
 - provide(:page_origin, 'home')
 
-- content_for :head
-  scss:
-    #content {
-      p {
-        text-align: justify;
-      }
-
-      h1, h2, h3, h4, h5, h6 {
-        padding-bottom: unset;
-        background: unset;
-        text-indent: unset;
-        margin: unset;
-        text-shadow: unset;
-        font-weight: bold;
-      }
-
-      .green {
-        color: #090;
-      }
-
-      .orange {
-        color: #990;
-      }
-
-      .blue {
-        color: #099;
-      }
+scss:
+  #content {
+    p {
+      text-align: justify;
     }
 
-    #welcome-header {
-      font-size: 2.0em;
+    h1, h2, h3, h4, h5, h6 {
+      padding-bottom: unset;
+      background: unset;
+      text-indent: unset;
+      margin: unset;
+      text-shadow: unset;
+      font-weight: bold;
+    }
+
+    .green {
+      color: #090;
+    }
+
+    .orange {
+      color: #990;
+    }
+
+    .blue {
       color: #099;
-      text-align: center;
-      font-weight: normal;
     }
+  }
 
-    #welcome-subtext {
+  #welcome-header {
+    font-size: 2.0em;
+    color: #099;
+    text-align: center;
+    font-weight: normal;
+  }
+
+  #welcome-subtext {
+    font-size: 0.8em;
+    text-align: center;
+  }
+
+  #intro-text {
+    margin-top: 10px;
+    vertical-align: top;
+
+    ol {
       font-size: 0.8em;
-      text-align: center;
     }
+  }
 
-    #intro-text {
-      margin-top: 10px;
-      vertical-align: top;
+  #intro-video {
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
 
-      ol {
-        font-size: 0.8em;
+  #interest-points-section {
+    font-size: 1.0em;
+
+    h2 {
+      a, a:hover, a:focus {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        color: #555;
       }
     }
 
-    #intro-video {
-      margin-left: 10px;
-      margin-bottom: 10px;
+    p {
+      font-size: 1em;
     }
-
-    #interest-points-section {
-      font-size: 1.0em;
-
-      h2 {
-        a, a:hover, a:focus {
-          font-size: 1.2em;
-          font-weight: bold;
-          margin-bottom: 10px;
-          margin-top: 10px;
-          color: #555;
-        }
-      }
-
-      p {
-        font-size: 1em;
-      }
-    }
+  }
 
 / TODO: replace all the links with appropriate ones.
 
