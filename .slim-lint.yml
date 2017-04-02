@@ -1,0 +1,43 @@
+linters:
+  LineLength:
+    max: 120
+
+  RuboCop:
+    # These cops are incredibly noisy since the Ruby we extract from Slim
+    # templates isn't well-formatted, so we ignore them.
+    # Also, we disable all metrics.
+    ignored_cops:
+      - Lint/BlockAlignment
+      - Lint/EndAlignment
+      - Lint/Void
+      - Metrics/AbcSize
+      - Metrics/BlockNesting
+      - Metrics/BlockLength
+      - Metrics/ClassLength
+      - Metrics/ModuleLength
+      - Metrics/CyclomaticComplexity
+      - Metrics/LineLength
+      - Metrics/MethodLength
+      - Metrics/ParameterLists
+      - Metrics/PerceivedComplexity
+      - Style/AlignHash
+      - Style/AlignParameters
+      - Style/BlockNesting
+      - Style/FileName
+      - Style/FirstParameterIndentation
+      - Style/FrozenStringLiteralComment
+      - Style/IfUnlessModifier
+      - Style/IndentationConsistency
+      - Style/IndentationWidth
+      - Style/MultilineArrayBraceLayout
+      - Style/MultilineAssignmentLayout
+      - Style/MultilineHashBraceLayout
+      - Style/MultilineMethodCallBraceLayout
+      - Style/MultilineMethodDefinitionBraceLayout
+      - Style/MultilineMethodCallIndentation
+      - Style/MultilineOperationIndentation
+      - Style/Next
+      - Style/TrailingBlankLines
+      - Style/TrailingWhitespace
+      - Style/WhileUntilModifier
+      - Style/EndOfLine

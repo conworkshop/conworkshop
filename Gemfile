@@ -35,7 +35,7 @@ gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+  gem 'byebug', platform: :ruby
 end
 
 group :development do
@@ -51,3 +51,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'devise_uid'
 gem 'slim-rails'
+gem 'slim_lint'
