@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class User < ApplicationRecord
   devise :uid, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Rails.application.routes.draw do
   # Profile
   get 'user/:username', to: 'profile#show', constraints: { username: %r{[^/]+} }, as: :user
