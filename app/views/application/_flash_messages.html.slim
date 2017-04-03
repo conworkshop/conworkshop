@@ -1,10 +1,3 @@
-- flash.each do |type,msg|
-  - if type == 'success'
-    = banner :success
-      = msg
-  - elsif type == 'notice'
-    = banner :info
-      = msg
-  - else
-    = banner :err
-      = msg
+- flash.each do |type, msg|
+  = banner type.to_sym
+    = msg

@@ -26,7 +26,7 @@ class User < ApplicationRecord
   # Whether user has editing rights over another
   # TODO: Allow ranks power over lower ranks (e.g admins > staff > members, etc)
   def power_over(test_user)
-    self == test_user ? true : false
+    self == test_user
   end
 
   # convert datetime to the user's timezone (or UTC if not set)
