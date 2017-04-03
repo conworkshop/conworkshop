@@ -67,7 +67,9 @@ html lang='en'
           span
             a[href='#'] = controller.action_name
 
-      section#content = yield
+      section#content
+        = render 'application/flash_messages'
+        = yield
 
     footer[role='contentinfo']
       #social_links[role='complementary']

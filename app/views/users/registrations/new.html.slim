@@ -1,3 +1,4 @@
+- provide(:page_title, 'Sign Up')
 - provide(:page_colour, 'orange')
 - v_options = User.validators_on(:username) \
                   .select { |x| x.is_a?(ActiveRecord::Validations::LengthValidator) }[0].options

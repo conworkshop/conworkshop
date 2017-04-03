@@ -3,6 +3,9 @@
   - provide(:page_title, @profile_user.username + ' - View Profile')
   - provide(:page_colour, 'orange')
 
+  - if current_user.power_over(@profile_user)
+    = link_to '✎ Edit', profile_edit_path(@profile_user), class: 'button alert'
+
   h2#profile-name = @profile_user.display_name
   ul
     li
