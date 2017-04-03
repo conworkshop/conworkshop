@@ -4,6 +4,9 @@
                   .select { |x| x.is_a?(ActiveRecord::Validations::LengthValidator) }[0].options
 
 h1 Edit Profile
+
+= link_to '« Return to profile', user_path(@profile_user), class: 'button alert'
+
 = form_for @profile_user, url: { controller: 'profile', action: 'update' } do |f|
   = render 'application/error_messages', cur_obj: @profile_user
 
