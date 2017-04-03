@@ -9,9 +9,8 @@ class User < ApplicationRecord
                        length:     { minimum: 4, maximum: 16 }
 
   validates :pseudonym, uniqueness: { case_sensitive: false },
-                        format:     { with: /\A[a-zA-Z_\-.]+\z/ },
                         length:     { minimum: 4, maximum: 16 },
-                        if:         -> { new_record? || !pseudonym.blank? }
+                        if:      -> { !(new_record? || pseudonym.blank?) }
 
   # Use username instead of id for linking to users
   def to_param
