@@ -17,14 +17,6 @@ Style/EmptyMethod:
 Style/ClassAndModuleChildren:
   Enabled: false
 
-# CUSTOM
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-EndOfLine:
-  Enabled: false
-# /CUSTOM
-
 # Disable all metrics.
 Metrics/AbcSize:
   Enabled: false
