@@ -6,4 +6,9 @@ class User < ApplicationRecord
                        uniqueness: { case_sensitive: false },
                        format:     { with: /\A[a-zA-Z_\-\.]+\z/ },
                        length:     { minimum: 4, maximum: 16 }
+
+  def display_name
+    pseudonym ? pseudonym : username
+  end
+
 end

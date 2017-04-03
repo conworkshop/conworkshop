@@ -1,0 +1,19 @@
+- if @profile_user
+
+  - provide(:page_title, @profile_user.username + ' - View Profile')
+  - provide(:page_colour, 'orange')
+
+  h2#profile-name = @profile_user.display_name
+  ul
+    li
+      ' Joined:
+      = @profile_user.created_at.strftime('%d %b %Y, %H:%M')
+
+- else
+
+  - provide(:page_title, 'User not found - View Profile')
+  - provide(:page_colour, 'red')
+
+  = banner :err
+    ' No such user:
+    b = params[:id]

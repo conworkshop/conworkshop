@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170325140058) do
+ActiveRecord::Schema.define(version: 20170402233723) do
+
+  create_table "lang_types", force: :cascade do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_lang_types_on_code"
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string   "code"
+    t.string   "name"
+    t.string   "nativename"
+    t.string   "ipa"
+    t.string   "phonosystem"
+    t.string   "lexcols"
+    t.integer  "user_id"
+    t.text     "overview"
+    t.boolean  "public"
+    t.string   "status"
+    t.datetime "time"
+    t.boolean  "prunesafe"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "lang_type_id"
+    t.index ["code"], name: "index_languages_on_code", unique: true
+    t.index ["lang_type_id"], name: "index_languages_on_lang_type_id"
+    t.index ["user_id"], name: "index_languages_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                             default: "", null: false
@@ -27,7 +56,7 @@ ActiveRecord::Schema.define(version: 20170325140058) do
     t.datetime "updated_at",                                     null: false
     t.string   "uid"
     t.string   "username",               limit: 24, default: "", null: false
-    t.string   "alias"
+    t.string   "pseudonym"
     t.string   "timezone"
     t.integer  "group"
     t.integer  "flags"
