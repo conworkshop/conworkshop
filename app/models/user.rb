@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   # Get display name of a user (pseudonym if set, else username)
   def display_name
-    pseudonym ? pseudonym : username
+    pseudonym || username
   end
 
   # Whether user has editing rights over another
