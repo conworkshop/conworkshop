@@ -53,3 +53,6 @@ gem 'devise'
 gem 'devise_uid'
 gem 'slim-rails'
 gem 'slim_lint'
+
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'

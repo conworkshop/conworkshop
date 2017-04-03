@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 class User < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
+
   devise :uid, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -15,6 +17,10 @@ class User < ApplicationRecord
   # Use username instead of id for linking to users
   def to_param
     username
+  end
+
+  def avatar_url
+    avatar.url.present? ? avatar.url : 'prof_default'
   end
 
   # Get display name of a user (pseudonym if set, else username)

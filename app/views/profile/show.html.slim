@@ -7,6 +7,9 @@
     = link_to '✎ Edit', profile_edit_path(@profile_user), class: 'button alert'
 
   h2#profile-name = @profile_user.display_name
+
+  = image_tag(@profile_user.avatar_url)
+
   ul
     li
       ' Joined:

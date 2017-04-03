@@ -43,9 +43,9 @@ html lang='en'
             a[href='#'] %%todo-header-conscript-name%%
 
         span.head_under[role='complementary']
-          = ['Good day', 'Top of the morning', "What's up", 'How are you', 'Greetings', 'Hello there'].sample
+          = ['Good day', 'Top of the morning', "What's up", 'How are you', 'Greetings', 'Hello there', 'Howdy'].sample
           ' ,
-          = user_signed_in? ? current_user.username : 'Guest'
+          = user_signed_in? ? current_user.display_name : 'Guest'
           '  |
           = Time.now.strftime('%d %B %Y, %H:%M')
 

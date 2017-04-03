@@ -7,8 +7,21 @@ h1 Edit Profile
 
 = link_to '« Return to profile', user_path(@profile_user), class: 'button alert'
 
-= form_for @profile_user, url: { controller: 'profile', action: 'update' } do |f|
+= form_for @profile_user, url: { controller: 'profile', action: 'update' }, html: { multipart: true } do |f|
   = render 'application/error_messages', cur_obj: @profile_user
+
+  h2 Picture
+
+  .field = image_tag(@profile_user.avatar_url)
+
+  .field
+    - if current_user.avatar.url.present?
+      => f.check_box :remove_avatar
+      = f.label :remove_avatar
+      br
+
+    = f.file_field :avatar
+    = f.hidden_field :avatar_cache
 
   h2 Username &amp; Email
 
@@ -18,10 +31,7 @@ h1 Edit Profile
       ' Maximum of #{v_options[:maximum]} characters, minimum of #{v_options[:minimum]} characters.
       | You can only use these characters: A-Z, a-z, 0-9, dashes, underscores and dots.
 
-    span.sbt
-      ' Changing your display name will
-      b> not
-      | change your username, which you log in with. Please use common sense in choosing a pseudonym.
+    span.sbt Leave this blank to revert to your username.
 
     = f.text_field :pseudonym, size: 38
 

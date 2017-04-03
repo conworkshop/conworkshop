@@ -38,8 +38,7 @@ class ProfileController < ApplicationController
   private
 
   def update_params
-    attribs = [:email]
-    attribs += [:pseudonym] unless params[:user][:pseudonym].blank?
-    params.require(:user).permit(*attribs)
+    params[:user][:pseudonym] = nil if params[:user][:pseudonym].blank?
+    params.require(:user).permit(:email, :pseudonym, :avatar, :avatar_cache, :remove_avatar)
   end
 end
