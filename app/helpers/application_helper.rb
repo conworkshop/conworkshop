@@ -33,6 +33,8 @@ module ApplicationHelper
   }.freeze
 
   def banner(type, &block)
+    type = banner_devise_convert(type)
+
     unless BANNER_TYPES.keys.include?(type)
       raise ArgumentError, "unknown type, must be one of #{BANNER_TYPES.keys}"
     end
@@ -61,5 +63,17 @@ module ApplicationHelper
   def friendly_datetime(datetime, long = true, local = true)
     datetime = local_timezone(datetime) if local
     friendly_date(datetime, long, false) + (long ? ',' : '') + datetime.strftime(' %H:%M')
+  end
+
+  private
+
+  BANNER_DEVISE_CORRL = {
+      error: :err,
+      alert: :err,
+      notice: :info,
+  }.freeze
+
+  def banner_devise_convert(type)
+    BANNER_DEVISE_CORRL[type] || type
   end
 end
