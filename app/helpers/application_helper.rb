@@ -68,9 +68,9 @@ module ApplicationHelper
   private
 
   BANNER_DEVISE_CORRL = {
-      error: :err,
-      alert: :err,
-      notice: :info,
+    error:  :err,
+    alert:  :err,
+    notice: :info
   }.freeze
 
   def banner_devise_convert(type)
