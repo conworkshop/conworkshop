@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+
+// Vendor
 //= require moment
 //= require moment-timezone-with-data-2012-2022
+
 //= require_tree .

@@ -106,3 +106,6 @@ html lang='en'
         '  | Time now is
         = Time.now.strftime('%d %B %Y, %H:%M')
 
+    - if user_signed_in?
+      javascript:
+          update_tz();
