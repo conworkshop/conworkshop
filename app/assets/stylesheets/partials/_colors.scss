@@ -237,7 +237,7 @@ a.fail, a.red, label.red, input.button.fail {
     }
 }
 
-a.alert, a.orange, label.orange, input.alert {
+a.alert, a.orange, label.orange, input.button.alert {
     color: $alert-color;
     background-color: $alert-bg-color;
 
@@ -247,7 +247,7 @@ a.alert, a.orange, label.orange, input.alert {
     }
 }
 
-a.pending, a.yellow, label.yellow, input.pending {
+a.pending, a.yellow, label.yellow, input.button.pending {
     color: $pending-color;
     background-color: $pending-bg-color;
 
@@ -257,7 +257,7 @@ a.pending, a.yellow, label.yellow, input.pending {
     }
 }
 
-a.idle, a.blue, label.blue, input.idle {
+a.idle, a.blue, label.blue, input.button.idle {
     color: $idle-color;
     background-color: $idle-bg-color;
 
@@ -267,7 +267,7 @@ a.idle, a.blue, label.blue, input.idle {
     }
 }
 
-a.match, a.pink, label.pink, input.match {
+a.match, a.pink, label.pink, input.button.match {
     color: $match-color;
     background-color: $match-bg-color;
 
@@ -277,7 +277,7 @@ a.match, a.pink, label.pink, input.match {
     }
 }
 
-a.unknown, a.grey, label.grey, input.grey {
+a.unknown, a.grey, label.grey, input.button.grey {
     color: $unknown-color;
     background-color: $fail-bg-color;
 
