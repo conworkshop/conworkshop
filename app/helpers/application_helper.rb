@@ -50,7 +50,7 @@ module ApplicationHelper
 
   # Convert a datetime into the timezone of the current user, or UTC if none set/not logged in
   def local_timezone(datetime, default = 'UTC')
-    tz = user_signed_in? ? current_user.try(:timezone) || default : default
+    tz = current_user&.timezone || default
     Time.at(datetime).in_time_zone(tz)
   end
 
@@ -63,6 +63,20 @@ module ApplicationHelper
   def friendly_datetime(datetime, long = true, local = true)
     datetime = local_timezone(datetime) if local
     friendly_date(datetime, long, false) + (long ? ',' : '') + datetime.strftime(' %H:%M')
+  end
+
+  def out_date(time = Time.now, with_time: true, long: true, local: true)
+    fmt = "%Y-%m-%d#{with_time ? 'T%H:%M:%S' : ''}"
+    fallback = self.send(:"friendly_date#{with_time ? 'time' : ''}", time, long, local)
+
+    macro(
+      'date',
+      time: time.strftime(fmt),
+      with_time: with_time,
+      fallback: fallback,
+      long: long,
+      local: local
+    )
   end
 
   private

@@ -3,7 +3,7 @@
   - provide(:page_title, @profile_user.username + ' - View Profile')
   - provide(:page_colour, 'orange')
 
-  - if current_user.power_over(@profile_user)
+  - if current_user&.power_over(@profile_user)
     = link_to '✎ Edit', profile_edit_path(@profile_user), class: 'button alert'
 
   h1#profile-user
@@ -12,7 +12,7 @@
   ul
     li
       ' Joined:
-      = friendly_datetime(@profile_user.created_at)
+      = out_date(@profile_user.created_at)
 
 - else
 
