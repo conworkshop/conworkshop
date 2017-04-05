@@ -108,7 +108,7 @@ html lang='en'
           a[href='#'] api (indev)
 
       span#foot_info
-        | Current language:
-        = '%%current-langauge-placeholder%%'
-        '  | Time now is
-        = Time.now.strftime('%d %B %Y, %H:%M')
+        ' Current language:
+        => '%%current-langauge-placeholder%%'
+        ' | Time now is
+        = out_date
