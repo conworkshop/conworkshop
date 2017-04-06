@@ -74,6 +74,7 @@ module ApplicationHelper
   # @param [bool] local local or server time?
   # @return [string] the rendered date macro
   def cws_time_tag(time = Time.now, with_time: true, long: true, local: true)
+    time.utc
     fmt = "%Y-%m-%d#{with_time ? 'T%H:%M:%S' : ''}"
     fallback = self.send(:"friendly_date#{with_time ? 'time' : ''}", time, long, local)
 

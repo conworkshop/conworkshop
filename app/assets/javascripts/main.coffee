@@ -10,7 +10,7 @@ class TimeManager
       fmt = self.getFormat(el.data('cws-time-with-time'), el.data('cws-time-long'))
       tz  = if self.isRubyTruthy(el.data('cws-time-local')) then self.tz else 'UTC'
 
-      el.text(moment(dt, moment.ISO_8601).tz(tz).format(fmt))
+      el.text(moment.utc(dt, moment.ISO_8601).tz(tz).format(fmt))
 
 # ----------- private -----------
   figureOutTz: (utz) ->
