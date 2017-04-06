@@ -54,7 +54,7 @@ html lang='en'
           ' ,
           = user_signed_in? ? current_user.display_name : 'Guest'
           '  |
-          = out_date
+          = cws_time_tag
 
       = render 'layouts/menu'
 
@@ -111,4 +111,4 @@ html lang='en'
         ' Current language:
         => '%%current-langauge-placeholder%%'
         ' | Time now is
-        = out_date
+        = cws_time_tag

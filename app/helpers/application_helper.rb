@@ -65,7 +65,15 @@ module ApplicationHelper
     friendly_date(datetime, long, false) + (long ? ',' : '') + datetime.strftime(' %H:%M')
   end
 
-  def out_date(time = Time.now, with_time: true, long: true, local: true)
+  # Returns a time tag with the appropriate CWS thingies so that our time
+  # javascript can dynamically 'time'-ize it.
+  #
+  # @param [Time] time the time to display
+  # @param [bool] with_time display with time?
+  # @param [bool] long long format?
+  # @param [bool] local local or server time?
+  # @return [string] the rendered date macro
+  def cws_time_tag(time = Time.now, with_time: true, long: true, local: true)
     fmt = "%Y-%m-%d#{with_time ? 'T%H:%M:%S' : ''}"
     fallback = self.send(:"friendly_date#{with_time ? 'time' : ''}", time, long, local)
 
