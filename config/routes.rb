@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   get 'user/:username/edit', to: 'profile#edit', constraints: { username: %r{[^/]+} }, as: :profile_edit
   patch 'user/:username/edit', to: 'profile#update', constraints: { username: %r{[^/]+} }, as: :profile_update
 
+  # Account
+  get 'account', to: 'account#edit', as: :account_edit
+  patch 'account', to: 'account#update', as: :account_update
+
   # Static pages
   get 'about', to: 'static#about', as: :page_static_about
   get 'feed', to: 'static#feed', as: :page_static_feed

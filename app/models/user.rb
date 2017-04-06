@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class User < ApplicationRecord
-  mount_uploader :avatar, AvatarUploader
+  has_one :profile
 
   devise :uid, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -25,8 +25,12 @@ class User < ApplicationRecord
     username
   end
 
+  def avatar?
+    profile.avatar.present?
+  end
+
   def avatar_url
-    avatar.url.present? ? avatar.url : 'prof_default'
+    avatar? ? profile.avatar.url : 'prof_default'
   end
 
   # Get display name of a user (pseudonym if set, else username)

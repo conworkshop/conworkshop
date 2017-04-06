@@ -1,65 +1,25 @@
 - provide(:page_title, @profile_user.username + ' - Edit Profile')
 - provide(:page_colour, 'orange')
-- v_options = User.validators_on(:pseudonym) \
-                  .select { |x| x.is_a?(ActiveRecord::Validations::LengthValidator) }[0].options
 
 h1 Edit Profile
 
-= link_to '« Return to profile', user_path(@profile_user), class: 'button alert'
+= link_to '« Return to profile', user_path(params[:username]), class: 'button alert'
 
-= form_for @profile_user, url: { controller: 'profile', action: 'update' }, html: { multipart: true } do |f|
-  = render 'error_messages', cur_obj: @profile_user
+= form_for @profile_user.profile, url: { controller: 'profile', action: 'update' }, html: { multipart: true } do |f|
+  = render 'error_messages', cur_obj: @profile_user.profile
 
   h2 Picture
 
   .field = image_tag(@profile_user.avatar_url)
 
   .field
-    - if current_user.avatar.url.present?
+    - if current_user.avatar?
       => f.check_box :remove_avatar
       = f.label :remove_avatar
       br
 
     = f.file_field :avatar
     = f.hidden_field :avatar_cache
-
-  h2 Username &amp; Email
-
-  .field
-    = f.label :pseudonym
-    = hover_ico :info
-      ' Maximum of #{v_options[:maximum]} characters, minimum of #{v_options[:minimum]} characters.
-      | You can only use these characters: A-Z, a-z, 0-9, dashes, underscores and dots.
-
-    span.sbt Leave this blank to revert to your username.
-
-    = f.text_field :pseudonym, size: 38
-
-  .field
-    = f.label :email
-
-    span.sbt Make sure you provide a valid email.
-
-    = f.email_field :email, size: 38
-
-  h2 Change password
-
-  .field
-    = f.label :password
-    = hover_ico :warn
-      ' Don't use the same password you use on other websites!
-      | #{@minimum_password_length} characters minimum. Choose something you'll easily remember.
-
-    span.sbt Leave this field blank if you don't wish to change your password.
-
-    = f.password_field :password, autocomplete: 'off', size: 38
-
-  .field
-    = f.label :password_confirmation
-
-    span.sbt Just type in your password again! Easy peasy.
-
-    = f.password_field :password_confirmation, autocomplete: 'off', size: 38
 
   .actions
     = f.submit '✔ Save Changes', class: 'button pass'

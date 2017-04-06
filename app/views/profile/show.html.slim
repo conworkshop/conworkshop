@@ -4,7 +4,7 @@
   - provide(:page_colour, 'orange')
 
   - if current_user&.power_over(@profile_user)
-    = link_to '✎ Edit', profile_edit_path(@profile_user), class: 'button alert'
+    = link_to '✎ Edit', profile_edit_path(params[:username]), class: 'button alert'
 
   h1#profile-user
     = render 'user_handle', user: @profile_user
