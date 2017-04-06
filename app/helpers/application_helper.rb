@@ -76,7 +76,7 @@ module ApplicationHelper
   def cws_time_tag(time = Time.now, with_time: true, long: true, local: true)
     time.utc
     fmt = "%Y-%m-%d#{with_time ? 'T%H:%M:%S' : ''}"
-    fallback = self.send(:"friendly_date#{with_time ? 'time' : ''}", time, long, local)
+    fallback = send(:"friendly_date#{with_time ? 'time' : ''}", time, long, local)
 
     macro(
       'date',
