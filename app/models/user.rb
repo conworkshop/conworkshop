@@ -14,6 +14,12 @@ class User < ApplicationRecord
                         length:     { minimum: 4, maximum: 16 },
                         if:      -> { !(new_record? || pseudonym.blank?) }
 
+  RANK_HIERARCHY = {
+    B: 0, R: 0,
+    S: 1,
+    A: 2, D: 2
+  }.freeze
+
   # Use username instead of id for linking to users
   def to_param
     username
@@ -31,7 +37,7 @@ class User < ApplicationRecord
   # Whether user has editing rights over another
   # TODO: Allow ranks power over lower ranks (e.g admins > staff > members, etc)
   def power_over(test_user)
-    self == test_user
+    self == test_user || RANK_HIERARCHY[group.to_sym] > RANK_HIERARCHY[test_user.group.to_sym]
   end
 
   # convert datetime to the user's timezone (or UTC if not set)
