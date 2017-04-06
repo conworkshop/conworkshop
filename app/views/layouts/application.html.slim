@@ -15,7 +15,7 @@ html lang='en'
 
     script[type='text/javascript' data-turbolinks-track='reload']
       - if user_signed_in?
-        | window.cws_user_tzinfo = '#{current_user.timezone}' }
+        | window.cws_user_tzinfo = '#{current_user.timezone}'
       - else
         | window.cws_user_tzinfo = null
 
