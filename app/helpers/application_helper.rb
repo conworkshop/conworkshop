@@ -48,6 +48,10 @@ module ApplicationHelper
     )
   end
 
+  def user_handle(user, clan_sym = true)
+    render 'user_handle', user: user, clan_sym: clan_sym
+  end
+
   # Convert a datetime into the timezone of the current user, or UTC if none set/not logged in
   def local_timezone(datetime, default = 'UTC')
     tz = current_user&.timezone || default

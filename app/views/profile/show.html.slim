@@ -7,7 +7,7 @@
     .circle-avatar
       = image_tag(@profile_user.avatar_url)
     .profile-handle
-      = render 'user_handle', user: @profile_user
+      = user_handle(@profile_user)
       .profile-extra
         => link_to '[edit profile]', profile_edit_path(params[:username]) if current_user.power_over?(@profile_user)
         => link_to '[message]', '#'
