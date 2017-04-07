@@ -1,7 +1,7 @@
 - if cur_obj.errors.any?
   = banner :err
     ' The form contains
-    = pluralize(cur_obj.errors.count, 'error')
+    | #{pluralize(cur_obj.errors.count, 'error')}:
     ul
       - cur_obj.errors.full_messages.each do |msg|
         li = msg
