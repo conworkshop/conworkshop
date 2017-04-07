@@ -3,16 +3,24 @@
   - provide(:page_title, @profile_user.username + ' - View Profile')
   - provide(:page_colour, 'orange')
 
-  - if current_user&.power_over?(@profile_user)
-    = link_to '✎ Edit', profile_edit_path(params[:username]), class: 'button alert'
+  .profile-username
+    .circle-avatar
+      = image_tag(@profile_user.avatar_url)
+    .profile-handle
+      = render 'user_handle', user: @profile_user
+      .profile-extra
+        => link_to '[edit profile]', profile_edit_path(params[:username]) if current_user.power_over?(@profile_user)
+        => link_to '[message]', '#'
 
-  h1#profile-user
-    = render 'user_handle', user: @profile_user
-
-  ul
-    li
-      ' Joined:
-      = cws_time_tag(@profile_user.created_at)
+  .parag
+    span.info-tag Member since:
+    span.info-value = cws_time_tag(@profile_user.created_at)
+    br
+    span.info-tag Last seen:
+    span.info-value No idea!
+    br
+    span.info-tag Boards posts:
+    span.info-value No idea!
 
 - else
 

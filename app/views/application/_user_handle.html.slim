@@ -1,8 +1,9 @@
 .inline_handle
-  .clan_symbol[style = 'background: #009999; color: #fff']
-    | *
-    span
-      b Conlanger
-      br
-      | CWS Conlanger
+  - if local_assigns.fetch(:clan_sym, true)
+    .clan_symbol[style = 'background: #009999; color: #fff']
+      | *
+      span
+        b Conlanger
+        br
+        | CWS Conlanger
   =< link_to user.display_name, user_path(user), style: 'color: #009999'
