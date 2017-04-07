@@ -2,19 +2,19 @@
 class ProfileController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
-  def profile_user
+  def user_parameter
     params[:username] == 'me' ? current_user : User.find_by_username(params[:username])
   end
 
   def show
-    @profile_user = profile_user
+    @profile_user = user_parameter
     render 'profile/show'
   end
 
   def edit
-    @profile_user = profile_user
+    @profile_user = user_parameter
     if @profile_user
-      if current_user.power_over(@profile_user)
+      if current_user.power_over?(@profile_user)
         render 'profile/edit'
       else
         redirect_to user_path(params[:username])
@@ -25,9 +25,9 @@ class ProfileController < ApplicationController
   end
 
   def update
-    @profile_user = profile_user
+    @profile_user = user_parameter
 
-    if current_user.power_over(@profile_user)
+    if current_user.power_over?(@profile_user)
 
       if @profile_user.profile.update_attributes(update_params)
 
