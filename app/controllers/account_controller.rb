@@ -8,7 +8,7 @@ class AccountController < ApplicationController
 
   def update
     if current_user.update_attributes(update_params)
-      flash[:success] = 'Profile successfully updated.'
+      flash[:success] = 'Account settings successfully updated.'
       redirect_to user_path('me')
     else
       render 'edit'
