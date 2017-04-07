@@ -1,10 +1,18 @@
+- provide(:page_title, 'Sign Up')
 - provide(:page_colour, 'orange')
 - v_options = User.validators_on(:username) \
                   .select { |x| x.is_a?(ActiveRecord::Validations::LengthValidator) }[0].options
 
+- content_for :head
+  coffee:
+    $(document).on('turbolinks:load', -> $('input#user_timezone').val(moment.tz.guess()))
+
 h2 Sign up
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
+
+  / Hidden field for timezone detection
+  = f.hidden_field :timezone
 
   .field
     = f.label :username

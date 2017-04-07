@@ -25,3 +25,5 @@
 /Gemfile.lock
 
 /.idea/*
+
+/public/uploads/*

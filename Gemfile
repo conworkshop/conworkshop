@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -12,7 +13,7 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
-#gem 'sass-rails', '~> 5.0'
+# gem 'sass-rails', '~> 5.0'
 gem 'sassc-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -52,3 +53,6 @@ gem 'devise'
 gem 'devise_uid'
 gem 'slim-rails'
 gem 'slim_lint'
+
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
