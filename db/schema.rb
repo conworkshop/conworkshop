@@ -12,35 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170406172848) do
 
-  create_table "lang_types", force: :cascade do |t|
-    t.string   "code"
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["code"], name: "index_lang_types_on_code"
-  end
-
-  create_table "languages", force: :cascade do |t|
-    t.string   "code"
-    t.string   "name"
-    t.string   "nativename"
-    t.string   "ipa"
-    t.string   "phonosystem"
-    t.string   "lexcols"
-    t.integer  "user_id"
-    t.text     "overview"
-    t.boolean  "public"
-    t.string   "status"
-    t.datetime "time"
-    t.boolean  "prunesafe"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.string   "lang_type_id"
-    t.index ["code"], name: "index_languages_on_code", unique: true
-    t.index ["lang_type_id"], name: "index_languages_on_lang_type_id"
-    t.index ["user_id"], name: "index_languages_on_user_id"
-  end
-
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "gender"
