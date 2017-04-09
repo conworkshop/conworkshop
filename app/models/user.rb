@@ -40,7 +40,7 @@ class User < ApplicationRecord
 
   # Whether user has editing rights over another
   # TODO: Allow ranks power over lower ranks (e.g admins > staff > members, etc)
-  def power_over(test_user)
+  def power_over?(test_user)
     self == test_user || RANK_HIERARCHY[group.to_sym] > RANK_HIERARCHY[test_user.group.to_sym]
   end
 
