@@ -8,15 +8,19 @@ class ProfileController < ApplicationController
 
   def show
     @profile_user = user_parameter
+
+    unless @profile_user
+      # user does not exist, 404 code it up.
+      response.status = 404
+    end
+
     render 'profile/show'
   end
 
   def edit
     @profile_user = user_parameter
 
-    render 'profile/show' unless @profile_user
-
-    if current_user.power_over?(@profile_user)
+    if @profile_user && current_user.power_over?(@profile_user)
       render 'profile/edit'
     else
       redirect_to user_path(params[:username])
