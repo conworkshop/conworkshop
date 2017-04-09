@@ -3,24 +3,45 @@
   - provide(:page_title, @profile_user.username + ' - View Profile')
   - provide(:page_colour, 'orange')
 
-  .profile-username
-    .circle-avatar
-      = image_tag(@profile_user.avatar_url)
-    .profile-handle
-      = user_handle(@profile_user)
-      .profile-extra
-        => link_to '[edit profile]', profile_edit_path(params[:username]) if current_user.power_over?(@profile_user)
-        => link_to '[message]', '#'
+  .full_width.contain
+    .profile-sidedata
+      | #{@profile_user.profile.display_gender}, from #{@profile_user.profile.display_country}
+      br
+      span.profile-karma up downsy thing
 
-  dl
-    dt Member since:
-    dd = cws_time_tag(@profile_user.created_at)
+    .profile-username
+      .circle-avatar
+        = image_tag(@profile_user.avatar_url)
+      .profile-handle
+        = user_handle(@profile_user)
+        .profile-extra
+          => link_to '[edit profile]', profile_edit_path(params[:username]) if current_user.power_over?(@profile_user)
+          => link_to '[message]', '#'
 
-    dt Last seen:
-    dd No idea!
+    dl
+      dt Member since:
+      dd = cws_time_tag(@profile_user.created_at)
 
-    dt Board posts:
-    dd No idea!
+      dt Last seen:
+      dd No idea!
+
+      dt Board posts:
+      dd No idea!
+
+    / Admin data
+    - if %w(A D).include?(@profile_user.group)
+      dl.grey
+        dt Last login's IP:
+        dd = @profile_user.last_sign_in_ip
+        dt Timezone:
+        dd = @profile_user.timezone
+        dt Group:
+        dd = @profile_user.group
+
+    - unless @profile_user.profile.about.blank?
+      section#about
+        h2.like_text About #{@profile_user.display_name}
+        .faux = @profile_user.profile.about
 
 - else
 

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # Profile
   get 'user/:username', to: 'profile#show', constraints: { username: %r{[^/]+} }, as: :user
   get 'user/:username/edit', to: 'profile#edit', constraints: { username: %r{[^/]+} }, as: :profile_edit
-  patch 'user/:username/edit', to: 'profile#update', constraints: { username: %r{[^/]+} }, as: :profile_update
+  patch 'user/:username', to: 'profile#update', constraints: { username: %r{[^/]+} }, as: :profile_update
 
   # Account
   get 'account', to: 'account#edit', as: :account_edit

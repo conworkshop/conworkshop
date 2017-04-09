@@ -399,10 +399,24 @@ h1, h2, h3, .title {
     margin-top: 5px;
     margin-right: 5px;
   }
+
+  &.like_text {
+    color: unset;
+    font-size: unset;
+    padding-bottom: unset;
+    background: unset;
+    text-indent: unset;
+    margin: unset;
+    text-shadow: unset;
+  }
 }
 
 dl {
   font-size: $smaller-font-size;
+
+  &.grey dt, &.grey dd {
+    color: $weird-black;
+  }
 }
 
 dt {
@@ -414,7 +428,7 @@ dt {
 
 dd {
   margin-left: 110px;
-  color: #777777;
+  color: #777;
 }
 
 form, .form {
@@ -423,14 +437,6 @@ form, .form {
     margin: 10px;
     width: 46%;
     vertical-align: top;
-
-    .full_width {
-      width: 92%;
-
-      textarea {
-        max-width: 800px;
-      }
-    }
 
     .third {
       width: 30%;
@@ -448,6 +454,22 @@ form, .form {
       @extend %form_input;
     }
   }
+}
+
+form, .form, div {
+  &.full_width {
+    width: 97%;
+
+    textarea {
+      max-width: 800px;
+    }
+  }
+}
+
+.contain {
+  display: inline-block;
+  margin: 10px;
+  vertical-align: top;
 }
 
 label.small {
@@ -890,4 +912,9 @@ div#prof_avatar_wrapper {
       font-size: $smaller-font-size;
     }
   }
+}
+
+.profile-sidedata {
+  float: right;
+  font-size: $smaller-font-size;
 }
