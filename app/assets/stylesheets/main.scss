@@ -403,7 +403,6 @@ h1, h2, h3, .title {
 
 dl {
   font-size: $smaller-font-size;
-  margin-left: -1em;
 }
 
 dt {
@@ -414,7 +413,8 @@ dt {
 }
 
 dd {
-  margin: 0 0 0 110px;
+  margin-left: 110px;
+  color: #777777;
 }
 
 form, .form {
@@ -889,15 +889,5 @@ div#prof_avatar_wrapper {
       padding-top: 4px;
       font-size: $smaller-font-size;
     }
-  }
-}
-
-.parag {
-  font-size: $smaller-font-size;
-  margin: 10px;
-
-  .info-value {
-    color: #777777;
-    margin-left: 5px;
   }
 }
