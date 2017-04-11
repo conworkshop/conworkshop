@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Language < ApplicationRecord
   belongs_to :user
   has_one :lang_type

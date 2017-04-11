@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreateLangTypes < ActiveRecord::Migration[5.0]
   def change
     create_table :lang_types do |t|
@@ -9,4 +10,3 @@ class CreateLangTypes < ActiveRecord::Migration[5.0]
     add_index :lang_types, :code
   end
 end
-
