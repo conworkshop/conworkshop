@@ -7,4 +7,11 @@ h2 New Language
   .field
     = f.label :code
     = hover_ico :info
-      | Something
+      | A unique three-letter code to identify your language.
+
+    span.sbt
+      ' Letters
+      b> A-Z
+      | only! Using anything else may hinder functionality.
+
+    = f.text_field :code, autocomplete: 'off', size: 10

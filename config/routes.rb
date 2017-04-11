@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   get 'user/:username/edit', to: 'profile#edit', constraints: { username: %r{[^/]+} }, as: :profile_edit
   patch 'user/:username', to: 'profile#update', constraints: { username: %r{[^/]+} }, as: :profile_update
 
+  # Language
+  get 'language/:code', to: 'languages#show', constraints: { code: /[a-zA-Z0-9]{3}/ }
+  patch 'language/:code', to: 'languages#update', constraints: { code: /[a-zA-Z0-9]{3}/ }
+  get 'language/create', to: 'languages#new'
+  post 'language/create', to: 'languages#create'
+
   # Account
   get 'account', to: 'account#edit', as: :account_edit
   patch 'account', to: 'account#update', as: :account_update
