@@ -1,0 +1,10 @@
+- provide(:page_title, 'New Language')
+- provide(:page_colour, 'orange')
+
+h2 New Language
+= form_for :language do |f|
+
+  .field
+    = f.label :code
+    = hover_ico :info
+      | Something
