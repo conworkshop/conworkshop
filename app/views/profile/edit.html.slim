@@ -10,17 +10,19 @@ h1 Edit Profile
 
   .field
     | Profile picture
+    = hover_ico :info
+      | The uploaded image will be resized to 50px by 50px.
     br
-    = image_tag(@profile_user.avatar_url)
+    .circle-avatar
+      = image_tag @profile_user.avatar_url, alt: 'Profile picture'
+
+    = f.file_field :avatar, style: 'display: inline-block; vertical-align: top;'
+    = f.hidden_field :avatar_cache
 
     - if current_user.avatar?
       br
       => f.check_box :remove_avatar
       = f.label :remove_avatar
-      br
-
-    = f.file_field :avatar
-    = f.hidden_field :avatar_cache
 
   .field
     /! filler field for spacing and shit

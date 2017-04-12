@@ -7,7 +7,13 @@
     .profile-sidedata
       | #{@profile_user.profile.display_gender}, from #{@profile_user.profile.display_country}
       br
-      span.profile-karma up downsy thing
+      span.profile-karma
+        span.karma-arrow-up> ▲
+        ' 123
+        span.karma-arrow-down> ▼
+        ' 321
+        / TODO: a linkamajig to the karmamajig
+        a[href='#'] [info]
 
     .profile-username
       .circle-avatar
@@ -41,6 +47,7 @@
     - unless @profile_user.profile.about.blank?
       section#about
         h2.like_text About #{@profile_user.display_name}
+        / TODO: Needs CWSMarkup!
         .faux = @profile_user.profile.about
 
 - else
