@@ -5,10 +5,10 @@ class Profile < ApplicationRecord
   belongs_to :user
 
   def display_gender
-    gender || 'Not stated'
+    gender.present? ? gender : 'Not stated'
   end
 
   def display_country
-    country || 'Nowhereland'
+    country.present? ? ISO3166::Country[country] : 'Nowhereland'
   end
 end

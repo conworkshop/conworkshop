@@ -25,7 +25,8 @@ h1 Edit Profile
       = f.label :remove_avatar
 
   .field
-    /! filler field for spacing and shit
+    = f.label :country
+    = f.country_select :country, include_blank: 'Nowhereland'
 
   .actions
     = f.submit '✔ Save changes', class: 'button pass'

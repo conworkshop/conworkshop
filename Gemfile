@@ -56,3 +56,5 @@ gem 'slim_lint'
 
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
+
+gem 'country_select'
