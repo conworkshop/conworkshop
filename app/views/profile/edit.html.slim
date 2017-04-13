@@ -8,7 +8,7 @@ h1 Edit Profile
 = form_for @profile_user.profile, url: { controller: 'profile', action: 'update' }, html: { multipart: true } do |f|
   = render 'error_messages', cur_obj: @profile_user.profile
 
-  .field
+  .field.full_width
     | Profile picture
     = hover_ico :info
       | The uploaded image will be resized to 50px by 50px.
@@ -32,8 +32,10 @@ h1 Edit Profile
     = f.label :gender
     = f.gender_select :gender, include_blank: 'Not stated'
 
-  .field
-    /! filler field
+  .field.full_width
+    = f.label :about
+    = f.text_area :about, cols: 200, rows: 4
+    / TODO: add chars counter and limiter (1000 max)
 
   .actions
     = f.submit '✔ Save changes', class: 'button pass'
