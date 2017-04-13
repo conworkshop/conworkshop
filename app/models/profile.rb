@@ -5,11 +5,11 @@ class Profile < ApplicationRecord
   belongs_to :user
 
   validates :country, inclusion: { in: ISO3166::Country.codes, allow_blank: true }
-  validates :gender, inclusion: { in: CWS::Globals.gender_codes, allow_blank: true }
+  validates :gender, inclusion: { in: CWS::Globals::GENDER_CODES, allow_blank: true }
   validates :about, length: { maximum: 1000, allow_blank: true }
 
   def display_gender
-    gender.present? ? CWS::Globals.gender_codes[gender] : 'Not stated'
+    gender.present? ? CWS::Globals::GENDER_CODES[gender] : 'Not stated'
   end
 
   def display_country

@@ -39,7 +39,7 @@ module ActionView
         end
 
         def gender_codes
-          @gender_codes_formatted ||= CWS::Globals.gender_codes.invert.to_a
+          @gender_codes_formatted ||= CWS::Globals::GENDER_CODES.invert.to_a
         end
       end
     end
