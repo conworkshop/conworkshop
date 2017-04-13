@@ -5,7 +5,7 @@ class Profile < ApplicationRecord
   belongs_to :user
 
   def display_gender
-    gender.present? ? gender : 'Not stated'
+    gender.present? ? CWS::Globals.gender_codes[gender.to_sym] : 'Not stated'
   end
 
   def display_country

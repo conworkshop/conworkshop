@@ -28,5 +28,12 @@ h1 Edit Profile
     = f.label :country
     = f.country_select :country, include_blank: 'Nowhereland'
 
+  .field
+    = f.label :gender
+    = f.gender_select :gender, include_blank: 'Not stated'
+
+  .field
+    /! filler field
+
   .actions
     = f.submit '✔ Save changes', class: 'button pass'

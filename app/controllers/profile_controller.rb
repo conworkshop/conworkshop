@@ -45,7 +45,7 @@ class ProfileController < ApplicationController
   def update_params
     params.require(:profile).permit(
         :avatar, :avatar_cache, :remove_avatar,
-        :country
+        :country, :gender
     )
   end
 end

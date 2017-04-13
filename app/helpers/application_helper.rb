@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'gender_form_builder'
+
 module ApplicationHelper
   # TODO: remove this
   def path_for(a, _b = {})
