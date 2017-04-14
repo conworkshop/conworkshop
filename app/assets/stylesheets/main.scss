@@ -343,7 +343,7 @@ input {
 
   height: 22px;
   text-indent: 20px;
-  background: asset-url('input.png') no-repeat left 2px center;
+  background: #e9e9e9 asset-url('input.png') no-repeat left 2px center;
 
   @at-root input:focus, select:focus, textarea:focus {
     color: $lighter-black;
@@ -375,16 +375,17 @@ input {
     text-indent: 0;
     background: $basically-white none;
     padding: 6px;
+    height: 24px;
   }
 
   &[readonly], &[readonly], &[disabled] {
     &:focus {
-      background-color: $basically-white !important;
+      background: $basically-white !important;
     }
 
     color: $weird-black;
     text-indent: 0;
-    background: $basically-white none;
+    background: $basically-white;
   }
 }
 
