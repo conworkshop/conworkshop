@@ -34,8 +34,8 @@ h1 Edit Profile
 
   .field.full_width
     = f.label :about
-    = f.text_area :about, cols: 200, rows: 4
-    / TODO: add chars counter and limiter (1000 max)
+    = f.text_area :about, cols: 200, rows: 4, maxlength: CWS::Globals::MAX_ABOUT_CHARS,
+        'data-cws-char-limit': CWS::Globals::MAX_ABOUT_CHARS
 
   .actions
     = f.submit '✔ Save changes', class: 'button pass'

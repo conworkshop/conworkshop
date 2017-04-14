@@ -339,8 +339,7 @@ a, a.mem, a.path {
 }
 
 input {
-  @extend %input;
-  @extend %form_input;
+  @extend %input, %form_input;
 
   height: 22px;
   text-indent: 20px;
@@ -371,17 +370,26 @@ input {
     text-indent: 0;
     background-image: none;
   }
+
+  &[type="file"] {
+    text-indent: 0;
+    background: $basically-white none;
+    padding: 6px;
+  }
+
+  &[readonly], &[readonly], &[disabled] {
+    &:focus {
+      background-color: $basically-white !important;
+    }
+
+    color: $weird-black;
+    text-indent: 0;
+    background: $basically-white none;
+  }
 }
 
 select, textarea {
-  @extend %input;
-}
-
-input[readonly], textarea[readonly], select[disabled],
-input[readonly]:focus, textarea[readonly]:focus, select[disabled]:focus {
-  color: $weird-black;
-  text-indent: 0;
-  background: $basically-white none;
+  @extend %input, %form_input;
 }
 
 h1, h2, h3, .title {
@@ -448,10 +456,6 @@ form, .form {
 
     .list {
       width: 95%;
-    }
-
-    input, select, textarea {
-      @extend %form_input;
     }
   }
 }
@@ -925,4 +929,11 @@ div#prof_avatar_wrapper {
 
 .karma-arrow-down {
   color: #900;
+}
+
+input.cntr {
+  text-align: right;
+  font-size: $smaller-font-size;
+  max-width: 100px;
+  display: block;
 }
