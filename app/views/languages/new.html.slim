@@ -1,7 +1,7 @@
 - provide(:page_title, 'New Language')
 - provide(:page_colour, 'orange')
 
-h2 New Language
+h2 Add New Language
 = form_for :language do |f|
 
   .field
@@ -15,3 +15,6 @@ h2 New Language
       | only! Using anything else may hinder functionality.
 
     = f.text_field :code, autocomplete: 'off', size: 10
+
+  .field
+    = f.label :lang_type, 'Language Type'

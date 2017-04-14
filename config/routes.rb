@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   get 'about', to: 'static#about', as: :page_static_about
   get 'feed', to: 'static#feed', as: :page_static_feed
 
+  # Admin
+  get 'admin/langtypes', to: 'admin#langtypes_edit'
+  post 'admin/langtypes', to: 'admin#langtypes_update'
+
   # Root
   root 'static#feed'
 
