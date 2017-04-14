@@ -4,21 +4,19 @@
 /* ========================================================================= */
 
 // Basic colors
-$white:             #fff;
-$black:             #000;
 $basically-black:   #666;
 $basically-white:   #e9e9e9;
 $lighter-black:     #333;
 $darker-white:      #ccc;
-$transparent-white: transparentize($white, 0.5);
-$transparent-black: transparentize($black, 0.5);
+$transparent-white: transparentize(white, 0.5);
+$transparent-black: transparentize(black, 0.5);
 $weird-black:       #999;
 
 $bg-color:      #efefef;
 $main-bg-color: #fefefe;
 $menu-bg-color: #c33;
 
-$shadow-color: transparentize($black, 0.8);
+$shadow-color: transparentize(black, 0.8);
 
 $link-color:       #099;
 $link-hover-color: #066;

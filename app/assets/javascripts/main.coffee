@@ -27,5 +27,12 @@ class TimeManager
   isRubyTruthy: (value) -> value isnt undefined && value isnt null
 
 time_manager = new TimeManager(window.cws_user_tzinfo)
-$(document).on("turbolinks:load", -> time_manager.update())
+$(document).on("turbolinks:load", ->
+  time_manager.update()
+
+  header_btns = $('.header_btn_home, .header_btn_lang')
+  $('nav').stick_in_parent({ parent: 'body' })
+    .on('sticky_kit:stick',   -> header_btns.addClass('is_shown'))
+    .on('sticky_kit:unstick', -> header_btns.removeClass('is_shown'))
+)
 

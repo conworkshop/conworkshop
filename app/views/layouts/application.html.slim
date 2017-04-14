@@ -27,10 +27,9 @@ html lang='en'
 
   body[class=phue]
     .header_btn_home
-      = link_to 'CWS', root_path, class: "bg_#{phue}"
+      = link_to 'cws', root_path, class: "bg_#{phue}"
     .header_btn_lang
-      a[href='#']
-        img[src='']
+      a[href='#'] = image_tag 'flag_default'
 
     header[class="bg_#{phue}" role='banner']
       #top_header
