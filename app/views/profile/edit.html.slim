@@ -3,7 +3,7 @@
 
 = link_to '« Return to profile', user_path(params[:username]), class: 'button alert'
 
-h1 Edit Profile
+h1 Edit profile: #{@profile_user.username}
 
 = form_for @profile_user.profile, url: { controller: 'profile', action: 'update' }, html: { multipart: true } do |f|
   = render 'error_messages', cur_obj: @profile_user.profile
