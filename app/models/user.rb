@@ -38,6 +38,10 @@ class User < ApplicationRecord
     pseudonym || username
   end
 
+  def rank?(rank)
+    RANK_HIERARCHY[group.to_sym] >= rank
+  end
+
   # Whether user has editing rights over another
   # TODO: Allow ranks power over lower ranks (e.g admins > staff > members, etc)
   def power_over?(test_user)
