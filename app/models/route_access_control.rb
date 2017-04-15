@@ -1,0 +1,2 @@
+class RouteAccessControl < ApplicationRecord
+end
