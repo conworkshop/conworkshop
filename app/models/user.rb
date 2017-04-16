@@ -48,6 +48,10 @@ class User < ApplicationRecord
     self == test_user || RANK_HIERARCHY[group.to_sym] > RANK_HIERARCHY[test_user.group.to_sym]
   end
 
+  def banned?
+    group == ?B
+  end
+
   # convert datetime to the user's timezone (or UTC if not set)
   def to_user_timezone(datetime)
     tz = try(:timezone) || 'UTC'
