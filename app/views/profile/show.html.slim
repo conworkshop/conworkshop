@@ -21,7 +21,7 @@
       .profile-handle
         = user_handle(@profile_user)
         .profile-extra
-          => link_to '[edit profile]', profile_edit_path(params[:username]) if current_user.power_over?(@profile_user)
+          => link_to '[edit profile]', profile_edit_path(params[:username]) if current_user&.power_over?(@profile_user)
           => link_to '[message]', '#'
 
     dl

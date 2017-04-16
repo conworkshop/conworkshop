@@ -1,0 +1,52 @@
+- provide(:page_title, 'Unauthorized')
+- provide(:page_colour, 'red')
+
+h1 Oops! Access denied!
+
+- if reason == :banned
+  p
+    span.red Your account has been banned.
+    | CWS Staff have decided for some reason to ban your account - probably because you have breached one of CWS's
+      rules. Any attempts to circumvent this ban will result in all new accounts being removed without warning.
+
+  p
+    ' If you wish to discuss this with us, you may contact us at
+    a>[href='mailto:conworkshop@gmail.com'] conworkshop@gmail.com
+    | and we will respond when we can.
+
+- elsif reason == :maintenance
+  p Access to this page has temporarily been restricted by admin. This could be due to one of the following reasons:
+  ul
+    li
+      b> We are doing some small maintenance work,
+      | in which case:
+      ul
+        li please be patient (hopefully shouldn't be long). This is so that we can ensure the page is working as best
+           as possible first;
+    li
+      b> This is a new page under development,
+      | in which case:
+      ul
+        li please be patient (could be a while). We're still working on this page and might take a while for it to be
+           functional.
+    li
+      b> Something else went wrong (unlikely),
+      | in which case:
+      ul
+        / TODO: fix the links
+        li
+          ' please
+          a>[href='#'] report this,
+          ' if you think the lock-out is incorrect, or contact us on the
+          a>[href='mailto:conworkshop@gmail.com'] conworkshop@gmail.com
+          | email.
+- else
+  p
+    ' It appears that the page you tried to navigate to has restricted access. This may be because you're trying to
+      edit information that is not yours, access a private part of the site, or access administrator or staff pages.
+      You should probably
+    => link_to 'go back', root_path
+    | and do something else. If you believe this is a genuine mistake, please report an error using the button below.
+      Sorry for the inconvenience!
+
+a>[href='#' class='button red'] ✎ Report an error
