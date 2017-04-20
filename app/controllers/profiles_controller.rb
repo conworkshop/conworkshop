@@ -23,18 +23,18 @@ class ProfilesController < ApplicationController
     if @profile_user && current_user.power_over?(@profile_user)
       render 'profiles/edit'
     else
-      redirect_to user_path(params[:username])
+      redirect_to profile_path(params[:username])
     end
   end
 
   def update
     @profile_user = user_parameter
 
-    redirect_to user_path(params[:username]) unless current_user.power_over?(@profile_user)
+    redirect_to profile_path(params[:username]) unless current_user.power_over?(@profile_user)
 
     if @profile_user.profile.update_attributes(update_params)
       flash[:success] = 'Profile successfully updated.'
-      redirect_to user_path(@profile_user)
+      redirect_to profile_path(@profile_user)
     else
       render 'edit'
     end

@@ -1,7 +1,7 @@
 - provide(:page_title, @profile_user.username + ' - Edit Profile')
 - provide(:page_colour, 'orange')
 
-= link_to '« Return to profile', user_path(params[:username]), class: 'button alert'
+= link_to '« Return to profile', profile_path(params[:username]), class: 'button alert'
 
 h1 Edit profile: #{@profile_user.username}
 
