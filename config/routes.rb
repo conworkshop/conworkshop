@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'about', to: 'static#about', as: :page_static_about
 
   # Profile
-  resources :profiles, only: [:show, :edit, :update]
+  resources :profiles, only: [:show, :edit, :update], param: :username
 
   # Account
   resource :account, only: [:edit, :update], controller: 'account'
