@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class RouteAccessControl < ApplicationRecord
   GUEST_LEVEL       = -1
   MAINTENANCE_LEVEL = 99
@@ -5,7 +6,7 @@ class RouteAccessControl < ApplicationRecord
   def allowed?(user)
     return true if anyone?
 
-    maintenance? && user&.group == ?D || user&.rank?(level)
+    maintenance? && user&.group == 'D' || user&.rank?(level)
   end
 
   def anyone?

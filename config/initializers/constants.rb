@@ -4,6 +4,6 @@
 module CWS
   module Globals
     GENDER_CODES    = { 'M' => 'Male', 'F' => 'Female', 'O' => 'Other', 'C' => 'Cyborg' }.freeze
-    MAX_ABOUT_CHARS = 1000.freeze
+    MAX_ABOUT_CHARS = 1000
   end
 end

@@ -49,7 +49,7 @@ class User < ApplicationRecord
   end
 
   def banned?
-    group == ?B
+    group == 'B'
   end
 
   # convert datetime to the user's timezone (or UTC if not set)
