@@ -3,11 +3,6 @@
 require 'gender_form_builder'
 
 module ApplicationHelper
-  # TODO: remove this
-  def path_for(a, _b = {})
-    "##{a}"
-  end
-
   def macro(partial, **vars, &block)
     if block_given?
       render layout: partial, locals: vars, &block
