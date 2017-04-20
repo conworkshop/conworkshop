@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class ProfileController < ApplicationController
+class ProfilesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def user_parameter
@@ -14,27 +14,27 @@ class ProfileController < ApplicationController
       response.status = 404
     end
 
-    render 'profile/show'
+    render 'profiles/show'
   end
 
   def edit
     @profile_user = user_parameter
 
     if @profile_user && current_user.power_over?(@profile_user)
-      render 'profile/edit'
+      render 'profiles/edit'
     else
-      redirect_to user_path(params[:username])
+      redirect_to profile_path(params[:username])
     end
   end
 
   def update
     @profile_user = user_parameter
 
-    redirect_to user_path(params[:username]) unless current_user.power_over?(@profile_user)
+    redirect_to profile_path(params[:username]) unless current_user.power_over?(@profile_user)
 
     if @profile_user.profile.update_attributes(update_params)
       flash[:success] = 'Profile successfully updated.'
-      redirect_to user_path(@profile_user)
+      redirect_to profile_path(@profile_user)
     else
       render 'edit'
     end
@@ -44,8 +44,8 @@ class ProfileController < ApplicationController
 
   def update_params
     params.require(:profile).permit(
-        :avatar,  :avatar_cache, :remove_avatar,
-        :country, :gender,       :about
+      :avatar,  :avatar_cache, :remove_avatar,
+      :country, :gender,       :about
     )
   end
 end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Taken from https://gist.github.com/iqbalhasnan/9621174 with small modifications
 module CarrierWave
   module MiniMagick

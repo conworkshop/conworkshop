@@ -27,6 +27,18 @@ class TimeManager
   isRubyTruthy: (value) -> value isnt undefined && value isnt null
 
 time_manager = new TimeManager(window.cws_user_tzinfo)
+
+add_trigger = (el, cntr) ->
+  el.on('input', -> cntr.val("#{el.val().length}/#{cntr.data('cws-max')}"))
+
+  el.trigger('input')
+
+add_counter = (el, max) ->
+  cntr = $("<input class='cntr' type='text' size='9' value='0/0' readonly data-cws-max='#{max}' />")
+  cntr.insertAfter(el)
+
+  return cntr
+
 $(document).on("turbolinks:load", ->
   time_manager.update()
 
@@ -34,5 +46,10 @@ $(document).on("turbolinks:load", ->
   $('nav').stick_in_parent({ parent: 'body' })
     .on('sticky_kit:stick',   -> header_btns.addClass('is_shown'))
     .on('sticky_kit:unstick', -> header_btns.removeClass('is_shown'))
+
+  $('textarea[data-cws-char-limit]').each ->
+    el = $(this)
+    cntr = add_counter(el, el.data('cws-char-limit'))
+    add_trigger(el, cntr)
 )
 

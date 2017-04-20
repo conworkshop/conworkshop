@@ -1,12 +1,13 @@
+# frozen_string_literal: true
 module ActionView
   module Helpers
     class FormBuilder
       def gender_select(method, options = {}, html_options = {})
         @template.gender_select(
-            @object_name,
-            method,
-            objectify_options(options),
-            @default_options.merge(html_options)
+          @object_name,
+          method,
+          objectify_options(options),
+          @default_options.merge(html_options)
         )
       end
     end
@@ -31,8 +32,8 @@ module ActionView
 
         def gender_option_tags
           option_tags_options = {
-              :selected => @options.fetch(:selected) { value(@object) },
-              :disabled => @options[:disabled]
+            selected: @options.fetch(:selected) { value(@object) },
+            disabled: @options[:disabled]
           }
 
           options_for_select(gender_codes, option_tags_options)
