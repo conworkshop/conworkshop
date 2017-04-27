@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427180458) do
+ActiveRecord::Schema.define(version: 20170427233416) do
 
   create_table "lang_types", force: :cascade do |t|
     t.string   "code"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20170427180458) do
     t.integer  "flags"
     t.integer  "auth_type",                         default: 1,   null: false
     t.string   "provider"
+    t.string   "oaid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid"], name: "index_users_on_uid", unique: true
