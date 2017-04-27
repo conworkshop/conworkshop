@@ -3,7 +3,8 @@ class User < ApplicationRecord
   has_one :profile
 
   devise :uid, :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook]
 
   validates :username, presence:   true,
                        uniqueness: { case_sensitive: false },
