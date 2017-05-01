@@ -58,3 +58,6 @@ gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 
 gem 'country_select'
+gem 'omniauth-facebook'
+
+gem 'net_http_ssl_fix', require: 'net_http_ssl_fix'

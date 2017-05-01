@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170415230307) do
+ActiveRecord::Schema.define(version: 20170427233416) do
 
   create_table "lang_types", force: :cascade do |t|
     t.string   "code"
@@ -80,7 +80,10 @@ ActiveRecord::Schema.define(version: 20170415230307) do
     t.string   "group",                             default: "R", null: false
     t.integer  "flags"
     t.integer  "auth_type",                         default: 1,   null: false
+    t.string   "provider"
+    t.string   "oaid"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["oaid"], name: "index_users_on_oaid"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid"], name: "index_users_on_uid", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
