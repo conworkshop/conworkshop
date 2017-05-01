@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   # Devise
   devise_for :users,
-    controllers: { registrations: 'users/registrations', sessions: 'users/sessions' },
+    controllers: {
+      registrations: 'users/registrations', sessions: 'users/sessions',
+      omniauth_callbacks: 'users/omniauth_callbacks'
+    },
     path: '',
     path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' }
 
