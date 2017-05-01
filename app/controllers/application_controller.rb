@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   # Use RouteAccessControl to see if the user is authorized to access this page.
   def authorize_route
-    route_str = params[:controller] + '#' + params[:action]
+    route_str = controller_path + '#' + action_name
 
     unless (access = RouteAccessControl.find_by(route: route_str))
       # Create new row, since it doesn't exist.
