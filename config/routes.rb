@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   # Devise
   devise_for :users,
-    controllers: { registrations: 'users/registrations', sessions: 'users/sessions' },
-    path: '',
-    path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' }
+             controllers: { registrations: 'users/registrations', sessions: 'users/sessions' },
+             path: '',
+             path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' }
 
   # Static pages
   get 'about', to: 'static#about', as: :page_static_about
