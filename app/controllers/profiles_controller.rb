@@ -2,23 +2,17 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
-  def user_parameter
-    params[:username] == 'me' ? current_user : User.find_by_username(params[:username])
-  end
-
   def show
-    @profile_user = user_parameter
+    @profile_user = find_profile_for_params
 
     unless @profile_user
       # user does not exist, 404 code it up.
       response.status = 404
     end
-
-    render 'profiles/show'
   end
 
   def edit
-    @profile_user = user_parameter
+    @profile_user = find_profile_for_params
 
     if @profile_user && current_user.power_over?(@profile_user)
       render 'profiles/edit'
@@ -28,7 +22,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile_user = user_parameter
+    @profile_user = find_profile_for_params
 
     redirect_to profile_path(params[:username]) unless current_user.power_over?(@profile_user)
 
@@ -41,6 +35,10 @@ class ProfilesController < ApplicationController
   end
 
   private
+
+  def find_profile_for_params
+    User.joins(:profile).includes(:profile).find_by(username: params[:username])
+  end
 
   def update_params
     params.require(:profile).permit(

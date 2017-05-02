@@ -3,7 +3,7 @@
 - v_options = User.validators_on(:pseudonym) \
                   .select { |x| x.is_a?(ActiveRecord::Validations::LengthValidator) }[0].options
 
-= link_to '« Return to profile', profile_path('me'), class: 'button alert'
+= link_to '« Return to profile', profile_path(current_user), class: 'button alert'
 
 h1 Edit account settings
 
