@@ -45,8 +45,9 @@ class User < ApplicationRecord
 
       # update oaid and provider in case of standard user trying to login with facebook
       if u.persisted? && u.email == auth.info.email && u.oaid.blank?
-        u.oaid     = auth.uid
-        u.provider = auth.provider
+        u.oaid      = auth.uid
+        u.provider  = auth.provider
+        u.auth_type = 2 # flag standard+facebook
 
         u.save(validate: false)
       elsif !u.persisted?

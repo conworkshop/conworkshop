@@ -3,6 +3,29 @@
 
 = link_to '« Return to profile', profile_path(current_user), class: 'button alert'
 
+h1 Account information
+.form
+  .field
+    dl.larger.nomargin
+      dt Account registered at:
+      dd = cws_time_tag(current_user.created_at)
+      dt Account last updated:
+      dd = cws_time_tag(current_user.updated_at)
+      dt Profile last updated:
+      dd = cws_time_tag(current_user.profile.updated_at)
+      dt Last sign in:
+      dd #{cws_time_tag(current_user.last_sign_in_at)}, on IP #{current_user.last_sign_in_ip}
+      dt Authentication type:
+      dd
+        - if current_user.auth_type == 2 # standard+facebook flag
+          | Standard and Facebook
+        - elsif current_user.provider.present? # facebook
+          | Facebook
+        - else # standard
+          | Standard
+      dt Timezone:
+      dd = current_user.timezone
+
 h1 Edit account settings
 
 = form_for current_user, url: { controller: 'account', action: 'update' } do |f|

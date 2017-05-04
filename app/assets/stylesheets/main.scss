@@ -429,6 +429,16 @@ h1, h2, h3, .title {
 dl {
   font-size: $smaller-font-size;
 
+  &.larger {
+    dt {
+      width: 140px;
+    }
+
+    dd {
+      margin-left: 150px;
+    }
+  }
+
   &.grey dt, &.grey dd {
     color: $weird-black;
   }
@@ -943,4 +953,8 @@ input.cntr {
   font-size: $smaller-font-size;
   max-width: 100px;
   display: block;
+}
+
+.nomargin {
+  margin: 0;
 }
