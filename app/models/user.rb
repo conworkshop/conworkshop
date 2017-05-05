@@ -76,7 +76,7 @@ class User < ApplicationRecord
   end
 
   def avatar_url
-    avatar? ? profile.avatar.url : 'prof_default'
+    avatar? ? profile.avatar.url : 'prof_default.png'
   end
 
   # Get display name of a user (pseudonym if set, else username)

@@ -21,7 +21,7 @@ html lang='en'
 
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
-    = favicon_link_tag "fi_#{phue}", type: 'image/png'
+    = favicon_link_tag "fi_#{phue}.png", type: 'image/png'
 
     = yield :head
 
@@ -29,7 +29,7 @@ html lang='en'
     .header_btn_home
       = link_to 'cws', root_path, class: "bg_#{phue}"
     .header_btn_lang
-      a[href='#'] = image_tag 'flag_default'
+      a[href='#'] = image_tag 'flag_default.png'
 
     header[class="bg_#{phue}" role='banner']
       #top_header
