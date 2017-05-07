@@ -438,10 +438,6 @@ dl {
       margin-left: 150px;
     }
   }
-
-  &.grey dt, &.grey dd {
-    color: $weird-black;
-  }
 }
 
 dt {
@@ -957,4 +953,29 @@ input.cntr {
 
 .nomargin {
   margin: 0;
+}
+
+%status_mark {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-bottom: 2px;
+  margin-left: .5em;
+  font-size: $font-size - .5;
+  border-radius: 10px;
+  vertical-align: middle;
+}
+
+span.online_mark {
+  @extend %status_mark;
+
+  border: 1px solid #6c6;
+  background-color: #6c6;
+}
+
+span.away_mark {
+  @extend %status_mark;
+
+  border: 1px solid #fa6;
+  background-color: #fa6;
 }

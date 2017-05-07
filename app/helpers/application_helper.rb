@@ -76,17 +76,38 @@ module ApplicationHelper
   # @return [string] the rendered date macro
   def cws_time_tag(time = Time.now, with_time: true, long: true, local: true)
     time.utc
-    fmt = "%Y-%m-%d#{with_time ? 'T%H:%M:%S' : ''}"
     fallback = send(:"friendly_date#{with_time ? 'time' : ''}", time, long, local)
 
     macro(
       'date',
-      time: time.strftime(fmt),
+      time: js_time_fmt(time, with_time: with_time),
       with_time: with_time,
       fallback: fallback,
       long: long,
       local: local
     )
+  end
+
+  # Same as #cws_time_tag, but uses shit like '1 hour ago', '32 minutes ago',
+  # like #time_ago_in_words, and puts a title tag on the time tag with the
+  # actual time, in the user's timezone.
+  def cws_time_tag_relative(time = Time.now, local: true, include_seconds: true)
+    time.utc
+
+    macro(
+      'date_ago',
+      time: js_time_fmt(time),
+      time_ago: time_ago_in_words(time, include_seconds: include_seconds),
+      local: local
+    )
+  end
+
+  # Transforms the route shorthand controller#action into a proper url.
+  # @param [String] route the route in controller#action form
+  # @return [String] the url
+  def route_path(route)
+    controller, action = route.split('#')
+    url_for(action: action, controller: controller)
   end
 
   private
@@ -99,5 +120,9 @@ module ApplicationHelper
 
   def banner_devise_convert(type)
     BANNER_DEVISE_CORRL[type] || type
+  end
+
+  def js_time_fmt(time = Time.now, with_time: true)
+    time.strftime("%Y-%m-%d#{'T%H:%M:%S' if with_time}")
   end
 end

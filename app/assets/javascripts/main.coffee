@@ -7,22 +7,38 @@ class TimeManager
     $('time[datetime]').each ->
       el  = $(this)
       dt  = el.attr('datetime')
-      fmt = self.getFormat(el.data('cws-time-with-time'), el.data('cws-time-long'))
-      tz  = if self.isRubyTruthy(el.data('cws-time-local')) then self.tz else 'UTC'
 
-      el.text(moment.utc(dt, moment.ISO_8601).tz(tz).format(fmt))
+      if self.isRubyTruthy(el.data('cws-time-title'))
+        self.updateTitled(el, dt)
+      else
+        self.updateNormal(el, dt)
 
 # ----------- private -----------
+  updateNormal: (el, dt) ->
+    fmt = @getFormat(el.data('cws-time-with-time'), el.data('cws-time-long'))
+    tz  = @selectTz(el.data('cws-time-local'))
+
+    el.text(moment.utc(dt, moment.ISO_8601).tz(tz).format(fmt))
+
+  updateTitled: (el, dt) ->
+    fmt = @getFormat(true, true)
+    tz  = @selectTz(el.data('cws-time-local'))
+
+    el.attr('title', moment.utc(dt, moment.ISO_8601).tz(tz).format(fmt))
+
+  selectTz: (local) ->
+    if @isRubyTruthy(local) then @tz else 'UTC'
+
   figureOutTz: (utz) ->
-    return utz if utz && utz.length != 0
+    return utz if @isRubyTruthy(utz) && utz.length != 0
 
     moment.tz.guess()
 
   getFormat: (with_time, long) ->
-    if long is ''
-      'DD MMMM YYYY' + (if with_time is '' then ', HH:mm' else '')
+    if @isRubyTruthy(long)
+      'DD MMMM YYYY' + (if @isRubyTruthy(with_time) then ', HH:mm' else '')
     else
-      'DD-MMM-YYYY' + (if with_time is '' then ' HH:mm' else '')
+      'DD-MMM-YYYY' + (if @isRubyTruthy(with_time) then ' HH:mm' else '')
 
   isRubyTruthy: (value) -> value isnt undefined && value isnt null
 

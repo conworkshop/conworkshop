@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :user_track do
-    user nil    # unnecessary, so nil
-    route 'a#a' # unnecessary too
+    association :user, strategy: :build
 
     factory :online_user_track do
       tracked_at { Time.now }
