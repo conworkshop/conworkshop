@@ -9,6 +9,7 @@ class User < ApplicationRecord
   USERNAME_LEN  = (4..16).freeze
 
   has_one :profile
+  has_one :user_track
 
   devise :uid, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
