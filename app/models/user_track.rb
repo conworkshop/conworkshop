@@ -4,11 +4,11 @@ class UserTrack < ApplicationRecord
   # Returns the status of the associated user.
   # @return [:online, :away, :offline] the current status
   def status
-    if tracked_at > 15.minutes.ago # online if active in the last 15 minutes
+    if tracked_at > 5.minutes.ago # online if active in the last 5 minutes
       :online
-    elsif tracked_at > 1.hour.ago # away if active in the last hour
+    elsif tracked_at > 30.minutes.ago # away if active in the last 30 minutes
       :away
-    else
+    else # offline otherwise
       :offline
     end
   end
