@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :authorize_route
+  before_action :track_user
 
   private
 
@@ -29,6 +30,21 @@ class ApplicationController < ActionController::Base
                end
 
       render '403', status: 403, locals: { reason: reason }
+    end
+
+    # Tracks an user's current route, and stores it on the database with UserTrack.
+    # Used for: online/away/offline detection; "online now" on the feed
+    def track_user
+      return unless user_signed_in? # ignore guests
+
+      UserTrack.transaction do
+        ut = UserTrack.lock.find_or_initialize_by(user: current_user)
+
+        ut.route      = controller_path + '#' + action_name
+        ut.tracked_at = Time.now
+
+        ut.save(validate: false) # no need to validate because there's nothing to validate
+      end
     end
   end
 end
