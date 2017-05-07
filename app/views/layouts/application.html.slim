@@ -33,15 +33,16 @@ html lang='en'
 
     header[class="bg_#{phue}" role='banner']
       #top_header
-        .lang_sel.right[role='complementary']
-          span
-            a[href='#']
-              img#lang_sel_flag[src=''] = user_signed_in? ? 'LANGUAGE NAME' : 'Not signed in'
-          a.round-button.pass[href='#'] ▼
-          a.round-button.pass[href='#'] ✎
-          a.round-button.alert[href='#'] ★
-          br
-          small %%% | %%% entries
+        - if user_signed_in?
+          .lang_sel.right[role='complementary']
+            span
+              a[href='#']
+                img#lang_sel_flag[src=''] LANGUAGE NAME
+            a.round-button.pass[href='#'] ▼
+            a.round-button.pass[href='#'] ✎
+            a.round-button.alert[href='#'] ★
+            br
+            small %%% | %%% entries
 
         .head[role='heading']
           a[href='/'] %%todo-header-conscript%%
