@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427233416) do
+ActiveRecord::Schema.define(version: 20170507025821) do
 
   create_table "lang_types", force: :cascade do |t|
     t.string   "code"
@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(version: 20170427233416) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["route"], name: "index_route_access_controls_on_route", unique: true
+  end
+
+  create_table "user_tracks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "tracked_at"
+    t.string   "route"
+    t.index ["user_id"], name: "index_user_tracks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
