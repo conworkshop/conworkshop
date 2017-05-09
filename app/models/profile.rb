@@ -15,4 +15,12 @@ class Profile < ApplicationRecord
   def display_country
     country.present? ? ISO3166::Country[country] : 'Nowhereland'
   end
+
+  def avatar?
+    avatar.file.present?
+  end
+
+  def avatar_url
+    avatar? ? avatar.url : 'prof_default.png'
+  end
 end
