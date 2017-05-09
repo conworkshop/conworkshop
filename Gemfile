@@ -13,14 +13,11 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
-# gem 'sass-rails', '~> 5.0'
 gem 'sassc-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -49,6 +46,8 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 
   gem 'rubocop'
+  gem 'net_http_ssl_fix', require: 'net_http_ssl_fix'
+  gem 'slim_lint'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -57,12 +56,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'devise_uid'
 gem 'slim-rails'
-gem 'slim_lint'
-
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
-
 gem 'country_select'
 gem 'omniauth-facebook'
-
-gem 'net_http_ssl_fix', require: 'net_http_ssl_fix'
