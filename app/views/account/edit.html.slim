@@ -8,13 +8,13 @@ h1 Account information
   .field
     dl.larger.nomargin
       dt Account registered at:
-      dd = cws_time_tag(current_user.created_at)
+      dd = cws_local_time(current_user.created_at)
       dt Account last updated:
-      dd = cws_time_tag(current_user.updated_at)
+      dd = cws_local_time(current_user.updated_at)
       dt Profile last updated:
-      dd = cws_time_tag(current_user.profile.updated_at)
+      dd = cws_local_time(current_user.profile.updated_at)
       dt Last sign in:
-      dd #{cws_time_tag(current_user.last_sign_in_at)}, on IP #{current_user.last_sign_in_ip}
+      dd #{cws_local_time(current_user.last_sign_in_at)}, on IP #{current_user.last_sign_in_ip}
       dt Authentication type:
       dd
         - if current_user.auth_type == 2 # standard+facebook flag

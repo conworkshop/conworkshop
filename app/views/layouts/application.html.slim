@@ -13,12 +13,6 @@ html lang='en'
             'cyrillic-ext,latin-ext,cyrillic,vietnamese,greek-ext,devanagari',
             'application', media: 'all', 'data-turbolinks-track': 'reload'
 
-    script[type='text/javascript' data-turbolinks-track='reload']
-      - if user_signed_in?
-        | window.cws_user_tzinfo = '#{current_user.timezone}'
-      - else
-        | window.cws_user_tzinfo = null
-
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
     = favicon_link_tag "fi_#{phue}.png", type: 'image/png'
@@ -54,7 +48,7 @@ html lang='en'
           ' ,
           = user_signed_in? ? current_user.display_name : 'Guest'
           '  |
-          = cws_time_tag
+          = cws_local_time
 
       = render 'layouts/menu'
 
@@ -111,4 +105,4 @@ html lang='en'
         ' Current language:
         => '%%current-langauge-placeholder%%'
         ' | Time now is
-        = cws_time_tag
+        = cws_local_time(Time.now, :short)

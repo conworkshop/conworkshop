@@ -49,57 +49,12 @@ module ApplicationHelper
     render 'user_handle', user: user, clan_sym: clan_sym
   end
 
-  # Convert a datetime into the timezone of the current user, or UTC if none set/not logged in
-  def local_timezone(datetime, default = 'UTC')
-    tz = current_user&.timezone || default
-    Time.at(datetime).in_time_zone(tz)
+  def cws_local_time(time = Time.now, options = nil)
+    local_time(time, options ? options : :long)
   end
 
-  # short = 28-Mar-2017; long = 28 March 2017
-  def friendly_date(datetime, long = true, local = true)
-    datetime = local_timezone(datetime) if local
-    long ? datetime.strftime('%d %B %Y') : datetime.strftime('%d-%b-%Y')
-  end
-
-  def friendly_datetime(datetime, long = true, local = true)
-    datetime = local_timezone(datetime) if local
-    friendly_date(datetime, long, false) + (long ? ',' : '') + datetime.strftime(' %H:%M')
-  end
-
-  # Returns a time tag with the appropriate CWS thingies so that our time
-  # javascript can dynamically 'time'-ize it.
-  #
-  # @param [Time] time the time to display
-  # @param [bool] with_time display with time?
-  # @param [bool] long long format?
-  # @param [bool] local local or server time?
-  # @return [string] the rendered date macro
-  def cws_time_tag(time = Time.now, with_time: true, long: true, local: true)
-    time.utc
-    fallback = send(:"friendly_date#{with_time ? 'time' : ''}", time, long, local)
-
-    macro(
-      'date',
-      time: js_time_fmt(time, with_time: with_time),
-      with_time: with_time,
-      fallback: fallback,
-      long: long,
-      local: local
-    )
-  end
-
-  # Same as #cws_time_tag, but uses shit like '1 hour ago', '32 minutes ago',
-  # like #time_ago_in_words, and puts a title tag on the time tag with the
-  # actual time, in the user's timezone.
-  def cws_time_tag_relative(time = Time.now, local: true, include_seconds: true)
-    time.utc
-
-    macro(
-      'date_ago',
-      time: js_time_fmt(time),
-      time_ago: time_ago_in_words(time, include_seconds: include_seconds),
-      local: local
-    )
+  def cws_local_date(time = Time.now, options = nil)
+    local_time(time, options ? options : :long_notime)
   end
 
   # Transforms the route shorthand controller#action into a proper url.
@@ -120,9 +75,5 @@ module ApplicationHelper
 
   def banner_devise_convert(type)
     BANNER_DEVISE_CORRL[type] || type
-  end
-
-  def js_time_fmt(time = Time.now, with_time: true)
-    time.strftime("%Y-%m-%d#{'T%H:%M:%S' if with_time}")
   end
 end

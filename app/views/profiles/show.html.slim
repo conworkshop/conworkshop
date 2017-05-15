@@ -26,12 +26,12 @@
 
     dl
       dt Member since:
-      dd = cws_time_tag(@profile_user.created_at)
+      dd = cws_local_time(@profile_user.created_at)
 
       dt Last seen:
       dd
         - if @profile_user.user_track
-          => cws_time_tag_relative(@profile_user.user_track.tracked_at, include_seconds: true)
+          => local_time_ago(@profile_user.user_track.tracked_at)
           span.grey
             | [#{route_path(@profile_user.user_track.route)}]
         - else

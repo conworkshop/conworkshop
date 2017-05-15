@@ -20,6 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  time:
+    formats:
+      long:  '%d %B %Y %H:%M%P'
+      short: '%d-%b-%Y %H:%M%P'
+      long_notime: '%d %B %Y'
+      short_notime: '%d-%b-%Y'
   errors:
     messages:
       carrierwave_processing_error: failed to be processed
