@@ -8,6 +8,6 @@
         | CWS Conlanger
   =< link_to user.display_name, profile_path(user), style: 'color: #009999'
   / online/away marker
-  - if user.user_track && user.user_track.status != :offline
+  - if user.user_track&.status != :offline
     a[href="#"]
       span[class="#{user.user_track.status}_mark" title=user.user_track.status]
