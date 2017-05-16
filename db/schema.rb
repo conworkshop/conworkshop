@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170507025821) do
+ActiveRecord::Schema.define(version: 20170516003505) do
 
   create_table "lang_types", force: :cascade do |t|
     t.string   "code"
@@ -68,27 +68,28 @@ ActiveRecord::Schema.define(version: 20170507025821) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                             default: "",  null: false
-    t.string   "encrypted_password",                default: "",  null: false
+    t.string   "email",                             default: "",   null: false
+    t.string   "encrypted_password",                default: "",   null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                     default: 0,   null: false
+    t.integer  "sign_in_count",                     default: 0,    null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
     t.string   "uid"
-    t.string   "username",               limit: 24, default: "",  null: false
+    t.string   "username",               limit: 24, default: "",   null: false
     t.string   "pseudonym"
     t.string   "timezone"
-    t.string   "group",                             default: "R", null: false
+    t.string   "group",                             default: "R",  null: false
     t.integer  "flags"
-    t.integer  "auth_type",                         default: 1,   null: false
+    t.integer  "auth_type",                         default: 1,    null: false
     t.string   "provider"
     t.string   "oaid"
+    t.string   "preferred_locale",                  default: "en"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["oaid"], name: "index_users_on_oaid"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
