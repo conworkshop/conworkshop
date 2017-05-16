@@ -1,0 +1,14 @@
+pt:
+  menu:
+    logout: 'Sair'
+    basic:
+      login: 'Entrar'
+      register: 'Registrar'
+      about: 'Sobre'
+      home: 'Home'
+      green:
+        browse: 'Navegar'
+        conlangs: 'Conlangs'
+        dictionaries: 'Dicionários'
+        articles: 'Todos os artigos'
+        typological: 'Banco de dados tipológico'

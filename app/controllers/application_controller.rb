@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
   before_action :track_user
   before_action :set_locale
 
+  def default_url_options
+    { locale: I18n.locale }
+  end
+
   private
 
   # Use RouteAccessControl to see if the user is authorized to access this page.
@@ -49,8 +53,16 @@ class ApplicationController < ActionController::Base
     end
 
     def set_locale
-      I18n.locale =
-        params[:locale] || current_user&.preferred_locale || locale_from_accept_language || I18n.default_locale
+      # basically, the default locale on the URL is `nil`. this means that the
+      # system will use the guessed locale.
+      #  * example path: /profile/unleashy (no locale prefix, locale guessed)
+      # if it isn't the default nil, then use the params[:locale].
+      #  * example path: /pt/profile/unleashy -> locale is :pt
+      I18n.locale = params[:locale] ? params[:locale].to_sym : guess_locale
+    end
+
+    def guess_locale
+      current_user&.preferred_locale || locale_from_accept_language || I18n.default_locale
     end
 
     def locale_from_accept_language

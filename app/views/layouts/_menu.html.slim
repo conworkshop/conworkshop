@@ -270,25 +270,25 @@ nav[role='navigation']
           li[role='treeitem']
             a.nav_grey_l[href='#'] Donate
       li[role='treeitem']
-        = link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav_red'
+        = link_to t('menu.logout'), destroy_user_session_path, method: :delete, class: 'nav_red'
 
     - else
       li[role='treeitem']
-        = link_to 'Home', root_path, class: 'nav_grey'
+        = link_to t('menu.basic.home'), locale_root_path(locale: I18n.locale), class: 'nav_grey'
       li[role='treeitem']
-        a.nav_green[href='#'] Browse
+        a.nav_green[href='#']= t('menu.basic.green.browse')
         ul[role='tree']
           li[role='treeitem']
-            a.nav_green_l[href='#'] Conlangs
+            a.nav_green_l[href='#']= t('menu.basic.green.conlangs')
           li[role='treeitem']
-            a.nav_green_l[href='#'] Dictionaries
+            a.nav_green_l[href='#']= t('menu.basic.green.dictionaries')
           li[role='treeitem']
-            a.nav_green_l[href='#'] All articles
+            a.nav_green_l[href='#']= t('menu.basic.green.articles')
           li[role='treeitem']
-            a.nav_green_l[href='#'] Typological database
+            a.nav_green_l[href='#']= t('menu.basic.green.articles')
       li[role='treeitem']
-        = link_to 'About', page_static_about_path, class: 'nav_yellow'
+        = link_to t('menu.basic.about'), page_static_about_path, class: 'nav_yellow'
       li[role='treeitem']
-        = link_to 'Login', new_user_session_path, class: 'nav_blue'
+        = link_to t('menu.basic.login'), new_user_session_path, class: 'nav_blue'
       li[role='treeitem']
-        = link_to 'Register', new_user_registration_path, class: 'nav_orange'
+        = link_to t('menu.basic.register'), new_user_registration_path, class: 'nav_orange'
