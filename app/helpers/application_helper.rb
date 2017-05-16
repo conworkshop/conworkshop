@@ -1,11 +1,8 @@
 # frozen_string_literal: true
 
-module ApplicationHelper
-  # TODO: remove this
-  def path_for(a, _b = {})
-    "##{a}"
-  end
+require 'gender_form_builder'
 
+module ApplicationHelper
   def macro(partial, **vars, &block)
     if block_given?
       render layout: partial, locals: vars, &block
@@ -48,44 +45,24 @@ module ApplicationHelper
     )
   end
 
-  # Convert a datetime into the timezone of the current user, or UTC if none set/not logged in
-  def local_timezone(datetime, default = 'UTC')
-    tz = current_user&.timezone || default
-    Time.at(datetime).in_time_zone(tz)
+  def user_handle(user, clan_sym = true)
+    render 'user_handle', user: user, clan_sym: clan_sym
   end
 
-  # short = 28-Mar-2017; long = 28 March 2017
-  def friendly_date(datetime, long = true, local = true)
-    datetime = local_timezone(datetime) if local
-    long ? datetime.strftime('%d %B %Y') : datetime.strftime('%d-%b-%Y')
+  def cws_local_time(time = Time.now, options = nil)
+    local_time(time, options ? options : :long)
   end
 
-  def friendly_datetime(datetime, long = true, local = true)
-    datetime = local_timezone(datetime) if local
-    friendly_date(datetime, long, false) + (long ? ',' : '') + datetime.strftime(' %H:%M')
+  def cws_local_date(time = Time.now, options = nil)
+    local_time(time, options ? options : :long_notime)
   end
 
-  # Returns a time tag with the appropriate CWS thingies so that our time
-  # javascript can dynamically 'time'-ize it.
-  #
-  # @param [Time] time the time to display
-  # @param [bool] with_time display with time?
-  # @param [bool] long long format?
-  # @param [bool] local local or server time?
-  # @return [string] the rendered date macro
-  def cws_time_tag(time = Time.now, with_time: true, long: true, local: true)
-    time.utc
-    fmt = "%Y-%m-%d#{with_time ? 'T%H:%M:%S' : ''}"
-    fallback = send(:"friendly_date#{with_time ? 'time' : ''}", time, long, local)
-
-    macro(
-      'date',
-      time: time.strftime(fmt),
-      with_time: with_time,
-      fallback: fallback,
-      long: long,
-      local: local
-    )
+  # Transforms the route shorthand controller#action into a proper url.
+  # @param [String] route the route in controller#action form
+  # @return [String] the url
+  def route_path(route)
+    controller, action = route.split('#')
+    url_for(action: action, controller: controller)
   end
 
   private

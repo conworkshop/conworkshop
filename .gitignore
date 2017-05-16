@@ -27,3 +27,6 @@
 /.idea/*
 
 /public/uploads/*
+
+# FUCKING MAC
+.DS_Store

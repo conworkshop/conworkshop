@@ -1,21 +1,32 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
-  # Profile
-  get 'user/:username', to: 'profile#show', constraints: { username: %r{[^/]+} }, as: :user
-  get 'user/:username/edit', to: 'profile#edit', constraints: { username: %r{[^/]+} }, as: :profile_edit
-  patch 'user/:username/edit', to: 'profile#update', constraints: { username: %r{[^/]+} }, as: :profile_update
-
-  # Account
-  get 'account', to: 'account#edit', as: :account_edit
-  patch 'account', to: 'account#update', as: :account_update
-
-  # Static pages
-  get 'about', to: 'static#about', as: :page_static_about
-  get 'feed', to: 'static#feed', as: :page_static_feed
-
   # Root
   root 'static#feed'
 
-  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # Devise
+  devise_for :users,
+    controllers: {
+      registrations: 'users/registrations', sessions: 'users/sessions',
+      omniauth_callbacks: 'users/omniauth_callbacks'
+    },
+    path: '',
+    path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' }
+
+  # Static pages
+  get 'about', to: 'static#about', as: :page_static_about
+
+  # Profile
+  resources :profiles, only: [:show, :edit, :update], param: :username
+
+  # Account
+  resource :account, only: [:edit, :update], controller: 'account'
+
+  # Language
+  resources :languages, only: [:show, :update, :new, :create], id: /[a-zA-Z0-9]{3}/
+
+  # Admin
+  namespace :admin do
+    # Admin::Langtypes
+    resources :langtypes, only: [:index, :edit, :update]
+  end
 end

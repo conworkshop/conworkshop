@@ -56,4 +56,11 @@ Rails.application.configure do
   # Sass
   config.sass.line_comments = false
   config.sass.inline_source_maps = true
+
+  # You have many mouths and you must scream
+  CarrierWave.configure do |config|
+    config.ignore_integrity_errors = false
+    config.ignore_processing_errors = false
+    config.ignore_download_errors = false
+  end
 end

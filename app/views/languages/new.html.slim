@@ -1,0 +1,20 @@
+- provide(:page_title, 'New Language')
+- provide(:page_colour, 'orange')
+
+h2 Add New Language
+= form_for :language do |f|
+
+  .field
+    = f.label :code
+    = hover_ico :info
+      | A unique three-letter code to identify your language.
+
+    span.sbt
+      ' Letters
+      b> A-Z
+      | only! Using anything else may hinder functionality.
+
+    = f.text_field :code, autocomplete: 'off', size: 10
+
+  .field
+    = f.label :lang_type, 'Language Type'

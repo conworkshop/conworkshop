@@ -1,0 +1,66 @@
+- if @profile_user
+
+  - provide(:page_title, @profile_user.username + ' - View Profile')
+  - provide(:page_colour, 'orange')
+
+  .full_width.contain
+    .profile-sidedata
+      | #{@profile_user.profile.display_gender}, from #{@profile_user.profile.display_country}
+      br
+      span.profile-karma
+        span.karma-arrow-up> ▲
+        ' 123
+        span.karma-arrow-down> ▼
+        ' 321
+        / TODO: a linkamajig to the karmamajig
+        a[href='#'] [info]
+
+    .profile-username
+      .circle-avatar
+        = image_tag(@profile_user.profile.avatar_url)
+      .profile-handle
+        = user_handle(@profile_user)
+        .profile-extra
+          => link_to '[edit profile]', edit_profile_path(params[:username]) if current_user&.power_over?(@profile_user)
+          => link_to '[message]', '#'
+
+    dl
+      dt Member since:
+      dd = cws_local_time(@profile_user.created_at)
+
+      dt Last seen:
+      dd
+        - if @profile_user.user_track
+          => local_time_ago(@profile_user.user_track.tracked_at)
+          span.grey
+            | [#{route_path(@profile_user.user_track.route)}]
+        - else
+          | No idea!
+
+      dt Board posts:
+      dd No idea!
+
+    / Admin data
+    - if %w(A D).include?(@profile_user.group)
+      dl.grey
+        dt Last login's IP:
+        dd = @profile_user.last_sign_in_ip
+        dt Timezone:
+        dd = @profile_user.timezone
+        dt Group:
+        dd = @profile_user.group
+
+    - unless @profile_user.profile.about.blank?
+      section#about
+        h2.like_text About #{@profile_user.display_name}
+        / TODO: Needs CWSMarkup!
+        .faux = @profile_user.profile.about
+
+- else
+
+  - provide(:page_title, 'User not found - View Profile')
+  - provide(:page_colour, 'red')
+
+  = banner :err
+    ' No such user:
+    b = params[:username]

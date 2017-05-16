@@ -1,7 +1,5 @@
 - provide(:page_title, 'Sign Up')
 - provide(:page_colour, 'orange')
-- v_options = User.validators_on(:username) \
-                  .select { |x| x.is_a?(ActiveRecord::Validations::LengthValidator) }[0].options
 
 - content_for :head
   coffee:
@@ -17,7 +15,7 @@ h2 Sign up
   .field
     = f.label :username
     = hover_ico :info
-      ' Maximum of #{v_options[:maximum]} characters, minimum of #{v_options[:minimum]} characters.
+      ' Maximum of #{User::USERNAME_LEN.end} characters, minimum of #{User::USERNAME_LEN.begin} characters.
       | You will need this username to log in so make sure it's memorable.
 
     span.sbt You can only use these characters: A-Z, a-z, 0-9, dashes, underscores and dots.

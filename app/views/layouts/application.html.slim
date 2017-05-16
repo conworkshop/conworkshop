@@ -13,36 +13,30 @@ html lang='en'
             'cyrillic-ext,latin-ext,cyrillic,vietnamese,greek-ext,devanagari',
             'application', media: 'all', 'data-turbolinks-track': 'reload'
 
-    script[type='text/javascript' data-turbolinks-track='reload']
-      - if user_signed_in?
-        | window.cws_user_tzinfo = '#{current_user.timezone}'
-      - else
-        | window.cws_user_tzinfo = null
-
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
-    = favicon_link_tag "fi_#{phue}", type: 'image/png'
+    = favicon_link_tag "fi_#{phue}.png", type: 'image/png'
 
     = yield :head
 
   body[class=phue]
     .header_btn_home
-      = link_to 'CWS', root_path, class: "bg_#{phue}"
+      = link_to 'cws', root_path, class: "bg_#{phue}"
     .header_btn_lang
-      a[href='#']
-        img[src='']
+      a[href='#'] = image_tag 'flag_default.png'
 
     header[class="bg_#{phue}" role='banner']
       #top_header
-        .lang_sel.right[role='complementary']
-          span
-            a[href='#']
-              img#lang_sel_flag[src=''] = user_signed_in? ? 'LANGUAGE NAME' : 'Not signed in'
-          a.round-button.pass[href='#'] ▼
-          a.round-button.pass[href='#'] ✎
-          a.round-button.alert[href='#'] ★
-          br
-          small %%% | %%% entries
+        - if user_signed_in?
+          .lang_sel.right[role='complementary']
+            span
+              a[href='#']
+                img#lang_sel_flag[src=''] LANGUAGE NAME
+            a.round-button.pass[href='#'] ▼
+            a.round-button.pass[href='#'] ✎
+            a.round-button.alert[href='#'] ★
+            br
+            small %%% | %%% entries
 
         .head[role='heading']
           a[href='/'] %%todo-header-conscript%%
@@ -54,7 +48,7 @@ html lang='en'
           ' ,
           = user_signed_in? ? current_user.display_name : 'Guest'
           '  |
-          = cws_time_tag
+          = cws_local_time
 
       = render 'layouts/menu'
 
@@ -111,4 +105,4 @@ html lang='en'
         ' Current language:
         => '%%current-langauge-placeholder%%'
         ' | Time now is
-        = cws_time_tag
+        = cws_local_time(Time.now, :short)

@@ -3,9 +3,11 @@
 - provide(:page_title, 'Log in')
 
 h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  = devise_error_messages!
+= devise_error_messages!
 
+= link_to 'Log in with Facebook instead', user_facebook_omniauth_authorize_path, class: 'button idle'
+
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field
     = f.label :username
     = f.text_field :username, autofocus: true, size: 38

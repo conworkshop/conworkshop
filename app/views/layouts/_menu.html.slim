@@ -229,16 +229,16 @@ nav[role='navigation']
               li[role='treeitem']
                 a.nav_orange_l[href='#'] Send message
           li[role='treeitem']
-            = link_to 'My profile', user_path('me'), class: 'nav_orange_l nav_caret'
+            = link_to 'My profile', profile_path(current_user), class: 'nav_orange_l nav_caret'
             ul[role='tree']
               li[role='treeitem']
-                = link_to 'Edit profile', profile_edit_path('me'), class: 'nav_orange_l'
+                = link_to 'Edit profile', edit_profile_path(current_user), class: 'nav_orange_l'
               li[role='treeitem']
                 a.nav_orange_l[href='#'] My karma
               li[role='treeitem']
                 a.nav_orange_l[href='#'] CWS preferences
               li[role='treeitem']
-                = link_to 'Account settings', account_edit_path, class: 'nav_orange_l'
+                = link_to 'Account settings', edit_account_path, class: 'nav_orange_l'
           li[role='treeitem']
             a.nav_orange_l.nav_caret[href='#'] Languages
             ul[role='tree']
@@ -269,7 +269,7 @@ nav[role='navigation']
             a.nav_grey_l[href='#'] Site statistics
           li[role='treeitem']
             a.nav_grey_l[href='#'] Donate
-      li[role='treeitem' style='width: 20%;']
+      li[role='treeitem']
         = link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav_red'
 
     - else

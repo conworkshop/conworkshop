@@ -3,13 +3,12 @@ class AccountController < ApplicationController
   before_action :authenticate_user!
 
   def edit
-    render 'account/edit'
   end
 
   def update
     if current_user.update_attributes(update_params)
-      flash[:success] = 'Profile successfully updated.'
-      redirect_to user_path('me')
+      flash[:success] = 'Account settings successfully updated.'
+      redirect_to profile_path(current_user)
     else
       render 'edit'
     end

@@ -1,0 +1,41 @@
+- provide(:page_title, @profile_user.username + ' - Edit Profile')
+- provide(:page_colour, 'orange')
+
+= link_to '« Return to profile', profile_path(params[:username]), class: 'button alert'
+
+h1 Edit profile: #{@profile_user.username}
+
+= form_for @profile_user.profile, url: { controller: 'profiles', action: 'update' }, html: { multipart: true } do |f|
+  = render 'error_messages', cur_obj: @profile_user.profile
+
+  .field.full_width
+    | Profile picture
+    = hover_ico :info
+      | The uploaded image will be resized to 50px by 50px.
+    br
+    .circle-avatar
+      = image_tag @profile_user.profile.avatar_url, alt: 'Profile picture'
+
+    = f.file_field :avatar, style: 'display: inline-block; vertical-align: top;'
+    = f.hidden_field :avatar_cache
+
+    - if current_user.profile.avatar?
+      br
+      => f.check_box :remove_avatar
+      = f.label :remove_avatar
+
+  .field
+    = f.label :country
+    = f.country_select :country, include_blank: 'Nowhereland'
+
+  .field
+    = f.label :gender
+    = f.gender_select :gender, include_blank: 'Not stated'
+
+  .field.full_width
+    = f.label :about
+    = f.text_area :about, cols: 200, rows: 4, maxlength: CWS::Globals::MAX_ABOUT_CHARS,
+        'data-cws-char-limit': CWS::Globals::MAX_ABOUT_CHARS
+
+  .actions
+    = f.submit '✔ Save changes', class: 'button pass'

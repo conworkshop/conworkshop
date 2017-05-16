@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406172848) do
+ActiveRecord::Schema.define(version: 20170507025821) do
+
+  create_table "lang_types", force: :cascade do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_lang_types_on_code"
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string   "code"
+    t.string   "name"
+    t.string   "nativename"
+    t.string   "ipa"
+    t.integer  "lang_type_id"
+    t.string   "phonosystem"
+    t.string   "lexcols"
+    t.integer  "user_id"
+    t.text     "overview"
+    t.boolean  "public"
+    t.string   "status"
+    t.boolean  "prunesafe"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["code"], name: "index_languages_on_code", unique: true
+    t.index ["lang_type_id"], name: "index_languages_on_lang_type_id"
+    t.index ["user_id"], name: "index_languages_on_user_id"
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
@@ -22,6 +50,21 @@ ActiveRecord::Schema.define(version: 20170406172848) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "route_access_controls", force: :cascade do |t|
+    t.string   "route"
+    t.integer  "level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["route"], name: "index_route_access_controls_on_route", unique: true
+  end
+
+  create_table "user_tracks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "tracked_at"
+    t.string   "route"
+    t.index ["user_id"], name: "index_user_tracks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,7 +87,10 @@ ActiveRecord::Schema.define(version: 20170406172848) do
     t.string   "group",                             default: "R", null: false
     t.integer  "flags"
     t.integer  "auth_type",                         default: 1,   null: false
+    t.string   "provider"
+    t.string   "oaid"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["oaid"], name: "index_users_on_oaid"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid"], name: "index_users_on_uid", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true

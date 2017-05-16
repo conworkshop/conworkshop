@@ -1,36 +1,75 @@
 # frozen_string_literal: true
 class User < ApplicationRecord
-  has_one :profile
-
-  devise :uid, :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
-  validates :username, presence:   true,
-                       uniqueness: { case_sensitive: false },
-                       format:     { with: /\A[a-zA-Z_\-.]+\z/ },
-                       length:     { minimum: 4, maximum: 16 }
-
-  validates :pseudonym, uniqueness: { case_sensitive: false },
-                        length:     { minimum: 4, maximum: 16 },
-                        if:      -> { !(new_record? || pseudonym.blank?) }
-
   RANK_HIERARCHY = {
     B: 0, R: 0,
     S: 1,
     A: 2, D: 2
   }.freeze
 
+  USERNAME_LEN  = (4..16).freeze
+
+  has_one :profile
+  has_one :user_track
+
+  devise :uid, :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook]
+
+  validates :username, presence:   true,
+                       uniqueness: { case_sensitive: false },
+                       format:     { with: /\A[A-Za-z0-9_\-.]+\z/ },
+                       length:     USERNAME_LEN
+
+  validates :pseudonym, uniqueness: { case_sensitive: false },
+                        length:     { minimum: USERNAME_LEN.begin },
+                        if:      -> { !(new_record? || pseudonym.blank?) }
+
+  def self.from_omniauth(auth)
+    ActiveRecord::Base.transaction do
+      u = where(
+        '(oaid = ? AND provider = ?) OR email = ?',
+        auth.uid,
+        auth.provider,
+        auth.info.email
+      ).first_or_initialize(oaid: auth.uid, provider: auth.provider) do |u|
+        u.email     = auth.info.email
+        u.password  = Devise.friendly_token
+        u.username  = Devise.friendly_token(USERNAME_LEN.begin + 5)
+        u.pseudonym = auth.info.name
+        u.group     = 'R'
+
+        u.profile = Profile.new
+
+        u.profile.user = u
+        u.profile.remote_avatar_url = auth.info.image.sub('http', 'https') if auth.info.image
+      end
+
+      # update oaid and provider in case of standard user trying to login with facebook
+      if u.persisted? && u.email == auth.info.email && u.oaid.blank?
+        u.oaid      = auth.uid
+        u.provider  = auth.provider
+        u.auth_type = 2 # flag standard+facebook
+
+        u.save(validate: false)
+      elsif !u.persisted?
+        u.save!
+      end
+
+      u
+    end
+  end
+
+  def self.new_from_session(params, session)
+    super.tap do |user|
+      if (data = session['devise.facebook_data']) && session['devise.facebook_data']['extra']['raw_info']
+        user.email = data['email'] if user.email.blank?
+      end
+    end
+  end
+
   # Use username instead of id for linking to users
   def to_param
     username
-  end
-
-  def avatar?
-    profile.avatar.present?
-  end
-
-  def avatar_url
-    avatar? ? profile.avatar.url : 'prof_default'
   end
 
   # Get display name of a user (pseudonym if set, else username)
@@ -38,10 +77,17 @@ class User < ApplicationRecord
     pseudonym || username
   end
 
+  def rank?(rank)
+    RANK_HIERARCHY[group.to_sym] >= rank
+  end
+
   # Whether user has editing rights over another
-  # TODO: Allow ranks power over lower ranks (e.g admins > staff > members, etc)
-  def power_over(test_user)
+  def power_over?(test_user)
     self == test_user || RANK_HIERARCHY[group.to_sym] > RANK_HIERARCHY[test_user.group.to_sym]
+  end
+
+  def banned?
+    group == 'B'
   end
 
   # convert datetime to the user's timezone (or UTC if not set)
