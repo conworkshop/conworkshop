@@ -65,6 +65,18 @@ module ApplicationHelper
     url_for(action: action, controller: controller)
   end
 
+  def language_select_options(path_has_locale)
+    options = I18n.available_locales.inject([]) do |opts, locale|
+      path = path_has_locale ? request.fullpath.sub(/\A\/.+?(?:\/|\/?\z)/, "/#{locale}/")
+                             : "/#{locale}#{request.fullpath}"
+      opts << [I18n.t("language_names.#{locale}"), locale.to_s, { 'data-path': path }]
+
+      opts
+    end
+
+    options_for_select(options, I18n.locale.to_s)
+  end
+
   private
 
   BANNER_DEVISE_CORRL = {

@@ -19,5 +19,7 @@ $(document).on("turbolinks:load", ->
     el = $(this)
     cntr = add_counter(el, el.data('cws-char-limit'))
     add_trigger(el, cntr)
+
+  $('#language_select').change (e) -> Turbolinks.visit(e.target.selectedOptions[0].dataset['path'])
 )
 

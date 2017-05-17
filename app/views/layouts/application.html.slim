@@ -102,5 +102,7 @@ html lang='en'
           a[href='#'] api (indev)
 
       span#foot_info
-        ' Viewing CWS in: English | Time now is
+        ' Viewing CWS in:
+        => select_tag 'language_select', language_select_options(params[:locale].present?), id: 'language_select'
+        ' | Time now is
         = cws_local_time(Time.now, :short)

@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  language_names:
+    en: English
+    pt: Português (Portuguese)
   menu:
     green:
       dictionary:

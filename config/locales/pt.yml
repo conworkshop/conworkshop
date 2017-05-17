@@ -1,4 +1,7 @@
 pt:
+  language_names:
+    en: English (Inglês)
+    pt: Português
   menu:
     logout: 'Sair'
     basic:

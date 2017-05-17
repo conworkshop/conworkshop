@@ -979,3 +979,13 @@ span.away_mark {
   border: 1px solid #fa6;
   background-color: #fa6;
 }
+
+select#language_select {
+  display: inline;
+  margin: 0;
+  padding: 0;
+
+  &:not(:focus) {
+    background-color: transparent;
+  }
+}
