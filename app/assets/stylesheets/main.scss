@@ -1000,8 +1000,16 @@ select#language_select {
 }
 
 .list {
+  &:hover, &:focus {
+    color: $lighter-black;
+  }
+
+  &:hover + list, &:focus + list {
+    border-bottom: 1px solid #ccc;
+  }
+
   & + .list {
-    border-bottom: 1px solid $bg-grey;
+    border-bottom: 1px solid #eee;
   }
 
   font-size: $smaller-font-size;
@@ -1012,7 +1020,7 @@ select#language_select {
 }
 
 // mainly for preferences
-#preference-list {
+.preference-list {
   display: flex;
   flex-direction: row;
   align-items: center;
