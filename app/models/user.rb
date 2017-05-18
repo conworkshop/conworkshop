@@ -15,6 +15,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
+  store :preferences, coder: JSON
+
   validates :username, presence:   true,
                        uniqueness: { case_sensitive: false },
                        format:     { with: /\A[A-Za-z0-9_\-.]+\z/ },
@@ -23,6 +25,14 @@ class User < ApplicationRecord
   validates :pseudonym, uniqueness: { case_sensitive: false },
                         length:     { minimum: USERNAME_LEN.begin },
                         if:      -> { !(new_record? || pseudonym.blank?) }
+
+  validates_hash_keys :preferences do
+    validates :locale, allow_blank: true,
+                       inclusion: {
+                         in: I18n.available_locales.map(&:to_s),
+                         message: '%{value} is not available in ConWorkShop'
+                       }
+  end
 
   def self.from_omniauth(auth)
     ActiveRecord::Base.transaction do
@@ -88,11 +98,5 @@ class User < ApplicationRecord
 
   def banned?
     group == 'B'
-  end
-
-  # convert datetime to the user's timezone (or UTC if not set)
-  def to_user_timezone(datetime)
-    tz = try(:timezone) || 'UTC'
-    Time.at(datetime).in_time_zone(tz)
   end
 end
