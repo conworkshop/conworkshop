@@ -28,5 +28,7 @@ RouteAccessControl.create([
   { route: 'languages#update',                  level:  0 },
   { route: 'languages#create',                  level:  0 },
   { route: 'users/omniauth_callbacks#facebook', level: -1 },
-  { route: 'users/omniauth_callbacks#failure',  level: -1 }
+  { route: 'users/omniauth_callbacks#failure',  level: -1 },
+  { route: 'preferences#edit',                  level:  0 },
+  { route: 'preferences#update',                level:  0 },
 ])

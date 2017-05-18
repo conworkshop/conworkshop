@@ -65,12 +65,17 @@ module ApplicationHelper
     url_for(action: action, controller: controller)
   end
 
-  def language_select_options(path_has_locale)
+  def language_select_options(path_has_locale: true, with_path: true)
     options = I18n.available_locales.inject([]) do |opts, locale|
-      path = path_has_locale ? request.fullpath.sub(/\A\/.+?(?:\/|\/?\z)/, "/#{locale}/")
-                             : "/#{locale}#{request.fullpath}"
-      opts << [I18n.t("language_names.#{locale}"), locale.to_s, { 'data-path': path }]
+      opt = [I18n.t("language_names.#{locale}"), locale.to_s]
 
+      if with_path
+        path = path_has_locale ? request.fullpath.sub(/\A\/.+?(?:\/|\/?\z)/, "/#{locale}/")
+                               : "/#{locale}#{request.fullpath}"
+        opt << { 'data-path': path }
+      end
+
+      opts << opt
       opts
     end
 

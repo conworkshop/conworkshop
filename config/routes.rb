@@ -25,7 +25,12 @@ Rails.application.routes.draw do
     resources :profiles, only: [:show, :edit, :update], param: :username
 
     # Account
+    # TODO: change this to a non-resourceful route
     resource :account, only: [:edit, :update], controller: 'account'
+
+    # Preferences
+    get '/preferences',   to: 'preferences#edit'
+    patch '/preferences', to: 'preferences#update'
 
     # Language
     resources :languages, only: [:show, :update, :new, :create], id: /[a-zA-Z0-9]{3}/

@@ -15,7 +15,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  store :preferences, coder: JSON
+  store :preferences, accessors: [:locale], coder: JSON
 
   validates :username, presence:   true,
                        uniqueness: { case_sensitive: false },

@@ -452,12 +452,17 @@ dd {
   color: #777;
 }
 
+%form_field {
+  margin: 10px;
+  vertical-align: top;
+}
+
 form, .form {
   .field, .actions {
-    display: inline-block;
-    margin: 10px;
+    @extend %form_field;
+
     width: 46%;
-    vertical-align: top;
+    display: inline-block;
 
     .third {
       width: 30%;
@@ -470,6 +475,10 @@ form, .form {
     .list {
       width: 95%;
     }
+  }
+
+  .field-whole {
+    @extend %form_field;
   }
 }
 
@@ -987,5 +996,41 @@ select#language_select {
 
   &:not(:focus) {
     background-color: transparent;
+  }
+}
+
+.list {
+  & + .list {
+    border-bottom: 1px solid $bg-grey;
+  }
+
+  font-size: $smaller-font-size;
+  color: $basically-black;
+  text-decoration: none;
+  padding: 5px 5px 5px 20px;
+  transition: .1s;
+}
+
+// mainly for preferences
+#preference-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  span.default_value {
+    color: #aaa;
+  }
+
+  span.sel {
+    flex-grow: 1;
+    margin-left: 2em;
+
+    & > * {
+      width: 100%
+    }
+  }
+
+  label {
+    font-size: $font-size + .2;
   }
 }

@@ -69,7 +69,7 @@ html lang='en'
             a[href='#'] = controller.action_name
 
       section#content
-        = render 'flash_messages'
+        = render 'flash_messages' unless content_for?(:no_render_flash)
         = yield
 
     footer[role='contentinfo']
@@ -103,6 +103,7 @@ html lang='en'
 
       span#foot_info
         ' Viewing CWS in:
-        => select_tag 'language_select', language_select_options(params[:locale].present?), id: 'language_select'
+        => select_tag 'language_select', language_select_options(path_has_locale: params[:locale].present?),
+             id: 'language_select'
         ' | Time now is
         = cws_local_time(Time.now, :short)

@@ -23,6 +23,21 @@ en:
   language_names:
     en: English
     pt: Português (Portuguese)
+
+  general:
+    save: ✔ Save changes
+    return:
+      profile: « Return to profile
+
+  preferences:
+    edit:
+      title: Preferences
+      default_value: 'Default value:'
+      preference:
+        locale:
+          title: Language
+          text: Choose the language you prefer CWS to be displayed in by default.
+
   menu:
     green:
       dictionary:
@@ -171,12 +186,14 @@ en:
         dictionaries: 'Dictionaries'
         articles: 'All articles'
         typological: 'Typological database'
+
   time:
     formats:
       long:  '%d %B %Y %H:%M%P'
       short: '%d-%b-%Y %H:%M%P'
       long_notime: '%d %B %Y'
       short_notime: '%d-%b-%Y'
+
   errors:
     messages:
       carrierwave_processing_error: failed to be processed
