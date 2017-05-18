@@ -1,0 +1,32 @@
+pt:
+  language_names:
+    en: English (Inglês)
+    pt: Português
+
+  general:
+    save: ✔ Salvar alterações
+    return:
+      profile: « Retornar ao perfil
+
+  preferences:
+    edit:
+      title: Preferências
+      default_value: 'Valor padrão:'
+      preference:
+        locale:
+          title: Idioma
+          text: Escolha o idioma em que o CWS estará por padrão.
+
+  menu:
+    logout: 'Sair'
+    basic:
+      login: 'Entrar'
+      register: 'Registrar'
+      about: 'Sobre'
+      home: 'Home'
+      green:
+        browse: 'Navegar'
+        conlangs: 'Conlangs'
+        dictionaries: 'Dicionários'
+        articles: 'Todos os artigos'
+        typological: 'Banco de dados tipológico'
