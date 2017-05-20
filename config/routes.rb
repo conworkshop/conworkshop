@@ -25,8 +25,8 @@ Rails.application.routes.draw do
     resources :profiles, only: [:show, :edit, :update], param: :username
 
     # Account
-    # TODO: change this to a non-resourceful route
-    resource :account, only: [:edit, :update], controller: 'account'
+    get '/account', to: 'account#edit'
+    patch '/account', to: 'account#update'
 
     # Preferences
     get '/preferences',   to: 'preferences#edit'
