@@ -12,16 +12,17 @@ h1= t('.title')
 
   / TODO: other preferences!
   .field-whole
-    .list.twocolumned.preference-list
-      span
-        = f.label :locale, t('.preference.locale.title')
-        br
-        span= t('.preference.locale.text')
-        br
-        span.default_value
-          => t('.default_value')
-          strong= t("language_names.#{I18n.default_locale}")
-      span.sel
-        = f.select :locale, language_select_options(with_path: false)
+    = f.fields_for :preferences do |fp|
+      .list.twocolumned.preference-list
+        span
+          = fp.label :locale, t('.preference.locale.title')
+          br
+          span= t('.preference.locale.text')
+          br
+          span.default_value
+            => t('.default_value')
+            strong= t("language_names.#{I18n.default_locale}")
+        span.sel
+          = fp.select :locale, language_select_options(with_path: false)
     .actions
       = f.submit t('general.save'), class: 'button pass'

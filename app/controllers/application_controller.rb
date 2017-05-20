@@ -62,7 +62,7 @@ class ApplicationController < ActionController::Base
     end
 
     def guess_locale
-      current_user&.preferences[:locale] || locale_from_accept_language || I18n.default_locale
+      current_user&.preferences&.fetch(:locale, nil) || locale_from_accept_language || I18n.default_locale
     end
 
     def locale_from_accept_language
