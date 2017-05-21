@@ -44,11 +44,9 @@ html lang='en'
             a[href='#'] %%todo-header-conscript-name%%
 
         span.head_under[role='complementary']
-          = ['Good day', 'Top of the morning', "What's up", 'How are you', 'Greetings', 'Hello there', 'Howdy'].sample
-          ' ,
-          = user_signed_in? ? current_user.display_name : 'Guest'
-          '  |
-          = cws_local_time
+          ' #{t('header.greetings').sample},
+          => user_signed_in? ? current_user.display_name : 'Guest'
+          | | #{cws_local_time}
 
       = render 'layouts/menu'
 
@@ -58,12 +56,13 @@ html lang='en'
     main[role='main']
       aside[role='complementary']
         #quick_links[role='presentation']
-          a>[href='#'] [bots]
-          a>[href='#'] [search]
-          a>[href='#'] [feedback/report]
-          a[href='#'] [help index]
+          a>[href='#']= t('header.quicklinks.bots')
+          a>[href='#']= t('header.quicklinks.search')
+          a>[href='#']= t('header.quicklinks.report')
+          a[href='#']= t('header.quicklinks.help')
 
         #path[role='navigation']
+          / TODO: fix this bullshit
           span = content_for?(:page_origin) ? yield(:page_origin) : 'conworkshop'
           span
             a[href='#'] = controller.action_name
@@ -75,35 +74,33 @@ html lang='en'
     footer[role='contentinfo']
       #social_links[role='complementary']
         a[href='http://facebook.com/conworkshop' target='_blank']
-          = image_tag 'social/facebook.png', size: '32x32', alt: 'Facebook page'
+          = image_tag 'social/facebook.png', size: '32x32', alt: t('footer.sociallinks.facebook')
         a[href='https://twitter.com/_conworkshop' target='_blank']
-          = image_tag 'social/twitter.png', size: '32x32', alt: 'Twitter profile'
+          = image_tag 'social/twitter.png', size: '32x32', alt: t('footer.sociallinks.twitter')
         a[href='https://www.youtube.com/channel/UCJMjntBcDJWrnwBXWot4HRQ' target='_blank']
-          = image_tag 'social/youtube.png', size: '32x32', alt: 'Youtube channel'
+          = image_tag 'social/youtube.png', size: '32x32', alt: t('footer.sociallinks.youtube')
         a[href='https://plus.google.com/103217402132925341355' target='_blank']
-          = image_tag 'social/googleplus.png', size: '32x32', alt: 'Google+ profile'
+          = image_tag 'social/googleplus.png', size: '32x32', alt: t('footer.sociallinks.googleplus')
         a[href='https://www.instagram.com/conworkshop/' target='_blank']
-          = image_tag 'social/instagram.png', size: '32x32', alt: 'Instagram profile'
+          = image_tag 'social/instagram.png', size: '32x32', alt: t('footer.sociallinks.instagram')
         a[href='http://conworkshop.tumblr.com/' target='_blank']
-          = image_tag 'social/tumblr.png', size: '32x32', alt: 'Tumblr profile'
+          = image_tag 'social/tumblr.png', size: '32x32', alt: t('footer.sociallinks.tumblr')
 
       #foot_links[role='contentinfo']
         span
-          a[href='#'] privacy
+          a[href='#'] = t('footer.links.privacy')
         span
-          a[href='#'] FAQs
+          a[href='#'] = t('footer.links.faqs')
         span
-          a[href='#'] rules
+          a[href='#'] = t('footer.links.rules')
         span
-          a[href='#'] statistics
+          a[href='#'] = t('footer.links.statistics')
         span
-          a[href='#'] graphs
+          a[href='#'] = t('footer.links.graphs')
         span
-          a[href='#'] api (indev)
+          a[href='#'] = t('footer.links.api')
 
       span#foot_info
-        ' Viewing CWS in:
-        => select_tag 'language_select', language_select_options(path_has_locale: params[:locale].present?),
-             id: 'language_select'
-        ' | Time now is
-        = cws_local_time(Time.now, :short)
+        = raw(t('footer.langsel',
+                seltag: select_tag('language_select', language_select_options(path_has_locale: params[:locale].present?),
+                        id: 'language_select')))

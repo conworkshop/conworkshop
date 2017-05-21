@@ -8,6 +8,134 @@ pt:
     return:
       profile: « Retornar ao perfil
 
+  header:
+    quicklinks:
+      bots: '[bots]'
+      search: '[pesquisar]'
+      report: '[relatar/feedback]'
+      help: '[índice da ajuda]'
+    greetings:
+      - Oi
+      - Olá
+      - Saudações
+      - Bom dia
+      - Qualé
+      - E aí
+      - Qual a boa
+      - Boas
+      - Fala
+      - Como vai
+
+  footer:
+    links:
+      privacy: privacidade
+      faqs: perguntas frequentes
+      rules: regras
+      statistics: estatísticas
+      graphs: gráficos
+      api: API (em desenvolvimento)
+    sociallinks:
+      facebook: Página do Facebook
+      twitter: Perfil do Twitter
+      youtube: Canal no Youtube
+      googleplus: Perfil do Google+
+      instagram: Perfil do Instagram
+      tumblr: Perfil do Tumblr
+    langsel: 'Visualizando o CWS em: %{seltag}'
+
+  static:
+    about:
+      title: Sobre
+      welcome: 'Bem-vindo ao %{b:ConWorkShop}'
+      intro:
+        text: >
+          Como seja que chegou aqui, Bem-vindo! Se você já é um membro, %{link:por favor entre por aqui}. Caso
+          contrário, organizamos alguns pontos interessantes sobre o CWS aqui:
+        points:
+          what: '%{b:O que} é o CWS?'
+          more: '%{b:Que tipo} de coisas vocês têm/fazem?'
+          how: '%{b:Como} faço para participar?'
+          why: '%{b:Por que} o CWS existe?'
+      points:
+        what:
+          title: O que é o CWS?
+          paragraph1: >
+            CWS, ou %{u:C}on%{u:W}ork%{u:S}hop, é um website de ferramentas para conlanging e uma comunidade de
+            conlangers criado no ínicio de 2014 visando fornecer as ferramentas e a comunidade para ajudá-lo com seus
+            esforços de conlanging. Nós somos um grupo eclético de pessoas entusiásticas sobre conlínguas e conculturas.
+            Nós temos adolescentes, estudantes, profissionais e assim vai - todos são bem-vindos.
+          paragraph2: >
+            O CWS %{b:é e sempre será gratuito}. É uma comunidade criada por conlangers, para os conlangers. Nós estamos
+            sempre visando atualizar nossas ferramentas para lhe dar o maior leque de opções possível, e nós temos uma
+            equipe muito prestativa que vai nos ajudar a alcançar esse objetivo.
+          paragraph3: >
+            O CWS é voltado principalmente para conlangers com um bom conhecimento de línguas e linguísticas, mas
+            convidamos todos para participar! Nós temos uma boa base de membros com uma riqueza de conhecimentos, e nós
+            estamos aqui para ajudar.
+        more:
+          title: Que tipo de coisas vocês têm/fazem?
+          text: >
+            Por onde começamos?! O site é dividido em três seções: a %{lib:Biblioteca}, as %{tools:Ferramentas} e
+            a %{com:Comunidade}. (e sim, cada seção tem uma cor :D)
+          library:
+            title: Biblioteca
+            text: >
+              A biblioteca é seu centro de criação de línguas. Há um dicionário detalhado para pesquisar, editar,
+              importar e exportar todas as suas palavras. Há também tabelas gramáticas que automticamente conjugam
+              palavras baseadas em regras, além de fonologias, ortografias, e mais! Alguns exemplos, usando a língua
+              do criador do CWS, Nithalos, podem ser vistas abaixo:
+            list:
+              summary: Exemplo de página de sumário
+              word: Exemplo de registro de palavra
+              text: '%{link:Exemplo de texto traduzido} (Declaração Universal dos Direitos Humanos, Artigo 1)'
+              article: Exemplo de artigo
+          tools:
+            title: Ferramentas
+            text: >
+              A seção de ferramentas tem desde geradores de palavras, de bancos de palavras, para conjuntos de
+              vocabulários (chamamos de "LexiBuild"), %{link:nossa Lista Swadesh do Conlanger}, e muito mais!
+          community:
+            title: Comunidade
+            text: >
+              A comunidade é onde as pessoas e as línguas se juntam. Nós temos uma variedade de clãs para vários
+              interesses, muitos fóruns de discussão com jogos, desafios, eventos ao longo do mês e muito mais!
+          events:
+            title: Eventos
+            text: >
+              O CWS tem uma série de eventos, que geralmente duram o mês todo e ocorrem ao longo do ano, ajudando a
+              inspirar e motivar a sua construção de línguas. Dê uma olhada no %{link:sumário dos nossos eventos} para
+              mais informações.
+          projects:
+            title: Projetos
+            text: 'No CWS, adoramos fazer projetos, tal como %{link:este belo vídeo}.'
+        how:
+          title: Como faço para participar?
+          paragraph1: >
+            Estamos felizes em saber que leu isso tudo! Há várias formas de juntar-se a nós. Primeiramente, você pode
+            entrar usando sua conta do Facebook. Não se preocupe, a única informação que utilizamos é seu nome e sua
+            foto de perfil. Se você está preocupado com sua privacidade, você pode %{link:ler nossas informações sobre
+            privacidade}.
+          paragraph2: >
+            Alternativamente, você pode criar uma %{link:conta padrão}, do tipo que você usa um email e uma senha
+            específica. Não se preocupe, não iremos compartilhar essas informações.
+          paragraph3: 'Após criar uma conta, você pode %{link:entrar no CWS} para participar.'
+        why:
+          title: Por que o CWS existe?
+          paragraph1: >
+            Se está interessado, o CWS nasceu da ideia de que conlangers e ferramentas de conlanging são encontradas
+            espalhadas pela internet e nós queríamos um lugar para centralizá-los, assim criando um único lugar para
+            tudo.
+          paragraph2: >
+            O modelo integrado do CWS também significa que você tem a habilidade de fazer mais com sua língua, já que
+            nós temos não só seu dicionário mas também sua gramática, fonologia, ortografia, e isso significa que esses
+            elementos podem interagir de formas que outros sites podem não fazer. Já que o CWS foi criado por conlangers
+            para conlangers, ele sempre será gratuito. Não somos profissionais, então às vezes ter paciência é
+            agradecido, e vale a pena esperar. Nós também aceitamos feedback e sugestões para melhorar o site, e sem
+            esses que já recebemos, quem sabe que oportunidades nós poderíamos ter perdido.
+          paragraph3: >
+            O CWS pode ser encontrado, também, nas mídias sociais se você tem o desejo nos seguir or curtir lá. Veja o
+            rodapé do site para os links!
+
   preferences:
     edit:
       title: Preferências
@@ -18,15 +146,159 @@ pt:
           text: Escolha o idioma em que o CWS estará por padrão.
 
   menu:
-    logout: 'Sair'
+    green:
+      dictionary:
+        dictionary: Dicionário
+        add: Adicionar palavra
+        settings: Configurações
+        tools:
+          tools: Ferramentas do dicionário
+          massedit: Edição em massa
+          maintenance: Manutenção
+          import: Importar
+          export: Exportar
+          phomo: PhoMo no dicionário
+          compare: Comparar dicionários
+          homonym: Lista de homônimos
+        roots: Radicais conhecidos
+        distribution: Distribuição de palavras
+        pcdistribution: Distribuição de classes gramaticais
+      phonology:
+        phonology: Fonologia
+        inventory: Inventário
+        phonotactics: Fonotática
+        estimate: Estimativa de pronunciação
+        compare: Comparar inventórios
+      orthography:
+        orthography: Ortografia
+        categories: Categorias
+        conscript: Conscripts
+        distribution: Distribuição
+        azorder: Ordem alfabética
+      grammar:
+        grammar: Gramática
+        typology: Tipologia
+        forms: Definir formas
+        addtable: Adicionar tabela
+        tables: Tabelas gramáticas
+        irregular: Lista de formas irregulares
+        conjugator: Conjugador de palavras
+        test: Teste de gramática
+      literature:
+        literature: Literatura
+        translations: Traduções
+        contrans: 'Traduções de %{conlang}'
+        journal: Jornal
+        articles: 'Artigos de %{conlang}'
+        phrasebook: Livro de frases
+      namebase: Banco de nomes
+      summary: Sumário
+      settings: Configurações
+    yellow:
+      tools: Ferramentas
+      lexicon:
+        lexicon: Dicionário
+        lexibuild: LexiBuild
+        wordgen: Gerador de palavras
+        wordgen3: WordGen³
+        multisearch: Pesquisa em vários dicionários
+        wordbank: WordBank
+        phomo: Derivação pelo PhoMo
+        wordlinks: Banco de dados do WordLink
+        swadesh: Lista Swadesh do Conlanger
+        numbers: Números de 1 até 10
+      phonetics:
+        phonetics: Fonética
+        chart: Tabela API
+        converter: Conversor de X-SAMPA pra API
+        phomo: PhoMo
+        phonsystem: Sistemas fonológicos
+      orthography:
+        orthography: Ortografia
+        scriptmap: Mapa da escrita Latina
+        freqcalc: Calculador de frequência
+        anagram: Gerador de anagramas
+        graphemes: Grafemas
+      numbers:
+        numbers: Números
+        base: Conversor de bases
+        system: Conversor de sistema numérico
+      typological: Banco de dados tipológico
+      flash: Flash
+      trees: Árvores sintáticas
+      forms: Formas gramáticas
+      gallery: Galeria
+    blue:
+      community: Comunidade
+      boards:
+        boards: Fóruns
+        mine: Meus tópicos
+        subscribed: Tópicos em que estou inscrito
+        recent: Tópicos recentes
+      people:
+        people: Pessoas e clãs
+        clans: Clãs
+        conlangers: Conlangers
+        karma: Estatísticas de karma
+      languages:
+        languages: Línguas
+        list: Lista de conlangs
+        scripts: Conscripts
+        scriptbank: Banco de conscripts
+        browse: Navegar dicionários
+        flags: Bandeiras
+      articles:
+        articles: Artigos
+        all: Todos os artigos
+        new: Criar artigo
+        lotm: Língua do Mês
+      projects:
+        projects: Projetos
+        song: Projetos musicais
+        cwsp:
+          planet: CWS Planet
+          wiki: Wiki do CWS Planet
+          map: Mapa do CWS Planet (mais recente)
+          svg: Mapa em SVG
+      events: Eventos
+      resources: Recursos
+    orange:
+      profile: Perfil
+      mailbox:
+        mailbox: Caixa de mensagens
+        send: Enviar mensagem
+      mine:
+        mine: Meu perfil
+        karma: Meu karma
+        edit: Editar perfil
+        preferences: Preferências do site
+        account: Minha conta
+      languages:
+        languages: Línguas
+        families: Famílias de línguas
+        new: Criar nova língua
+        dialect: Criar novo dialeto
+        share: Compartilhar língua
+        checklist: Checklist da língua
+      awards: Prêmios
+    grey:
+      cws: CWS
+      search: Pesquisar
+      help: Artigos de ajuda
+      tutorials: Tutoriais
+      faqs: Perguntas frequentes
+      report: Relatar/feedback
+      stats: Estatísticas
+      donate: Doar
+    logout: Sair
     basic:
-      login: 'Entrar'
-      register: 'Registrar'
-      about: 'Sobre'
-      home: 'Home'
+      login: Entrar
+      register: Registrar
+      about: Sobre
+      home: Home
       green:
-        browse: 'Navegar'
-        conlangs: 'Conlangs'
-        dictionaries: 'Dicionários'
-        articles: 'Todos os artigos'
-        typological: 'Banco de dados tipológico'
+        browse: Navegar
+        conlangs: Conlangs
+        dictionaries: Dicionários
+        articles: Todos os artigos
+        typological: Banco de dados tipológico

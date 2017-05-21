@@ -1,4 +1,4 @@
-- provide(:page_title, 'About')
+- provide(:page_title, t('.title'))
 - provide(:page_origin, 'home')
 
 scss:
@@ -75,9 +75,7 @@ scss:
 
 / TODO: replace all the links with appropriate ones.
 
-h1#welcome-header[role='heading']
-  ' Welcome to
-  b ConWorkShop
+h1#welcome-header[role='heading']= it('.welcome', b: It.tag(:b))
 
 #welcome-subtext
   | Welkom&emsp;欢迎光临&emsp;Vítáme vás&emsp;Benvido&emsp;Tikilluarit&emsp;પધારો&emsp;Benvenuto&emsp;ようこそ&emsp;
@@ -86,137 +84,59 @@ h1#welcome-header[role='heading']
 aside#intro-text[role='complementary']
   .right[id='intro-video']
     object[data='http://www.youtube.com/embed/vPThDwMrXlE' width='560' height='315']
-  p
-    ' However you found yourself here, Welcome! If you're an existing member,
-    = link_to 'please log in here', new_user_session_path
-    | , or if you're new, we've arranged a few points of interest about CWS here:
+  p= it('.intro.text', link: new_user_session_path)
   ol
     li
-      a[href='#what']
-        b> What
-        | is CWS?
+      a[href='#what']= it('.intro.points.what', b: It.tag(:b))
     li
-      a[href='#more']
-        b> What
-        | sort of things do you have/do?
+      a[href='#more']= it('.intro.points.more', b: It.tag(:b))
     li
-      a[href='#how']
-        b> How
-        | do I join?
+      a[href='#how']= it('.intro.points.how', b: It.tag(:b))
     li
-      a[href='#why']
-        b> Why
-        | does CWS exist?
+      a[href='#why']= it('.intro.points.why', b: It.tag(:b))
 
 section#interest-points-section
   article.faux
-    h2: a#what What is CWS?
-    p
-      b CWS
-      ' , or
-      b <u>C</u>on<u>W</u>ork<u>S</u>hop
-      ' , is a conlanging community and tools website started in early 2014 aimed
-      ' at providing the tools and community to help you strive in your conlanging endeavours.
-      ' We are a very eclectic group of people who are enthusiastic about conlangs and concultures.
-      | We have teenagers, students, professionals, and so on - everyone is welcome.
-    p
-      ' It is
-      b> completely free of charge
-      ' and will always remain so.
-      ' It is a community built by conlangers, for conlangers. We are always aiming to update our tools our tools to
-      ' give you the largest range of choices possible, and we have a very helpful staff team who will help us achieve
-      | that goal.
-    p
-      ' CWS is largely geared towards conlangers with a working knowledge of language and linguistics, however we do
-      ' invite everyone to join! We have a good base of members with an infinite wealth of knowledge, and we're here to
-      | help.
+    h2: a#what= t('.points.what.title')
+    p= it('.points.what.paragraph1', u: It.tag(:u))
+    p= it('.points.what.paragraph2', b: It.tag(:b))
+    p= t('.points.what.paragraph3')
 
   article.faux
-    h2: a#more What sort of things do you have/do?
-    p
-      ' Where do we start?! The site is broken up into three main sections: the
-      b: span.green Library
-      ' , the
-      b: span.orange Tools
-      ' , and the
-      b>: span.blue Community
-      | (and yes, they're colour-coded :D)
+    h2: a#more= t('.points.more.title')
+    p= it('.points.more.text',
+          lib: It.plain('<b><span class="green">%s</span></b>'),
+          tools: It.plain('<b><span class="orange">%s</span></b>'),
+          com:   It.plain('<b><span class="blue">%s</span></b>'))
 
-    h3.green Library
-    p
-      ' The library is your centre of language creation. There's a highly detailed dictionary to store your lexicon, to
-      ' search, edit, import and export your lexicon. There are grammar tables that automatically conjugate entries
-      ' based on rules, there are phonologies, and orthographies, and more!
-      | Some examples of some things from the creator's language (Nithalos) can be seen here:
-
+    h3.green= t('.points.more.library.title')
+    p= t('.points.more.library.text')
     ul
-      li: a[href='#'] Sample language summary page
-      li: a[href='#'] Sample word entry
-      li
-        a>[href='#'] Sample translated text
-        | (Universal Declaration of Human Rights, Article 1)
-      li: a[href='#'] Sample language article
+      li: a[href='#']= t('.points.more.library.list.summary')
+      li: a[href='#']= t('.points.more.library.list.word')
+      li= it('.points.more.library.list.text', link: '#')
+      li: a[href='#']= t('.points.more.library.list.article')
 
-    h3.orange Tools
-    p
-      ' The tools section contains everything from word generators, to word banks, to lexical field vocabulary sets
-      ' (we call these "LexiBuild"),
-      a[href='#'] our conlanger's Swadesh List
-      | , and much more!
+    h3.orange= t('.points.more.tools.title')
+    p= it('.points.more.tools.text', link: '#')
 
-    h3.blue Community
-    p
-      ' The community is where the people and languages come together. We have a bunch of clans for varied interests,
-      | active discussion boards with games, challenges, month-long events, and more!
+    h3.blue= t('.points.more.community.title')
+    p= t('.points.more.community.text')
 
-    h4 Events
-    p
-      ' CWS has a number of events - usually a month long that run throughout the year to help inspire and motivation
-      ' your language building. Check out
-      a[href='#']> the overview of our events
-      | for more information.
+    h4= t('.points.more.events.title')
+    p= it('.points.more.events.text', link: '#')
 
-    h4 Projects
-    p
-      ' At CWS, we love doing projects, like
-      a[href='https://www.youtube.com/watch?v=Wqu1paieMFY'] this beautiful thing
-      | .
+    h4= t('.points.more.projects.title')
+    p= it('.points.more.projects.text', link: 'https://www.youtube.com/watch?v=Wqu1paieMFY')
 
   article.faux
-    h2: a#how How do I join?
-    p
-      ' We're glad you've read this far! There are two ways you can join us. Firstly, you can login using your Facebook
-      ' account. Don't worry, the only information we use is your name and your profile picture. If you're concerned
-      ' about privacy, you can
-      a[href='#'] read our privacy information
-      | .
-
-    p
-      ' Alternatively, you can create a
-      = link_to 'standard login account', new_user_registration_path
-      ' , you know, the kind with email address and password.
-      | Don't worry, we don't share this information either.
-
-    p
-      ' Once you have an account, you can
-      => link_to 'login to CWS', new_user_session_path
-      | to be part of it.
+    h2: a#how= t('.points.how.title')
+    p= it('.points.how.paragraph1', link: '#')
+    p= it('.points.how.paragraph2', link: new_user_registration_path)
+    p= it('.points.how.paragraph3', link: new_user_session_path)
 
   article.faux
-    h2: a#why Why does CWS exist?
-    p
-      ' If you're interested to know, it was born out of the idea that conlangers and conlang tools are found all over
-      ' the internet, and we wanted a place to centralise these in order to create one single place to go for
-      | everything.
-
-    p
-      ' CWS's integrated model also means you have the ability to do more with your language as we not only have your
-      ' lexicon, but your grammar, your phonology, your orthography, and this means these elements can interact in ways
-      ' that other sites may not be able to. Because CWS was created by conlangers, for conlangers, it will always be
-      ' free. We aren't professionals at this, so sometimes patience is appreciated, but it's worth the wait. We also
-      ' welcome feedback and suggestions to improve the site, and without those we've already received, who knows what
-      | opportunities we might have missed.
-
-    p
-      ' CWS can also be found on Social Media if you have the urge to follow or like us there. See the site footer for
-      | the links!
+    h2: a#why= t('.points.why.title')
+    p= t('.points.why.paragraph1')
+    p= t('.points.why.paragraph2')
+    p= t('.points.why.paragraph3')

@@ -29,6 +29,136 @@ en:
     return:
       profile: « Return to profile
 
+  header:
+    quicklinks:
+      bots: '[bots]'
+      search: '[search]'
+      report: '[report/feedback]'
+      help: '[help index]'
+    greetings:
+      - Hi
+      - Hello
+      - Hey
+      - Salutations
+      - Good day
+      - G'day
+      - Hallo
+      - \'Sup
+      - How's it
+      - What's up
+      - Greetings
+      - Howdy
+      - Top of the morning
+      - How are you
+
+  footer:
+    links:
+      privacy: privacy
+      faqs: FAQs
+      rules: rules
+      statistics: statistics
+      graphs: graphs
+      api: API (in development)
+    sociallinks:
+      facebook: Facebook page
+      twitter: Twitter profile
+      youtube: Youtube channel
+      googleplus: Google+ profile
+      instagram: Instagram profile
+      tumblr: Tumblr profile
+    langsel: 'Viewing CWS in: %{seltag}'
+
+  static:
+    about:
+      title: About
+      welcome: 'Welcome to %{b:ConWorkShop}'
+      intro:
+        text: >
+          However you found yourself here, Welcome! If you're an existing member, %{link:please log in here}, or if
+          you're new, we've arranged a few points of interest about CWS here:
+        points:
+          what: '%{b:What} is CWS?'
+          more: '%{b:What} sort of things do you have/do?'
+          how: '%{b:How} do I join?'
+          why: '%{b:Why} does CWS exist?'
+      points:
+        what:
+          title: What is CWS?
+          paragraph1: >
+            CWS, or %{u:C}on%{u:W}ork%{u:S}hop, is a conlanging community and tools website started in early 2014 aimed
+            at providing the tools and community to help you strive in your conlanging endeavours. We are a very
+            eclectic group of people who are enthusiastic about conlangs and concultures. We have teenagers, students,
+            professionals, and so on - everyone is welcome.
+          paragraph2: >
+            It is %{b:completely free of charge} and will always remain so. It is a community built by conlangers, for
+            conlangers. We are always aiming to update our tools to give you the largest range of choices possible, and
+            we have a very helpful staff team who will help us achieve that goal.
+          paragraph3: >
+            CWS is largely geared towards conlangers with a working knowledge of language and linguistics, however we do
+            invite everyone to join! We have a good base of members with an infinite wealth of knowledge, and we're here
+            to help.
+        more:
+          title: What sort of things do you have/do?
+          text: >
+            Where do we start?! The site is broken up into three main sections: the %{lib:Library}, the %{tools:Tools},
+            and the %{com:Community}. (and yes, they're colour-coded :D)
+          library:
+            title: Library
+            text: >
+              The library is your centre of language creation. There's a highly detailed dictionary to store your
+              lexicon, to search, edit, import and export your lexicon. There are grammar tables that automatically
+              conjugate entries based on rules, there are phonologies, and orthographies, and more! Some examples of
+              some things from the creator's language (Nithalos) can be seen here:
+            list:
+              summary: Sample language summary page
+              word: Sample word entry
+              text: '%{link:Sample translated text} (Universal Declaration of Human Rights, Article 1)'
+              article: Sample language article
+          tools:
+            title: Tools
+            text: >
+              The tools section contains everything from word generators, to word banks, to lexical field vocabulary
+              sets (we call these "LexiBuild"), %{link:our conlanger's Swadesh List}, and much more!
+          community:
+            title: Community
+            text: >
+              The community is where the people and languages come together. We have a bunch of clans for varied
+              interests, active discussion boards with games, challenges, month-long events, and more!
+          events:
+            title: Events
+            text: >
+              CWS has a number of events - usually a month long that run throughout the year to help inspire and
+              motivate your language building. Check out %{link:the overview of our events} for more information.
+          projects:
+            title: Projects
+            text: 'At CWS, we love doing projects, like %{link:this beautiful thing}.'
+        how:
+          title: How do I join?
+          paragraph1: >
+            We're glad you've read this far! There are two ways you can join us. Firstly, you can login using your
+            Facebook account. Don't worry, the only information we use is your name and your profile picture. If you're
+            concerned about privacy, you can %{link:read our privacy information}.
+          paragraph2: >
+            Alternatively, you can create a %{link:standard login account}, you know, the kind with email address and
+            password. Don't worry, we don't share this information either.
+          paragraph3: 'Once you have an account, you can %{link:login to CWS} to be part of it.'
+        why:
+          title: Why does CWS exist?
+          paragraph1: >
+            If you're interested to know, it was born out of the idea that conlangers and conlang tools are found all
+            over the internet, and we wanted a place to centralise these in order to create one single place to go for
+            everything.
+          paragraph2: >
+            CWS's integrated model also means you have the ability to do more with your language as we not only have your
+            lexicon, but your grammar, your phonology, your orthography, and this means these elements can interact in
+            ways that other sites may not be able to. Because CWS was created by conlangers, for conlangers, it will
+            always be free. We aren't professionals at this, so sometimes patience is appreciated, but it's worth the
+            wait. We also welcome feedback and suggestions to improve the site, and without those we've already
+            received, who knows what opportunities we might have missed.
+          paragraph3: >
+            CWS can also be found on Social Media if you have the urge to follow or like us there. See the site footer
+            for the links!
+
   preferences:
     edit:
       title: Preferences
@@ -41,151 +171,160 @@ en:
   menu:
     green:
       dictionary:
-        dictionary: 'Dictionary'
-        add: 'Add word'
-        settings: 'Settings'
+        dictionary: Dictionary
+        add: Add word
+        settings: Settings
         tools:
-          tools: 'Dictionary Tools'
-          massedit: 'Mass edit'
-          maintenance: 'Maintenance'
-          import: 'Import'
-          export: 'Export'
-          phomo: 'Dict PhoMo'
-          compare: 'Compare dictionaries'
-          homonym: 'Homonyms list'
-        roots: 'Known roots'
-        distribution: 'Word distribution'
-        pcdistribution: 'PoS/Class distribution'
+          tools: Dictionary tools
+          massedit: Mass edit
+          maintenance: Maintenance
+          import: Import
+          export: Export
+          phomo: Dictionary PhoMo
+          compare: Compare dictionaries
+          homonym: Homonyms list
+        roots: Known roots
+        distribution: Word distribution
+        pcdistribution: PoS/Class distribution
       phonology:
-        phonology: 'Phonology'
-        inventory: 'Inventory'
-        phonotactics: 'Phonotactics'
-        estimate: 'Pronunciation estimation'
-        compare: 'Compare inventory'
+        phonology: Phonology
+        inventory: Inventory
+        phonotactics: Phonotactics
+        estimate: Pronunciation estimation
+        compare: Compare inventory
       orthography:
-        orthography: 'Orthography'
-        categories: 'Categories'
-        conscript: 'Conscript'
-        distribution: 'Distribution'
-        azorder: 'Alphabetical order'
+        orthography: Orthography
+        categories: Categories
+        conscript: Conscript
+        distribution: Distribution
+        azorder: Alphabetical order
       grammar:
-        grammar: 'Grammar'
-        typology: 'Typology'
-        forms: 'Define forms'
-        addtable: 'Add table'
-        tables: 'Grammar tables'
-        irregular: 'Irregular forms list'
-        conjugator: 'Word conjugator'
-        test: 'Grammar test'
+        grammar: Grammar
+        typology: Typology
+        forms: Define forms
+        addtable: Add table
+        tables: Grammar tables
+        irregular: Irregular forms list
+        conjugator: Word conjugator
+        test: Grammar test
       literature:
-        literature: 'Literature'
-        translations: 'Translations'
+        literature: Literature
+        translations: Translations
         contrans: '%{conlang} translations'
-        journal: 'Journal'
+        journal: Journal
         articles: '%{conlang} articles'
-        phrasebook: 'Phrasebook'
-      namebase: 'Namebase'
-      summary: 'Summary'
-      settings: 'Settings'
+        phrasebook: Phrasebook
+      namebase: Namebase
+      summary: Summary
+      settings: Settings
     yellow:
-      tools: 'Tools'
+      tools: Tools
       lexicon:
-        lexicon: 'Lexicon'
-        lexibuild: 'LexiBuild'
-        wordgen2: 'Word generator'
-        wordgen3: 'WordGen³'
-        multisearch: 'Dict. multi-search'
-        wordbank: 'WordBank'
-        phomo: 'PhoMo derivation'
-        wordlinks: 'WordLink database'
-        swadesh: 'Conlanger''s Swadesh List'
-        numbers: 'Numbers 1 to 10'
+        lexicon: Lexicon
+        lexibuild: LexiBuild
+        wordgen: Word generator
+        wordgen3: WordGen³
+        multisearch: Dict. multi-search
+        wordbank: WordBank
+        phomo: PhoMo derivation
+        wordlinks: WordLink database
+        swadesh: Conlanger's Swadesh List
+        numbers: Numbers 1 to 10
       phonetics:
-        phonetics: 'Phonetics'
-        chart: 'IPA and Phoneme chart'
-        converter: 'X-SAMPA to IPA converter'
-        phomo: 'PhoMo'
-        phonsystem: 'Phonological systems'
+        phonetics: Phonetics
+        chart: IPA and Phoneme chart
+        converter: X-SAMPA to IPA converter
+        phomo: PhoMo
+        phonsystem: Phonological systems
       orthography:
-        orthography: 'Orthography'
-        scriptmap: 'Latin script map'
-        freqcalc: 'Frequency calculator'
-        anagram: 'Anagram generator'
-        graphemes: 'Graphemes'
+        orthography: Orthography
+        scriptmap: Latin script map
+        freqcalc: Frequency calculator
+        anagram: Anagram generator
+        graphemes: Graphemes
       numbers:
-        numbers: 'Numbers'
-        base: 'Base converter'
-        system: 'Number system converter'
-      typological: 'Typological database'
-      flash: 'Flash'
-      trees: 'Syntax tress'
-      forms: 'Grammar forms'
-      gallery: 'Gallery'
+        numbers: Numbers
+        base: Base converter
+        system: Number system converter
+      typological: Typological database
+      flash: Flash
+      trees: Syntax tress
+      forms: Grammar forms
+      gallery: Gallery
     blue:
-      community: 'Community'
+      community: Community
       boards:
-        boards: 'Boards'
-        mine: 'My threads'
-        subscribed: 'Subscribed threads'
-        recent: 'Recent threads'
+        boards: Boards
+        mine: My threads
+        subscribed: Subscribed threads
+        recent: Recent threads
       people:
-        people: 'People and Clans'
-        clans: 'Clans'
-        conlangers: 'Conlangers'
-        karma: 'Karma statistics'
+        people: People and Clans
+        clans: Clans
+        conlangers: Conlangers
+        karma: Karma statistics
       languages:
-        languages: 'Languages'
-        list: 'Conlang list'
-        scripts: 'Conscripts'
-        scriptbank: 'Conscript bank'
-        browse: 'Browse dictionaries'
-        flags: 'Language flags'
+        languages: Languages
+        list: Conlang list
+        scripts: Conscripts
+        scriptbank: Conscript bank
+        browse: Browse dictionaries
+        flags: Language flags
       articles:
-        articles: 'Articles'
-        all: 'All articles'
-        new: 'New article'
-        lotm: 'Language of the Month'
+        articles: Articles
+        all: All articles
+        new: New article
+        lotm: Language of the Month
       projects:
-        projects: 'Projects'
-        song: 'Song projects'
+        projects: Projects
+        song: Song projects
         cwsp:
-          planet: 'CWS Planet'
-          wiki: 'CWSP Wiki'
-          latest: 'CWSP Map (latest)'
-          svg: 'CWSP Map (SVG)'
-      events: 'Events'
-      resources: 'Resources'
+          planet: CWS Planet
+          wiki: CWSP Wiki
+          map: CWSP Map (latest)
+          svg: CWSP Map (SVG)
+      events: Events
+      resources: Resources
     orange:
-      profile: 'Profile'
+      profile: Profile
       mailbox:
-        mailbox: 'Mailbox'
-        send: 'Send message'
+        mailbox: Mailbox
+        send: Send message
       mine:
-        mine: 'My profile'
-        karma: 'My karma'
-        edit: 'Edit profile'
-        preferences: 'Site preferences'
-        account: 'Account settings'
+        mine: My profile
+        karma: My karma
+        edit: Edit profile
+        preferences: Site preferences
+        account: My account
       languages:
-        languages: 'Languages'
-        families: 'Language families'
-        new: 'New language'
-        dialect: 'New dialect'
-        share: 'Share language'
-        checklist: 'Language checklist'
-      awards: 'Awards'
-    logout: 'Log Out'
+        languages: Languages
+        families: Language families
+        new: New language
+        dialect: New dialect
+        share: Share language
+        checklist: Language checklist
+      awards: Awards
+    grey:
+      cws: CWS
+      search: Search
+      help: Help articles
+      tutorials: Tutorials
+      faqs: FAQs
+      report: Report/feedback
+      stats: Statistics
+      donate: Donate
+    logout: Sign out
     basic:
-      login: 'Log In'
-      register: 'Register'
-      about: 'About'
-      home: 'Home'
+      login: Sign in
+      register: Register
+      about: About
+      home: Home
       green:
-        browse: 'Browse'
-        conlangs: 'Conlangs'
-        dictionaries: 'Dictionaries'
-        articles: 'All articles'
-        typological: 'Typological database'
+        browse: Browse
+        conlangs: Conlangs
+        dictionaries: Dictionaries
+        articles: All articles
+        typological: Typological database
 
   time:
     formats:
@@ -199,11 +338,11 @@ en:
       carrierwave_processing_error: failed to be processed
       carrierwave_integrity_error: is not of an allowed file type
       carrierwave_download_error: could not be downloaded
-      extension_whitelist_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}"
-      extension_blacklist_error: "You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}"
-      content_type_whitelist_error: "You are not allowed to upload %{content_type} files"
-      content_type_blacklist_error: "You are not allowed to upload %{content_type} files"
-      rmagick_processing_error: "Failed to manipulate with rmagick, maybe it is not an image?"
-      mini_magick_processing_error: "Failed to manipulate with MiniMagick, maybe it is not an image? Original Error: %{e}"
-      min_size_error: "File size should be greater than %{min_size}"
-      max_size_error: "File size should be less than %{max_size}"
+      extension_whitelist_error: 'You are not allowed to upload %{extension} files, allowed types: %{allowed_types}'
+      extension_blacklist_error: 'You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}'
+      content_type_whitelist_error: 'You are not allowed to upload %{content_type} files'
+      content_type_blacklist_error: 'You are not allowed to upload %{content_type} files'
+      rmagick_processing_error: 'Failed to manipulate with rmagick, maybe it is not an image?'
+      mini_magick_processing_error: 'Failed to manipulate with MiniMagick, maybe it is not an image? Original Error: %{e}'
+      min_size_error: 'File size should be greater than %{min_size}'
+      max_size_error: 'File size should be less than %{max_size}'
