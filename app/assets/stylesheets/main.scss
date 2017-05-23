@@ -427,28 +427,27 @@ h1, h2, h3, .title {
 }
 
 dl {
+  display: table;
   font-size: $smaller-font-size;
 
-  &.larger {
-    dt {
-      width: 140px;
-    }
-
-    dd {
-      margin-left: 150px;
-    }
+  & > div {
+    display: table-row;
   }
 }
 
+dt, dd {
+  display: table-cell;
+}
+
 dt {
-  float: left;
-  clear: left;
-  width: 100px;
   text-align: right;
+
+  &::after {
+    content: "\00A0"
+  }
 }
 
 dd {
-  margin-left: 110px;
   color: #777;
 }
 

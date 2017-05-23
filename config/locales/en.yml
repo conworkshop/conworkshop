@@ -26,8 +26,27 @@ en:
 
   general:
     save: ✔ Save changes
+    report: ✎ Report an error
     return:
       profile: « Return to profile
+    status:
+      online: online
+      away: away
+    minchars:
+      one: Minimum of one character.
+      other: Minimum of %{count} characters.
+    nocountry: Nowhereland
+    gender:
+      m: Male
+      f: Female
+      o: Other
+      c: Cyborg
+      none: Not stated
+
+  activerecord:
+    attributes:
+      profile:
+        avatar: Profile picture
 
   header:
     quicklinks:
@@ -67,6 +86,83 @@ en:
       instagram: Instagram profile
       tumblr: Tumblr profile
     langsel: 'Viewing CWS in: %{seltag}'
+
+  application:
+    403:
+      title: Unauthorized
+      denied: Oops! Access denied!
+      banned:
+        title: Your account has been banned.
+        paragraph1: >
+          CWS Staff have decided for some reason to ban your account - probably because you have breached one of CWS's
+          rules. Any attempts to circumvent this ban will result in all new accounts being removed without warning.
+        paragraph2: >
+          If you wish to discuss this with us, you may contact us at %{link:conworkshop@gmail.com} and we will respond
+          when we can.
+      maintenance:
+        text: >
+          Access to this page has temporarily been restricted by admin. This could be due to one of the following
+          reasons:
+        reasons:
+          maintenance:
+            pretext: '%{b:We are doing some small maintenance work}, in which case:'
+            text: >
+              please be patient (hopefully shouldn't be long). This is so that we can ensure the page is working as best
+              as possible first;
+          development:
+            pretext: '%{b:This is a new page under development}, in which case:'
+            text: >
+              please be patient (could be a while). We're still working on this page and might take a while for it to be
+              functional.
+          other:
+            pretext: '%{b:Something else went wrong} (unlikely), in which case:'
+            text: >
+              please %{report_link:report this}, if you think the lock-out is incorrect, or contact us on the
+              %{email_link:conworkshop@gmail.com} email.
+      other: >
+        It appears that the page you tried to navigate to has restricted access. This may be because you're trying to
+        edit information that is not yours, access a private part of the site, or access administrator or staff pages.
+        You should probably %{link:go back} and do something else. If you believe this is a genuine mistake, please
+        report an error using the button below. Sorry for the inconvenience!
+
+  account:
+    edit:
+      title: My account
+      info:
+        title: Account information
+        registered: 'Account registered at:'
+        accountlastupdate: 'Account last updated:'
+        profilelastupdate: 'Profile last updated:'
+        lastlogin:
+          title: 'Last login:'
+          text: '%{time}, on IP %{ip}'
+        authtype:
+          title: 'Authentication type:'
+          std: Standard
+          fb: Facebook
+          both: Standard and Facebook
+        timezone: 'Timezone:'
+      settings:
+        title: Edit account settings
+        revertuname: Leave this blank to revert to your username.
+        emailwarn: Make sure you provide a valid email.
+        changepass: Change password
+        passwarn:
+          one: >
+            Don't use the same password you use on other websites! 1 character minimum. Choose something you'll
+            easily remember.
+          other: >
+            Don't use the same password you use on other websites! %{count} characters minimum. Choose something you'll
+            easily remember.
+        passblank: Leave this field blank if you don't wish to change your password.
+        passconfirm: Just type in your password again! Easy peasy.
+
+  profiles:
+    edit:
+      title: '%{name} - Edit profile'
+      h1: 'Edit profile: %{name}'
+      avatarwarn: The uploaded image will be resized to 50px by 50px.
+      removeavatar: Remove avatar
 
   static:
     about:

@@ -10,4 +10,4 @@
   / online/away marker
   - if user.user_track&.status != :offline
     a[href="#"]
-      span[class="#{user.user_track.status}_mark" title=user.user_track.status]
+      span[class="#{user.user_track.status}_mark" title=t(user.user_track.status, scope: 'general.status')]

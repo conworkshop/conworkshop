@@ -9,11 +9,11 @@ class Profile < ApplicationRecord
   validates :about, length: { maximum: CWS::Globals::MAX_ABOUT_CHARS, allow_blank: true }
 
   def display_gender
-    gender.present? ? CWS::Globals::GENDER_CODES[gender] : 'Not stated'
+    I18n.t(gender.presence || 'none', scope: %w(general gender))
   end
 
   def display_country
-    country.present? ? ISO3166::Country[country] : 'Nowhereland'
+    country.present? ? ISO3166::Country[country] : I18n.t('general.nocountry')
   end
 
   def avatar?

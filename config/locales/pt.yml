@@ -5,8 +5,35 @@ pt:
 
   general:
     save: ✔ Salvar alterações
+    report: ✎ Relatar um erro
     return:
       profile: « Retornar ao perfil
+    status:
+      online: online
+      away: ausente
+    minchars:
+      one: Minimum of one character.
+      other: Minimum of %{count} characters.
+    nocountry: Lugar Nenhum
+    gender:
+      m: Masculino
+      f: Feminino
+      o: Outro
+      c: Cyborg
+      none: Não declarado
+
+  activerecord:
+    attributes:
+      user:
+        email: Email
+        password: Senha
+        password_confirmation: Confirmação da senha
+        pseudonym: Pseudônimo
+      profile:
+        avatar: Imagem de perfil
+        country: País
+        gender: Sexo
+        about: Sobre
 
   header:
     quicklinks:
@@ -42,6 +69,83 @@ pt:
       instagram: Perfil do Instagram
       tumblr: Perfil do Tumblr
     langsel: 'Visualizando o CWS em: %{seltag}'
+
+  application:
+    403:
+      title: Não autorizado
+      denied: Ops! Accesso negado!
+      banned:
+        title: Sua conta foi banida.
+        paragraph1: >
+          A equipe do CWS decidiu banir sua conta - provavelmente por que você violou uma das regras do CWS. Qualquer
+          tentativa de burlar esse banimento resultará na remoção de todas as novas contas que criar sem aviso prévio.
+        paragraph2: >
+          Se deseja discutir isso conosco, pode contatar-nos em %{link:conworkshop@gmail.com} e nós iremos responder
+          assim que possível.
+      maintenance:
+        text: >
+          O acesso a esta página foi temporariamente restrito por um administrador. Isso pode ter sido feito por causa
+          de qualquer uma das seguintes razões:
+        reasons:
+          maintenance:
+            pretext: '%{b:Estamos fazendo uma pequena manutenção}, então:'
+            text: >
+              por favor seja paciente (não deve levar muito tempo). Isso é para que nós póssamos garantir que a página
+              está funcionando bem;
+          development:
+            pretext: '%{b:Essa é uma nova página em desenvolvimento}, então:'
+            text: >
+              por favor seja paciente (pode demorar um pouco). Nós ainda estamos trabalhando nesta página e pode
+              demorar um pouco para que ela eja funcional.
+          other:
+            pretext: '%{b:Alguma outra coisa deu errado} (improvável), então:'
+            text: >
+              por favor %{report_link:relate isso}, se você acha que o bloqueio é incorreto, ou contate-nos no email
+              %{email_link:conworkshop@gmail.com}.
+      other: >
+        Parece que a página que você tentou acessar tem accesso restrito. Pode ser porque você está tentando alterar
+        informação que não é sua, acessar uma parte privada do site, ou acessar páginas liberadas apenas para a equipe
+        do CWS. Você provavelmente deve %{link:voltar} e fazer alguma outra coisa. Se você acha que isso é um engano,
+        relate o erro usando o botão abaixo. Desculpe a inconveniência!
+
+  account:
+    edit:
+      title: Minha conta
+      info:
+        title: Informação da conta
+        registered: 'Conta registrada em:'
+        accountlastupdate: 'Última atualização da conta em:'
+        profilelastupdate: 'Última atualização do perfil em:'
+        lastlogin:
+          title: 'Último login:'
+          text: '%{time}, no IP %{ip}'
+        authtype:
+          title: 'Tipo de autenticação:'
+          std: Padrão
+          fb: Facebook
+          both: Padrão e Facebook
+        timezone: 'Fuso horário:'
+      settings:
+        title: Alterar configurações da conta
+        revertuname: Deixe em branco para reverter para seu nome de usuário.
+        emailwarn: Tenha certeza de dar um email válido.
+        changepass: Mudar sua senha
+        passwarn:
+          one: >
+            Não use a mesma senha que você usa em outros websites! Mínimo de 1 caractere. Escolha algo que irá lembrar
+            facilmente.
+          other: >
+            Não use a mesma senha que você usa em outros websites! Mínimo de %{count} caracteres. Escolha algo que irá
+            lembrar facilmente.
+        passblank: Deixe este campo em branco se não quiser mudar sua senha.
+        passconfirm: Digite sua senha novamente.
+
+  profiles:
+    edit:
+      title: '%{name} - Editar perfil'
+      h1: 'Editar perfil: %{name}'
+      avatarwarn: A imagem enviada será redimensionada para 50px por 50px.
+      removeavatar: Remover avatar
 
   static:
     about:

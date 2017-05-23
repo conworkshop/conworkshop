@@ -25,30 +25,37 @@
           => link_to '[message]', '#'
 
     dl
-      dt Member since:
-      dd = cws_local_time(@profile_user.created_at)
+      div
+        dt Member since:
+        dd = cws_local_time(@profile_user.created_at)
 
-      dt Last seen:
-      dd
-        - if @profile_user.user_track
-          => local_time_ago(@profile_user.user_track.tracked_at)
-          span.grey
-            | [#{route_path(@profile_user.user_track.route)}]
-        - else
-          | No idea!
-
-      dt Board posts:
-      dd No idea!
+      div
+        dt Last seen:
+        dd
+          - if @profile_user.user_track
+            => local_time_ago(@profile_user.user_track.tracked_at)
+            span.grey
+              | [#{route_path(@profile_user.user_track.route)}]
+          - else
+            | No idea!
+      div
+        dt Board posts:
+        dd No idea!
 
     / Admin data
     - if %w(A D).include?(@profile_user.group)
       dl.grey
-        dt Last login's IP:
-        dd = @profile_user.last_sign_in_ip
-        dt Timezone:
-        dd = @profile_user.timezone
-        dt Group:
-        dd = @profile_user.group
+        div
+          dt Last login's IP:
+          dd = @profile_user.last_sign_in_ip
+
+        div
+          dt Timezone:
+          dd = @profile_user.timezone
+
+        div
+          dt Group:
+          dd = @profile_user.group
 
     - unless @profile_user.profile.about.blank?
       section#about
