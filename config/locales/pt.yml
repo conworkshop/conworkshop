@@ -141,6 +141,22 @@ pt:
         passconfirm: Digite sua senha novamente.
 
   profiles:
+    show:
+      notfound:
+        title: Usuário não encontrado
+        text: Nenhum usuário com nome de usuário "%{name}" foi encontrado.
+      title: Perfil de %{name}
+      sidedata:
+        genderandcountry: '%{gender}, de %{country}'
+        karmainfo: '[info]'
+      links:
+        edit: '[editar perfil]'
+        message: '[enviar mensagem]'
+      info:
+        membersince: 'Membro desde:'
+        lastseen: 'Visto pela última vez em:'
+        boardposts: 'Postagens em fóruns:'
+      about: Sobre %{name}
     edit:
       title: '%{name} - Editar perfil'
       h1: 'Editar perfil: %{name}'
@@ -406,3 +422,10 @@ pt:
         dictionaries: Dicionários
         articles: Todos os artigos
         typological: Banco de dados tipológico
+
+  time:
+    formats:
+      long:  '%d de %B de %Y, %H:%M'
+      short: '%d/%b/%Y %H:%M'
+      long_notime: '%d de %B de %Y'
+      short_notime: '%d/%b/%Y'

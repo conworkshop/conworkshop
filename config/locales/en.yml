@@ -158,6 +158,22 @@ en:
         passconfirm: Just type in your password again! Easy peasy.
 
   profiles:
+    show:
+      notfound:
+        title: User not found
+        text: No user with username "%{name}" was found.
+      title: "%{name}'s profile"
+      sidedata:
+        genderandcountry: '%{gender}, from %{country}'
+        karmainfo: '[info]'
+      links:
+        edit: '[edit profile]'
+        message: '[message]'
+      info:
+        membersince: 'Member since: %{time}'
+        lastseen: 'Last seen: %{time}'
+        boardposts: 'Board posts: %{quantity}'
+      about: About %{name}
     edit:
       title: '%{name} - Edit profile'
       h1: 'Edit profile: %{name}'
@@ -424,8 +440,8 @@ en:
 
   time:
     formats:
-      long:  '%d %B %Y %H:%M%P'
-      short: '%d-%b-%Y %H:%M%P'
+      long:  '%d %B %Y %l:%M%P'
+      short: '%d-%b-%Y %l:%M%P'
       long_notime: '%d %B %Y'
       short_notime: '%d-%b-%Y'
 

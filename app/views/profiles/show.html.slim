@@ -1,11 +1,13 @@
 - if @profile_user
 
-  - provide(:page_title, @profile_user.username + ' - View Profile')
+  - provide(:page_title, t('.title', name: @profile_user.display_name))
   - provide(:page_colour, 'orange')
 
   .full_width.contain
     .profile-sidedata
-      | #{@profile_user.profile.display_gender}, from #{@profile_user.profile.display_country}
+      = t('.sidedata.genderandcountry',
+          gender: @profile_user.profile.display_gender,
+          country: @profile_user.profile.display_country)
       br
       span.profile-karma
         span.karma-arrow-up> ▲
@@ -13,7 +15,7 @@
         span.karma-arrow-down> ▼
         ' 321
         / TODO: a linkamajig to the karmamajig
-        a[href='#'] [info]
+        a[href='#']= t('.sidedata.karmainfo')
 
     .profile-username
       .circle-avatar
@@ -21,16 +23,16 @@
       .profile-handle
         = user_handle(@profile_user)
         .profile-extra
-          => link_to '[edit profile]', edit_profile_path(params[:username]) if current_user&.power_over?(@profile_user)
-          => link_to '[message]', '#'
+          => link_to t('.links.edit'), edit_profile_path(params[:username]) if current_user&.power_over?(@profile_user)
+          => link_to t('.links.message'), '#'
 
     dl
       div
-        dt Member since:
+        dt = t('.info.membersince')
         dd = cws_local_time(@profile_user.created_at)
 
       div
-        dt Last seen:
+        dt = t('.info.lastseen')
         dd
           - if @profile_user.user_track
             => local_time_ago(@profile_user.user_track.tracked_at)
@@ -39,7 +41,7 @@
           - else
             | No idea!
       div
-        dt Board posts:
+        dt = t('.info.boardposts')
         dd No idea!
 
     / Admin data
@@ -59,7 +61,7 @@
 
     - unless @profile_user.profile.about.blank?
       section#about
-        h2.like_text About #{@profile_user.display_name}
+        h2.like_text= t('.about', name: @profile_user.display_name)
         / TODO: Needs CWSMarkup!
         .faux = @profile_user.profile.about
 
