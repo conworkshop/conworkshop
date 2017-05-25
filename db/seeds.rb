@@ -7,6 +7,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+RouteAccessControl.delete_all
 RouteAccessControl.create([
   { route: 'static#feed',                       level: -1 },
   { route: 'static#about',                      level: -1 },
