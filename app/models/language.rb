@@ -6,6 +6,6 @@ class Language < ApplicationRecord
   validates :code,
             presence: true,
             uniqueness: true,
-            length: { is: 3 },
-            format: { with: /\A[A-Z0-9]{3}\z/ }
+            length: { minimum: 3, maximum: 6 },
+            format: { with: /[A-Z0-9]/ }
 end
