@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 class StaticController < ApplicationController
-  def about; end
+  skip_before_action :authenticate_user!
+
+  def about
+  end
 
   def feed
     render 'about' unless user_signed_in?

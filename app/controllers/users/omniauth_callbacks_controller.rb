@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  skip_before_action :authenticate_user!
+
   def default_url_options
     {}
   end

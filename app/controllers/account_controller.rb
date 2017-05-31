@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 class AccountController < ApplicationController
-  before_action :authenticate_user!
-
   def edit
   end
 
