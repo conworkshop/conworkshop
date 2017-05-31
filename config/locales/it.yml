@@ -19,184 +19,189 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+it:
   language_names:
-    en: English
-    pt: Português (Portuguese)
-    it: Italiano (Italian)
+    en: English (Inglese)
+    pt: Português (Portoghese)
+    it: Italiano
 
   general:
-    save: ✔ Save changes
-    report: ✎ Report an error
+    save: ✔ Salva modifiche
+    report: ✎ Segnala un errore
     return:
-      profile: « Return to profile
+      profile: « Ritorna al profilo
     status:
       online: online
-      away: away
+      away: assente
     minchars:
-      one: Minimum of one character.
-      other: Minimum of %{count} characters.
-    nocountry: Nowhereland
+      one: Minimo di un carattere.
+      other: Minimo di %{count} caratteri.
+    nocountry: Nessun luogo
     gender:
-      m: Male
-      f: Female
-      o: Other
+      m: Maschile
+      f: Femminile
+      o: Altro
       c: Cyborg
-      none: Not stated
+      none: Non indicato
 
   activerecord:
     attributes:
+      user:
+        email: Email
+        password: Senha
+        password_confirmation: Confirmação da senha
+        pseudonym: Pseudônimo
       profile:
-        avatar: Profile picture
+        avatar: Foto del profilo
+        country: Paese
+        gender: Sesso
+        about: Circa
 
   header:
     quicklinks:
       bots: '[bots]'
-      search: '[search]'
-      report: '[report/feedback]'
-      help: '[help index]'
+      search: '[cerca]'
+      report: '[segnala/opinione]'
+      help: '[indice di aiuto]'
     greetings:
-      - Hi
+      - Ciao
+      - Salve
+      - Saluto
+      - Buongiorno
+      - Giorno
       - Hello
-      - Hey
-      - Salutations
-      - Good day
-      - G'day
-      - Hallo
-      - \'Sup
-      - How's it
-      - What's up
-      - Greetings
+      - Come va
+      - Come è
       - Howdy
-      - Top of the morning
-      - How are you
+      - Come stai
 
   footer:
     links:
       privacy: privacy
-      faqs: FAQs
-      rules: rules
-      statistics: statistics
-      graphs: graphs
-      api: API (in development)
+      faqs: FAQ
+      rules: regole
+      statistics: statistica
+      graphs: grafici
+      api: API (in sviluppo)
     sociallinks:
-      facebook: Facebook page
-      twitter: Twitter profile
-      youtube: Youtube channel
-      googleplus: Google+ profile
-      instagram: Instagram profile
-      tumblr: Tumblr profile
-    langsel: 'Viewing CWS in: %{seltag}'
+      facebook: Pagina Facebook
+      twitter: Profilo Twitter
+      youtube: Canale Youtube
+      googleplus: Profile Google+
+      instagram: Profile Instagram
+      tumblr: Profile Tumblr
+    langsel: 'Visualizzando CWS in: %{seltag}'
 
   application:
     403:
-      title: Unauthorized
-      denied: Oops! Access denied!
+      title: Non autorizzato
+      denied: Ops! Accesso negato!
       banned:
-        title: Your account has been banned.
+        title: Il tuo conto è stato bandito.
         paragraph1: >
-          CWS Staff have decided for some reason to ban your account - probably because you have breached one of CWS's
-          rules. Any attempts to circumvent this ban will result in all new accounts being removed without warning.
+          Il personale di CWS ha deciso di bandire il tuo conto per qualche ragione - probabilmente perché hai infranto
+          una delle regole di CWS. Qualche tentativo di eludere questo divieto si tradurrà nella rimozione di tutti i
+          nuovi conti senza preavviso.
         paragraph2: >
-          If you wish to discuss this with us, you may contact us at %{link:conworkshop@gmail.com} and we will respond
-          when we can.
+          Se desideri dibattere questo con noi, è possibile contattarci a %{link:conworkshop@gmail.com} e noi
+          risponderemo quando possiamo.
       maintenance:
         text: >
-          Access to this page has temporarily been restricted by admin. This could be due to one of the following
-          reasons:
+          Accesso a questa pagina è stato temporaneamente limitato da un amministratore. Questo potrebbe essere per
+          una delle seguente ragioni:
         reasons:
           maintenance:
-            pretext: '%{b:We are doing some small maintenance work}, in which case:'
+            pretext: '%{b:Stiamo facendo qualche lavoro di manutenzione}, nel qual caso:'
             text: >
-              please be patient (hopefully shouldn't be long). This is so that we can ensure the page is working as best
-              as possible first;
+              per favore sii paziente (con speranza non durerà troppo tempo). Questo è per assicurare che la pagina
+              funzioni nel miglior modo possibile all'inizio;
           development:
-            pretext: '%{b:This is a new page under development}, in which case:'
+            pretext: '%{b:Questa è una nuova pagina in sviluppo}, nel qual caso:'
             text: >
-              please be patient (could be a while). We're still working on this page and might take a while for it to be
-              functional.
+              per favore sii paziente (potrebbe metterci un po\'). Stiamo ancora lavorando su questa pagina è potrebbe
+              volerci un po\' prima che sia funzionale.
           other:
-            pretext: '%{b:Something else went wrong} (unlikely), in which case:'
+            pretext: "%{b:Qualcos'altro è andato male} (improbabile), nel qual caso:"
             text: >
-              please %{report_link:report this}, if you think the lock-out is incorrect, or contact us on the
-              %{email_link:conworkshop@gmail.com} email.
+              per favore %{report_link:segnala questo}, se pensi che il divieto sia incorretto, o contattaci sul
+              email %{email_link:conworkshop@gmail.com}.
       other: >
-        It appears that the page you tried to navigate to has restricted access. This may be because you're trying to
-        edit information that is not yours, access a private part of the site, or access administrator or staff pages.
-        You should probably %{link:go back} and do something else. If you believe this is a genuine mistake, please
-        report an error using the button below. Sorry for the inconvenience!
+        Sembra che l'accesso è limitato sulla pagina che volevi entrare. Questo è forse perché hai cercato di modificare
+        qualche informazione che non è tua, accedere una parte privata del sito, o accedere pagine di amministrazione
+        o del personale. Dovresti probabilmente %{link:ritornare} e fare qualcos'altro. Se credi che questo sia un
+        errore genuino, per favore segnala un error con il seguente pulsante.
 
   account:
     edit:
-      title: My account
+      title: Il mio conto
       info:
-        title: Account information
-        registered: 'Account registered at:'
-        accountlastupdate: 'Account last updated:'
-        profilelastupdate: 'Profile last updated:'
+        title: Informazione del conto
+        registered: 'Conto registrato a:'
+        accountlastupdate: "Conto aggiornato l'ultima volta:"
+        profilelastupdate: "Profilo aggiornato l'ultima volta:"
         lastlogin:
-          title: 'Last login:'
-          text: '%{time}, on IP %{ip}'
+          title: 'Ultimo accesso:'
+          text: "%{time}, all'IP %{ip}"
         authtype:
-          title: 'Authentication type:'
+          title: 'Tipo di autenticazione:'
           std: Standard
           fb: Facebook
-          both: Standard and Facebook
-        timezone: 'Timezone:'
+          both: Standard e Facebook
+        timezone: 'Fuso orario:'
       settings:
-        title: Edit account settings
-        revertuname: Leave this blank to revert to your username.
-        emailwarn: Make sure you provide a valid email.
-        changepass: Change password
+        title: Modifica impostazioni di conto
+        revertuname: Lascia questo in bianco per tornare al nome utente.
+        emailwarn: Sii sicuro che fornisca un indirizzo email valido.
+        changepass: Cambia password
         passwarn:
           one: >
-            Don't use the same password you use on other websites! 1 character minimum. Choose something you'll
-            easily remember.
+            Non usare la stessa password che usi con altri siti web. Minimo di 1 carattere. Scegli qualcosa che ti
+            ricorderai facilmente.
           other: >
-            Don't use the same password you use on other websites! %{count} characters minimum. Choose something you'll
-            easily remember.
-        passblank: Leave this field blank if you don't wish to change your password.
-        passconfirm: Just type in your password again! Easy peasy.
+            Non usare la stessa password che usi con altri siti web. Minimo di %{count} caratteri. Scegli qualcosa che
+            ti ricorderai facilmente.
+        passblank: Lascia questo campo in bianco se non vuoi cambiare la password.
+        passconfirm: Solamente scrivi la tua password di nuovo! Facilissimo.
 
   profiles:
     show:
       notfound:
-        title: User not found
-        text: No user with username "%{name}" was found.
-      title: "%{name}'s profile"
+        title: Utente non trovato
+        text: Nessun utente con il nome "%{name}" è stato trovato.
+      title: "Profilo di %{name}"
       sidedata:
-        genderandcountry: '%{gender}, from %{country}'
+        genderandcountry: '%{gender}, da %{country}'
         karmainfo: '[info]'
       links:
-        edit: '[edit profile]'
-        message: '[message]'
+        edit: '[modifica profilo]'
+        message: '[manda un messaggio]'
       info:
-        membersince: 'Member since: %{time}'
-        lastseen: 'Last seen: %{time}'
-        boardposts: 'Board posts: %{quantity}'
-      about: About %{name}
+        membersince: 'Membro da:'
+        lastseen: "Visto l'ultima volta:"
+        boardposts: 'Board posts:'
+      about: Su di %{name}
     edit:
-      title: '%{name} - Edit profile'
-      h1: 'Edit profile: %{name}'
-      avatarwarn: The uploaded image will be resized to 50px by 50px.
-      removeavatar: Remove avatar
+      title: '%{name} - Modifica profilo'
+      h1: 'Modifica profilo: %{name}'
+      avatarwarn: L'immagine caricata sarà ridimensionata a 50px per 50px.
+      removeavatar: Rimuovi avatar
 
   static:
     about:
       title: About
-      welcome: 'Welcome to %{b:ConWorkShop}'
+      welcome: 'Benvenuto in %{b:ConWorkShop}'
       intro:
         text: >
-          However you found yourself here, Welcome! If you're an existing member, %{link:please log in here}, or if
-          you're new, we've arranged a few points of interest about CWS here:
+          In qualunque modo tu sia arrivato qui, Benvenuto! Se sei un utente esistente, %{link:per favore accedi qui},
+          o se sei nuovo, abbiamo organizzato alcuni punti di interesse di CWS qui:
         points:
-          what: '%{b:What} is CWS?'
-          more: '%{b:What} sort of things do you have/do?'
-          how: '%{b:How} do I join?'
-          why: '%{b:Why} does CWS exist?'
+          what: "%{b:Cos'è} CWS?"
+          more: '%{b:Che} genere di cose avete/fate?'
+          how: '%{b:Come} aderisco?'
+          why: '%{b:Perché} CWS esiste?'
       points:
         what:
-          title: What is CWS?
+          title: Cos'è CWS?
           paragraph1: >
             CWS, or %{u:C}on%{u:W}ork%{u:S}hop, is a conlanging community and tools website started in early 2014 aimed
             at providing the tools and community to help you strive in your conlanging endeavours. We are a very
