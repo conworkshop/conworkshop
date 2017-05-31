@@ -6,7 +6,7 @@
         b Conlanger
         br
         | CWS Conlanger
-  =< link_to user.display_name, profile_path(user), style: 'color: #009999'
+  =< link_to user.display_name, profile_path(user, locale: I18n.default_locale), style: 'color: #009999'
   / online/away marker
   - if user.user_track&.status != :offline
     a[href="#"]
