@@ -17,14 +17,18 @@ class ApplicationController < ActionController::Base
   def authorize_route
     route_str = controller_path + '#' + action_name
 
-    unless (access = RouteAccessControl.find_by(route: route_str))
-      # Create new row, since it doesn't exist.
-      # Defaults to the special maintenance level, which allows entry to
-      # developers only.
-      access = RouteAccessControl.create(
-        route: route_str,
-        level: RouteAccessControl::MAINTENANCE_LEVEL
-      )
+    access = Rails.cache.fetch(route_str) do
+      unless (obj = RouteAccessControl.find_by(route: route_str))
+        # Create new row, since it doesn't exist.
+        # Defaults to the special maintenance level, which allows entry to
+        # developers only.
+        obj = RouteAccessControl.create(
+          route: route_str,
+          level: RouteAccessControl::MAINTENANCE_LEVEL
+        )
+      end
+
+      obj
     end
 
     unless access.allowed?(current_user)
