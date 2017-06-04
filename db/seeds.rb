@@ -8,7 +8,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 RouteAccessControl.delete_all
-RouteAccessControl.create([
+RouteAccessControl.create!([
   { route: 'static#feed',                       level: -1 },
   { route: 'static#about',                      level: -1 },
   { route: 'users/registrations#new',           level: -1 },
@@ -32,4 +32,22 @@ RouteAccessControl.create([
   { route: 'users/omniauth_callbacks#failure',  level: -1 },
   { route: 'preferences#edit',                  level:  0 },
   { route: 'preferences#update',                level:  0 },
+])
+
+LangType.delete_all
+LangType.create!([
+  { code: 'NSP', name: 'Not specified'                          },
+  { code: 'APR', name: 'A priori'                               },
+  { code: 'APS', name: 'A posteriori'                           },
+  { code: 'ART', name: 'Artistic Language (Artlang)'            },
+  { code: 'ENG', name: 'Engineered Language (Englang)'          },
+  { code: 'IAL', name: 'International Auxiliary Language (IAL)' },
+  { code: 'LOG', name: 'Logical Language (Loglang)'             },
+  { code: 'SGN', name: 'Signed conlang'                         },
+  { code: 'PRO', name: 'Proto-Conlang'                          },
+  { code: 'PID', name: 'Pidgin'                                 },
+  { code: 'CRE', name: 'Creole'                                 },
+  { code: 'JOK', name: 'Joke language'                          },
+  { code: 'MIX', name: 'Mixed'                                  },
+  { code: 'OTH', name: 'Other'                                  },
 ])
