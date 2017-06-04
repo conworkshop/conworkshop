@@ -364,9 +364,10 @@ input {
 
     border: 1px solid white;
     color: $weird-black;
+    margin: 0;
     padding: 0;
     display: inline-block;
-    vertical-align: bottom;
+    vertical-align: middle;
   }
 
   &[type="submit"], &[type="submit"]:focus, &[type="submit"]:active {
