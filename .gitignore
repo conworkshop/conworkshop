@@ -16,6 +16,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+*.log
 
 # Ignore Byebug command history file.
 .byebug_history
@@ -30,3 +31,9 @@
 
 # FUCKING MAC
 .DS_Store
+
+# Ignore vagrant
+/.vagrant
+
+# Ignore rbenv
+.ruby-version

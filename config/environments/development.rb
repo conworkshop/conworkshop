@@ -67,4 +67,7 @@ Rails.application.configure do
     config.ignore_processing_errors = false
     config.ignore_download_errors = false
   end
+
+  # For Vagrant
+  config.web_console.whitelisted_ips = '10.0.2.2' # Vagrant always has 10.0.2.2 for the host IP
 end
