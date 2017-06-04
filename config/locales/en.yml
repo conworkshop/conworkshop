@@ -47,7 +47,10 @@ en:
   activerecord:
     attributes:
       profile:
-        avatar: Profile picture
+        avatar: profile picture
+      language:
+        nativename: native name
+        lang_type: language type
 
   header:
     quicklinks:
@@ -126,6 +129,14 @@ en:
         You should probably %{link:go back} and do something else. If you believe this is a genuine mistake, please
         report an error using the button below. Sorry for the inconvenience!
 
+  languages:
+    new:
+      title: Add new language
+      code:
+        length_limit: A unique three to six-letter code to identify your language.
+        char_limit: Letters %{b:A-Z} and numbers %{b:0-9} only!
+      unnamed: I don't have a name for this language yet.
+
   account:
     edit:
       title: My account
@@ -171,9 +182,9 @@ en:
         edit: '[edit profile]'
         message: '[message]'
       info:
-        membersince: 'Member since: %{time}'
-        lastseen: 'Last seen: %{time}'
-        boardposts: 'Board posts: %{quantity}'
+        membersince: 'Member since:'
+        lastseen: 'Last seen:'
+        boardposts: 'Board posts:'
       about: About %{name}
     edit:
       title: '%{name} - Edit profile'

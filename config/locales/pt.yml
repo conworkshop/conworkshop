@@ -24,17 +24,22 @@ pt:
       none: Não declarado
 
   activerecord:
+    models:
+      user:
+        one: usuário
+        other: usuários
     attributes:
       user:
-        email: Email
-        password: Senha
-        password_confirmation: Confirmação da senha
-        pseudonym: Pseudônimo
+        username: nome de usuário
+        email: email
+        password: senha
+        password_confirmation: confirmação da senha
+        pseudonym: pseudônimo
       profile:
-        avatar: Imagem de perfil
-        country: País
-        gender: Sexo
-        about: Sobre
+        avatar: imagem de perfil
+        country: país
+        gender: sexo
+        about: sobre
 
   header:
     quicklinks:
