@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_one :profile
   has_one :user_track
 
+  after_create :create_profile
+
   devise :uid, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
