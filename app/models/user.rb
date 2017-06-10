@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_one :profile
   has_one :user_track
 
-  after_create :create_profile
+  after_create :create_profile, :create_user_track
 
   devise :uid, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
