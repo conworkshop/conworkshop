@@ -243,7 +243,7 @@ nav[role='navigation']
             a.nav_orange_l.nav_caret[href='#'] = t('menu.orange.languages.languages')
             ul[role='tree']
               li[role='treeitem']
-                a.nav_orange_l[href='#'] = t('menu.orange.languages.new')
+                = link_to t('menu.orange.languages.new'), new_language_path, class: 'nav_orange_l'
               li[role='treeitem']
                 a.nav_orange_l[href='#'] = t('menu.orange.languages.dialect')
               li[role='treeitem']

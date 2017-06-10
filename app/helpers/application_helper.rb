@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'gender_form_builder'
+require 'langtype_form_builder'
 
 module ApplicationHelper
   def macro(partial, **vars, &block)

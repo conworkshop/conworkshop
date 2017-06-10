@@ -22,24 +22,46 @@ pt:
       o: Outro
       c: Cyborg
       none: Não declarado
+    langtype:
+      NSP: Não especificado
+      APR: A priori
+      APS: A posteriori
+      ART: Língua artística (Artlang)
+      ENG: Língua engenheirada (Englang)
+      IAL: Língua Internacional Auxiliar (IAL)
+      LOG: Língua lógica (Loglang)
+      SGN: Língua de sinais
+      PRO: Proto-Língua
+      PID: Pidgin
+      CRE: Creole
+      JOK: Língua zueira
+      MIX: Misto
+      OTH: Outro
 
   activerecord:
     models:
       user:
-        one: usuário
-        other: usuários
+        one: Usuário
+        other: Usuários
     attributes:
       user:
-        username: nome de usuário
-        email: email
-        password: senha
-        password_confirmation: confirmação da senha
-        pseudonym: pseudônimo
+        username: Nome de usuário
+        email: Email
+        password: Senha
+        password_confirmation: Confirmação da senha
+        pseudonym: Pseudônimo
       profile:
-        avatar: imagem de perfil
-        country: país
-        gender: sexo
-        about: sobre
+        avatar: Imagem de perfil
+        country: País
+        gender: Sexo
+        about: Sobre
+      language:
+        code: Código
+        name: Nome
+        nativename: Nome nativo
+        lang_type: Tipo de língua
+      langtype:
+        code/NSP: Não especificado
 
   header:
     quicklinks:
@@ -113,6 +135,29 @@ pt:
         informação que não é sua, acessar uma parte privada do site, ou acessar páginas liberadas apenas para a equipe
         do CWS. Você provavelmente deve %{link:voltar} e fazer alguma outra coisa. Se você acha que isso é um engano,
         relate o erro usando o botão abaixo. Desculpe a inconveniência!
+
+  users:
+    sessions:
+      new:
+        title: Entrar
+        fblogin: Entrar com o Facebook
+        login: ✔ Deixe-me entrar!
+        remember: Lembrar de mim
+    shared:
+      links:
+        alreadyacct: Já tem uma conta? %{link:Entrar}
+        new: Novo ao CWS? %{link:Registrar}
+        forgot: Ops! %{link:Esqueceu sua senha?}
+        omniauth:
+          facebook: Entrar com o Facebook
+
+  languages:
+    new:
+      title: Adicionar nova língua
+      code:
+        length_limit: Um código único de três a seis letras para identificar sua língua.
+        char_limit: Letras %{b:A-Z} e números %{b:0-9} apenas!
+      unnamed: Não tenho um nome para esta língua ainda.
 
   account:
     edit:

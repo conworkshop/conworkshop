@@ -43,6 +43,21 @@ en:
       o: Other
       c: Cyborg
       none: Not stated
+    langtype:
+      NSP: Not specified
+      APR: A priori
+      APS: A posteriori
+      ART: Artistic Language (Artlang)
+      ENG: Engineered Language (Englang)
+      IAL: International Auxiliary Language (IAL)
+      LOG: Logical Language (Loglang)
+      SGN: Signed conlang
+      PRO: Proto-Conlang
+      PID: Pidgin
+      CRE: Creole
+      JOK: Joke language
+      MIX: Mixed
+      OTH: Other
 
   activerecord:
     attributes:
@@ -128,6 +143,21 @@ en:
         edit information that is not yours, access a private part of the site, or access administrator or staff pages.
         You should probably %{link:go back} and do something else. If you believe this is a genuine mistake, please
         report an error using the button below. Sorry for the inconvenience!
+
+  users:
+    sessions:
+      new:
+        title: Log in
+        fblogin: Log in with Facebook instead
+        login: ✔ Let me in!
+        remember: Remember me
+    shared:
+      links:
+        alreadyacct: Already have an account? %{link:Log in}
+        new: New to CWS? %{link:Sign up}
+        forgot: Oops! %{link:Forgot your password?}
+        omniauth:
+          facebook: Log in with Facebook
 
   languages:
     new:
@@ -437,9 +467,9 @@ en:
       report: Report/feedback
       stats: Statistics
       donate: Donate
-    logout: Sign out
+    logout: Log out
     basic:
-      login: Sign in
+      login: Log in
       register: Register
       about: About
       home: Home

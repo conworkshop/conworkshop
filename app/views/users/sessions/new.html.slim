@@ -1,11 +1,11 @@
 - provide(:page_origin, 'session')
 - provide(:page_colour, 'orange')
-- provide(:page_title, 'Log in')
+- provide(:page_title, t('.title'))
 
-h2 Log in
+h2 = t('.title')
 = devise_error_messages!
 
-= link_to 'Log in with Facebook instead', user_facebook_omniauth_authorize_path, class: 'button idle'
+= link_to t('.fblogin'), user_facebook_omniauth_authorize_path, class: 'button idle'
 
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field
@@ -17,9 +17,9 @@ h2 Log in
     = f.password_field :password, autocomplete: 'off', size: 38
 
   .actions
-    = f.submit '✔ Let me in!', class: 'button alert'
+    = f.submit t('.login'), class: 'button alert'
     .field
       => f.check_box :remember_me
-      = f.label :remember_me, class: 'small'
+      = f.label :remember_me, t('.remember'), class: 'small'
 
 = render 'users/shared/links'

@@ -6,6 +6,7 @@ class LanguagesController < ApplicationController
   end
 
   def new
+    @language = Language.new
   end
 
   def create
