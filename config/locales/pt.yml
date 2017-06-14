@@ -13,8 +13,8 @@ pt:
       online: online
       away: ausente
     minchars:
-      one: Minimum of one character.
-      other: Minimum of %{count} characters.
+      one: Mínimo de 1 caractere.
+      other: Mínimo de %{count} caracteres.
     nocountry: Lugar Nenhum
     gender:
       m: Masculino
@@ -181,13 +181,9 @@ pt:
         revertuname: Deixe em branco para reverter para seu nome de usuário.
         emailwarn: Tenha certeza de dar um email válido.
         changepass: Mudar sua senha
-        passwarn:
-          one: >
-            Não use a mesma senha que você usa em outros websites! Mínimo de 1 caractere. Escolha algo que irá lembrar
-            facilmente.
-          other: >
-            Não use a mesma senha que você usa em outros websites! Mínimo de %{count} caracteres. Escolha algo que irá
-            lembrar facilmente.
+        passwarn: >
+          Não use a mesma senha que você usa em outros websites! Mínimo de %{count} caracteres. Escolha algo que irá
+          lembrar facilmente.
         passblank: Deixe este campo em branco se não quiser mudar sua senha.
         passconfirm: Digite sua senha novamente.
 

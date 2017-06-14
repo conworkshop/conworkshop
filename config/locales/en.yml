@@ -189,13 +189,9 @@ en:
         revertuname: Leave this blank to revert to your username.
         emailwarn: Make sure you provide a valid email.
         changepass: Change password
-        passwarn:
-          one: >
-            Don't use the same password you use on other websites! 1 character minimum. Choose something you'll
-            easily remember.
-          other: >
-            Don't use the same password you use on other websites! %{count} characters minimum. Choose something you'll
-            easily remember.
+        passwarn: >
+          Don't use the same password you use on other websites! %{count} characters minimum. Choose something you'll
+          easily remember.
         passblank: Leave this field blank if you don't wish to change your password.
         passconfirm: Just type in your password again! Easy peasy.
 

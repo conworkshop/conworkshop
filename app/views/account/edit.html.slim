@@ -63,8 +63,7 @@ h1= t('.settings.title')
 
   .field
     = f.label :password
-    = hover_ico :warn
-      = t('.settings.passwarn', count: @minimum_password_length)
+    = hover_ico :warn, t('.settings.passwarn', count: Devise.password_length.begin)
 
     span.sbt= t('.settings.passblank')
 

@@ -14,12 +14,16 @@ module ApplicationHelper
 
   HOVER_ICO_TYPES = { warn: '!', info: '?', dict: '✱' }.freeze
 
-  def hover_ico(type, &block)
+  def hover_ico(type, str = nil, &block)
     unless HOVER_ICO_TYPES.keys.include?(type)
       raise ArgumentError, "unknown type, must be one of #{HOVER_ICO_TYPES.keys}"
     end
 
-    macro('hover_ico', type: type, &block)
+    unless str || block_given?
+      raise ArgumentError, 'must pass a block or a string to use'
+    end
+
+    macro('hover_ico', type: type, str: str, &block)
   end
 
   BANNER_TYPES = {
