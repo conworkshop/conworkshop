@@ -173,6 +173,7 @@ en:
       info:
         title: Account information
         registered: 'Account registered at:'
+        confirmed: 'Account confirmed at:'
         accountlastupdate: 'Account last updated:'
         profilelastupdate: 'Profile last updated:'
         lastlogin:
