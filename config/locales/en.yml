@@ -222,6 +222,10 @@ en:
       avatarwarn: The uploaded image will be resized to 50px by 50px.
       removeavatar: Remove avatar
 
+  clans:
+    new:
+      title: Create a clan
+
   static:
     about:
       title: About
