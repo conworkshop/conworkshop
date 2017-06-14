@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   after_create :create_profile, :create_user_track
 
-  devise :uid, :database_authenticatable, :registerable,
+  devise :uid, :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
