@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519224951) do
+ActiveRecord::Schema.define(version: 20170614225542) do
+
+  create_table "clan_memberships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "clan_id"
+    t.string   "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clan_id"], name: "index_clan_memberships_on_clan_id"
+    t.index ["user_id"], name: "index_clan_memberships_on_user_id"
+  end
+
+  create_table "clans", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.text     "page_text"
+    t.string   "colour"
+    t.string   "symbol"
+    t.string   "permission"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "lang_types", force: :cascade do |t|
     t.string   "code"
