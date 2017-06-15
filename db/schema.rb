@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614225542) do
+ActiveRecord::Schema.define(version: 20170615213020) do
 
   create_table "clan_memberships", force: :cascade do |t|
     t.integer  "user_id"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20170614225542) do
     t.string   "permission"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_clans_on_slug"
   end
 
   create_table "lang_types", force: :cascade do |t|
