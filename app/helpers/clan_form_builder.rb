@@ -1,0 +1,6 @@
+# frozen_string_literal: true
+class ClanFormBuilder < ActionView::Helpers::FormBuilder
+  def permission_select(method, options={})
+    @template.select(@object_name, method, Clan.permission_types.map { |c| [I18n.t("clans.permissions.#{c}"), c] })
+  end
+end

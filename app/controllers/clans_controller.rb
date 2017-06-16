@@ -1,8 +1,10 @@
 # frozen_string_literal: true
-class LanguagesController < ApplicationController
+class ClansController < ApplicationController
   before_action :authenticate_user!
 
-  def new; end
+  def new
+    @clan = Clan.new
+  end
   def create; end
   def index; end
   def edit; end

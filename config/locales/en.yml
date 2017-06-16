@@ -225,6 +225,10 @@ en:
   clans:
     new:
       title: Create a clan
+    permissions:
+      O: Open
+      R: Request
+      I: Invite-only
 
   static:
     about:
