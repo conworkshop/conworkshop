@@ -11,8 +11,15 @@ class ClansController < ApplicationController
   def create
     @clan = Clan.new(clan_params)
     if @clan.save
+      @cm = ClanMembership.new(clan: @clan, user: current_user, role: 'A')
+      if @cm.save
+        flash[:success] = 'Clan successfully created'
+      else
+        flash[:error] = 'Clan created but you could not be added. Please contact a staff member.'
+      end
       redirect_to @clan
     else
+      flash[:error] = 'Clan could not be saved'
       render 'new'
     end
   end

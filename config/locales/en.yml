@@ -224,9 +224,16 @@ en:
       title: View clan
       join: Join clan
       request: Request membership
+      primary: This is your primary clan!
+      make_primary: Make primary clan
+      members: Members
+      nomembers: This clan currently has no members
       info:
         created: 'Clan created:'
         permission: 'Membership type:'
+      role:
+        A: Admin
+        M: Member
     index:
       title: Clans
     new:

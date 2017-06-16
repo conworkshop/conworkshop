@@ -1017,6 +1017,11 @@ select#language_select {
   text-decoration: none;
   padding: 5px 5px 5px 20px;
   transition: .1s;
+
+  > span {
+    width: 20%;
+    display: inline-block;
+  }
 }
 
 // mainly for preferences
