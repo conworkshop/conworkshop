@@ -222,8 +222,6 @@ en:
   clans:
     show:
       title: View clan
-    index:
-      title: Clans
     new:
       title: Create a clan
       submit: Create clan

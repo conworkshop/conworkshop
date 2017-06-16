@@ -26,6 +26,7 @@ class ClansController < ApplicationController
 
   def show
     @clan = Clan.find(params[:id])
+    #redirect_to clans_path unless @clan
   end
 
   def render_404

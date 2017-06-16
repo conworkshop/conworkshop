@@ -2,4 +2,4 @@
 - provide(:page_colour, 'blue')
 
 h2 Clan
-p = @clan.name
+p = @clan
