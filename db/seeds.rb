@@ -45,7 +45,8 @@ Clan.delete_all
 Clan.create!([
   { name: 'Conlanger', symbol: '✱', colour: '#009999', description: 'CWS Conlanger', permission: 'I' },
   { name: 'High Council of CWS', symbol: '✱', colour: '#338833', description: 'Staff of CWS', slug: 'staff', permission: 'I' },
-  { name: 'Baredan Union', symbol: '⧰', colour: '#FF7700', description: 'For the best countries only', permission: 'R' }
+  { name: 'Baredan Union', symbol: '⧰', colour: '#FF7700', description: 'For the best countries only', permission: 'R' },
+  { name: 'Avxyntklan', symbol: '木', colour: '#E64843', description: 'Hojdzan! Come and speak Xynder with us!', permission: 'O'}
 ])
 
 LangType.delete_all
