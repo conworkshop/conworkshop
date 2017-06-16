@@ -243,6 +243,16 @@ en:
         info: Each clan has a symbol they can use to denote their members. One character only.
       colour:
         info: Each clan has a colour. Your name will appear in the colour of the clan you have set as your primary clan.
+      success: Clan created successfully
+      fail: Clan could not be created
+      nojoin: Clan was created but something went wrong adding you as a clan admin. Please contact a site staff member.
+    join:
+      success: Clain joined successfully
+      fail: Could not join clan
+    primary:
+      success: Primary clan set successfully
+      fail: Primary clan could not be set
+      nomember: You must be a member of this clan in order to set it as your primary clan
     permissions:
       O: Open
       R: Request

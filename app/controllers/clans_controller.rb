@@ -13,13 +13,13 @@ class ClansController < ApplicationController
     if @clan.save
       @cm = ClanMembership.new(clan: @clan, user: current_user, role: 'A')
       if @cm.save
-        flash[:success] = 'Clan successfully created'
+        flash[:success] = t('clans.new.success')
       else
-        flash[:error] = 'Clan created but you could not be added. Please contact a staff member.'
+        flash[:error] = t('clans.new.nojoin')
       end
       redirect_to @clan
     else
-      flash[:error] = 'Clan could not be saved'
+      flash[:error] = t('clans.new.fail')
       render 'new'
     end
   end
@@ -35,9 +35,9 @@ class ClansController < ApplicationController
     @membership.user = current_user
     @membership.clan = @clan
     if @membership.save
-      flash[:success] = 'Clan joined'
+      flash[:success] = t('clans.join.success')
     else
-      flash[:error] = 'Could not join clan'
+      flash[:error] = t('clans.join.fail')
     end
     redirect_to @clan
   end
@@ -51,12 +51,12 @@ class ClansController < ApplicationController
                                     nil
                                   end
       if current_user.save
-        flash[:success] = 'Primary clan has been set'
+        flash[:success] = t('clans.primary.success')
       else
-        flash[:error] = 'Could not set primary clan'
+        flash[:error] = t('clans.primary.fail')
       end
     else
-      flash[:error] = 'You are not a member of this clan'
+      flash[:error] = t('clans.primary.nomember')
     end
     redirect_to @clan
   end
