@@ -153,13 +153,9 @@ it:
         revertuname: Lascia questo in bianco per tornare al nome utente.
         emailwarn: Sii sicuro che fornisca un indirizzo email valido.
         changepass: Cambia password
-        passwarn:
-          one: >
-            Non usare la stessa password che usi con altri siti web. Minimo di 1 carattere. Scegli qualcosa che ti
-            ricorderai facilmente.
-          other: >
-            Non usare la stessa password che usi con altri siti web. Minimo di %{count} caratteri. Scegli qualcosa che
-            ti ricorderai facilmente.
+        passwarn: >
+          Non usare la stessa password che usi con altri siti web. Minimo di %{count} caratteri. Scegli qualcosa che
+          ti ricorderai facilmente.
         passblank: Lascia questo campo in bianco se non vuoi cambiare la password.
         passconfirm: Solamente scrivi la tua password di nuovo! Facilissimo.
 

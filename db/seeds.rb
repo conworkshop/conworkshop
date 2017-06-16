@@ -32,7 +32,9 @@ RouteAccessControl.create!([
   { route: 'users/omniauth_callbacks#failure',  level: -1 },
   { route: 'preferences#edit',                  level:  0 },
   { route: 'preferences#update',                level:  0 },
-  { route: 'clans#new',                         level:  0 }
+  { route: 'clans#new',                         level:  0 },
+  { route: 'devise/confirmations#new',          level: -1 },
+  { route: 'devise/confirmations#show',         level: -1 }
 ])
 
 LangType.delete_all

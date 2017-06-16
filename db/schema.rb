@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170615213020) do
-
+ActiveRecord::Schema.define(version: 20170610214618) do
   create_table "clan_memberships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "clan_id"
@@ -113,6 +112,11 @@ ActiveRecord::Schema.define(version: 20170615213020) do
     t.string   "provider"
     t.string   "oaid"
     t.text     "preferences",                       default: "{}"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["oaid"], name: "index_users_on_oaid"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

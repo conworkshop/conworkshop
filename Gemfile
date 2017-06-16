@@ -49,6 +49,7 @@ group :development do
   gem 'rubocop'
   gem 'net_http_ssl_fix', require: 'net_http_ssl_fix'
   gem 'slim_lint'
+  gem 'letter_opener'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

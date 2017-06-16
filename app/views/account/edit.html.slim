@@ -12,6 +12,10 @@ h1= t('.info.title')
         dd = cws_local_time(current_user.created_at)
 
       div
+        dt = t('.info.confirmed')
+        dd = cws_local_time(current_user.confirmed_at)
+
+      div
         dt = t('.info.accountlastupdate')
         dd = cws_local_time(current_user.updated_at)
 
@@ -45,8 +49,7 @@ h1= t('.settings.title')
 
   .field
     = f.label :pseudonym
-    = hover_ico :info
-      = t('general.minchars', count: User::USERNAME_LEN.begin)
+    = hover_ico :info, t('general.minchars', count: User::USERNAME_LEN.begin)
 
     span.sbt= t('.settings.revertuname')
 
@@ -63,8 +66,7 @@ h1= t('.settings.title')
 
   .field
     = f.label :password
-    = hover_ico :warn
-      = t('.settings.passwarn', count: @minimum_password_length)
+    = hover_ico :warn, t('.settings.passwarn', count: Devise.password_length.begin)
 
     span.sbt= t('.settings.passblank')
 
