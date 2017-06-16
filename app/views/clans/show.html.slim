@@ -3,10 +3,16 @@
 
 => link_to "« #{t('clans.index.title')}", clans_path, class: 'button idle'
 
-- if @clan.permission == 'O'
-  = link_to t('.join'), join_clan_path(@clan), class: 'button alert', method: :post
-- elsif @clan.permission == 'R'
-  = link_to t('.request'), join_clan_path(@clan), class: 'button idle', method: :post
+- if current_user.user_clan == @clan
+  | This is your primary clan!
+- elsif current_user.in_clan?(@clan) or not @clan.concrete_members?
+  ' You are in this clan!
+  = link_to 'Make primary', primary_clan_path(@clan), class: 'button alert', method: :post
+- else
+  - if @clan.permission == 'O'
+    = link_to t('.join'), join_clan_path(@clan), class: 'button alert', method: :post
+  - elsif @clan.permission == 'R'
+    = link_to t('.request'), join_clan_path(@clan), class: 'button idle', method: :post
 
 .clan_header
   .clan_square[style="background: #{@clan.colour}"] = @clan.symbol

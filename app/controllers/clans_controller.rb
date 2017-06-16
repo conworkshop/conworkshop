@@ -26,9 +26,30 @@ class ClansController < ApplicationController
     @clan = Clan.find(params[:id])
     @membership = ClanMembership.new
     @membership.user = current_user
-    @memership.clan = @clan
-    unless @membership.save
+    @membership.clan = @clan
+    if @membership.save
+      flash[:success] = 'Clan joined'
+    else
       flash[:error] = 'Could not join clan'
+    end
+    redirect_to @clan
+  end
+
+  def primary
+    @clan = Clan.find(params[:id])
+    if current_user.in_clan?(@clan) or not @clan.concrete_members?
+      current_user.default_clan = if @clan.concrete_members?
+                                    @clan
+                                  else
+                                    nil
+                                  end
+      if current_user.save
+        flash[:success] = 'Primary clan has been set'
+      else
+        flash[:error] = 'Could not set primary clan'
+      end
+    else
+      flash[:error] = 'You are not a member of this clan'
     end
     redirect_to @clan
   end

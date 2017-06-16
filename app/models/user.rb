@@ -96,6 +96,10 @@ class User < ApplicationRecord
     default_clan ? default_clan : Clan.find('conlanger')
   end
 
+  def in_clan?(c)
+    ClanMembership.exists?(user: self, clan: c)
+  end
+
   def rank?(rank)
     RANK_HIERARCHY[group.to_sym] >= rank
   end

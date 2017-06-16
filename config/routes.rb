@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     resources :clans do
       member do
         post :join
+        post :primary
       end
     end
 
