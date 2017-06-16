@@ -4,6 +4,7 @@ class ClansController < ApplicationController
 
   def new
     @clan = Clan.new
+    @clan.colour = '#99dddd'
   end
   def create; end
   def index; end

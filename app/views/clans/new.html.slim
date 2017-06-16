@@ -15,3 +15,19 @@ h2= t('.title')
   .field
     = f.label :permission
     = f.permission_select :permission
+
+  .field
+    = f.label :symbol
+    = hover_ico :info, t('.symbol.info')
+
+    = f.text_field :symbol, autocomplete: 'off', size: 5
+
+  .field
+    = f.label :colour
+    = hover_ico :info, t('.colour.info')
+
+    .block_wrap
+      = f.text_field :colour, class: 'form_colour_select'
+
+  .actions
+    = f.submit t('.submit'), class: 'button idle'

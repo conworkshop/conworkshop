@@ -225,6 +225,11 @@ en:
   clans:
     new:
       title: Create a clan
+      submit: Create clan
+      symbol:
+        info: Each clan has a symbol they can use to denote their members. One character only.
+      colour:
+        info: Each clan has a colour. Your name will appear in the colour of the clan you have set as your primary clan.
     permissions:
       O: Open
       R: Request
