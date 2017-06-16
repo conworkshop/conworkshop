@@ -222,6 +222,8 @@ en:
   clans:
     show:
       title: View clan
+      join: Join clan
+      request: Request membership
     index:
       title: Clans
     new:

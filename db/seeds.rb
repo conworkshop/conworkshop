@@ -36,6 +36,7 @@ RouteAccessControl.create!([
   { route: 'clans#create',                      level:  0 },
   { route: 'clans#show',                        level:  0 },
   { route: 'clans#index',                       level:  0 },
+  { route: 'clans#join',                        level:  0 },
   { route: 'devise/confirmations#new',          level: -1 },
   { route: 'devise/confirmations#show',         level: -1 }
 ])

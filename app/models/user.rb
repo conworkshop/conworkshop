@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_one :profile
   has_one :user_track
 
+  has_many :clans, through: :clan_memberships
+
   after_create :create_profile, :create_user_track
 
   devise :uid, :database_authenticatable, :registerable, :confirmable,

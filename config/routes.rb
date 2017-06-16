@@ -29,7 +29,11 @@ Rails.application.routes.draw do
     patch '/account', to: 'account#update'
 
     # Clan
-    resources :clans
+    resources :clans do
+      member do
+        post :join
+      end
+    end
 
     # Preferences
     get '/preferences',   to: 'preferences#edit'

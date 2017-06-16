@@ -21,6 +21,18 @@ class ClansController < ApplicationController
     @clans = Clan.all
   end
 
+  def join
+    # HANDLE CLAN PERMISSION TYPES
+    @clan = Clan.find(params[:id])
+    @membership = ClanMembership.new
+    @membership.user = current_user
+    @memership.clan = @clan
+    unless @membership.save
+      flash[:error] = 'Could not join clan'
+    end
+    redirect_to @clan
+  end
+
   def edit; end
   def update; end
 
