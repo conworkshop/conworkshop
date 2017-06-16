@@ -11,4 +11,5 @@ class Clan < ApplicationRecord
   validates :symbol, presence: true, length: { is: 1 }
   validates :colour, presence: true, format: { with: /\A#?(?:[A-F0-9]{3}){1,2}\z/i }
   validates :permission, presence: true, inclusion: { in: self.permission_types }
+  validates :description, presence: true
 end

@@ -224,6 +224,9 @@ en:
       title: View clan
       join: Join clan
       request: Request membership
+      info:
+        created: 'Clan created:'
+        permission: 'Membership type:'
     index:
       title: Clans
     new:

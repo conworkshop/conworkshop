@@ -7,6 +7,9 @@ h2 = t('.title')
 
 - if @clans.any?
   - @clans.each do |clan|
-    p = link_to clan.name, clan
+    .list
+      .clan_blob[style="background:#{clan.colour}"]
+        = clan.symbol
+      = link_to clan.name, clan
 - else
   | There are no clans!
