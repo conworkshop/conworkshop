@@ -220,6 +220,8 @@ en:
       removeavatar: Remove avatar
 
   clans:
+    show:
+      title: View clan
     new:
       title: Create a clan
       submit: Create clan

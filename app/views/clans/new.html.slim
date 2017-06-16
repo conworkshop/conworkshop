@@ -4,6 +4,8 @@
 h2= t('.title')
 = form_for @clan, {builder: ClanFormBuilder} do |f|
 
+
+
   .field
     = f.label :name
     = f.text_field :name, autocomplete: 'off', autofocus: true

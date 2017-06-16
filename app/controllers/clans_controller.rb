@@ -6,10 +6,27 @@ class ClansController < ApplicationController
     @clan = Clan.new
     @clan.colour = '#99dddd'
   end
-  def create; end
+
+  def create
+    @clan = Clan.new(clan_params)
+    if @clan.save
+      redirect_to @clan
+    else
+      render 'new'
+    end
+  end
+
   def index; end
   def edit; end
   def update; end
-  def show; end
+
+  def show
+    @clan = Clan.find(params[:id])
+  end
+
   def destroy; end
+
+  def clan_params
+    params.require(:clan).permit(:name, :description, :permission, :symbol, :colour)
+  end
 end

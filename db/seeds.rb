@@ -33,6 +33,8 @@ RouteAccessControl.create!([
   { route: 'preferences#edit',                  level:  0 },
   { route: 'preferences#update',                level:  0 },
   { route: 'clans#new',                         level:  0 },
+  { route: 'clans#create',                      level:  0 },
+  { route: 'clans#show',                        level:  0 },
   { route: 'devise/confirmations#new',          level: -1 },
   { route: 'devise/confirmations#show',         level: -1 }
 ])

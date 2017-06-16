@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class Clan < ApplicationRecord
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: [:slugged, :finders]
 
   def self.permission_types
     %w(O R I).freeze

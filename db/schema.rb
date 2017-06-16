@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170610214618) do
+ActiveRecord::Schema.define(version: 20170615213020) do
+
   create_table "clan_memberships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "clan_id"
