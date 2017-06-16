@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616212742) do
+ActiveRecord::Schema.define(version: 20170616230021) do
 
   create_table "clan_memberships", force: :cascade do |t|
     t.integer  "user_id"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20170616212742) do
     t.datetime "updated_at", null: false
     t.index ["clan_id"], name: "index_clan_memberships_on_clan_id"
     t.index ["user_id"], name: "index_clan_memberships_on_user_id"
+  end
+
+  create_table "clan_requests", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "clan_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clan_id"], name: "index_clan_requests_on_clan_id"
+    t.index ["user_id"], name: "index_clan_requests_on_user_id"
   end
 
   create_table "clans", force: :cascade do |t|

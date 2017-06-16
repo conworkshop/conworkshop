@@ -28,18 +28,37 @@ class ClansController < ApplicationController
     @clans = Clan.all
   end
 
-  def join
-    # HANDLE CLAN PERMISSION TYPES
-    @clan = Clan.find(params[:id])
-    @membership = ClanMembership.new
-    @membership.user = current_user
-    @membership.clan = @clan
+  def join_open(clan)
+    @membership = ClanMembership.new(user: current_user, clan: clan)
     if @membership.save
       flash[:success] = t('clans.join.success')
     else
       flash[:error] = t('clans.join.fail')
     end
-    redirect_to @clan
+    redirect_to clan
+  end
+
+  def join_request(clan)
+    @request = ClanRequest.new(user: current_user, clan: clan)
+    if @request.save
+      flash[:info] = t('clans.join.request.success')
+    else
+      flash[:error] = t('clans.join.request.fail')
+    end
+    redirect_to clan
+  end
+
+  def join
+    @clan = Clan.find(params[:id])
+    case @clan.permission
+      when 'O'
+        join_open(@clan)
+      when 'R'
+        join_request(@clan)
+      else
+        flash[:error] = t('clans.join.noinvite')
+        redirect_to @clan
+    end
   end
 
   def primary

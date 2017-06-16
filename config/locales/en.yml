@@ -249,6 +249,11 @@ en:
     join:
       success: Clain joined successfully
       fail: Could not join clan
+      noinvite: You need to be invited in order to join this clan
+      request:
+        success: Your request to join the clan has been sent
+        fail: Your request to join this clan could not be sent
+        await: Awaiting response to join request
     primary:
       success: Primary clan set successfully
       fail: Primary clan could not be set
