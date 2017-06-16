@@ -1,11 +1,13 @@
+- @uc = user.user_clan
 .inline_handle
   - if clan_sym
-    .clan_symbol[style = 'background: #009999; color: #fff']
-      | *
-      span
-        b Conlanger
-        br
-        | CWS Conlanger
+    = link_to @uc do
+      .clan_symbol[style = 'background: #009999; color: #fff']
+        = @uc.symbol
+        span
+          b = @uc.name
+          br
+          = @uc.description
   =< link_to user.display_name, profile_path(user, locale: I18n.default_locale), style: 'color: #009999'
   / online/away marker
   - if user.user_track&.status != :offline
