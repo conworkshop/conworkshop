@@ -5,7 +5,7 @@ class ClansController < ApplicationController
 
   def new
     @clan = Clan.new
-    @clan.colour = '#99dddd'
+    @clan.colour = '#009999'
   end
 
   def create

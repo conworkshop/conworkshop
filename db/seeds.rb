@@ -41,6 +41,13 @@ RouteAccessControl.create!([
   { route: 'devise/confirmations#show',         level: -1 }
 ])
 
+Clan.delete_all
+Clan.create!([
+  { name: 'Conlanger', symbol: '✱', colour: '#009999', description: 'CWS Conlanger', permission: 'I' },
+  { name: 'High Council of CWS', symbol: '✱', colour: '#338833', description: 'Staff of CWS', slug: 'staff', permission: 'I' },
+  { name: 'Baredan Union', symbol: '⧰', colour: '#FF7700', description: 'For the best countries only', permission: 'R' }
+])
+
 LangType.delete_all
 LangType.create!([
   { code: 'NSP', name: 'Not specified'                          },
