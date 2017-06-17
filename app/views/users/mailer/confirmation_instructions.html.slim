@@ -1,3 +1,6 @@
-p Welcome, #{@resource.unconfirmed_email}!
-p You can confirm your account email through the link below:
-p = link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
+p = it('.welcome', b: It.tag(:b), email: @resource.unconfirmed_email || @resource.email)
+p
+  = t('.confirm')
+  br
+  = link_to t('.confirm_link'), confirmation_url(@resource, confirmation_token: @token),
+      style: 'text-decoration: none;color: #050;background-color: rgba(51, 204, 51, 0.4);padding: .2em;display: inline-block;margin-top: .6em;'

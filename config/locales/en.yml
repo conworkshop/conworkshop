@@ -58,14 +58,15 @@ en:
       JOK: Joke language
       MIX: Mixed
       OTH: Other
+    emailsig: ~The CWS Team
 
   activerecord:
     attributes:
       profile:
-        avatar: profile picture
+        avatar: Profile picture
       language:
-        nativename: native name
-        lang_type: language type
+        nativename: Native name
+        lang_type: Language type
 
   header:
     quicklinks:
@@ -151,6 +152,18 @@ en:
         fblogin: Log in with Facebook instead
         login: ✔ Let me in!
         remember: Remember me
+    mailer:
+      confirmation_instructions:
+        welcome: Welcome to CWS, %{b:%{email}}!
+        confirm: 'You can confirm your account using the link below:'
+        confirm_link: Confirm my account
+      email_changed:
+        hello: Hello, %{b:%{email}}!
+        changing: We're contacting you to notify you that your email is being changed to %{b:%{email}}.
+        changed: We're contacting you to notify you that your email has been changed to %{b:%{email}}.
+      password_change:
+        hello: Hello, %{b:%{email}}!
+        changed: We're contacting you to notify you that your password has been changed.
     shared:
       links:
         alreadyacct: Already have an account? %{link:Log in}

@@ -1,6 +1,6 @@
-p Hello, #{@email}!
+p = it('.hello', b: It.tag(:b), email: @email)
 
 - if @resource.try(:unconfirmed_email?)
-  p We're contacting you to notify you that your email is being changed to #{@resource.unconfirmed_email}.
+  p = it('.changing', b: It.tag(:b), email: @resource.unconfirmed_email)
 - else
-  p We're contacting you to notify you that your email has been changed to #{@resource.email}.
+  p = it('.changed', b: It.tag(:b), email: @resource.email)
