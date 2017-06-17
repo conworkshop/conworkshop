@@ -108,7 +108,7 @@ en:
     langsel: 'Viewing CWS in: %{seltag}'
 
   application:
-    403:
+    :403:
       title: Unauthorized
       denied: Oops! Access denied!
       banned:
