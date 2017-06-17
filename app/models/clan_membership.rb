@@ -1,13 +1,12 @@
 class ClanMembership < ApplicationRecord
+  CLAN_ROLES = %w(A M).freeze
+
   belongs_to :user
   belongs_to :clan
+
   after_initialize :init
 
-  def self.clan_roles
-    %w(A M).freeze
-  end
-
-  validates :role, presence: true, inclusion: { in: clan_roles }
+  validates :role, presence: true, inclusion: { in: CLAN_ROLES }
 
   def init
     self.role ||= 'M'

@@ -1005,7 +1005,7 @@ select#language_select {
   }
 
   &:hover + list, &:focus + list {
-    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
   }
 
   & + .list {

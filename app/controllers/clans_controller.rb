@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class ClansController < ApplicationController
-  before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:show, :index]
   rescue_from ActiveRecord::RecordNotFound, :with => :render_404
 
   def new
