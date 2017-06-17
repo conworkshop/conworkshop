@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: 'CWS Automailer <noreply@conworkshop.com>'
   layout 'mailer'
 end

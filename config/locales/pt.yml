@@ -37,6 +37,7 @@ pt:
       JOK: Língua zueira
       MIX: Misto
       OTH: Outro
+    emailsig: ~A Equipe do CWS
 
   activerecord:
     models:
@@ -60,8 +61,6 @@ pt:
         name: Nome
         nativename: Nome nativo
         lang_type: Tipo de língua
-      langtype:
-        code/NSP: Não especificado
 
   header:
     quicklinks:
@@ -143,6 +142,18 @@ pt:
         fblogin: Entrar com o Facebook
         login: ✔ Deixe-me entrar!
         remember: Lembrar de mim
+    mailer:
+      confirmation_instructions:
+        welcome: Bem-vindo ao CWS, %{b:%{email}}!
+        confirm: 'Você pode confirmar sua conta clicando no link abaixo:'
+        confirm_link: Confirmar minha conta
+      email_changed:
+        hello: Olá, %{b:%{email}}!
+        changing: Enviamos esse email para lhe notificar que o seu email está sendo alterado para %{b:%{email}}.
+        changed: Enviamos esse email para lhe notificar que o seu email foi alterado para %{b:%{email}}.
+      password_change:
+        hello: Olá, %{b:%{email}}!
+        changed: Enviamos esse email para lhe notificar que sua senha foi alterada.
     shared:
       links:
         alreadyacct: Já tem uma conta? %{link:Entrar}

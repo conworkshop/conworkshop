@@ -3,8 +3,9 @@ html
   head
     title ConWorkShop
 
-    = csrf_meta_tags
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-
-  body = yield
+  body
+    div[style='font-family: "Noto Sans", sans-serif']
+      = image_tag image_url('fi_blue.png'), alt: 'CWS', size: '125x125'
+      br
+      = yield
+      p: em = t('general.emailsig')

@@ -1,4 +1,5 @@
 # https://gist.github.com/mateusg/924555
+# with changes by leashy
 
 pt:
   devise:
@@ -18,14 +19,18 @@ pt:
       unconfirmed: "Antes de continuar, confirme a sua conta."
     mailer:
       confirmation_instructions:
-        subject: "Instruções de confirmação"
+        subject: "Instruções de confirmação - ConWorkShop"
       reset_password_instructions:
-        subject: "Instruções de troca de senha"
+        subject: "Instruções de troca de senha - ConWorkShop"
       unlock_instructions:
-        subject: "Instruções de desbloqueio"
+        subject: "Instruções de desbloqueio - ConWorkShop"
+      email_changed:
+        subject: "Email alterado - ConWorkShop"
+      password_change:
+        subject: "Senha alterada - ConWorkShop"
     omniauth_callbacks:
-      failure: "Não foi possível autenticá-lo como %{kind} porque \"%{reason}\"."
-      success: "Autenticado com sucesso com uma conta de %{kind}."
+      failure: "Não foi possível autenticá-lo porque \"%{reason}\"."
+      success: "Autenticado com sucesso."
     passwords:
       no_token: "Você só pode acessar essa página através de um e-mail de troca de senha. Se já estiver acessando por um e-mail, verifique se a URL fornecida está completa."
       send_instructions: "Dentro de minutos, você receberá um e-mail com instruções para a troca da sua senha."
