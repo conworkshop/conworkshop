@@ -1005,7 +1005,7 @@ select#language_select {
   }
 
   &:hover + list, &:focus + list {
-    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
   }
 
   & + .list {
@@ -1017,6 +1017,11 @@ select#language_select {
   text-decoration: none;
   padding: 5px 5px 5px 20px;
   transition: .1s;
+
+  > span {
+    width: 20%;
+    display: inline-block;
+  }
 }
 
 // mainly for preferences
@@ -1040,5 +1045,48 @@ select#language_select {
 
   label {
     font-size: $font-size + .2;
+  }
+}
+
+.block_wrap {
+  display: block;
+}
+
+// Clan list display
+.clan_blob {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 24px;
+  vertical-align: middle;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  line-height: 24px;
+  margin-right: 10px;
+}
+.clan_header {
+  padding-top: 10px;
+  .clan_square {
+    display: inline-block;
+    vertical-align: middle;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: #fff;
+    margin-right: 15px;
+    font-size: 38px;
+  }
+  .clan_title {
+    display: inline-block;
+    vertical-align: middle;
+    .clan_title_name {
+      font-size: 24px;
+    }
+    .clan_title_description {
+      color: $basically-black;
+      font-size: $smaller-font-size;
+    }
   }
 }

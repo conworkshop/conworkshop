@@ -1,0 +1,44 @@
+- provide(:page_title, t('.title'))
+- provide(:page_colour, 'blue')
+
+=> link_to "« #{t('clans.index.title')}", clans_path, class: 'button idle'
+
+- if current_user
+  - if current_user.user_clan == @clan
+    span.small-size = t('.primary')
+  - elsif current_user.in_clan?(@clan) or not @clan.concrete_members?
+    = link_to t('.make_primary'), primary_clan_path(@clan), class: 'button alert', method: :post
+  - else
+    - if @clan.permission == 'O'
+      = link_to t('.join'), join_clan_path(@clan), class: 'button alert', method: :post
+    - elsif @clan.permission == 'R' and not ClanRequest.exists?(user: current_user, clan: @clan)
+      = link_to t('.request'), join_clan_path(@clan), class: 'button idle', method: :post
+    - elsif @clan.permission == 'R'
+      span.small-size = t('clans.join.request.await')
+
+.clan_header
+  .clan_square[style="background: #{@clan.colour}"] = @clan.symbol
+  .clan_title
+    .clan_title_name = @clan.name
+    .clan_title_description = @clan.description
+
+dl
+  div
+    dt = t('.info.created')
+    dd = cws_local_time(@clan.created_at)
+  div
+    dt = t('.info.permission')
+    dd = t("clans.permissions.#{@clan.permission}")
+
+- if @clan.page_text
+  .faux = @clan.page_text
+
+- if @clan.concrete_members?
+  h2 = t('.members')
+  - if @clan.clan_memberships.any?
+    - @clan.clan_memberships.each do |cm|
+      .list
+        span = user_handle(cm.user)
+        span = t("clans.show.role.#{cm.role}")
+  - else
+    .list = t('.nomembers')

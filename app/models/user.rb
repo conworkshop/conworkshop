@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_one :profile
   has_one :user_track
 
+  has_many :clans, through: :clan_memberships
+  belongs_to :default_clan, class_name: 'Clan'
+
   after_create :create_profile, :create_user_track
 
   devise :uid, :database_authenticatable, :registerable, :confirmable,
@@ -87,6 +90,14 @@ class User < ApplicationRecord
   # Get display name of a user (pseudonym if set, else username)
   def display_name
     pseudonym || username
+  end
+
+  def user_clan
+    default_clan ? default_clan : Clan.find('conlanger')
+  end
+
+  def in_clan?(c)
+    ClanMembership.exists?(user: self, clan: c)
   end
 
   def rank?(rank)

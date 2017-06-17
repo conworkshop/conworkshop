@@ -232,6 +232,50 @@ en:
       avatarwarn: The uploaded image will be resized to 50px by 50px.
       removeavatar: Remove avatar
 
+  clans:
+    show:
+      title: View clan
+      join: Join clan
+      request: Request membership
+      primary: This is your primary clan!
+      make_primary: Make primary clan
+      members: Members
+      nomembers: This clan currently has no members
+      info:
+        created: 'Clan created:'
+        permission: 'Membership type:'
+      role:
+        A: Admin
+        M: Member
+    index:
+      title: Clans
+    new:
+      title: Create a clan
+      submit: Create clan
+      symbol:
+        info: Each clan has a symbol they can use to denote their members. One character only.
+      colour:
+        info: Each clan has a colour. Your name will appear in the colour of the clan you have set as your primary clan.
+      success: Clan created successfully
+      fail: Clan could not be created
+      nojoin: Clan was created but something went wrong adding you as a clan admin. Please contact a site staff member.
+    join:
+      success: Clain joined successfully
+      fail: Could not join clan
+      noinvite: You need to be invited in order to join this clan
+      request:
+        success: Your request to join the clan has been sent
+        fail: Your request to join this clan could not be sent
+        await: Awaiting response to join request
+    primary:
+      success: Primary clan set successfully
+      fail: Primary clan could not be set
+      nomember: You must be a member of this clan in order to set it as your primary clan
+    permissions:
+      O: Open
+      R: Request
+      I: Invite-only
+
   static:
     about:
       title: About

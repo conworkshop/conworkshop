@@ -175,7 +175,7 @@ nav[role='navigation']
             a.nav_blue_l.nav_caret[href='#'] = t('menu.blue.people.people')
             ul[role='tree']
               li[role='treeitem']
-                a.nav_blue_l[href='#'] = t('menu.blue.people.clans')
+                = link_to t('menu.blue.people.clans'), clans_path, class: 'nav_blue_l'
               li[role='treeitem']
                 a.nav_blue_l[href='#'] = t('menu.blue.people.conlangers')
               li[role='treeitem']

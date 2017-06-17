@@ -21,5 +21,7 @@ $(document).on("turbolinks:load", ->
     add_trigger(el, cntr)
 
   $('#language_select').change (e) -> Turbolinks.visit(e.target.selectedOptions[0].dataset['path'])
+
+  $('.form_colour_select').minicolors({ inline: true });
 )
 

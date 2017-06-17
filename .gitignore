@@ -37,3 +37,6 @@
 
 # Ignore rbenv
 .ruby-version
+
+*~
+

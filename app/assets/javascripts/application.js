@@ -18,6 +18,7 @@
 //= require moment
 //= require moment-timezone-with-data-2012-2022
 //= require jquery.sticky-kit
+//= require jquery.minicolors
 //= require local_time
 
 //= require_tree .

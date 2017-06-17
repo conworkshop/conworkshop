@@ -10,7 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170610214618) do
+ActiveRecord::Schema.define(version: 20170616230021) do
+
+  create_table "clan_memberships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "clan_id"
+    t.string   "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clan_id"], name: "index_clan_memberships_on_clan_id"
+    t.index ["user_id"], name: "index_clan_memberships_on_user_id"
+  end
+
+  create_table "clan_requests", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "clan_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clan_id"], name: "index_clan_requests_on_clan_id"
+    t.index ["user_id"], name: "index_clan_requests_on_user_id"
+  end
+
+  create_table "clans", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.text     "page_text"
+    t.string   "colour"
+    t.string   "symbol"
+    t.string   "permission"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "slug"
+    t.boolean  "concrete_members", default: true
+    t.index ["slug"], name: "index_clans_on_slug"
+  end
 
   create_table "lang_types", force: :cascade do |t|
     t.string   "code"
@@ -94,7 +127,9 @@ ActiveRecord::Schema.define(version: 20170610214618) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.integer  "default_clan_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["default_clan_id"], name: "index_users_on_default_clan_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["oaid"], name: "index_users_on_oaid"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
