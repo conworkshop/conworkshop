@@ -47,17 +47,8 @@ class ApplicationController < ActionController::Base
     def track_user
       return unless user_signed_in? # ignore guests
 
-      ut = UserTrack.find_by(user: current_user)
-
-      # There MUST exist an UserTrack row for each user. This is an invariant
-      # of the User class, asserted by an after_create hook in User.
-      # If it does not exist, fail immediately.
-      fail 'User must have a corresponding UserTrack!' unless ut
-
-      ut.route      = controller_path + '#' + action_name
-      ut.tracked_at = Time.now
-
-      ut.save(validate: false) # no need to validate because there's nothing to validate
+      UserTrack.where(user: current_user)
+               .update_all(route: controller_path + '#' + action_name, tracked_at: Time.now)
     end
 
     def set_locale
