@@ -7,8 +7,32 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-RouteAccessControl.delete_all
-RouteAccessControl.create!([
+def seed_if_needed(klass, check, *seeds)
+  fail 'argument `klass` must inherit from ActiveRecord::Base' unless klass < ActiveRecord::Base
+
+  seeds.each do |seed|
+    name = klass.model_name.to_s
+    name += %Q( with #{check} "#{seed[check]}") if name.present?
+
+    ActiveRecord::Base.transaction do
+      begin
+        if klass.find_by("#{check}": seed[check])
+          puts "!> skipped #{name} because it already exists"
+        else
+          klass.create!(seed)
+          puts "=> created #{name}"
+        end
+      rescue => e
+        ## ignore ##
+        warn "!> skipped #{name} because of #{e}"
+      end
+    end
+  end
+end
+
+seed_if_needed(
+  RouteAccessControl,
+  :route,
   { route: 'static#feed',                       level: -1 },
   { route: 'static#about',                      level: -1 },
   { route: 'users/registrations#new',           level: -1 },
@@ -40,19 +64,20 @@ RouteAccessControl.create!([
   { route: 'clans#primary',                     level:  0 },
   { route: 'devise/confirmations#new',          level: -1 },
   { route: 'devise/confirmations#show',         level: -1 }
-])
+)
 
-Clan.delete_all
-Clan.create!([
+seed_if_needed(
+  Clan,
+  :name,
   { name: 'Conlanger', symbol: '✱', colour: '#009999', description: 'CWS Conlanger', permission: 'I', concrete_members: false },
   { name: 'High Council of CWS', symbol: '✱', colour: '#338833', description: 'Staff of CWS', slug: 'staff', permission: 'I' },
   { name: 'Baredan Union', symbol: '⧰', colour: '#FF7700', description: 'For the best countries only', permission: 'R' },
-  { name: 'Avxyntklan', symbol: '木', colour: '#E64843', description: 'Hojdzan! Come and speak Xynder with us!', permission: 'O'}
-])
-ClanMembership.delete_all
+  { name: 'Avxyntklan', symbol: '木', colour: '#E64843', description: 'Hojdzan! Come and speak Xynder with us!', permission: 'O'},
+)
 
-LangType.delete_all
-LangType.create!([
+seed_if_needed(
+  LangType,
+  :code,
   { code: 'NSP', name: 'Not specified'                          },
   { code: 'APR', name: 'A priori'                               },
   { code: 'APS', name: 'A posteriori'                           },
@@ -66,5 +91,5 @@ LangType.create!([
   { code: 'CRE', name: 'Creole'                                 },
   { code: 'JOK', name: 'Joke language'                          },
   { code: 'MIX', name: 'Mixed'                                  },
-  { code: 'OTH', name: 'Other'                                  },
-])
+  { code: 'OTH', name: 'Other'                                  }
+)
