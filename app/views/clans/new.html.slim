@@ -9,7 +9,7 @@ h2= t('.title')
 
   .field
     = f.label :name
-    = f.text_field :name, autocomplete: 'off', autofocus: true
+    = f.text_field :name, autocomplete: 'off', autofocus: true, class: 'preview_field_name'
 
   .field
     = f.label :description
@@ -23,7 +23,7 @@ h2= t('.title')
     = f.label :symbol
     = hover_ico :info, t('.symbol.info')
 
-    = f.text_field :symbol, autocomplete: 'off', size: 5
+    = f.text_field :symbol, autocomplete: 'off', size: 5, class: 'preview_field_symbol'
 
   .field
     = f.label :colour
@@ -34,3 +34,18 @@ h2= t('.title')
 
   .actions
     = f.submit t('.submit'), class: 'button idle'
+
+h3 = t('.preview')
+
+div[style='font-size:large']
+  .clan_blob#preview_blob[style='background:#009999']
+  span#preview_name[style='color:#009999; vertical-align:middle;'] = t('.preview_info')
+
+coffee:
+  $('.form_colour_select').change ->
+    $('#preview_name').css('color', $(this).val());
+    $('#preview_blob').css('background', $(this).val());
+  $('.preview_field_name').on 'change keyup paste', ->
+    $('#preview_name').text($(this).val());
+  $('.preview_field_symbol').on 'change keyup paste', ->
+    $('#preview_blob').text($(this).val().substr(0, 1));

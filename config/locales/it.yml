@@ -209,6 +209,8 @@ it:
         success: Clan creato con successo
         fail: Clan non poteva essere creato
         nojoin: Clan era creato ma c'era un errore e non eri aggiunto come amministratore del clan. Per favore contatta un membro dello staff.
+        preview: Anteprima del Clan
+        preview_info: Modifica l'informazione del tuo clan per vedere le modifiche qui!
       join:
         success: Clan aderito con successo
         fail: Non potevi aderire il clan
