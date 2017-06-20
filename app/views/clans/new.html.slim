@@ -42,10 +42,13 @@ div[style='font-size:large']
   span#preview_name[style='color:#009999; vertical-align:middle;'] = t('.preview_info')
 
 coffee:
+  d_name = $('#preview_name')
+  d_blob = $('#preview_blob')
+
   $('.form_colour_select').change ->
-    $('#preview_name').css('color', $(this).val());
-    $('#preview_blob').css('background', $(this).val());
+    d_name.css('color', $(this).val())
+    d_blob.css('background', $(this).val())
   $('.preview_field_name').on 'change keyup paste', ->
-    $('#preview_name').text($(this).val());
+    d_name.text($(this).val())
   $('.preview_field_symbol').on 'change keyup paste', ->
-    $('#preview_blob').text($(this).val().substr(0, 1));
+    d_blob.text($(this).val().substr(0,1))
