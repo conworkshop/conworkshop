@@ -62,8 +62,8 @@ seed_if_needed(
   { route: 'clans#index',                       level: -1 },
   { route: 'clans#join',                        level:  0 },
   { route: 'clans#primary',                     level:  0 },
-  { route: 'devise/confirmations#new',          level: -1 },
-  { route: 'devise/confirmations#show',         level: -1 }
+  { route: 'users/confirmations#new',           level: -1 },
+  { route: 'users/confirmations#show',          level: -1 }
 )
 
 seed_if_needed(

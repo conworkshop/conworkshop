@@ -13,10 +13,16 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: Regexp.union(I18n.available_locales.map(&:to_s)) do
     # Devise
     devise_for :users,
-      controllers: { registrations: 'users/registrations', sessions: 'users/sessions' },
+      controllers: {
+        registrations: 'users/registrations', sessions: 'users/sessions',
+        passwords: 'users/passwords', confirmations: 'users/confirmations'
+      },
       skip: :omniauth_callbacks,
       path: '',
-      path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'signup' }
+      path_names: {
+        sign_in: 'login', sign_out: 'logout', sign_up: 'signup',
+        password: 'forgot_password', confirmation: 'confirm_account'
+      }
 
     # Static pages
     get 'about', to: 'static#about', as: :page_static_about
