@@ -259,6 +259,8 @@ en:
       success: Clan created successfully
       fail: Clan could not be created
       nojoin: Clan was created but something went wrong adding you as a clan admin. Please contact a site staff member.
+      preview: Clan Preview
+      preview_info: Edit your clan info to see your changes appear here!
     join:
       success: Clain joined successfully
       fail: Could not join clan
@@ -456,7 +458,7 @@ en:
         system: Number system converter
       typological: Typological database
       flash: Flash
-      trees: Syntax tress
+      trees: Syntax trees
       forms: Grammar forms
       gallery: Gallery
     blue:

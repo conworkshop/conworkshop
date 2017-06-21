@@ -87,9 +87,9 @@ it:
       facebook: Pagina Facebook
       twitter: Profilo Twitter
       youtube: Canale Youtube
-      googleplus: Profile Google+
-      instagram: Profile Instagram
-      tumblr: Profile Tumblr
+      googleplus: Profilo Google+
+      instagram: Profilo Instagram
+      tumblr: Profilo Tumblr
     langsel: 'Visualizzando CWS in: %{seltag}'
 
   application:
@@ -182,9 +182,55 @@ it:
       avatarwarn: L'immagine caricata sarà ridimensionata a 50px per 50px.
       removeavatar: Rimuovi avatar
 
+  clans:
+      show:
+        title: Visualizza clan
+        join: Aderisci clan
+        request: Richiedi appartenenza
+        primary: Questo è il tuo clan primario!
+        make_primary: Fissa come clan primario
+        members: Membri
+        nomembers: "Non c'è nessun membro al momento in questo clan"
+        info:
+          created: 'Clan creato a:'
+          permission: 'Tipo di appartenenza:'
+        role:
+          A: Amministratore
+          M: Membro
+      index:
+        title: Clan
+      new:
+        title: Crea un clan
+        submit: Crea clan
+        symbol:
+          info: Ogni clan ha un simbolo che possono usare per idicare i loro membri. Solamente un carattere.
+        colour:
+          info: Ogni clan ha un colore. Il tuo nome apparirà nel colore del clan che è fissato come il tuo clan primario.
+        success: Clan creato con successo
+        fail: Clan non poteva essere creato
+        nojoin: Clan era creato ma c'era un errore e non eri aggiunto come amministratore del clan. Per favore contatta un membro dello staff.
+        preview: Anteprima del Clan
+        preview_info: Modifica l'informazione del tuo clan per vedere le modifiche qui!
+      join:
+        success: Clan aderito con successo
+        fail: Non potevi aderire il clan
+        noinvite: Devi essere invitato per aderire questo clan
+        request:
+          success: La tua richiesta di aderire il clan è stato mandato
+          fail: La tua richiesta di aderire il clan non poteva essere mandato
+          await: Aspetta risposta della richiesta di aderire
+      primary:
+        success: Clan primario fissato con successo
+        fail: Clan primario non poteva essere fissato
+        nomember: Devi essere un membro di questo clan per fissarlo come clan primario
+      permissions:
+        O: Aperto
+        R: Richiesta
+        I: Solo Inviti
+
   static:
     about:
-      title: About
+      title: Su di noi
       welcome: 'Benvenuto in %{b:ConWorkShop}'
       intro:
         text: >
@@ -199,7 +245,7 @@ it:
         what:
           title: Cos'è CWS?
           paragraph1: >
-            CWS, or %{u:C}on%{u:W}ork%{u:S}hop, is a conlanging community and tools website started in early 2014 aimed
+            CWS, o %{u:C}on%{u:W}ork%{u:S}hop, is a conlanging community and tools website started in early 2014 aimed
             at providing the tools and community to help you strive in your conlanging endeavours. We are a very
             eclectic group of people who are enthusiastic about conlangs and concultures. We have teenagers, students,
             professionals, and so on - everyone is welcome.
@@ -285,160 +331,160 @@ it:
   menu:
     green:
       dictionary:
-        dictionary: Dictionary
-        add: Add word
-        settings: Settings
+        dictionary: Dizionario
+        add: Aggiungi parola
+        settings: Impostazioni
         tools:
-          tools: Dictionary tools
-          massedit: Mass edit
+          tools: Arnesi del dizionario
+          massedit: Modifica di massa
           maintenance: Maintenance
-          import: Import
-          export: Export
-          phomo: Dictionary PhoMo
-          compare: Compare dictionaries
-          homonym: Homonyms list
-        roots: Known roots
-        distribution: Word distribution
-        pcdistribution: PoS/Class distribution
+          import: Importare
+          export: Esportare
+          phomo: PhoMo di Dizionario
+          compare: Compara dizionari
+          homonym: Lista di omonimi
+        roots: Radici conosciuti
+        distribution: Distribuzione di parole
+        pcdistribution: Distribuzione di PdD/classe
       phonology:
-        phonology: Phonology
-        inventory: Inventory
-        phonotactics: Phonotactics
-        estimate: Pronunciation estimation
-        compare: Compare inventory
+        phonology: Fonologia
+        inventory: Inventario
+        phonotactics: Fonotassi
+        estimate: Stima di pronuncia
+        compare: Compara inventario
       orthography:
-        orthography: Orthography
-        categories: Categories
+        orthography: Ortografia
+        categories: Categorie
         conscript: Conscript
-        distribution: Distribution
-        azorder: Alphabetical order
+        distribution: Distribuzione
+        azorder: Ordine alfabetico
       grammar:
-        grammar: Grammar
-        typology: Typology
-        forms: Define forms
-        addtable: Add table
-        tables: Grammar tables
-        irregular: Irregular forms list
-        conjugator: Word conjugator
-        test: Grammar test
+        grammar: Grammatico
+        typology: Tipologia
+        forms: Definisci forme
+        addtable: Aggiungi tabella
+        tables: Tabelle grammatiche
+        irregular: Lista di forme irregolari
+        conjugator: Coniugatore di parole
+        test: Testa grammatica
       literature:
-        literature: Literature
-        translations: Translations
-        contrans: '%{conlang} translations'
-        journal: Journal
-        articles: '%{conlang} articles'
-        phrasebook: Phrasebook
-      namebase: Namebase
-      summary: Summary
-      settings: Settings
+        literature: Letteratura
+        translations: Traduzioni
+        contrans: 'Traduzioni %{conlang}'
+        journal: Diario
+        articles: 'Articoli %{conlang}'
+        phrasebook: Frasario
+      namebase: Banca di nomi
+      summary: Riassunto
+      settings: Impostazioni
     yellow:
-      tools: Tools
+      tools: Arnesi
       lexicon:
-        lexicon: Lexicon
-        lexibuild: LexiBuild
-        wordgen: Word generator
+        lexicon: Lessico
+        lexibuild: LessicoConstruzione
+        wordgen: Generatore parole
         wordgen3: WordGen³
-        multisearch: Dict. multi-search
-        wordbank: WordBank
-        phomo: PhoMo derivation
-        wordlinks: WordLink database
-        swadesh: Conlanger's Swadesh List
-        numbers: Numbers 1 to 10
+        multisearch: Diz. multi-cerca
+        wordbank: Banca di parole
+        phomo: Derivazione PhoMo
+        wordlinks: Database di WordLink
+        swadesh: Lista Swadesh per glossopoeti
+        numbers: Numeri 1 a 10
       phonetics:
-        phonetics: Phonetics
-        chart: IPA and Phoneme chart
-        converter: X-SAMPA to IPA converter
+        phonetics: Fonetica
+        chart: Tabella di IPA e Fonemi
+        converter: Convertitore di X-SAMPA a IPA
         phomo: PhoMo
-        phonsystem: Phonological systems
+        phonsystem: Sistemi fonologici
       orthography:
-        orthography: Orthography
-        scriptmap: Latin script map
-        freqcalc: Frequency calculator
-        anagram: Anagram generator
-        graphemes: Graphemes
+        orthography: Ortografia
+        scriptmap: Mappa dello script latino
+        freqcalc: Calcolatrice di Frequenza
+        anagram: Generatore di Anagrammi
+        graphemes: Grafemi
       numbers:
-        numbers: Numbers
-        base: Base converter
-        system: Number system converter
-      typological: Typological database
+        numbers: Numeri
+        base: Convertitore di base
+        system: Convertitore di sistema numerico
+      typological: Database tipologico
       flash: Flash
-      trees: Syntax tress
-      forms: Grammar forms
-      gallery: Gallery
+      trees: Alberi di sintassi
+      forms: Forme grammatiche
+      gallery: Galleria
     blue:
-      community: Community
+      community: Communità
       boards:
-        boards: Boards
-        mine: My threads
-        subscribed: Subscribed threads
-        recent: Recent threads
+        boards: Board
+        mine: Le mie discussioni
+        subscribed: Discussioni iscritte
+        recent: Discussioni recenti
       people:
-        people: People and Clans
-        clans: Clans
-        conlangers: Conlangers
-        karma: Karma statistics
+        people: Gente e Clan
+        clans: Clan
+        conlangers: Glossopoeti
+        karma: Statistica di Karma
       languages:
-        languages: Languages
-        list: Conlang list
-        scripts: Conscripts
-        scriptbank: Conscript bank
-        browse: Browse dictionaries
-        flags: Language flags
+        languages: Lingue
+        list: Lista di Conlang
+        scripts: Conscript
+        scriptbank: Banca di Conscript
+        browse: Osserva dizionari
+        flags: Bandiere di lingue
       articles:
-        articles: Articles
-        all: All articles
-        new: New article
-        lotm: Language of the Month
+        articles: Articoli
+        all: Tutti articoli
+        new: Nuovo articolo
+        lotm: Lingua del Mese
       projects:
-        projects: Projects
-        song: Song projects
+        projects: Proggetti
+        song: Proggetti di cantare
         cwsp:
-          planet: CWS Planet
+          planet: CWS Pianeta
           wiki: CWSP Wiki
-          map: CWSP Map (latest)
-          svg: CWSP Map (SVG)
-      events: Events
-      resources: Resources
+          map: CWSP Mappa (più recente)
+          svg: CWSP Mappa (SVG)
+      events: Eventi
+      resources: Risorse
     orange:
-      profile: Profile
+      profile: Profilo
       mailbox:
-        mailbox: Mailbox
-        send: Send message
+        mailbox: Casella postale
+        send: Manda messaggio
       mine:
-        mine: My profile
-        karma: My karma
-        edit: Edit profile
-        preferences: Site preferences
-        account: My account
+        mine: Il mio profilo
+        karma: Il mio karma
+        edit: Modifica profilo
+        preferences: Impostazioni del sito
+        account: Il mio conto
       languages:
-        languages: Languages
-        families: Language families
-        new: New language
-        dialect: New dialect
-        share: Share language
-        checklist: Language checklist
-      awards: Awards
+        languages: Lingue
+        families: Famiglie linguistiche
+        new: Nuova lingua
+        dialect: Nuovo dialetto
+        share: Condividi lingua
+        checklist: Lista di controllo di lingua
+      awards: Premi
     grey:
       cws: CWS
-      search: Search
-      help: Help articles
-      tutorials: Tutorials
-      faqs: FAQs
-      report: Report/feedback
-      stats: Statistics
-      donate: Donate
-    logout: Sign out
+      search: Cerca
+      help: Articoli di aiuto
+      tutorials: Tutoriali
+      faqs: FAQ
+      report: Segnala/feedback
+      stats: Statistica
+      donate: Donazioni
+    logout: Esci
     basic:
-      login: Sign in
-      register: Register
-      about: About
+      login: Accedi
+      register: Iscriviti
+      about: Su di noi
       home: Home
       green:
-        browse: Browse
-        conlangs: Conlangs
-        dictionaries: Dictionaries
-        articles: All articles
-        typological: Typological database
+        browse: Naviga
+        conlangs: Conlang
+        dictionaries: Dizionari
+        articles: Tutti articoli
+        typological: Database tipologico
 
   time:
     formats:
@@ -449,14 +495,14 @@ it:
 
   errors:
     messages:
-      carrierwave_processing_error: failed to be processed
-      carrierwave_integrity_error: is not of an allowed file type
-      carrierwave_download_error: could not be downloaded
-      extension_whitelist_error: 'You are not allowed to upload %{extension} files, allowed types: %{allowed_types}'
-      extension_blacklist_error: 'You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}'
-      content_type_whitelist_error: 'You are not allowed to upload %{content_type} files'
-      content_type_blacklist_error: 'You are not allowed to upload %{content_type} files'
-      rmagick_processing_error: 'Failed to manipulate with rmagick, maybe it is not an image?'
-      mini_magick_processing_error: 'Failed to manipulate with MiniMagick, maybe it is not an image? Original Error: %{e}'
-      min_size_error: 'File size should be greater than %{min_size}'
-      max_size_error: 'File size should be less than %{max_size}'
+      carrierwave_processing_error: non poteva essere elaborato
+      carrierwave_integrity_error: non è un tipo permesso di file
+      carrierwave_download_error: non poteva essere scaricato
+      extension_whitelist_error: 'Non è permesso caricare i file %{extension}, tipi permessi: %{allowed_types}'
+      extension_blacklist_error: 'Non è permesso caricare i file %{extension}, tipi vietati: %{prohibited_types}'
+      content_type_whitelist_error: 'Non è permesso caricare i file %{content_type}'
+      content_type_blacklist_error: 'Non è permesso caricare i file %{content_type}'
+      rmagick_processing_error: "Non riuscito a manipolare con rmagick, forse non è un'immagine?"
+      mini_magick_processing_error: "Non riuscito a manipolare con rmagick, forse non è un'immagine? Errore originale: %{e}"
+      min_size_error: 'Dimensione del file dovrebbe essere superiore a %{min_size}'
+      max_size_error: 'Dimensione del file dovrebbe essere inferiore a %{max_size}'
