@@ -31,42 +31,6 @@ def seed_if_needed(klass, check, *seeds)
 end
 
 seed_if_needed(
-  RouteAccessControl,
-  :route,
-  { route: 'static#feed',                       level: -1 },
-  { route: 'static#about',                      level: -1 },
-  { route: 'users/registrations#new',           level: -1 },
-  { route: 'users/registrations#create',        level: -1 },
-  { route: 'users/sessions#new',                level: -1 },
-  { route: 'users/sessions#create',             level: -1 },
-  { route: 'users/sessions#destroy',            level:  0 },
-  { route: 'profiles#show',                     level: -1 },
-  { route: 'profiles#edit',                     level:  0 },
-  { route: 'profiles#update',                   level:  0 },
-  { route: 'account#edit',                      level:  0 },
-  { route: 'account#update',                    level:  0 },
-  { route: 'admin/langtypes#index',             level:  1 },
-  { route: 'admin/langtypes#edit',              level:  1 },
-  { route: 'admin/langtypes#update',            level:  1 },
-  { route: 'languages#show',                    level: -1 },
-  { route: 'languages#new',                     level:  0 },
-  { route: 'languages#update',                  level:  0 },
-  { route: 'languages#create',                  level:  0 },
-  { route: 'users/omniauth_callbacks#facebook', level: -1 },
-  { route: 'users/omniauth_callbacks#failure',  level: -1 },
-  { route: 'preferences#edit',                  level:  0 },
-  { route: 'preferences#update',                level:  0 },
-  { route: 'clans#new',                         level:  0 },
-  { route: 'clans#create',                      level:  0 },
-  { route: 'clans#show',                        level: -1 },
-  { route: 'clans#index',                       level: -1 },
-  { route: 'clans#join',                        level:  0 },
-  { route: 'clans#primary',                     level:  0 },
-  { route: 'users/confirmations#new',           level: -1 },
-  { route: 'users/confirmations#show',          level: -1 }
-)
-
-seed_if_needed(
   Clan,
   :name,
   { name: 'Conlanger', symbol: '✱', colour: '#009999', description: 'CWS Conlanger', permission: 'I', concrete_members: false },
