@@ -16,8 +16,9 @@ class ApplicationController < ActionController::Base
   # Use AccessControl to see if the user is authorized to access this page as per the config.
   def authorize_route
     route_str = controller_path + '#' + action_name
+    route_ctl = AccessControl.default.get(route_str)
 
-    unless (route_ctl = AccessControl.default.get(route_str)).allowed?(current_user)
+    unless !route_ctl || route_ctl&.allowed?(current_user)
       # get rekt
       reason = if route_ctl&.maintenance?
                  :maintenance
