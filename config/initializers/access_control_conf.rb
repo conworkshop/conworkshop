@@ -55,11 +55,11 @@ AccessControl.default = AccessControl.build(ActiveSupport::Cache::MemoryStore.ne
   end
 
   controller 'clans' do
-    route 'clans#new',     level: 0
-    route 'clans#create',  level: 0
-    route 'clans#show',    level: :anyone
-    route 'clans#index',   level: :anyone
-    route 'clans#join',    level: 0
-    route 'clans#primary', level: 0
+    route 'new',     level: 0
+    route 'create',  level: 0
+    route 'show',    level: :anyone
+    route 'index',   level: :anyone
+    route 'join',    level: 0
+    route 'primary', level: 0
   end
 end
