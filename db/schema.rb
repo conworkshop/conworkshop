@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616230021) do
+ActiveRecord::Schema.define(version: 20170623174633) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "clan_memberships", force: :cascade do |t|
     t.integer  "user_id"
@@ -18,8 +21,8 @@ ActiveRecord::Schema.define(version: 20170616230021) do
     t.string   "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["clan_id"], name: "index_clan_memberships_on_clan_id"
-    t.index ["user_id"], name: "index_clan_memberships_on_user_id"
+    t.index ["clan_id"], name: "index_clan_memberships_on_clan_id", using: :btree
+    t.index ["user_id"], name: "index_clan_memberships_on_user_id", using: :btree
   end
 
   create_table "clan_requests", force: :cascade do |t|
@@ -27,8 +30,8 @@ ActiveRecord::Schema.define(version: 20170616230021) do
     t.integer  "clan_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["clan_id"], name: "index_clan_requests_on_clan_id"
-    t.index ["user_id"], name: "index_clan_requests_on_user_id"
+    t.index ["clan_id"], name: "index_clan_requests_on_clan_id", using: :btree
+    t.index ["user_id"], name: "index_clan_requests_on_user_id", using: :btree
   end
 
   create_table "clans", force: :cascade do |t|
@@ -42,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170616230021) do
     t.datetime "updated_at",                      null: false
     t.string   "slug"
     t.boolean  "concrete_members", default: true
-    t.index ["slug"], name: "index_clans_on_slug"
+    t.index ["slug"], name: "index_clans_on_slug", using: :btree
   end
 
   create_table "lang_types", force: :cascade do |t|
@@ -50,7 +53,7 @@ ActiveRecord::Schema.define(version: 20170616230021) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["code"], name: "index_lang_types_on_code"
+    t.index ["code"], name: "index_lang_types_on_code", using: :btree
   end
 
   create_table "languages", force: :cascade do |t|
@@ -68,9 +71,9 @@ ActiveRecord::Schema.define(version: 20170616230021) do
     t.boolean  "prunesafe"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["code"], name: "index_languages_on_code", unique: true
-    t.index ["lang_type_id"], name: "index_languages_on_lang_type_id"
-    t.index ["user_id"], name: "index_languages_on_user_id"
+    t.index ["code"], name: "index_languages_on_code", unique: true, using: :btree
+    t.index ["lang_type_id"], name: "index_languages_on_lang_type_id", using: :btree
+    t.index ["user_id"], name: "index_languages_on_user_id", using: :btree
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -82,22 +85,14 @@ ActiveRecord::Schema.define(version: 20170616230021) do
     t.string   "language"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_profiles_on_user_id"
-  end
-
-  create_table "route_access_controls", force: :cascade do |t|
-    t.string   "route"
-    t.integer  "level"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["route"], name: "index_route_access_controls_on_route", unique: true
+    t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
   create_table "user_tracks", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "tracked_at"
     t.string   "route"
-    t.index ["user_id"], name: "index_user_tracks_on_user_id"
+    t.index ["user_id"], name: "index_user_tracks_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -128,13 +123,13 @@ ActiveRecord::Schema.define(version: 20170616230021) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.integer  "default_clan_id"
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["default_clan_id"], name: "index_users_on_default_clan_id"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["oaid"], name: "index_users_on_oaid"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["uid"], name: "index_users_on_uid", unique: true
-    t.index ["username"], name: "index_users_on_username", unique: true
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["default_clan_id"], name: "index_users_on_default_clan_id", using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["oaid"], name: "index_users_on_oaid", using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["uid"], name: "index_users_on_uid", unique: true, using: :btree
+    t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
 end
