@@ -2,7 +2,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  before_action :authenticate_user!
   before_action :authorize_route
   before_action :track_user
   before_action :set_locale
@@ -17,6 +16,9 @@ class ApplicationController < ActionController::Base
   def authorize_route
     route_str = controller_path + '#' + action_name
     route_ctl = AccessControl.default.get(route_str)
+
+    # Authenticate user if this route isn't for anyone.
+    authenticate_user! unless route_ctl&.anyone?
 
     unless !route_ctl || route_ctl&.allowed?(current_user)
       # get rekt

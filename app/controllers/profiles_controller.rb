@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 class ProfilesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show]
-
   def show
     @profile_user = find_profile_for_params
 

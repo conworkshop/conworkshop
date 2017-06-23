@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 class Users::RegistrationsController < Devise::RegistrationsController
-  skip_before_action :authenticate_user!
   before_action :configure_sign_up_params, only: [:create]
 
   # GET /resource/sign_up
