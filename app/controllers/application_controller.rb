@@ -13,27 +13,13 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # Use RouteAccessControl to see if the user is authorized to access this page.
+  # Use AccessControl to see if the user is authorized to access this page as per the config.
   def authorize_route
     route_str = controller_path + '#' + action_name
 
-    access = Rails.cache.fetch(route_str) do
-      unless (obj = RouteAccessControl.find_by(route: route_str))
-        # Create new row, since it doesn't exist.
-        # Defaults to the special maintenance level, which allows entry to
-        # developers only.
-        obj = RouteAccessControl.create(
-          route: route_str,
-          level: RouteAccessControl::MAINTENANCE_LEVEL
-        )
-      end
-
-      obj
-    end
-
-    unless access.allowed?(current_user)
+    unless (route_ctl = AccessControl.default.get(route_str)).allowed?(current_user)
       # get rekt
-      reason = if access.maintenance?
+      reason = if route_ctl&.maintenance?
                  :maintenance
                else
                  current_user&.banned? ? :banned : :unauthorized
@@ -41,31 +27,31 @@ class ApplicationController < ActionController::Base
 
       render '403', status: 403, locals: { reason: reason }
     end
+  end
 
-    # Tracks an user's current route, and stores it on the database with UserTrack.
-    # Used for: online/away/offline detection; "online now" on the feed
-    def track_user
-      return unless user_signed_in? # ignore guests
+  # Tracks an user's current route, and stores it on the database with UserTrack.
+  # Used for: online/away/offline detection; "online now" on the feed
+  def track_user
+    return unless user_signed_in? # ignore guests
 
-      UserTrack.where(user: current_user)
-               .update_all(route: controller_path + '#' + action_name, tracked_at: Time.now)
-    end
+    UserTrack.where(user: current_user)
+             .update_all(route: controller_path + '#' + action_name, tracked_at: Time.now)
+  end
 
-    def set_locale
-      # basically, the default locale on the URL is `nil`. this means that the
-      # system will use the guessed locale.
-      #  * example path: /profile/unleashy (no locale prefix, locale guessed)
-      # if it isn't the default nil, then use the params[:locale].
-      #  * example path: /pt/profile/unleashy -> locale is :pt
-      I18n.locale = params[:locale] ? params[:locale].to_sym : guess_locale
-    end
+  def set_locale
+    # basically, the default locale on the URL is `nil`. this means that the
+    # system will use the guessed locale.
+    #  * example path: /profile/unleashy (no locale prefix, locale guessed)
+    # if it isn't the default nil, then use the params[:locale].
+    #  * example path: /pt/profile/unleashy -> locale is :pt
+    I18n.locale = params[:locale] ? params[:locale].to_sym : guess_locale
+  end
 
-    def guess_locale
-      current_user&.preferences&.fetch(:locale, nil) || locale_from_accept_language || I18n.default_locale
-    end
+  def guess_locale
+    current_user&.preferences&.fetch(:locale, nil) || locale_from_accept_language || I18n.default_locale
+  end
 
-    def locale_from_accept_language
-      http_accept_language.compatible_language_from(I18n.available_locales)
-    end
+  def locale_from_accept_language
+    http_accept_language.compatible_language_from(I18n.available_locales)
   end
 end
