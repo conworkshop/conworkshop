@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   # Use AccessControl to see if the user is authorized to access this page as per the config.
   def authorize_route
     route_str = controller_path + '#' + action_name
-    route_ctl = AccessControl.default.get(route_str)
+    route_ctl = CWS::ACCESS_CONTROL.get(route_str)
 
     # Authenticate user if this route isn't for anyone.
     authenticate_user! unless route_ctl&.anyone?

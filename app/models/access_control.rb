@@ -23,14 +23,6 @@ class AccessControl
     new(cache_strategy).tap { |ac| ac.instance_exec(&block) }
   end
 
-  def self.default
-    @@default
-  end
-
-  def self.default=(ac)
-    @@default = ac
-  end
-
   def initialize(cache_strategy = Rails.cache)
     @scope = []
     @cache_strategy = cache_strategy
