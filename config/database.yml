@@ -7,10 +7,9 @@
 default: &default
   adapter: postgresql
   pool: 5
-  host: <%= ENV['PG_HOST'] %>
-  port: <%= ENV['PG_PORT'] %>
-  username: <%= ENV['PG_USER'] %>
-  password: <%= ENV['PG_PWORD'] %>
+  host: localhost
+  username: cwsonrails
+  password: cwsonrails
 
 development: &development
   <<: *default

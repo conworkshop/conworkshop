@@ -69,14 +69,14 @@ Vagrant.configure('2') do |config|
     # reduce terminal chatter by setting your locale
     echo 'Setting locale'
     locale-gen en_US.UTF-8
-    
+
     # install ruby dependencies
     echo 'Installing dependencies'
     apt-get update -y
     apt-get install -y autoconf bison build-essential libssl-dev libyaml-dev \
                        libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev \
                        libgdbm3 libgdbm-dev libsqlite3-0 libsqlite3-dev git \
-                       nodejs imagemagick postgresql libpq-dev
+                       nodejs imagemagick libpq-dev postgresql
   BASH
 
   config.vm.provision 'shell', privileged: false, inline: <<-BASH
@@ -89,7 +89,7 @@ Vagrant.configure('2') do |config|
         git clone https://github.com/rbenv/rbenv.git ~/.rbenv
         cd ~/.rbenv && git checkout $RBENV_VERSION && src/configure && make -C src
     fi
-    
+
     RBBUILD_VERSION='74d1a031adab395c547aeb90d4f89f8d7ddbea2d'
     if cd ~/.rbenv/plugins/ruby-build && git rev-parse --verify HEAD | grep -q $RBBUILD_VERSION; then
         echo 'ruby-build already downloaded at expected version'
@@ -120,12 +120,15 @@ Vagrant.configure('2') do |config|
 
     gem install bundler rake --no-rdoc --no-ri
     rbenv rehash
-    
+
     echo 'Running `bundle install`'
     cd /vagrant
     bundle install
     rbenv rehash
-    
+
+    echo 'Creating postgres user'
+    sudo -u postgres psql -c "create role cwsonrails with createdb login password 'cwsonrails';"
+
     echo 'Initializing database'
     bundle exec rake db:create
     bundle exec rake db:schema:load
