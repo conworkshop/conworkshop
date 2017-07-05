@@ -179,6 +179,7 @@ en:
         length_limit: A unique three to six-letter code to identify your language.
         char_limit: Letters %{b:A-Z} and numbers %{b:0-9} only!
       unnamed: I don't have a name for this language yet.
+      submit: Add language
 
   account:
     edit:

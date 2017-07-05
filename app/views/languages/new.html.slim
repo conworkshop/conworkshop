@@ -2,7 +2,8 @@
 - provide(:page_colour, 'orange')
 
 h2= t('.title')
-= form_for :language do |f|
+= form_for @language do |f|
+  = render 'error_messages', cur_obj: @language
 
   .field
     = f.label :code
@@ -11,11 +12,13 @@ h2= t('.title')
 
     span.sbt= it('.code.char_limit', b: It.tag(:b))
 
-    = f.text_field :code, autocomplete: 'off', autofocus: true
+    = f.text_field :code, size: Language::CODE_LENGTH.end + 3, maxlength: Language::CODE_LENGTH.end,
+          autocomplete: 'off', autofocus: true
 
   .field
     = f.label :name
 
+    / TODO: add some JS to disable the name fields if unnamed is checked
     div
       => check_box_tag :unnamed
       = label_tag :unnamed, t('.unnamed'), class: 'small'
@@ -29,3 +32,6 @@ h2= t('.title')
   .field
     = f.label :lang_type
     = f.langtype_select :lang_type
+
+  .actions
+    = f.submit '✔ ' + t('.submit'), class: 'button pass'

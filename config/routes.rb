@@ -47,7 +47,7 @@ Rails.application.routes.draw do
     patch '/preferences', to: 'preferences#update'
 
     # Language
-    resources :languages, only: [:show, :update, :new, :create], id: /[a-zA-Z0-9]{3}/
+    resources :languages
 
     # Admin
     namespace :admin do

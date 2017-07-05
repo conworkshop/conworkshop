@@ -4,7 +4,7 @@
 = link_to "« #{t('clans.index.title')}", clans_path, class: 'button idle'
 
 h2= t('.title')
-= form_for @clan, {builder: ClanFormBuilder} do |f|
+= form_for @clan, { builder: ClanFormBuilder } do |f|
   = render 'error_messages', cur_obj: @clan
 
   .field
