@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 class LanguagesController < ApplicationController
+  def index
+  end
+
   def show
+    @language = Language.find_by(code: params[:id])
   end
 
   def new
