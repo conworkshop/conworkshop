@@ -34,15 +34,20 @@ module ApplicationHelper
     timer:   %w(⌛ Tick-tock...)
   }.freeze
 
-  def banner(type, &block)
+  def banner(type, str = nil, &block)
     type = banner_devise_convert(type)
 
     unless BANNER_TYPES.keys.include?(type)
       raise ArgumentError, "unknown type, must be one of #{BANNER_TYPES.keys}"
     end
 
+    unless str || block_given?
+      raise ArgumentError, 'must pass a block or a string to use'
+    end
+
     macro(
       'custom_banner',
+      str: str,
       type: type,
       ico: BANNER_TYPES[type][0],
       title: BANNER_TYPES[type][1],
