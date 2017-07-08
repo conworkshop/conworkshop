@@ -70,7 +70,7 @@ module ApplicationHelper
     url_for(action: action, controller: controller)
   end
 
-  def language_select_options(path_has_locale: true, with_path: true)
+  def language_select_options(path_has_locale: true, with_path: true, selected: nil)
     options = I18n.available_locales.inject([]) do |opts, locale|
       opt = [I18n.t("language_names.#{locale}"), locale.to_s]
 
@@ -84,7 +84,7 @@ module ApplicationHelper
       opts
     end
 
-    options_for_select(options, I18n.locale.to_s)
+    options_for_select(options, selected || I18n.locale.to_s)
   end
 
   private

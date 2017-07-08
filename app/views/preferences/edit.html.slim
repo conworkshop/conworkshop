@@ -23,6 +23,6 @@ h1= t('.title')
             => t('.default_value')
             strong= t("language_names.#{I18n.default_locale}")
         span.sel
-          = fp.select :locale, language_select_options(with_path: false)
+          = fp.select :locale, language_select_options(with_path: false, selected: current_user.locale)
     .actions
       = f.submit t('general.save'), class: 'button pass'
