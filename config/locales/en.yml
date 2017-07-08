@@ -173,6 +173,10 @@ en:
           facebook: Log in with Facebook
 
   languages:
+    show:
+      notfound:
+        title: Language not found
+        text: No language with the code "%{code}" was found.
     new:
       title: Add new language
       code:
