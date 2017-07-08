@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+@import 'partials/colors';
+@import 'partials/mixins';
+
+// basically .contain but without display inline block
+#lang-main {
+  padding: 10px 10px 0;
+  vertical-align: top;
+}
+
+div.lang-image {
+  display: inline-block;
+}
+
+div.lang-names {
+  margin-left: 1em;
+  display: inline-block;
+  vertical-align: top;
+  font-size: larger;
+
+  span.lang-name {
+    display: block;
+    font-size: larger;
+    font-weight: bold;
+  }
+
+  span.lang-ipa {
+    font-size: initial;
+    margin-left: .25em;
+    color: $weird-black;
+  }
+}

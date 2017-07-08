@@ -1,2 +1,47 @@
-h1 Languages#show
-p Find me in app/views/languages/show.html.slim
+- if @language
+
+  - provide(:page_title, @language.name)
+  - provide(:page_colour, 'orange')
+
+  h2 #{@language.name} [#{@language.code}]
+
+  .form
+    section#lang-main.full_width
+      .lang-image
+        = image_tag @language.flag_url, alt: t('.flag_alt', name: @language.name)
+      .lang-names
+        span.lang-name= @language.name
+        span.lang-nativename= @language.nativename
+        - if @language.ipa.present?
+          span.lang-ipa
+            | [#{@language.ipa}]
+    section#lang-data
+      div.field
+        h2.like_text= t('.registered_by.title')
+        span.faux= it('.registered_by.text',
+                b: It.tag(:b),
+                name: user_handle(@language.user, false, false),
+                date: cws_local_time(@language.created_at))
+      div.field
+        h2.like_text= t('activerecord.attributes.language.lang_type')
+        span.faux= t(@language.lang_type.code, scope: %i(general langtype))
+      div.field
+        / TODO: country stuff
+        h2.like_text= t('.place_n_speakers.title')
+        span.faux= it('.place_n_speakers.text', b: It.tag(:b), name: @language.name, place: '!PLACEHOLDER!')
+      div.field
+        / TODO: species stuff
+        h2.like_text= t('.species')
+        span.faux !PLACEHOLDER!
+      - if @language.overview.present?
+        div.field-whole
+          / TODO: CWSMarkup
+          h2.like_text= t('.about', name: @language.name)
+          span.faux= @language.overview
+
+- else
+
+  - provide(:page_title, t('.notfound.title'))
+  - provide(:page_colour, 'red')
+
+  = banner :err, t('.notfound.text', code: params[:id])

@@ -67,6 +67,10 @@ en:
       language:
         nativename: Native name
         lang_type: Language type
+    errors:
+      models:
+        language:
+          flag_dimension: The flag's width must be at least %{minw}px wide.
 
   header:
     quicklinks:
@@ -177,6 +181,15 @@ en:
       notfound:
         title: Language not found
         text: No language with the code "%{code}" was found.
+      flag_alt: "%{name}'s flag"
+      registered_by:
+        title: Registered by
+        text: '%{b:%{name}} on %{date}'
+      place_n_speakers:
+        title: Place & Speakers
+        text: '%{b:%{name}} is spoken in %{place}.'
+      species: Species
+      about: About %{name}
     new:
       title: Add new language
       code:
