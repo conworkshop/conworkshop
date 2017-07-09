@@ -163,6 +163,19 @@ pt:
           facebook: Entrar com o Facebook
 
   languages:
+    show:
+      notfound:
+        title: Língua não encontrada
+        text: A língua com o código "%{code}" não foi encontrada.
+      flag_alt: "Bandeira de %{name}"
+      registered_by:
+        title: Registrado por
+        text: '%{b:%{name}} em %{date}'
+      place_n_speakers:
+        title: Local & Falantes
+        text: '%{b:%{name}} é falado em %{place}.'
+      species: Espécies
+      about: Sobre %{name}
     new:
       title: Adicionar nova língua
       code:
