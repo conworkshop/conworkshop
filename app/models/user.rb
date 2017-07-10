@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_one :profile
   has_one :user_track
 
+  has_many :languages
+
   has_many :clans, through: :clan_memberships
   belongs_to :default_clan, class_name: 'Clan'
 

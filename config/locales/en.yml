@@ -244,6 +244,7 @@ en:
         lastseen: 'Last seen:'
         boardposts: 'Board posts:'
       about: About %{name}
+      conlangs: Registered conlangs
     edit:
       title: '%{name} - Edit profile'
       h1: 'Edit profile: %{name}'

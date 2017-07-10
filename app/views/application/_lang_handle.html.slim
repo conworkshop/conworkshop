@@ -1,0 +1,6 @@
+.inline_handle
+  = link_to lang do
+    - if flag_thumb
+      = image_tag lang.flag_thumb_url, class: 'flag_thumb'
+      | &nbsp;
+    = lang.name

@@ -475,6 +475,10 @@ form, .form {
     .list {
       width: 95%;
     }
+
+    &.field-noleftmargin {
+      margin-left: initial;
+    }
   }
 
   .field-whole {
@@ -908,6 +912,12 @@ div#prof_avatar_wrapper {
       display: none;
     }
   }
+
+  img.flag_thumb {
+    margin-right: .25em;
+    vertical-align: middle;
+    display: inline-block;
+  }
 }
 
 .circle-avatar {
@@ -1000,23 +1010,17 @@ select#language_select {
 }
 
 .list {
-  &:hover, &:focus {
-    color: $lighter-black;
-  }
-
-  &:hover + list, &:focus + list {
-    border-top: 1px solid #ccc;
-  }
-
-  & + .list {
-    border-bottom: 1px solid #eee;
-  }
-
   font-size: $smaller-font-size;
   color: $basically-black;
   text-decoration: none;
   padding: 5px 5px 5px 20px;
-  transition: .1s;
+  border-bottom: 1px solid #eee;
+  @include transition(.1s);
+
+  &:hover, &:focus {
+    color: $lighter-black;
+    border-bottom: 1px solid #ccc;
+  }
 
   > span {
     width: 20%;
@@ -1089,4 +1093,8 @@ select#language_select {
       font-size: $smaller-font-size;
     }
   }
+}
+
+section + section {
+  padding-top: 10px;
 }

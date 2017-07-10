@@ -23,6 +23,10 @@ class Language < ApplicationRecord
 
   validate :flag_dimensions, if: ->(l) { l.flag_width && l.flag_height }
 
+  def self.languages_selecting(user, *selects)
+    select(*selects).where(user: user)
+  end
+
   def to_param
     code
   end

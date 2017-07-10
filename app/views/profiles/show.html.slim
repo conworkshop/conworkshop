@@ -3,7 +3,7 @@
   - provide(:page_title, t('.title', name: @profile_user.display_name))
   - provide(:page_colour, 'orange')
 
-  .full_width.contain
+  .form.full_width.contain
     .profile-sidedata
       = t('.sidedata.genderandcountry',
           gender: @profile_user.profile.display_gender,
@@ -64,6 +64,17 @@
         h2.like_text= t('.about', name: @profile_user.display_name)
         / TODO: Needs CWSMarkup!
         .faux = @profile_user.profile.about
+
+    - if @profile_user.languages.any?
+      div.field.field-noleftmargin
+        h2.like_text= link_to t('.conlangs'), languages_path
+        - lang_list(@profile_user) do |language|
+          .list
+            span.small-size= "(#{language.code})"
+            span= language.nativename
+            span= language.name
+            span= lang_handle(language)
+            span: a[href="#"] [switch]
 
 - else
 

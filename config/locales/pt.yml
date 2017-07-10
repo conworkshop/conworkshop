@@ -230,6 +230,7 @@ pt:
         lastseen: 'Visto pela última vez em:'
         boardposts: 'Postagens em fóruns:'
       about: Sobre %{name}
+      conlangs: Línguas registradas
     edit:
       title: '%{name} - Editar perfil'
       h1: 'Editar perfil: %{name}'

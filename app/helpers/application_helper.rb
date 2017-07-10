@@ -59,6 +59,10 @@ module ApplicationHelper
     render 'user_handle', user: user, clan_sym: clan_sym, track_sym: track_sym
   end
 
+  def lang_handle(lang, flag_thumb: true)
+    render 'lang_handle', lang: lang, flag_thumb: flag_thumb
+  end
+
   def cws_local_time(time = Time.now, options = nil)
     local_time(time, options ? options : :long)
   end
