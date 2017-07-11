@@ -27,6 +27,6 @@ RSpec.describe ApplicationHelper, type: :helper do
 
   describe '#route_path' do
     subject { helper.route_path('static#about') }
-    it { is_expected.to eq '/about' }
+    it { is_expected.to eq '/en/about' }
   end
 end

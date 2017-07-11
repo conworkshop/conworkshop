@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe PreferencesController, type: :controller do
+  before { sign_in create(:confirmed_user) }
+
   describe '#edit' do
     subject { get :edit }
 
