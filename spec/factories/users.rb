@@ -8,5 +8,11 @@ FactoryGirl.define do
     factory :confirmed_user do
       confirmed_at Date.today
     end
+
+    trait :with_user_track do
+      after :create do |u|
+        u.user_track = create(:online_user_track, user: u)
+      end
+    end
   end
 end
