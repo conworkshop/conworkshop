@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 class LanguagesController < ApplicationController
   def index
+    @languages = Language.includes(:lang_type, user: [:default_clan])
+                         .paginate(page: params[:p], per_page: 50).order(:code)
+
+    render 'index', locals: { languages_count: Language.count }
   end
 
   def show
@@ -15,6 +19,7 @@ class LanguagesController < ApplicationController
     p = create_params
 
     p[:lang_type] = LangType.find_by_code(p[:lang_type])
+
     p[:user] = current_user
     @language = Language.new(p)
 

@@ -1017,6 +1017,14 @@ select#language_select {
   border-bottom: 1px solid #eee;
   @include transition(.1s);
 
+  &.table-list {
+    display: flex;
+  }
+
+  &.table-list-header {
+    font-weight: bold;
+  }
+
   &:hover, &:focus {
     color: $lighter-black;
     border-bottom: 1px solid #ccc;
