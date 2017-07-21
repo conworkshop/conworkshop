@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170708182420) do
+ActiveRecord::Schema.define(version: 20170721234313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,11 +67,11 @@ ActiveRecord::Schema.define(version: 20170708182420) do
     t.integer  "user_id"
     t.text     "overview"
     t.boolean  "public"
-    t.string   "status"
+    t.integer  "status",       default: 0
     t.boolean  "prunesafe"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.string   "flag",                      comment: "This is here and not in the flag table for easier access to the URL -- it's used everywhere."
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "flag",                                  comment: "This is here and not in the flag table for easier access to the URL -- it's used everywhere."
     t.index ["code"], name: "index_languages_on_code", unique: true, using: :btree
     t.index ["lang_type_id"], name: "index_languages_on_lang_type_id", using: :btree
     t.index ["user_id"], name: "index_languages_on_user_id", using: :btree
