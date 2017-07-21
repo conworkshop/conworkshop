@@ -177,6 +177,9 @@ en:
           facebook: Log in with Facebook
 
   languages:
+    index:
+      title: Conlangs
+      title_main: Conlangs of ConWorkShop (%{count})
     show:
       notfound:
         title: Language not found
