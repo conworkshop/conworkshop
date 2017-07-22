@@ -18,10 +18,10 @@ class LanguagesController < ApplicationController
   def create
     p = create_params
 
+    p[:lang_type] = LangType.find_by_code(p[:lang_type])
     @language = Language.new(p)
-    @language.lang_type = LangType.find_by_code(p[:lang_type])
     @language.user = current_user
-    @language.new_language!
+    @language.status = :new_language
 
     if params[:unnamed]
       @language.name       = 'Unnamed'
