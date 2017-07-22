@@ -8,6 +8,10 @@ class Language < ApplicationRecord
 
   attr_accessor :flag_width, :flag_height
 
+  # "New" is not :new because a method named "new" would break stuff. So, it is
+  # "new_language" instead. Damn you Rails!
+  enum status: %i(new_language progressing functional complete on_hold abandoned)
+
   belongs_to :user
   belongs_to :lang_type
 
