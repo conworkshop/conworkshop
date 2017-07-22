@@ -1019,6 +1019,12 @@ select#language_select {
 
   &.table-list {
     display: flex;
+
+    > span {
+      width: unset;
+      flex: 1;
+      display: inline-block;
+    }
   }
 
   &.table-list-header {
