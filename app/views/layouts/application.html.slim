@@ -104,3 +104,4 @@ html lang=I18n.locale
         = raw(t('footer.langsel',
                 seltag: select_tag('language_select', language_select_options(path_has_locale: params[:locale].present?),
                         id: 'language_select')))
+    = yield :foot
