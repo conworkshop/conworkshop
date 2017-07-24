@@ -3,7 +3,7 @@
 
 h2= t('.title_main', count: languages_count)
 
-= will_paginate @languages
+= paginate @languages
 
 / Header
 .list.table-list.table-list-header
@@ -22,4 +22,4 @@ h2= t('.title_main', count: languages_count)
     span= lang.status
     span= t(lang.lang_type.code, scope: %i(general langtype))
 
-= will_paginate @languages
+= paginate @languages

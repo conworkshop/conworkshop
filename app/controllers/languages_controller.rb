@@ -2,7 +2,7 @@
 class LanguagesController < ApplicationController
   def index
     @languages = Language.includes(:lang_type, user: [:default_clan])
-                         .paginate(page: params[:page], per_page: 1).order(:code)
+                         .order(:code).page(params[:page]).per(50)
 
     render 'index', locals: { languages_count: Language.count }
   end
