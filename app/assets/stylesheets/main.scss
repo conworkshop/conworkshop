@@ -198,7 +198,7 @@ header {
   }
 }
 
-nav {
+nav.menu {
   @include transition(box-shadow .3s ease-in-out);
 
   width: 100%;
