@@ -240,7 +240,7 @@ nav[role='navigation']
               li[role='treeitem']
                 = link_to t('menu.orange.mine.account'), account_path, class: 'nav_orange_l'
           li[role='treeitem']
-            a.nav_orange_l.nav_caret[href='#'] = t('menu.orange.languages.languages')
+            = link_to t('menu.orange.languages.languages'), languages_path, class: 'nav_orange_l nav_caret'
             ul[role='tree']
               li[role='treeitem']
                 = link_to t('menu.orange.languages.new'), new_language_path, class: 'nav_orange_l'
