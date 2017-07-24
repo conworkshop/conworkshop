@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+@import 'partials/colors';
+
+.pagination {
+  text-align: center;
+  margin-top: 1em;
+  padding: .25em;
+  font-size: .8em;
+  cursor: default;
+
+  a, span, em {
+    padding: .2em .5em;
+  }
+
+  .disabled {
+    color: $bt-disabled-color;
+  }
+
+  .current {
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  a {
+    border: 1px solid $basically-white;
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover, &:focus {
+      color: white;
+    }
+  }
+
+  .page_info {
+    color: $bt-disabled-color;
+    padding-top: .8em;
+  }
+
+  .previous_page, .next_page {
+    border-width: 2px;
+  }
+
+  .previous_page {
+    margin-right: 1em;
+  }
+
+  .next_page {
+    margin-left: 1em;
+  }
+}
+
+/* Colours -- changes based on body color */
+@each $color, $cur-clr, $hv-bg-clr, $hv-border-clr in
+  ('red', $fail-color, $bt-red-bg-color, $bt-red-bg-light-color),
+  ('orange', $alert-color, $bt-orange-bg-color, $bt-orange-bg-light-color),
+  ('yellow', $pending-color, $bt-yellow-bg-color, $bt-yellow-bg-light-color),
+  ('green', $pass-color, $bt-green-bg-color, $bt-green-bg-light-color),
+  ('blue', $idle-color, $bt-blue-bg-color, $bt-blue-bg-light-color),
+  ('pink', $match-color, $bt-pink-bg-color, $bt-pink-bg-light-color),
+  ('grey', $unknown-color, $bt-grey-bg-color, $bt-grey-bg-light-color)
+{
+  body.#{$color} .pagination {
+    .current {
+      color: $cur-clr;
+    }
+
+    a:hover, a:focus {
+      background: $hv-bg-clr;
+      border-color: $hv-border-clr;
+    }
+  }
+}
