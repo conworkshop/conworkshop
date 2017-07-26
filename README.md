@@ -1,4 +1,4 @@
-![ConWorkShop image](https://i.imgur.com/8IiqZIU.png)
+![ConWorkShop image](http://i.imgur.com/UhDItX8.png)
 
 # ConWorkShop
 **ConWorkShop**, or CWS, is a constructed languages and constructed worlds management and tooling web application.
@@ -19,14 +19,17 @@ Install all the following dependencies on your machine:
 Note: *Technically, you can use any database other than PostgreSQL, but we use PostgreSQL.*
 
 ### Installation
-After every dependency is met, run these commands on your terminal:
+After every dependency is met, open your terminal in the project root and run
 
     $ bundle install
+
+This will install all of ConWorkShop's other dependencies.
+
+Now, go into the `config` folder and setup the `database.yml` and `secrets.yml` folder as per the examples. Once you have these set up as you wish, run
+
     $ bin/rake db:setup
 
-Now, go into the `config` folder and setup the `database.yml` and `secrets.yml` folder as per the examples.
-
-Then, run `bin\rails server` to spin up a development instance on your own machine.
+Then, run `rails server` to spin up a development instance on your own machine.
 
 ## Contributing
 Thank you for wanting to contribute to CWS! Basically, read the [CONTRIBUTING.md](CONTRIBUTING.md) file, and you should
