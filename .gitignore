@@ -1,6 +1,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore bundler local installs
+/vendor/bundle
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -43,4 +46,3 @@
 # Ignore secret-y stuff.
 /config/database.yml
 /config/secrets.yml
-
