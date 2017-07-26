@@ -1,4 +1,4 @@
-![ConWorkShop image](http://i.imgur.com/knMDWJy.png)
+![ConWorkShop image](http://i.imgur.com/UhDItX8.png)
 
 # ConWorkShop
 **ConWorkShop**, or CWS, is a constructed languages and constructed worlds management and tooling web application.
