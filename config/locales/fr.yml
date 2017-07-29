@@ -59,20 +59,12 @@ fr:
       report: '[report/feedback]'
       help: '[help index]'
     greetings:
-      - Hi
-      - Hello
-      - Hey
-      - Salutations
-      - Good day
-      - G'day
-      - Hallo
-      - \'Sup
-      - How's it
-      - What's up
-      - Greetings
-      - Howdy
-      - Top of the morning
-      - How are you
+      - Bonjour
+      - Salut
+      - Quoi de neuf
+      - Coucou
+      - Allô
+      - Ça va
 
   footer:
     links:
