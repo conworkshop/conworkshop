@@ -1,0 +1,554 @@
+fr:
+  language_names:
+    en: English (Anglais)
+    pt: Português (Portugais)
+    it: Italiano (Italien)
+    fr: Français
+
+  general:
+    save: ✔ Save changes
+    report: ✎ Report an error
+    return:
+      profile: « Return to profile
+    status:
+      online: online
+      away: away
+    minchars:
+      one: Minimum of one character.
+      other: Minimum of %{count} characters.
+    nocountry: Nowhereland
+    gender:
+      m: Male
+      f: Female
+      o: Other
+      c: Cyborg
+      none: Not stated
+    langtype:
+      NSP: Not specified
+      APR: A priori
+      APS: A posteriori
+      ART: Artistic Language (Artlang)
+      ENG: Engineered Language (Englang)
+      IAL: International Auxiliary Language (IAL)
+      LOG: Logical Language (Loglang)
+      SGN: Signed conlang
+      PRO: Proto-Conlang
+      PID: Pidgin
+      CRE: Creole
+      JOK: Joke language
+      MIX: Mixed
+      OTH: Other
+    emailsig: ~The CWS Team
+
+  activerecord:
+    attributes:
+      profile:
+        avatar: Profile picture
+      language:
+        nativename: Native name
+        lang_type: Language type
+    errors:
+      models:
+        language:
+          flag_dimension: The flag's width must be at least %{minw}px wide.
+
+  header:
+    quicklinks:
+      bots: '[bots]'
+      search: '[search]'
+      report: '[report/feedback]'
+      help: '[help index]'
+    greetings:
+      - Bonjour
+      - Salut
+      - Quoi de neuf
+      - Coucou
+      - Allô
+      - Ça va
+
+  footer:
+    links:
+      privacy: privacy
+      faqs: FAQs
+      rules: rules
+      statistics: statistics
+      graphs: graphs
+      api: API (in development)
+    sociallinks:
+      facebook: Facebook page
+      twitter: Twitter profile
+      youtube: Youtube channel
+      googleplus: Google+ profile
+      instagram: Instagram profile
+      tumblr: Tumblr profile
+    langsel: 'Viewing CWS in: %{seltag}'
+
+  application:
+    403:
+      title: Unauthorized
+      denied: Oops! Access denied!
+      banned:
+        title: Your account has been banned.
+        paragraph1: >
+          CWS Staff have decided for some reason to ban your account - probably because you have breached one of CWS's
+          rules. Any attempts to circumvent this ban will result in all new accounts being removed without warning.
+        paragraph2: >
+          If you wish to discuss this with us, you may contact us at %{link:conworkshop@gmail.com} and we will respond
+          when we can.
+      maintenance:
+        text: >
+          Access to this page has temporarily been restricted by admin. This could be due to one of the following
+          reasons:
+        reasons:
+          maintenance:
+            pretext: '%{b:We are doing some small maintenance work}, in which case:'
+            text: >
+              please be patient (hopefully shouldn't be long). This is so that we can ensure the page is working as best
+              as possible first;
+          development:
+            pretext: '%{b:This is a new page under development}, in which case:'
+            text: >
+              please be patient (could be a while). We're still working on this page and might take a while for it to be
+              functional.
+          other:
+            pretext: '%{b:Something else went wrong} (unlikely), in which case:'
+            text: >
+              please %{report_link:report this}, if you think the lock-out is incorrect, or contact us on the
+              %{email_link:conworkshop@gmail.com} email.
+      other: >
+        It appears that the page you tried to navigate to has restricted access. This may be because you're trying to
+        edit information that is not yours, access a private part of the site, or access administrator or staff pages.
+        You should probably %{link:go back} and do something else. If you believe this is a genuine mistake, please
+        report an error using the button below. Sorry for the inconvenience!
+
+  users:
+    sessions:
+      new:
+        title: Log in
+        fblogin: Log in with Facebook instead
+        login: ✔ Let me in!
+        remember: Remember me
+    mailer:
+      confirmation_instructions:
+        welcome: Welcome to CWS, %{b:%{email}}!
+        confirm: 'You can confirm your account using the link below:'
+        confirm_link: Confirm my account
+      email_changed:
+        hello: Hello, %{b:%{email}}!
+        changing: We're contacting you to notify you that your email is being changed to %{b:%{email}}.
+        changed: We're contacting you to notify you that your email has been changed to %{b:%{email}}.
+      password_change:
+        hello: Hello, %{b:%{email}}!
+        changed: We're contacting you to notify you that your password has been changed.
+    shared:
+      links:
+        alreadyacct: Already have an account? %{link:Log in}
+        new: New to CWS? %{link:Sign up}
+        forgot: Oops! %{link:Forgot your password?}
+        omniauth:
+          facebook: Log in with Facebook
+
+  languages:
+    index:
+      title: Conlangs
+      title_main: Conlangs of ConWorkShop (%{count})
+    show:
+      notfound:
+        title: Language not found
+        text: No language with the code "%{code}" was found.
+      flag_alt: "%{name}'s flag"
+      registered_by:
+        title: Registered by
+        text: '%{b:%{name}} on %{date}'
+      place_n_speakers:
+        title: Place & Speakers
+        text: '%{b:%{name}} is spoken in %{place}.'
+      species: Species
+      about: About %{name}
+    new:
+      title: Add new language
+      code:
+        length_limit: A unique three to six-letter code to identify your language.
+        char_limit: Letters %{b:A-Z} and numbers %{b:0-9} only!
+      unnamed:
+        label: I don't have a name for this language yet.
+        text: Unnamed
+      submit: Add language
+
+  account:
+    edit:
+      title: My account
+      info:
+        title: Account information
+        registered: 'Account registered at:'
+        confirmed: 'Account confirmed at:'
+        accountlastupdate: 'Account last updated:'
+        profilelastupdate: 'Profile last updated:'
+        lastlogin:
+          title: 'Last login:'
+          text: '%{time}, on IP %{ip}'
+        authtype:
+          title: 'Authentication type:'
+          std: Standard
+          fb: Facebook
+          both: Standard and Facebook
+        timezone: 'Timezone:'
+      settings:
+        title: Edit account settings
+        revertuname: Leave this blank to revert to your username.
+        emailwarn: Make sure you provide a valid email.
+        changepass: Change password
+        passwarn: >
+          Don't use the same password you use on other websites! %{count} characters minimum. Choose something you'll
+          easily remember.
+        passblank: Leave this field blank if you don't wish to change your password.
+        passconfirm: Just type in your password again! Easy peasy.
+
+  profiles:
+    show:
+      notfound:
+        title: User not found
+        text: No user with username "%{name}" was found.
+      title: "%{name}'s profile"
+      sidedata:
+        genderandcountry: '%{gender}, from %{country}'
+        karmainfo: '[info]'
+      links:
+        edit: '[edit profile]'
+        message: '[message]'
+      info:
+        membersince: 'Member since:'
+        lastseen: 'Last seen:'
+        boardposts: 'Board posts:'
+      about: About %{name}
+      conlangs: Registered conlangs
+    edit:
+      title: '%{name} - Edit profile'
+      h1: 'Edit profile: %{name}'
+      avatarwarn: The uploaded image will be resized to 50px by 50px.
+      removeavatar: Remove avatar
+
+  clans:
+    show:
+      title: View clan
+      join: Join clan
+      request: Request membership
+      primary: This is your primary clan!
+      make_primary: Make primary clan
+      members: Members
+      nomembers: This clan currently has no members
+      info:
+        created: 'Clan created:'
+        permission: 'Membership type:'
+      role:
+        A: Admin
+        M: Member
+    index:
+      title: Clans
+    new:
+      title: Create a clan
+      submit: Create clan
+      symbol:
+        info: Each clan has a symbol they can use to denote their members. One character only.
+      colour:
+        info: Each clan has a colour. Your name will appear in the colour of the clan you have set as your primary clan.
+      success: Clan created successfully
+      fail: Clan could not be created
+      nojoin: Clan was created but something went wrong adding you as a clan admin. Please contact a site staff member.
+      preview: Clan Preview
+      preview_info: Edit your clan info to see your changes appear here!
+    join:
+      success: Clain joined successfully
+      fail: Could not join clan
+      noinvite: You need to be invited in order to join this clan
+      request:
+        success: Your request to join the clan has been sent
+        fail: Your request to join this clan could not be sent
+        await: Awaiting response to join request
+    primary:
+      success: Primary clan set successfully
+      fail: Primary clan could not be set
+      nomember: You must be a member of this clan in order to set it as your primary clan
+    permissions:
+      O: Open
+      R: Request
+      I: Invite-only
+
+  static:
+    about:
+      title: About
+      welcome: 'Welcome to %{b:ConWorkShop}'
+      intro:
+        text: >
+          However you found yourself here, Welcome! If you're an existing member, %{link:please log in here}, or if
+          you're new, we've arranged a few points of interest about CWS here:
+        points:
+          what: '%{b:What} is CWS?'
+          more: '%{b:What} sort of things do you have/do?'
+          how: '%{b:How} do I join?'
+          why: '%{b:Why} does CWS exist?'
+      points:
+        what:
+          title: What is CWS?
+          paragraph1: >
+            CWS, or %{u:C}on%{u:W}ork%{u:S}hop, is a conlanging community and tools website started in early 2014 aimed
+            at providing the tools and community to help you strive in your conlanging endeavours. We are a very
+            eclectic group of people who are enthusiastic about conlangs and concultures. We have teenagers, students,
+            professionals, and so on - everyone is welcome.
+          paragraph2: >
+            It is %{b:completely free of charge} and will always remain so. It is a community built by conlangers, for
+            conlangers. We are always aiming to update our tools to give you the largest range of choices possible, and
+            we have a very helpful staff team who will help us achieve that goal.
+          paragraph3: >
+            CWS is largely geared towards conlangers with a working knowledge of language and linguistics, however we do
+            invite everyone to join! We have a good base of members with an infinite wealth of knowledge, and we're here
+            to help.
+        more:
+          title: What sort of things do you have/do?
+          text: >
+            Where do we start?! The site is broken up into three main sections: the %{lib:Library}, the %{tools:Tools},
+            and the %{com:Community}. (and yes, they're colour-coded :D)
+          library:
+            title: Library
+            text: >
+              The library is your centre of language creation. There's a highly detailed dictionary to store your
+              lexicon, to search, edit, import and export your lexicon. There are grammar tables that automatically
+              conjugate entries based on rules, there are phonologies, and orthographies, and more! Some examples of
+              some things from the creator's language (Nithalos) can be seen here:
+            list:
+              summary: Sample language summary page
+              word: Sample word entry
+              text: '%{link:Sample translated text} (Universal Declaration of Human Rights, Article 1)'
+              article: Sample language article
+          tools:
+            title: Tools
+            text: >
+              The tools section contains everything from word generators, to word banks, to lexical field vocabulary
+              sets (we call these "LexiBuild"), %{link:our conlanger's Swadesh List}, and much more!
+          community:
+            title: Community
+            text: >
+              The community is where the people and languages come together. We have a bunch of clans for varied
+              interests, active discussion boards with games, challenges, month-long events, and more!
+          events:
+            title: Events
+            text: >
+              CWS has a number of events - usually a month long that run throughout the year to help inspire and
+              motivate your language building. Check out %{link:the overview of our events} for more information.
+          projects:
+            title: Projects
+            text: 'At CWS, we love doing projects, like %{link:this beautiful thing}.'
+        how:
+          title: How do I join?
+          paragraph1: >
+            We're glad you've read this far! There are two ways you can join us. Firstly, you can login using your
+            Facebook account. Don't worry, the only information we use is your name and your profile picture. If you're
+            concerned about privacy, you can %{link:read our privacy information}.
+          paragraph2: >
+            Alternatively, you can create a %{link:standard login account}, you know, the kind with email address and
+            password. Don't worry, we don't share this information either.
+          paragraph3: 'Once you have an account, you can %{link:login to CWS} to be part of it.'
+        why:
+          title: Why does CWS exist?
+          paragraph1: >
+            If you're interested to know, it was born out of the idea that conlangers and conlang tools are found all
+            over the internet, and we wanted a place to centralise these in order to create one single place to go for
+            everything.
+          paragraph2: >
+            CWS's integrated model also means you have the ability to do more with your language as we not only have your
+            lexicon, but your grammar, your phonology, your orthography, and this means these elements can interact in
+            ways that other sites may not be able to. Because CWS was created by conlangers, for conlangers, it will
+            always be free. We aren't professionals at this, so sometimes patience is appreciated, but it's worth the
+            wait. We also welcome feedback and suggestions to improve the site, and without those we've already
+            received, who knows what opportunities we might have missed.
+          paragraph3: >
+            CWS can also be found on Social Media if you have the urge to follow or like us there. See the site footer
+            for the links!
+
+  preferences:
+    edit:
+      title: Preferences
+      default_value: 'Default value:'
+      preference:
+        locale:
+          title: Language
+          text: Choose the language you prefer CWS to be displayed in by default.
+
+  menu:
+    green:
+      dictionary:
+        dictionary: Dictionary
+        add: Add word
+        settings: Settings
+        tools:
+          tools: Dictionary tools
+          massedit: Mass edit
+          maintenance: Maintenance
+          import: Import
+          export: Export
+          phomo: Dictionary PhoMo
+          compare: Compare dictionaries
+          homonym: Homonyms list
+        roots: Known roots
+        distribution: Word distribution
+        pcdistribution: PoS/Class distribution
+      phonology:
+        phonology: Phonology
+        inventory: Inventory
+        phonotactics: Phonotactics
+        estimate: Pronunciation estimation
+        compare: Compare inventory
+      orthography:
+        orthography: Orthography
+        categories: Categories
+        conscript: Conscript
+        distribution: Distribution
+        azorder: Alphabetical order
+      grammar:
+        grammar: Grammar
+        typology: Typology
+        forms: Define forms
+        addtable: Add table
+        tables: Grammar tables
+        irregular: Irregular forms list
+        conjugator: Word conjugator
+        test: Grammar test
+      literature:
+        literature: Literature
+        translations: Translations
+        contrans: '%{conlang} translations'
+        journal: Journal
+        articles: '%{conlang} articles'
+        phrasebook: Phrasebook
+      namebase: Namebase
+      summary: Summary
+      settings: Settings
+    yellow:
+      tools: Tools
+      lexicon:
+        lexicon: Lexicon
+        lexibuild: LexiBuild
+        wordgen: Word generator
+        wordgen3: WordGen³
+        multisearch: Dict. multi-search
+        wordbank: WordBank
+        phomo: PhoMo derivation
+        wordlinks: WordLink database
+        swadesh: Conlanger's Swadesh List
+        numbers: Numbers 1 to 10
+      phonetics:
+        phonetics: Phonetics
+        chart: IPA and Phoneme chart
+        converter: X-SAMPA to IPA converter
+        phomo: PhoMo
+        phonsystem: Phonological systems
+      orthography:
+        orthography: Orthography
+        scriptmap: Latin script map
+        freqcalc: Frequency calculator
+        anagram: Anagram generator
+        graphemes: Graphemes
+      numbers:
+        numbers: Numbers
+        base: Base converter
+        system: Number system converter
+      typological: Typological database
+      flash: Flash
+      trees: Syntax trees
+      forms: Grammar forms
+      gallery: Gallery
+    blue:
+      community: Community
+      boards:
+        boards: Boards
+        mine: My threads
+        subscribed: Subscribed threads
+        recent: Recent threads
+      people:
+        people: People and Clans
+        clans: Clans
+        conlangers: Conlangers
+        karma: Karma statistics
+      languages:
+        languages: Languages
+        list: Conlang list
+        scripts: Conscripts
+        scriptbank: Conscript bank
+        browse: Browse dictionaries
+        flags: Language flags
+      articles:
+        articles: Articles
+        all: All articles
+        new: New article
+        lotm: Language of the Month
+      projects:
+        projects: Projects
+        song: Song projects
+        cwsp:
+          planet: CWS Planet
+          wiki: CWSP Wiki
+          map: CWSP Map (latest)
+          svg: CWSP Map (SVG)
+      events: Events
+      resources: Resources
+    orange:
+      profile: Profile
+      mailbox:
+        mailbox: Mailbox
+        send: Send message
+      mine:
+        mine: My profile
+        karma: My karma
+        edit: Edit profile
+        preferences: Site preferences
+        account: My account
+      languages:
+        languages: Languages
+        families: Language families
+        new: New language
+        dialect: New dialect
+        share: Share language
+        checklist: Language checklist
+      awards: Awards
+    grey:
+      cws: CWS
+      search: Search
+      help: Help articles
+      tutorials: Tutorials
+      faqs: FAQs
+      report: Report/feedback
+      stats: Statistics
+      donate: Donate
+    logout: Log out
+    basic:
+      login: Log in
+      register: Register
+      about: About
+      home: Home
+      green:
+        browse: Browse
+        conlangs: Conlangs
+        dictionaries: Dictionaries
+        articles: All articles
+        typological: Typological database
+
+  time:
+    formats:
+      long:  '%d %B %Y %l:%M%P'
+      short: '%d-%b-%Y %l:%M%P'
+      long_notime: '%d %B %Y'
+      short_notime: '%d-%b-%Y'
+
+  errors:
+    messages:
+      carrierwave_processing_error: failed to be processed
+      carrierwave_integrity_error: is not of an allowed file type
+      carrierwave_download_error: could not be downloaded
+      extension_whitelist_error: 'You are not allowed to upload %{extension} files, allowed types: %{allowed_types}'
+      extension_blacklist_error: 'You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}'
+      content_type_whitelist_error: 'You are not allowed to upload %{content_type} files'
+      content_type_blacklist_error: 'You are not allowed to upload %{content_type} files'
+      rmagick_processing_error: 'Failed to manipulate with rmagick, maybe it is not an image?'
+      mini_magick_processing_error: 'Failed to manipulate with MiniMagick, maybe it is not an image? Original Error: %{e}'
+      min_size_error: 'File size should be greater than %{min_size}'
+      max_size_error: 'File size should be less than %{max_size}'
