@@ -8,7 +8,7 @@ class LanguagesController < ApplicationController
   end
 
   def show
-    @language = Language.find_by(code: params[:id])
+    @language = Language.find_by(code: params[:id].upcase)
   end
 
   def new
@@ -42,6 +42,10 @@ class LanguagesController < ApplicationController
   end
 
   def destroy
+  end
+
+  def check_code
+    render text: Language.exists?(params[:id].upcase) ? 1 : 0
   end
 
   private
