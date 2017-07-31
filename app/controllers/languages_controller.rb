@@ -45,7 +45,7 @@ class LanguagesController < ApplicationController
   end
 
   def check_code
-    render text: Language.exists?(params[:id].upcase) ? 1 : 0
+    render text: Language.exists?(code: params[:id].upcase) ? 0 : 1
   end
 
   private
