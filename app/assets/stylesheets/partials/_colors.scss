@@ -366,3 +366,17 @@ a.unknown, a.grey, label.grey, input.button.grey {
 .grey {
   color: $weird-black;
 }
+
+// Input validation colors
+input.red {
+  color: $basically-white;
+  background-color: $fail-bg-hover-color;
+}
+
+input.yellow {
+  background-color: $pending-bg-hover-color;
+}
+
+input.green {
+  background-color: $pass-bg-hover-color;
+}

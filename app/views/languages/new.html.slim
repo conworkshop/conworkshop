@@ -8,6 +8,7 @@
   coffee:
     name_el = $('#language_name')
     natname_el = $('#language_nativename')
+    lang_code = $('#language_code')
 
     $('#unnamed').change ->
       name_el.attr('disabled', this.checked)
@@ -19,6 +20,24 @@
       else
         name_el.val('')
         natname_el.val('')
+        
+    $('#language_code').change ->
+      val = lang_code.val().toUpperCase()
+      lang_code.val(val)
+
+      if val.match /[A-Z0-9]{3,6}/
+        lang_code.attr("class", "yellow")
+
+        $.get("/check_code/#{val}", (data) ->
+          if data == "1"
+            lang_code.attr("class", "green")
+          else
+            lang_code.attr("class", "red")
+        )
+      else
+        lang_code.attr("class", "red")
+
+
 
 h2= t('.title')
 = form_for @language do |f|

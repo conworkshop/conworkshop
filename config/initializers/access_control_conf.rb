@@ -44,11 +44,12 @@ module CWS
     end
 
     controller 'languages' do
-      route 'index',  level: :anyone
-      route 'show',   level: :anyone
-      route 'new',    level: 0
-      route 'update', level: 0
-      route 'create', level: 0
+      route 'index',      level: :anyone
+      route 'show',       level: :anyone
+      route 'new',        level: 0
+      route 'update',     level: 0
+      route 'create',     level: 0
+      route 'check_code', level: 0
     end
 
     controller 'preferences' do
