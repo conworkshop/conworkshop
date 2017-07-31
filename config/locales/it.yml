@@ -24,6 +24,7 @@ it:
     en: English (Inglese)
     pt: Português (Portoghese)
     it: Italiano
+    fr: Français
 
   general:
     save: ✔ Salva modifiche
@@ -93,7 +94,7 @@ it:
     langsel: 'Visualizzando CWS in: %{seltag}'
 
   application:
-    403:
+    :403:
       title: Non autorizzato
       denied: Ops! Accesso negato!
       banned:

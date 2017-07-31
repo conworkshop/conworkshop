@@ -3,6 +3,7 @@ pt:
     en: English (Inglês)
     pt: Português
     it: Italiano
+    fr: Français
 
   general:
     save: ✔ Salvar alterações
@@ -98,7 +99,7 @@ pt:
     langsel: 'Visualizando o CWS em: %{seltag}'
 
   application:
-    403:
+    :403:
       title: Não autorizado
       denied: Ops! Accesso negado!
       banned:
@@ -181,7 +182,9 @@ pt:
       code:
         length_limit: Um código único de três a seis letras para identificar sua língua.
         char_limit: Letras %{b:A-Z} e números %{b:0-9} apenas!
-      unnamed: Não tenho um nome para esta língua ainda.
+      unnamed:
+        label: Não tenho um nome para esta língua ainda.
+        text: Unnamed
       submit: Adicionar língua
 
   account:
