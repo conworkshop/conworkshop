@@ -3,7 +3,6 @@ pt:
     en: English (Inglês)
     pt: Português
     it: Italiano
-    fr: Français
 
   general:
     save: ✔ Salvar alterações
@@ -182,9 +181,7 @@ pt:
       code:
         length_limit: Um código único de três a seis letras para identificar sua língua.
         char_limit: Letras %{b:A-Z} e números %{b:0-9} apenas!
-      unnamed:
-        label: Não tenho um nome para esta língua ainda.
-        text: Unnamed
+      unnamed: Não tenho um nome para esta língua ainda.
       submit: Adicionar língua
 
   account:

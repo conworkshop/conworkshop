@@ -49,8 +49,6 @@ Rails.application.routes.draw do
     # Language
     resources :languages
 
-    get '/check_code/:id', to: 'languages#check_code'
-
     # Admin
     namespace :admin do
       # Admin::Langtypes

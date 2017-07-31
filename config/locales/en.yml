@@ -24,7 +24,6 @@ en:
     en: English
     pt: Português (Portuguese)
     it: Italiano (Italian)
-    fr: Français (French)
 
   general:
     save: ✔ Save changes
@@ -87,7 +86,7 @@ en:
       - Good day
       - G'day
       - Hallo
-      - "'Sup"
+      - \'Sup
       - How's it
       - What's up
       - Greetings
@@ -113,7 +112,7 @@ en:
     langsel: 'Viewing CWS in: %{seltag}'
 
   application:
-    403:
+    :403:
       title: Unauthorized
       denied: Oops! Access denied!
       banned:
@@ -199,9 +198,7 @@ en:
       code:
         length_limit: A unique three to six-letter code to identify your language.
         char_limit: Letters %{b:A-Z} and numbers %{b:0-9} only!
-      unnamed:
-        label: I don't have a name for this language yet.
-        text: Unnamed
+      unnamed: I don't have a name for this language yet.
       submit: Add language
 
   account:
