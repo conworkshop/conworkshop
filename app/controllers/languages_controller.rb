@@ -44,6 +44,10 @@ class LanguagesController < ApplicationController
   def destroy
   end
 
+  def check_code
+    render text: Language.find_by_code(params[:id].upcase).nil? ? 1 : 0
+  end
+
   private
 
   def create_params

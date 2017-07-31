@@ -3,32 +3,40 @@
 
 - content_for :foot do
   javascript:
-    unnamed_name = "#{t('.unnamed.text')}";
+    unnamed_text = "#{t('.unnamed.text')}";
     
   coffee:
     name_el = $('#language_name')
     natname_el = $('#language_nativename')
+    lang_code = $('#language_code')
 
     $('#unnamed').change ->
       name_el.attr('disabled', this.checked)
       natname_el.attr('disabled', this.checked)
 
       if this.checked
-        name_el.val(unnamed_name)
-        natname_el.val(unnamed_name)
+        name_el.val(unnamed_text)
+        natname_el.val(unnamed_text)
       else
         name_el.val('')
         natname_el.val('')
-
-
+        
     $('#language_code').change ->
-      val = $(@).val().toUpperCase()
-      $(@).val(val)
-      
+      val = lang_code.val().toUpperCase()
+      lang_code.val(val)
+
       if val.match /[A-Z0-9]{3,6}/
-        $(@).removeClass("red")
+        lang_code.attr("class", "yellow")
+
+        $.get("/check_code/#{val}", (data) ->
+          if data == "1"
+            lang_code.attr("class", "green")
+          else
+            lang_code.attr("class", "red")
+        )
       else
-        $(@).addClass("red")
+        lang_code.attr("class", "red")
+
 
 
 h2= t('.title')
