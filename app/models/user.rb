@@ -108,6 +108,8 @@ class User < ApplicationRecord
 
   # Whether user has editing rights over another
   def power_over?(test_user)
+    return false if test_user.nil?
+
     self == test_user || RANK_HIERARCHY[group.to_sym] > RANK_HIERARCHY[test_user.group.to_sym]
   end
 
