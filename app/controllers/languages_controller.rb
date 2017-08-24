@@ -8,7 +8,7 @@ class LanguagesController < ApplicationController
   end
 
   def show
-    @language = Language.find_by(code: params[:id])
+    @language = find_language_for_code(params[:id])
   end
 
   def new
@@ -36,6 +36,11 @@ class LanguagesController < ApplicationController
   end
 
   def edit
+    @language = find_language_for_code(params[:id])
+
+    unless @language && current_user.power_over?(@language&.user)
+      redirect_to language_path(id: params[:id])
+    end
   end
 
   def update
@@ -45,6 +50,10 @@ class LanguagesController < ApplicationController
   end
 
   private
+
+  def find_language_for_code(code)
+    Language.includes(:lang_type, user: [:default_clan]).find_by(code: code)
+  end
 
   def create_params
     params.require(:language).permit(:code, :name, :nativename, :lang_type, :unnamed)
