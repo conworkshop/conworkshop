@@ -4,8 +4,14 @@ require 'gender_form_builder'
 require 'langtype_form_builder'
 
 module ApplicationHelper
+  # @return [Language] the current language
   def current_language
     current_user&.current_lang
+  end
+
+  # @return [String] the current language's name
+  def current_language_name
+    current_language&.name || t('general.nolang')
   end
 
   def macro(partial, **vars, &block)

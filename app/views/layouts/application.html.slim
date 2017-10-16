@@ -30,13 +30,18 @@ html lang=I18n.locale
         - if user_signed_in?
           .lang_sel.right[role='complementary']
             span
-              a[href='#']
-                img#lang_sel_flag[src=''] LANGUAGE NAME
-            a.round-button.pass[href='#'] ▼
-            a.round-button.pass[href='#'] ✎
-            a.round-button.alert[href='#'] ★
+              - if current_language
+                = link_to language_path(current_language)
+                  = image_tag current_language.flag_thumb_url, id: 'lang_sel_flag',
+                      alt: current_language.name
+                  = current_language.name
+                a.round-button.pass[href='#'] ▼
+                = link_to '✎', edit_language_path(current_language), class: 'round-button pass'
+                = link_to '★', new_language_path, class: 'round-button alert'
+              - else
+                = t('general.nolang')
             br
-            small %%% | %%% entries
+            small ??? | ??? entries
 
         .head[role='heading']
           a[href='/'] %%todo-header-conscript%%
