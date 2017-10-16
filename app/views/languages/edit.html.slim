@@ -1,2 +1,30 @@
-h1 Languages#edit
-p Find me in app/views/languages/edit.html.slim
+- provide(:page_title, t('.title', name: @language.name))
+- provide(:page_colour, 'green')
+
+= link_to t('.back'), language_path(@language), class: 'button pass'
+
+h2= t('.settings', name: @language.name)
+
+= form_for @language do |f|
+  = render 'error_messages', cur_obj: @language
+
+  .field
+    = f.label :name
+    = f.text_field :name, size: 35
+
+  .field
+    = f.label :nativename
+    = f.text_field :nativename, size: 35
+
+  .field
+    = f.label :ipa
+    = f.text_field :ipa
+    span.sbt = it('.no_slashes', b: It.tag(:b))
+
+  .field
+    = f.label :lang_type
+    = f.langtype_select :lang_type
+
+  .field
+    = f.label :status
+    = f.select :status, Language.statuses.map { |s, _| [s.humanize, s] }

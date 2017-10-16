@@ -1,8 +1,10 @@
 - if @language
 
   - provide(:page_title, @language.name)
-  - provide(:page_colour, 'orange')
+  - provide(:page_colour, 'green')
 
+  - if current_user.power_over?(@language.user)
+    = link_to t('.edit'), edit_language_path(@language), class: 'button pass'
   h2 #{@language.name} [#{@language.code}]
 
   .form
