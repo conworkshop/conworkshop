@@ -60,6 +60,7 @@ en:
       MIX: Mixed
       OTH: Other
     emailsig: ~The CWS Team
+    nolang: No language
 
   activerecord:
     attributes:
@@ -68,6 +69,7 @@ en:
       language:
         nativename: Native name
         lang_type: Language type
+        ipa: Autonym pronounciation
     errors:
       models:
         language:
@@ -194,6 +196,12 @@ en:
         text: '%{b:%{name}} is spoken in %{place}.'
       species: Species
       about: About %{name}
+      edit: "✎ Edit information"
+    edit:
+      title: Editing %{name}
+      back: "« View language page"
+      settings: "%{name} settings"
+      no_slashes: "(You do %{b:not} need to add brackets or slashes)"
     new:
       title: Add new language
       code:

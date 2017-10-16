@@ -4,6 +4,10 @@ require 'gender_form_builder'
 require 'langtype_form_builder'
 
 module ApplicationHelper
+  def current_language
+    current_user&.current_lang
+  end
+
   def macro(partial, **vars, &block)
     if block_given?
       render layout: partial, locals: vars, &block

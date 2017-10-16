@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_one :user_track
 
   has_many :languages
+  belongs_to :current_lang, class_name: 'Language'
 
   has_many :clans, through: :clan_memberships
   belongs_to :default_clan, class_name: 'Clan'
