@@ -1,6 +1,7 @@
 # frozen_string_literal: true
+
 class ClansController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound, :with => :render_404
+  rescue_from ActiveRecord::RecordNotFound, with: :render_404
 
   def new
     @clan = Clan.new
@@ -50,24 +51,20 @@ class ClansController < ApplicationController
   def join
     @clan = Clan.find(params[:id])
     case @clan.permission
-      when 'O'
-        join_open(@clan)
-      when 'R'
-        join_request(@clan)
-      else
-        flash[:error] = t('clans.join.noinvite')
-        redirect_to @clan
+    when 'O'
+      join_open(@clan)
+    when 'R'
+      join_request(@clan)
+    else
+      flash[:error] = t('clans.join.noinvite')
+      redirect_to @clan
     end
   end
 
   def primary
     @clan = Clan.find(params[:id])
-    if current_user.in_clan?(@clan) or not @clan.concrete_members?
-      current_user.default_clan = if @clan.concrete_members?
-                                    @clan
-                                  else
-                                    nil
-                                  end
+    if current_user.in_clan?(@clan) || !@clan.concrete_members?
+      current_user.default_clan = (@clan if @clan.concrete_members?)
       if current_user.save
         flash[:success] = t('clans.primary.success')
       else
@@ -80,6 +77,7 @@ class ClansController < ApplicationController
   end
 
   def edit; end
+
   def update; end
 
   def show

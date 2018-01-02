@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module ActionView
   module Helpers
     class FormBuilder
@@ -48,7 +49,7 @@ module ActionView
         end
 
         def langtype_codes_for_options
-          langtype_codes.map { |c| [I18n.t(c.code, scope: %w(general langtype)), c.code] }
+          langtype_codes.map { |c| [I18n.t(c.code, scope: %w[general langtype]), c.code] }
         end
       end
     end

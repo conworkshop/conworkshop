@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Rails.application.routes.draw do
   get '/:locale', locale: Regexp.union(I18n.available_locales.map(&:to_s)), to: 'static#feed', as: :locale_root
 
@@ -6,29 +7,29 @@ Rails.application.routes.draw do
 
   # Devise omniauth callbacks can't be scoped
   devise_for :users,
-    only: :omniauth_callbacks,
-    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' },
-    path: ''
+             only: :omniauth_callbacks,
+             controllers: { omniauth_callbacks: 'users/omniauth_callbacks' },
+             path: ''
 
   scope '(:locale)', locale: Regexp.union(I18n.available_locales.map(&:to_s)) do
     # Devise
     devise_for :users,
-      controllers: {
-        registrations: 'users/registrations', sessions: 'users/sessions',
-        passwords: 'users/passwords', confirmations: 'users/confirmations'
-      },
-      skip: :omniauth_callbacks,
-      path: '',
-      path_names: {
-        sign_in: 'login', sign_out: 'logout', sign_up: 'signup',
-        password: 'forgot_password', confirmation: 'confirm_account'
-      }
+               controllers: {
+                 registrations: 'users/registrations', sessions: 'users/sessions',
+                 passwords: 'users/passwords', confirmations: 'users/confirmations'
+               },
+               skip: :omniauth_callbacks,
+               path: '',
+               path_names: {
+                 sign_in: 'login', sign_out: 'logout', sign_up: 'signup',
+                 password: 'forgot_password', confirmation: 'confirm_account'
+               }
 
     # Static pages
     get 'about', to: 'static#about', as: :page_static_about
 
     # Profile
-    resources :profiles, only: [:show, :edit, :update], param: :username
+    resources :profiles, only: %i[show edit update], param: :username
 
     # Account
     get '/account', to: 'account#edit'
@@ -52,7 +53,7 @@ Rails.application.routes.draw do
     # Admin
     namespace :admin do
       # Admin::Langtypes
-      resources :langtypes, only: [:index, :edit, :update]
+      resources :langtypes, only: %i[index edit update]
     end
   end
 end

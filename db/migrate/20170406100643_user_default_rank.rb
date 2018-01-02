@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class UserDefaultRank < ActiveRecord::Migration[5.0]
   def change
     change_column :users, :group, :string, default: 'R'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryGirl.define do
   factory :user do
     email { 'cool@email.com' }
@@ -6,7 +8,7 @@ FactoryGirl.define do
     group 'R'
 
     factory :confirmed_user do
-      confirmed_at Date.today
+      confirmed_at Time.zone.today
     end
 
     trait :with_user_track do

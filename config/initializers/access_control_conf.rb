@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module CWS
   ACCESS_CONTROL = AccessControl.build(ActiveSupport::Cache::MemoryStore.new) do
     controller 'static' do

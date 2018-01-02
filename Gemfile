@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -7,12 +8,12 @@ git_source(:github) do |repo_name|
 end
 
 # env thing
-gem 'dotenv-rails', groups: [:development, :test], require: 'dotenv/rails-now'
+gem 'dotenv-rails', groups: %i[development test], require: 'dotenv/rails-now'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.2'
+gem 'rails', '~> 5.2.0.beta2'
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
+# gem 'sqlite3'
 # Use postgres
 gem 'pg'
 # Use Puma as the app server
@@ -41,9 +42,9 @@ group :development, :test do
   gem 'byebug', platform: :ruby
 
   # Fuck minitest
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'rspec'
   gem 'rspec-rails', '~> 3.5'
-  gem 'factory_girl_rails', '~> 4.0'
 
   gem 'simplecov'
 end
@@ -52,26 +53,26 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
 
-  gem 'rubocop'
-  gem 'net_http_ssl_fix', require: 'net_http_ssl_fix'
-  gem 'slim_lint'
   gem 'letter_opener'
+  gem 'net_http_ssl_fix', require: 'net_http_ssl_fix'
+  gem 'rubocop'
+  gem 'slim_lint'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+gem 'carrierwave', '~> 1.0'
+gem 'country_select'
 gem 'devise'
 gem 'devise_uid'
-gem 'slim-rails'
-gem 'carrierwave', '~> 1.0'
-gem 'mini_magick'
-gem 'country_select'
-gem 'omniauth-facebook'
-gem 'local_time', git: 'https://github.com/basecamp/local_time', branch: '2-0'
-gem 'http_accept_language'
-gem 'validates_serialized'
 gem 'friendly_id', '~> 5.2.0'
-gem 'jquery-minicolors-rails'
+gem 'http_accept_language'
 gem 'it'
+gem 'jquery-minicolors-rails'
 gem 'kaminari'
+gem 'local_time', git: 'https://github.com/basecamp/local_time', branch: '2-0'
+gem 'mini_magick'
+gem 'omniauth-facebook'
+gem 'slim-rails'
+gem 'validates_serialized'

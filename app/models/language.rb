@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Language < ApplicationRecord
   CODE_LENGTH = (3..6).freeze
   FLAG_DIMENSIONS = [100, 500].freeze
@@ -10,7 +11,7 @@ class Language < ApplicationRecord
 
   # "New" is not :new because a method named "new" would break stuff. So, it is
   # "new_language" instead. Damn you Rails!
-  enum status: %i(new_language progressing functional complete on_hold abandoned)
+  enum status: %i[new_language progressing functional complete on_hold abandoned]
 
   belongs_to :user
   belongs_to :lang_type

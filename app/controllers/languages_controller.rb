@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class LanguagesController < ApplicationController
   def index
     @languages = Language.includes(:lang_type, user: [:default_clan])
@@ -18,7 +19,7 @@ class LanguagesController < ApplicationController
   def create
     p = create_params
 
-    p[:lang_type] = LangType.find_by_code(p[:lang_type])
+    p[:lang_type] = LangType.find_by(code: p[:lang_type])
     @language = Language.new(p)
     @language.user = current_user
     @language.status = :new_language
@@ -38,9 +39,7 @@ class LanguagesController < ApplicationController
   def edit
     @language = find_language_for_code(params[:id])
 
-    unless @language && current_user.power_over?(@language&.user)
-      redirect_to language_path(id: params[:id])
-    end
+    redirect_to language_path(id: params[:id]) unless @language && current_user.power_over?(@language&.user)
   end
 
   def update

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class CreateRouteAccessControls < ActiveRecord::Migration[5.0]
   def change
     create_table :route_access_controls do |t|

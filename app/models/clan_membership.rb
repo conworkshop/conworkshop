@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ClanMembership < ApplicationRecord
-  CLAN_ROLES = %w(A M).freeze
+  CLAN_ROLES = %w[A M].freeze
 
   belongs_to :user
   belongs_to :clan

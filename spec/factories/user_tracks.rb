@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 FactoryGirl.define do
   factory :user_track do
     tracked_at 0
     association :user, strategy: :build
 
     factory :online_user_track do
-      tracked_at { Time.now }
+      tracked_at { Time.current }
     end
 
     factory :away_user_track do

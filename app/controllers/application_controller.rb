@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
@@ -38,7 +39,7 @@ class ApplicationController < ActionController::Base
     return unless user_signed_in? # ignore guests
 
     UserTrack.where(user: current_user)
-             .update_all(route: controller_path + '#' + action_name, tracked_at: Time.now)
+             .update_all(route: controller_path + '#' + action_name, tracked_at: Time.current)
   end
 
   def set_locale

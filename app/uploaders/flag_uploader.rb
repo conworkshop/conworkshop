@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class FlagUploader < ImageUploader
   before :cache, :capture_size_before_cache
 

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class PreferencesController < ApplicationController
   def edit
   end
@@ -6,9 +7,7 @@ class PreferencesController < ApplicationController
   def update
     current_user.preferences[:locale] = update_params[:preferences][:locale]
 
-    if current_user.save
-      flash[:success] = 'Preferences successfully updated.'
-    end
+    flash[:success] = 'Preferences successfully updated.' if current_user.save
 
     redirect_to preferences_path(locale: current_user.preferences[:locale])
   end

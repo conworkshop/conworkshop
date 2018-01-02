@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # noinspection RubyClassModuleNamingConvention
 class RenamePreferredLocaleToPreferences < ActiveRecord::Migration[5.0]
   def change

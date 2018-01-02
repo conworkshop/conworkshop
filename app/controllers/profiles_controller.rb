@@ -1,12 +1,11 @@
 # frozen_string_literal: true
+
 class ProfilesController < ApplicationController
   def show
     @profile_user = find_profile_for_params
 
-    unless @profile_user
-      # user does not exist, 404 code it up.
-      response.status = 404
-    end
+    # user does not exist, 404 code it up.
+    response.status = 404 unless @profile_user
   end
 
   def edit

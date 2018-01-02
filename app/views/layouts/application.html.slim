@@ -66,12 +66,6 @@ html lang=I18n.locale
           a>[href='#']= t('header.quicklinks.report')
           a[href='#']= t('header.quicklinks.help')
 
-        #path[role='navigation']
-          / TODO: fix this bullshit
-          span = content_for?(:page_origin) ? yield(:page_origin) : 'conworkshop'
-          span
-            a[href='#'] = controller.action_name
-
       section#content
         = render 'flash_messages' unless content_for?(:no_render_flash)
         = yield

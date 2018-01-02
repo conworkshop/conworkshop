@@ -37,11 +37,11 @@ module ApplicationHelper
   end
 
   BANNER_TYPES = {
-    success: %w(✔ Success!),
-    err:     %w(✖ Oops!),
-    warn:    %w(! Warning!),
-    info:    %w(? FYI...),
-    timer:   %w(⌛ Tick-tock...)
+    success: %w[✔ Success!],
+    err:     %w[✖ Oops!],
+    warn:    %w[! Warning!],
+    info:    %w[? FYI...],
+    timer:   %w[⌛ Tick-tock...]
   }.freeze
 
   def banner(type, str = nil, &block)
@@ -73,11 +73,11 @@ module ApplicationHelper
     render 'lang_handle', lang: lang, flag_thumb: flag_thumb
   end
 
-  def cws_local_time(time = Time.now, options = nil)
+  def cws_local_time(time = Time.current, options = nil)
     local_time(time, options ? options : :long)
   end
 
-  def cws_local_date(time = Time.now, options = nil)
+  def cws_local_date(time = Time.current, options = nil)
     local_time(time, options ? options : :long_notime)
   end
 
@@ -90,17 +90,19 @@ module ApplicationHelper
   end
 
   def language_select_options(path_has_locale: true, with_path: true, selected: nil)
-    options = I18n.available_locales.inject([]) do |opts, locale|
+    options = I18n.available_locales.each_with_object([]) do |locale, opts|
       opt = [I18n.t("language_names.#{locale}"), locale.to_s]
 
       if with_path
-        path = path_has_locale ? request.fullpath.sub(/\A\/.+?(?:\/|\/?\z)/, "/#{locale}/")
-                               : "/#{locale}#{request.fullpath}"
+        path = if path_has_locale
+                 request.fullpath.sub(%r{\A/.+?(?:/|/?\z)}, "/#{locale}/")
+               else
+                 "/#{locale}#{request.fullpath}"
+               end
         opt << { 'data-path': path }
       end
 
       opts << opt
-      opts
     end
 
     options_for_select(options, selected || I18n.locale.to_s)

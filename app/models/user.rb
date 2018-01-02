@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class User < ApplicationRecord
   RANK_HIERARCHY = {
     B: 0, R: 0,
@@ -6,7 +7,7 @@ class User < ApplicationRecord
     A: 2, D: 2
   }.freeze
 
-  USERNAME_LEN  = (4..16).freeze
+  USERNAME_LEN = (4..16).freeze
 
   has_one :profile
   has_one :user_track
@@ -49,17 +50,17 @@ class User < ApplicationRecord
         auth.uid,
         auth.provider,
         auth.info.email
-      ).first_or_initialize(oaid: auth.uid, provider: auth.provider) do |u|
-        u.email     = auth.info.email
-        u.password  = Devise.friendly_token
-        u.username  = Devise.friendly_token(USERNAME_LEN.begin + 5)
-        u.pseudonym = auth.info.name
-        u.group     = 'R'
+      ).first_or_initialize(oaid: auth.uid, provider: auth.provider) do |us|
+        us.email     = auth.info.email
+        us.password  = Devise.friendly_token
+        us.username  = Devise.friendly_token(USERNAME_LEN.begin + 5)
+        us.pseudonym = auth.info.name
+        us.group     = 'R'
 
-        u.profile = Profile.new
+        us.profile = Profile.new
 
-        u.profile.user = u
-        u.profile.remote_avatar_url = auth.info.image.sub('http', 'https') if auth.info.image
+        us.profile.user = us
+        us.profile.remote_avatar_url = auth.info.image.sub('http', 'https') if auth.info.image
       end
 
       # update oaid and provider in case of standard user trying to login with facebook

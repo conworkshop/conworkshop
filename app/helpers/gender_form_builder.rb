@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module ActionView
   module Helpers
     class FormBuilder
@@ -46,7 +47,7 @@ module ActionView
         end
 
         def gender_codes_for_options
-          gender_codes.map { |c| [I18n.t(c, scope: %w(general gender)), c] }
+          gender_codes.map { |c| [I18n.t(c, scope: %w[general gender]), c] }
         end
       end
     end

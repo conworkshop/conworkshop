@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeLanguageStatusToInt < ActiveRecord::Migration[5.0]
   def up
     change_column :languages, :status, 'integer USING status::integer', default: 0

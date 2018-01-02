@@ -17,6 +17,9 @@ Style/EmptyMethod:
 Style/ClassAndModuleChildren:
   Enabled: false
 
+Layout/EndOfLine:
+  EnforcedStyle: lf
+
 # Disable all metrics.
 Metrics/AbcSize:
   Enabled: false

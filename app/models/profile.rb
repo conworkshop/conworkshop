@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Profile < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
@@ -9,7 +10,7 @@ class Profile < ApplicationRecord
   validates :about, length: { maximum: CWS::Globals::MAX_ABOUT_CHARS, allow_blank: true }
 
   def display_gender
-    I18n.t(gender.presence || 'none', scope: %w(general gender))
+    I18n.t(gender.presence || 'none', scope: %w[general gender])
   end
 
   def display_country

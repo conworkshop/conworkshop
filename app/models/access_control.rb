@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class AccessControl
   RouteControl = Struct.new(:route, :level) do
     def allowed?(user)
