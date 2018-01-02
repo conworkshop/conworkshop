@@ -25,6 +25,9 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 
+# Bootsnap
+gem 'bootsnap', require: false
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -42,7 +45,7 @@ group :development, :test do
   gem 'byebug', platform: :ruby
 
   # Fuck minitest
-  gem 'factory_girl_rails', '~> 4.0'
+  gem 'factory_bot_rails', '~> 4.0'
   gem 'rspec'
   gem 'rspec-rails', '~> 3.5'
 
