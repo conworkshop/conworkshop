@@ -3,6 +3,7 @@ doctype html
 html lang=I18n.locale
   head
     meta charset='UTF-8'
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
 
     title
       = (yield :page_title) + ' - ' if content_for?(:page_title)
@@ -18,22 +19,32 @@ html lang=I18n.locale
 
   body[class=phue]
 
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-primary style="z-index: 999;"
+      = link_to 'conworkshop', root_path, class: 'navbar-brand'
+      button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation"
+        span.navbar-toggler-icon
+
+      .collapse.navbar-collapse#navbarTogglerDemo01
+        - if user_signed_in?
+          ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+            li.nav-item.dropdown
+              = link_to t('menu.orange.mine.mine'), profile_path(current_user), class: 'nav-link dropdown-toggle', id: 'toggleProfile', 'data-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false'
+              .dropdown-menu aria-labelledby='toggleProfile'
+                = link_to t('menu.orange.mine.edit'), edit_profile_path(current_user), class: 'dropdown-item'
+                = link_to t('menu.orange.mine.preferences'), preferences_path, class: 'dropdown-item'
+                = link_to t('menu.orange.mine.account'), account_path, class: 'dropdown-item'
+        - else
+          ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+            li.nav-item
+              = link_to t('menu.basic.about'), page_static_about_path, class: 'nav-link'
+            li.nav-item
+              = link_to t('menu.basic.login'), new_user_session_path, class: 'nav-link'
+            li.nav-item
+              = link_to t('menu.basic.register'), new_user_registration_path, class: 'nav-link'
+
     .container-fluid
       .row
-        .col-xs-12
-          | Header bar
-      .row
-        .col-xs-12.col-sm-4.leftie
-          | Navigation
-        .col-xs-12.col-sm-8.rightie
-          h1
-            ' Sample content
-            small Very wholesome
-          p.lead
-            | Lorem my ipsum you saucy bean burger
-          p
-            | I honestly thought you'd never ask, Sir Roger! Of course I'll marry your petty kingdom.
-
+        = yield
 
   - if false
     .header_btn_home

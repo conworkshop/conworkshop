@@ -1,296 +1,296 @@
 nav.menu[role='navigation']
-  ul[role='tree']
+  ul.nav[role='tree']
     - if user_signed_in?
       li[role='treeitem']
-        a.nav_green[href='#'] = current_language_name
+        a.nav_item.nav_green[href='#'] = current_language_name
         - if current_language
           ul[role='tree']
             li[role='treeitem']
-              a.nav_green_l.nav_caret[href='#'] = t('menu.green.dictionary.dictionary')
+              a.nav_item.nav_green_l.nav_caret[href='#'] = t('menu.green.dictionary.dictionary')
               ul[role='tree']
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.dictionary.add')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.add')
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.dictionary.settings')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.settings')
                 li
-                  a.nav_green_l.nav_caret[href='#'] = t('menu.green.dictionary.tools.tools')
+                  a.nav_item.nav_green_l.nav_caret[href='#'] = t('menu.green.dictionary.tools.tools')
                   ul[role='tree']
                     li[role='treeitem']
-                      a.nav_green_l[href='#'] = t('menu.green.dictionary.tools.massedit')
+                      a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.tools.massedit')
                     li[role='treeitem']
-                      a.nav_green_l[href='#'] = t('menu.green.dictionary.tools.maintenance')
+                      a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.tools.maintenance')
                     li[role='treeitem']
-                      a.nav_green_l[href='#'] = t('menu.green.dictionary.tools.import')
+                      a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.tools.import')
                     li[role='treeitem']
-                      a.nav_green_l[href='#'] = t('menu.green.dictionary.tools.export')
+                      a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.tools.export')
                     li[role='treeitem']
-                      a.nav_green_l[href='#'] = t('menu.green.dictionary.tools.phomo')
+                      a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.tools.phomo')
                     li[role='treeitem']
-                      a.nav_green_l[href='#'] = t('menu.green.dictionary.tools.compare')
+                      a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.tools.compare')
                     li[role='treeitem']
-                      a.nav_green_l[href='#'] = t('menu.green.dictionary.tools.homonym')
+                      a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.tools.homonym')
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.dictionary.roots')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.roots')
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.dictionary.distribution')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.distribution')
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.dictionary.pcdistribution')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.pcdistribution')
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.literature.phrasebook')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.literature.phrasebook')
             li[role='treeitem']
-              a.nav_green_l.nav_caret[href='#'] = t('menu.green.phonology.phonology')
+              a.nav_item.nav_green_l.nav_caret[href='#'] = t('menu.green.phonology.phonology')
               ul[role='tree']
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.phonology.inventory')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.phonology.inventory')
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.phonology.phonotactics')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.phonology.phonotactics')
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.phonology.estimate')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.phonology.estimate')
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.phonology.compare')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.phonology.compare')
             li[role='treeitem']
-              a.nav_green_l.nav_caret[href='#'] = t('menu.green.orthography.orthography')
+              a.nav_item.nav_green_l.nav_caret[href='#'] = t('menu.green.orthography.orthography')
               ul[role='tree']
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.orthography.categories')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.orthography.categories')
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.orthography.conscript')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.orthography.conscript')
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.orthography.distribution')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.orthography.distribution')
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.orthography.azorder')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.orthography.azorder')
             li[role='treeitem']
-              a.nav_green_l.nav_caret[href='#'] = t('menu.green.grammar.grammar')
+              a.nav_item.nav_green_l.nav_caret[href='#'] = t('menu.green.grammar.grammar')
               ul[role='tree']
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.grammar.typology')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.grammar.typology')
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.grammar.forms')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.grammar.forms')
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.grammar.addtable')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.grammar.addtable')
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.grammar.tables')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.grammar.tables')
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.grammar.irregular')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.grammar.irregular')
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.grammar.conjugator')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.grammar.conjugator')
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.grammar.test')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.grammar.test')
             li[role='treeitem']
-              a.nav_green_l.nav_caret[href='#'] = t('menu.green.literature.literature')
+              a.nav_item.nav_green_l.nav_caret[href='#'] = t('menu.green.literature.literature')
               ul[role='tree']
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.literature.translations')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.literature.translations')
                 li[role='treeitem']
-                  a.nav_green_l[href='#']
+                  a.nav_item.nav_green_l[href='#']
                     = t('menu.green.literature.contrans', conlang: current_language_name)
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.literature.journal')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.literature.journal')
                 li[role='treeitem']
-                  a.nav_green_l[href='#']
+                  a.nav_item.nav_green_l[href='#']
                     = t('menu.green.literature.articles', conlang: current_language_name)
                 li[role='treeitem']
-                  a.nav_green_l[href='#'] = t('menu.green.literature.phrasebook')
+                  a.nav_item.nav_green_l[href='#'] = t('menu.green.literature.phrasebook')
             li[role='treeitem']
-              a.nav_green_l[href='#'] = t('menu.green.namebase')
+              a.nav_item.nav_green_l[href='#'] = t('menu.green.namebase')
             li[role='treeitem']
-              = link_to t('menu.green.summary'), language_path(current_language), class: 'nav_green_l'
+              = link_to t('menu.green.summary'), language_path(current_language), class: 'nav_item nav_green_l'
             li[role='treeitem']
-              = link_to t('menu.green.settings'), edit_language_path(current_language), class: 'nav_green_l'
+              = link_to t('menu.green.settings'), edit_language_path(current_language), class: 'nav_item nav_green_l'
       li[role='treeitem']
-        a.nav_yellow[href='#'] = t('menu.yellow.tools')
+        a.nav_item.nav_yellow[href='#'] = t('menu.yellow.tools')
         ul[role='tree']
           li[role='treeitem']
-            a.nav_yellow_l.nav_caret[href='#'] = t('menu.yellow.lexicon.lexicon')
+            a.nav_item.nav_yellow_l.nav_caret[href='#'] = t('menu.yellow.lexicon.lexicon')
             ul[role='tree']
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.lexibuild')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.lexibuild')
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.wordgen')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.wordgen')
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.wordgen3')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.wordgen3')
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.multisearch')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.multisearch')
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.wordbank')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.wordbank')
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.phomo')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.phomo')
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.wordlinks')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.wordlinks')
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.swadesh')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.swadesh')
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.numbers')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.numbers')
           li[role='treeitem']
-            a.nav_yellow_l.nav_caret[href='#'] = t('menu.yellow.phonetics.phonetics')
+            a.nav_item.nav_yellow_l.nav_caret[href='#'] = t('menu.yellow.phonetics.phonetics')
             ul[role='tree']
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.phonetics.chart')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.phonetics.chart')
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.phonetics.converter')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.phonetics.converter')
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.phonetics.phomo')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.phonetics.phomo')
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.phonetics.phonsystem')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.phonetics.phonsystem')
           li[role='treeitem']
-            a.nav_yellow_l.nav_caret[href='#'] = t('menu.yellow.orthography.orthography')
+            a.nav_item.nav_yellow_l.nav_caret[href='#'] = t('menu.yellow.orthography.orthography')
             ul[role='tree']
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.orthography.scriptmap')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.orthography.scriptmap')
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.orthography.freqcalc')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.orthography.freqcalc')
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.orthography.anagram')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.orthography.anagram')
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.orthography.graphemes')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.orthography.graphemes')
           li[role='treeitem']
-            a.nav_yellow_l.nav_caret[href='#'] = t('menu.yellow.numbers.numbers')
+            a.nav_item.nav_yellow_l.nav_caret[href='#'] = t('menu.yellow.numbers.numbers')
             ul[role='tree']
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.numbers.base')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.numbers.base')
               li[role='treeitem']
-                a.nav_yellow_l[href='#'] = t('menu.yellow.numbers.system')
+                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.numbers.system')
           li[role='treeitem']
-            a.nav_yellow_l[href='#'] = t('menu.yellow.typological')
+            a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.typological')
           li[role='treeitem']
-            a.nav_yellow_l[href='#'] = t('menu.yellow.flash')
+            a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.flash')
           li[role='treeitem']
-            a.nav_yellow_l[href='#'] = t('menu.yellow.trees')
+            a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.trees')
           li[role='treeitem']
-            a.nav_yellow_l[href='#'] = t('menu.yellow.forms')
+            a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.forms')
           li[role='treeitem']
-            a.nav_yellow_l[href='#'] = t('menu.yellow.gallery')
+            a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.gallery')
       li[role='treeitem']
-        a.nav_blue[href='#'] = t('menu.blue.community')
+        a.nav_item.nav_blue[href='#'] = t('menu.blue.community')
         ul[role='tree']
           li[role='treeitem']
-            a.nav_blue_l.nav_caret[href='#'] = t('menu.blue.boards.boards')
+            a.nav_item.nav_blue_l.nav_caret[href='#'] = t('menu.blue.boards.boards')
             ul[role='tree']
               li[role='treeitem']
-                a.nav_blue_l[href='#'] = t('menu.blue.boards.mine')
+                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.boards.mine')
               li[role='treeitem']
-                a.nav_blue_l[href='#'] = t('menu.blue.boards.subscribed')
+                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.boards.subscribed')
               li[role='treeitem']
-                a.nav_blue_l[href='#'] = t('menu.blue.boards.recent')
+                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.boards.recent')
           li[role='treeitem']
-            a.nav_blue_l.nav_caret[href='#'] = t('menu.blue.people.people')
+            a.nav_item.nav_blue_l.nav_caret[href='#'] = t('menu.blue.people.people')
             ul[role='tree']
               li[role='treeitem']
-                = link_to t('menu.blue.people.clans'), clans_path, class: 'nav_blue_l'
+                = link_to t('menu.blue.people.clans'), clans_path, class: 'nav_item nav_blue_l'
               li[role='treeitem']
-                a.nav_blue_l[href='#'] = t('menu.blue.people.conlangers')
+                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.people.conlangers')
               li[role='treeitem']
-                a.nav_blue_l[href='#'] = t('menu.blue.people.karma')
+                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.people.karma')
           li[role='treeitem']
-            a.nav_blue_l.nav_caret[href='#'] = t('menu.blue.languages.languages')
+            a.nav_item.nav_blue_l.nav_caret[href='#'] = t('menu.blue.languages.languages')
             ul[role='tree']
               li[role='treeitem']
-                a.nav_blue_l[href='#'] = t('menu.blue.languages.list')
+                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.languages.list')
               li[role='treeitem']
-                a.nav_blue_l[href='#'] = t('menu.blue.languages.scripts')
+                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.languages.scripts')
               li[role='treeitem']
-                a.nav_blue_l[href='#'] = t('menu.blue.languages.scriptbank')
+                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.languages.scriptbank')
               li[role='treeitem']
-                a.nav_blue_l[href='#'] = t('menu.blue.languages.browse')
+                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.languages.browse')
               li[role='treeitem']
-                a.nav_blue_l[href='#'] = t('menu.blue.languages.flags')
+                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.languages.flags')
           li[role='treeitem']
-            a.nav_blue_l.nav_caret[href='#'] = t('menu.blue.articles.articles')
+            a.nav_item.nav_blue_l.nav_caret[href='#'] = t('menu.blue.articles.articles')
             ul[role='tree']
               li[role='treeitem']
-                a.nav_blue_l[href='#'] = t('menu.blue.articles.all')
+                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.articles.all')
               li[role='treeitem']
-                a.nav_blue_l[href='#'] = t('menu.blue.articles.new')
+                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.articles.new')
               li[role='treeitem']
-                a.nav_blue_l[href='#'] = t('menu.blue.articles.lotm')
+                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.articles.lotm')
           li[role='treeitem']
-            a.nav_blue_l.nav_caret[href='#'] = t('menu.blue.projects.projects')
+            a.nav_item.nav_blue_l.nav_caret[href='#'] = t('menu.blue.projects.projects')
             ul[role='tree']
               li[role='treeitem']
-                a.nav_blue_l[href='#'] = t('menu.blue.projects.song')
+                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.projects.song')
               li[role='treeitem']
-                a.nav_blue_l.nav_caret[href='#'] = t('menu.blue.projects.cwsp.svg')
+                a.nav_item.nav_blue_l.nav_caret[href='#'] = t('menu.blue.projects.cwsp.svg')
                 ul[role='tree']
                   li[role='treeitem']
-                    a.nav_blue_l[href='#'] = t('menu.blue.projects.cwsp.map')
+                    a.nav_item.nav_blue_l[href='#'] = t('menu.blue.projects.cwsp.map')
                   li[role='treeitem']
-                    a.nav_blue_l[href='#'] = t('menu.blue.projects.cwsp.svg')
+                    a.nav_item.nav_blue_l[href='#'] = t('menu.blue.projects.cwsp.svg')
                   li[role='treeitem']
-                    a.nav_blue_l[href='#'] = t('menu.blue.projects.cwsp.wiki')
+                    a.nav_item.nav_blue_l[href='#'] = t('menu.blue.projects.cwsp.wiki')
           li[role='treeitem']
-            a.nav_blue_l[href='#'] = t('menu.blue.events')
+            a.nav_item.nav_blue_l[href='#'] = t('menu.blue.events')
           li[role='treeitem']
-            a.nav_blue_l[href='#'] = t('menu.blue.resources')
+            a.nav_item.nav_blue_l[href='#'] = t('menu.blue.resources')
       li[role='treeitem']
-        a.nav_orange[href='#'] = t('menu.orange.profile')
+        a.nav_item.nav_orange[href='#'] = t('menu.orange.profile')
         ul[role='tree']
           li[role='treeitem']
-            a.nav_orange_l.nav_caret[href='#'] = t('menu.orange.mailbox.mailbox')
+            a.nav_item.nav_orange_l.nav_caret[href='#'] = t('menu.orange.mailbox.mailbox')
             ul[role='tree']
               li[role='treeitem']
-                a.nav_orange_l[href='#'] = t('menu.orange.mailbox.send')
+                a.nav_item.nav_orange_l[href='#'] = t('menu.orange.mailbox.send')
           li[role='treeitem']
-            = link_to t('menu.orange.mine.mine'), profile_path(current_user), class: 'nav_orange_l nav_caret'
+            = link_to t('menu.orange.mine.mine'), profile_path(current_user), class: 'nav_item nav_orange_l nav_caret'
             ul[role='tree']
               li[role='treeitem']
-                = link_to t('menu.orange.mine.edit'), edit_profile_path(current_user), class: 'nav_orange_l'
+                = link_to t('menu.orange.mine.edit'), edit_profile_path(current_user), class: 'nav_item nav_orange_l'
               li[role='treeitem']
-                a.nav_orange_l[href='#'] = t('menu.orange.mine.karma')
+                a.nav_item.nav_orange_l[href='#'] = t('menu.orange.mine.karma')
               li[role='treeitem']
-                = link_to t('menu.orange.mine.preferences'), preferences_path, class: 'nav_orange_l'
+                = link_to t('menu.orange.mine.preferences'), preferences_path, class: 'nav_item nav_orange_l'
               li[role='treeitem']
-                = link_to t('menu.orange.mine.account'), account_path, class: 'nav_orange_l'
+                = link_to t('menu.orange.mine.account'), account_path, class: 'nav_item nav_orange_l'
           li[role='treeitem']
-            = link_to t('menu.orange.languages.languages'), languages_path, class: 'nav_orange_l nav_caret'
+            = link_to t('menu.orange.languages.languages'), languages_path, class: 'nav_item nav_orange_l nav_caret'
             ul[role='tree']
               li[role='treeitem']
-                = link_to t('menu.orange.languages.new'), new_language_path, class: 'nav_orange_l'
+                = link_to t('menu.orange.languages.new'), new_language_path, class: 'nav_item nav_orange_l'
               li[role='treeitem']
-                a.nav_orange_l[href='#'] = t('menu.orange.languages.dialect')
+                a.nav_item.nav_orange_l[href='#'] = t('menu.orange.languages.dialect')
               li[role='treeitem']
-                a.nav_orange_l[href='#'] = t('menu.orange.languages.share')
+                a.nav_item.nav_orange_l[href='#'] = t('menu.orange.languages.share')
               li[role='treeitem']
-                a.nav_orange_l[href='#'] = t('menu.orange.languages.checklist')
+                a.nav_item.nav_orange_l[href='#'] = t('menu.orange.languages.checklist')
               li[role='treeitem']
-                a.nav_orange_l[href='#'] = t('menu.orange.languages.families')
+                a.nav_item.nav_orange_l[href='#'] = t('menu.orange.languages.families')
       li[role='treeitem']
-        a.nav_grey[href='#'] = t('menu.grey.cws')
+        a.nav_item.nav_grey[href='#'] = t('menu.grey.cws')
         ul[role='tree']
           li[role='treeitem']
-            a.nav_grey_l[href='#'] = t('menu.grey.search')
+            a.nav_item.nav_grey_l[href='#'] = t('menu.grey.search')
           li[role='treeitem']
-            a.nav_grey_l[href='#'] = t('menu.grey.help')
+            a.nav_item.nav_grey_l[href='#'] = t('menu.grey.help')
           li[role='treeitem']
-            a.nav_grey_l[href='#'] = t('menu.grey.tutorials')
+            a.nav_item.nav_grey_l[href='#'] = t('menu.grey.tutorials')
           li[role='treeitem']
-            a.nav_grey_l[href='#'] = t('menu.grey.faqs')
+            a.nav_item.nav_grey_l[href='#'] = t('menu.grey.faqs')
           li[role='treeitem']
-            a.nav_grey_l[href='#'] = t('menu.grey.report')
+            a.nav_item.nav_grey_l[href='#'] = t('menu.grey.report')
           li[role='treeitem']
-            a.nav_grey_l[href='#'] = t('menu.grey.stats')
+            a.nav_item.nav_grey_l[href='#'] = t('menu.grey.stats')
           li[role='treeitem']
-            a.nav_grey_l[href='#']
+            a.nav_item.nav_grey_l[href='#']
               strong = t('menu.grey.donate')
       li[role='treeitem']
-        = link_to t('menu.logout'), destroy_user_session_path, method: :delete, class: 'nav_red'
+        = link_to t('menu.logout'), destroy_user_session_path, method: :delete, class: 'nav_item nav_red'
 
     - else
       li[role='treeitem']
-        = link_to t('menu.basic.home'), locale_root_path(locale: I18n.locale), class: 'nav_grey'
+        = link_to t('menu.basic.home'), locale_root_path(locale: I18n.locale), class: 'nav_item nav_grey'
       li[role='treeitem']
-        a.nav_green[href='#']= t('menu.basic.green.browse')
+        a.nav_item.nav_green[href='#']= t('menu.basic.green.browse')
         ul[role='tree']
           li[role='treeitem']
-            a.nav_green_l[href='#']= t('menu.basic.green.conlangs')
+            a.nav_item.nav_green_l[href='#']= t('menu.basic.green.conlangs')
           li[role='treeitem']
-            a.nav_green_l[href='#']= t('menu.basic.green.dictionaries')
+            a.nav_item.nav_green_l[href='#']= t('menu.basic.green.dictionaries')
           li[role='treeitem']
-            a.nav_green_l[href='#']= t('menu.basic.green.articles')
+            a.nav_item.nav_green_l[href='#']= t('menu.basic.green.articles')
           li[role='treeitem']
-            a.nav_green_l[href='#']= t('menu.basic.green.articles')
+            a.nav_item.nav_green_l[href='#']= t('menu.basic.green.articles')
       li[role='treeitem']
-        = link_to t('menu.basic.about'), page_static_about_path, class: 'nav_yellow'
+        = link_to t('menu.basic.about'), page_static_about_path, class: 'nav_item nav_yellow'
       li[role='treeitem']
-        = link_to t('menu.basic.login'), new_user_session_path, class: 'nav_blue'
+        = link_to t('menu.basic.login'), new_user_session_path, class: 'nav_item nav_blue'
       li[role='treeitem']
-        = link_to t('menu.basic.register'), new_user_registration_path, class: 'nav_orange'
+        = link_to t('menu.basic.register'), new_user_registration_path, class: 'nav_item nav_orange'

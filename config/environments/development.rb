@@ -64,7 +64,7 @@ Rails.application.configure do
 
   # Sass
   config.sass.line_comments = false
-  config.sass.inline_source_maps = true
+  config.sass.inline_source_maps = false
 
   # You have many mouths and you must scream
   CarrierWave.configure do |config|

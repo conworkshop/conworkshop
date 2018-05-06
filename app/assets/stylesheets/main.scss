@@ -14,3 +14,21 @@ $font-size: 1em;
 $smaller-font-size:  $font-size - .2;
 $smaller-font-size2: $smaller-font-size - .05;
 
+
+.nav {
+  list-style-type: none;
+
+  .nav_item {
+    color: white;
+
+    &:hover {
+      color: $darker-white;
+      background: none;
+      text-decoration: none;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+  }
+}
