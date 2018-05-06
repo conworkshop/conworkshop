@@ -32,3 +32,15 @@ $smaller-font-size2: $smaller-font-size - .05;
     list-style-type: none;
   }
 }
+
+.inline_handle {
+  display: inline;
+
+  .clan_symbol {
+    display: inline-block;
+    padding: 2px 4px;
+    span {
+      display: none;
+    }
+  }
+}
