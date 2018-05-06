@@ -13,10 +13,10 @@ class User < ApplicationRecord
   has_one :user_track
 
   has_many :languages
-  belongs_to :current_lang, class_name: 'Language'
+  belongs_to :current_lang, class_name: 'Language', optional: true
 
   has_many :clans, through: :clan_memberships
-  belongs_to :default_clan, class_name: 'Clan'
+  belongs_to :default_clan, class_name: 'Clan', optional: true
 
   after_create :create_profile, :create_user_track
 
