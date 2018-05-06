@@ -15,6 +15,7 @@
 //= require turbolinks
 
 // Vendor
+//= require bootstrap-sprockets
 //= require moment
 //= require moment-timezone-with-data-2012-2022
 //= require jquery.sticky-kit

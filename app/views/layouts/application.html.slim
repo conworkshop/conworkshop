@@ -9,17 +9,33 @@ html lang=I18n.locale
       | ConWorkShop
 
     = csrf_meta_tags
-    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400i&subset=latin,greek,' \
-            'cyrillic-ext,latin-ext,cyrillic,vietnamese,greek-ext,devanagari',
-            'application', media: 'all', 'data-turbolinks-track': 'reload'
-
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag     'application', media: 'all', 'data-turbolinks-track' => 'reload'
+    = javascript_include_tag  'application', 'data-turbolinks-track' => 'reload'
 
     = favicon_link_tag "fi_#{phue}.png", type: 'image/png'
 
     = yield :head
 
   body[class=phue]
+
+    .container-fluid
+      .row
+        .col-xs-12
+          | Header bar
+      .row
+        .col-xs-12.col-sm-4.leftie
+          | Navigation
+        .col-xs-12.col-sm-8.rightie
+          h1
+            ' Sample content
+            small Very wholesome
+          p.lead
+            | Lorem my ipsum you saucy bean burger
+          p
+            | I honestly thought you'd never ask, Sir Roger! Of course I'll marry your petty kingdom.
+
+
+  - if false
     .header_btn_home
       = link_to 'cws', root_path, class: "bg_#{phue}"
     .header_btn_lang

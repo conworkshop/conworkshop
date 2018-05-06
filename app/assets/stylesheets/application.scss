@@ -10,7 +10,11 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_directory .
- *= require_self
- *= require jquery.minicolors
+ * require_directory .
+ * require_self
+ * require jquery.minicolors
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "*";
+@import "jquery.minicolors";
