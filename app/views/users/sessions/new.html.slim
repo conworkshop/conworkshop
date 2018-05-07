@@ -2,24 +2,27 @@
 - provide(:page_colour, 'orange')
 - provide(:page_title, t('.title'))
 
-h2 = t('.title')
-= devise_error_messages!
+= left_col class: 'bg-light' do
+  h2 = t('.title')
+  small = render 'users/shared/links'
 
-= link_to t('.fblogin'), user_facebook_omniauth_authorize_path, class: 'button idle'
+= right_col do
 
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :username
-    = f.text_field :username, autofocus: true, size: 38
+  = devise_error_messages!
 
-  .field
-    = f.label :password
-    = f.password_field :password, autocomplete: 'off', size: 38
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .form-label-group
+      = f.text_field :username, autofocus: true, size: 38, placeholder: 'Username', class: 'form-control'
+      = f.label :username
 
-  .actions
-    = f.submit t('.login'), class: 'button alert'
-    .field
-      => f.check_box :remember_me
+    .form-label-group
+      = f.password_field :password, autocomplete: 'off', size: 38, placeholder: 'Password', class: 'form-control'
+      = f.label :password
+
+    .form-check
+      => f.check_box :remember_me, class: 'form-check-input'
       = f.label :remember_me, t('.remember'), class: 'small'
 
-= render 'users/shared/links'
+    = f.submit t('.login'), class: 'btn btn-primary mt-2'
+
+

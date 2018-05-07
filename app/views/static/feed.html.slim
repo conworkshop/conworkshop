@@ -1,5 +1,10 @@
 - provide(:page_title, 'Feed')
 - provide(:page_colour, 'blue')
-h1 Feed
-p
-  = user_handle(current_user)
+
+= left_col class: 'bg-light' do
+  h3 Little thingie
+  p Hello darkness my old friend
+= right_col do
+  h2 Feed
+  p Something! Something!
+  p = user_handle(current_user)
