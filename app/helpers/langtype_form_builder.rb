@@ -34,6 +34,7 @@ module ActionView
         private
 
         def langtype_option_tags
+          @options[:selected] ||= @object.lang_type
           options_for_select(langtype_codes_for_options, @options)
         end
 

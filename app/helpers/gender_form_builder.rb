@@ -34,6 +34,7 @@ module ActionView
         private
 
         def gender_option_tags
+          @options[:selected] ||= @object.gender
           options_for_select(gender_codes_for_options, @options)
         end
 
