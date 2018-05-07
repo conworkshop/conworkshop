@@ -3,7 +3,19 @@
   - provide(:page_title, t('.title', name: @profile_user.display_name))
   - provide(:page_colour, 'orange')
 
-  .form.full_width.contain
+  = left_col class: 'bg-light text-center' do
+
+    .profile-username
+      .circle-avatar
+        = image_tag(@profile_user.profile.avatar_url)
+      .profile-handle
+        = user_handle(@profile_user)
+        .profile-extra
+          => link_to t('.links.edit'), edit_profile_path(params[:username]) if current_user&.power_over?(@profile_user)
+          => link_to t('.links.message'), '#'
+
+  = right_col do
+
     .profile-sidedata
       = t('.sidedata.genderandcountry',
           gender: @profile_user.profile.display_gender,
@@ -16,15 +28,6 @@
         ' 321
         / TODO: a linkamajig to the karmamajig
         a[href='#']= t('.sidedata.karmainfo')
-
-    .profile-username
-      .circle-avatar
-        = image_tag(@profile_user.profile.avatar_url)
-      .profile-handle
-        = user_handle(@profile_user)
-        .profile-extra
-          => link_to t('.links.edit'), edit_profile_path(params[:username]) if current_user&.power_over?(@profile_user)
-          => link_to t('.links.message'), '#'
 
     dl
       div

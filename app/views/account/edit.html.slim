@@ -1,83 +1,78 @@
 - provide(:page_title, t('.title'))
 - provide(:page_colour, 'orange')
 
-= link_to t('general.return.profile'), profile_path(current_user), class: 'button alert'
+= left_col class: 'bg-light', width: 4 do
 
-h1= t('.info.title')
-.form
-  .field
-    dl.nomargin
-      div
-        dt = t('.info.registered')
-        dd = cws_local_time(current_user.created_at)
+  h2 = t('.info.title')
 
-      div
-        dt = t('.info.confirmed')
-        dd = cws_local_time(current_user.confirmed_at)
+  = link_to t('general.return.profile'), profile_path(current_user), class: 'btn btn-link'
 
-      div
-        dt = t('.info.accountlastupdate')
-        dd = cws_local_time(current_user.updated_at)
+  dl
+    dt = t('.info.registered')
+    dd = cws_local_time(current_user.created_at)
 
-      div
-        dt = t('.info.profilelastupdate')
-        dd = cws_local_time(current_user.profile.updated_at)
+  dl
+    dt = t('.info.confirmed')
+    dd = cws_local_time(current_user.confirmed_at)
 
-      div
-        dt = t('.info.lastlogin.title')
-        dd = sanitize(t('.info.lastlogin.text',
-                time: cws_local_time(current_user.last_sign_in_at), ip: current_user.last_sign_in_ip), tags: [:time])
+  dl
+    dt = t('.info.accountlastupdate')
+    dd = cws_local_time(current_user.updated_at)
 
-      div
-        dt = t('.info.authtype.title')
-        dd
-          - if current_user.auth_type == 2 # standard+facebook flag
-            = t('.info.authtype.both')
-          - elsif current_user.provider.present? # facebook
-            = t('.info.authtype.fb')
-          - else # standard
-            = t('.info.authtype.std')
+  dl
+    dt = t('.info.profilelastupdate')
+    dd = cws_local_time(current_user.profile.updated_at)
 
-      div
-        dt = t('.info.timezone')
-        dd = current_user.timezone
+  dl
+    dt = t('.info.lastlogin.title')
+    dd = sanitize(t('.info.lastlogin.text',
+            time: cws_local_time(current_user.last_sign_in_at), ip: current_user.last_sign_in_ip), tags: [:time])
 
-h1= t('.settings.title')
+  dl
+    dt = t('.info.authtype.title')
+    dd
+      - if current_user.auth_type == 2 # standard+facebook flag
+        = t('.info.authtype.both')
+      - elsif current_user.provider.present? # facebook
+        = t('.info.authtype.fb')
+      - else # standard
+        = t('.info.authtype.std')
 
-= form_for current_user, url: { controller: 'account', action: 'update' } do |f|
-  = render 'error_messages', cur_obj: current_user
+  dl
+    dt = t('.info.timezone')
+    dd = current_user.timezone
 
-  .field
-    = f.label :pseudonym
-    = hover_ico :info, t('general.minchars', count: User::USERNAME_LEN.begin)
+= right_col width: 8 do
 
-    span.sbt= t('.settings.revertuname')
+  h1= t('.settings.title')
 
-    = f.text_field :pseudonym, size: 38
+  = form_for current_user, url: { controller: 'account', action: 'update' } do |f|
+    = render 'error_messages', cur_obj: current_user
 
-  .field
-    = f.label :email
+    .form-group
+      = f.label :pseudonym
+      = f.text_field :pseudonym, size: 38, class: 'form-control'
+      small.form-text.text-muted
+        => t('general.minchars', count: User::USERNAME_LEN.begin)
+        = t('.settings.revertuname')
 
-    span.sbt= t('.settings.emailwarn')
+    .form-label-group
+      = f.email_field :email, size: 38, placeholder: 'Email', class: 'form-control'
+      = f.label :email
+      small.form-text.text-muted = t('.settings.emailwarn')
 
-    = f.email_field :email, size: 38
+    h2 = t('.settings.changepass')
 
-  h2= t('.settings.changepass')
+    .form-label-group
+      = f.password_field :password, autocomplete: 'off', size: 38, placeholder: 'Password', class: 'form-control'
+      = f.label :password
+      small.form-text.text-muted
+        => t('.settings.passwarn', count: Devise.password_length.begin)
+        = t('.settings.passblank')
 
-  .field
-    = f.label :password
-    = hover_ico :warn, t('.settings.passwarn', count: Devise.password_length.begin)
+    .form-label-group
+      = f.password_field :password_confirmation, autocomplete: 'off', size: 38, placeholder: 'Password confirmation', class: 'form-control'
+      = f.label :password_confirmation
+      small.form-text.text-muted = t('.settings.passconfirm')
 
-    span.sbt= t('.settings.passblank')
-
-    = f.password_field :password, autocomplete: 'off', size: 38
-
-  .field
-    = f.label :password_confirmation
-
-    span.sbt= t('.settings.passconfirm')
-
-    = f.password_field :password_confirmation, autocomplete: 'off', size: 38
-
-  .actions
-    = f.submit t('general.save'), class: 'button pass'
+    = f.submit t('general.save'), class: 'btn btn-primary'

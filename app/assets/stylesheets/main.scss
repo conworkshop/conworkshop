@@ -46,6 +46,27 @@ $smaller-font-size2: $smaller-font-size - .05;
 }
 
 
+dl {
+  dt {
+    font-weight: bold;
+    color: $basically-black;
+  }
+}
+
+
+/* Profile */
+.circle-avatar {
+  margin-bottom: 12px;
+  img {
+    width: 120px;
+    height: 120px;
+    border-radius: 90px;
+    border: 4px solid #ddd;
+  }
+}
+
+
+/* Cool forrm input placeholder magick */
 :root {
   --input-padding-x: .75rem;
   --input-padding-y: .75rem;

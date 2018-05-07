@@ -2,27 +2,25 @@
 - provide(:page_colour, 'orange')
 - provide(:no_render_flash, true)
 
-= link_to t('general.return.profile'), profile_path(current_user), class: 'button alert'
+= left_col class: 'bg-light' do
 
-h1= t('.title')
+  h2 = t('.title')
 
-= render 'flash_messages'
-= form_for current_user, url: { controller: 'preferences', action: 'update' } do |f|
-  = render 'error_messages', cur_obj: current_user
+  = link_to t('general.return.profile'), profile_path(current_user), class: 'btn btn-link'
 
-  / TODO: other preferences!
-  .field-whole
+= right_col do
+
+  = render 'flash_messages'
+  = form_for current_user, url: { controller: 'preferences', action: 'update' } do |f|
+    = render 'error_messages', cur_obj: current_user
+
     = f.fields_for :preferences do |fp|
-      .list.twocolumned.preference-list
-        span
-          = fp.label :locale, t('.preference.locale.title')
+      .form-group
+        = fp.label :locale, t('.preference.locale.title')
+        = fp.select :locale, language_select_options(with_path: false, selected: current_user.locale), {}, {class: 'form-control'}
+        small.form-text.text-muted
+          = t('.preference.locale.text')
           br
-          span= t('.preference.locale.text')
-          br
-          span.default_value
-            => t('.default_value')
-            strong= t("language_names.#{I18n.default_locale}")
-        span.sel
-          = fp.select :locale, language_select_options(with_path: false, selected: current_user.locale)
-    .actions
-      = f.submit t('general.save'), class: 'button pass'
+          => t('.default_value')
+          strong = t("language_names.#{I18n.default_locale}")
+    = f.submit t('general.save'), class: 'btn btn-primary'
