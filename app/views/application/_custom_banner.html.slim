@@ -1,4 +1,5 @@
 div class="alert alert-#{type}" role='alert'
-    strong #{ico} #{title}
-    br
-    = str || yield
+  strong #{title}
+  br
+  = str || yield
+  a.alert-close.btn.btn-light.btn-sm.border href='#' Close

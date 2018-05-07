@@ -37,11 +37,11 @@ module ApplicationHelper
   end
 
   BANNER_TYPES = {
-    success: %w[✔ Success!],
-    danger:  %w[✖ Oops!],
-    warning: %w[! Warning!],
-    info:    %w[? FYI...],
-    dark:    %w[⌛ Tick-tock...]
+    success: 'Success!',
+    danger:  'Oops!',
+    warning: 'Warning!',
+    info:    'FYI...',
+    dark:    '⏳ Tick-tock...'
   }.freeze
 
   def banner(type, str = nil, &block)
@@ -59,8 +59,7 @@ module ApplicationHelper
       'custom_banner',
       str: str,
       type: type,
-      ico: BANNER_TYPES[type][0],
-      title: BANNER_TYPES[type][1],
+      title: BANNER_TYPES[type],
       &block
     )
   end

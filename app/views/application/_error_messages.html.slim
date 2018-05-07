@@ -1,5 +1,5 @@
 - if cur_obj.errors.any?
-  = banner :err
+  = banner :error
     ' The form contains
     | #{pluralize(cur_obj.errors.count, 'error')}:
     ul

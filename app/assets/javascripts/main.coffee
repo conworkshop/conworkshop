@@ -32,6 +32,9 @@ $(document).on("turbolinks:load", ->
       $('#language_name').prop('disabled', false)
   )
 
+  # Close alert
+  $('.alert-close').click -> $(this).parent('.alert').fadeOut();
+
   # Allow only alphanumeric langcode
   $('#language_code').keypress (e) ->
     regex = new RegExp("^[a-zA-Z0-9]+$")

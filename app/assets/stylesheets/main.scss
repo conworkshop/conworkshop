@@ -20,7 +20,29 @@ body {
 }
 .site_main_cont {
   background: #fff;
+
+  .row {
+    position: relative;
+
+    .flash_msg {
+      position: absolute;
+      top: -28px;
+      left: 0;
+      z-index: 999;
+    }
+  }
 }
+
+.alert {
+  box-shadow: 0 0 8px rgba(28,  28, 28, 0.2);
+
+  .alert-close {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+  }
+}
+
 .footer {
   color: #fff;
 

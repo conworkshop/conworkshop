@@ -26,8 +26,9 @@ html lang=I18n.locale
 
       .collapse.navbar-collapse#navbarTogglerDemo01
         - if user_signed_in?
-
           ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+
+            / LANGUAGE
             li.nav-item.dropdown
               a.nav-link.dropdown-toggle#toggleLang href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
                 - if current_language
@@ -41,17 +42,40 @@ html lang=I18n.locale
                 = link_to 'Summary', language_path(current_language), class: 'dropdown-item'
                 = link_to 'Edit language', edit_language_path(current_language), class: 'dropdown-item'
 
+            / COMMUNITY
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle#toggleCommunity href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' Community
+              .dropdown-menu aria-labelledby='toggleCommunity'
+                = link_to 'Boards', '#', class: 'dropdown-item'
+                .dropdown-divider
+                = link_to 'Conlangs', languages_path, class: 'dropdown-item'
+                = link_to 'Projects', '#', class: 'dropdown-item'
+
+            / TOOLS
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle#toggleCommunity href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' Tools
+              .dropdown-menu aria-labelledby='toggleCommunity'
+                = link_to 'PhoMo', '#', class: 'dropdown-item'
+
+          / PROFILE
           ul.navbar-nav.mt-2.mt-lg-0.navbar-right
             li.nav-item.dropdown
               a.nav-link.dropdown-toggle.active#toggleProfile href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
                 => image_tag current_user.profile.avatar_url, class: 'navbar-avatar'
                 = current_user.username
+                span.badge.badge-light< 3
               .dropdown-menu.dropdown-menu-right aria-labelledby='toggleProfile'
                 = link_to t('menu.orange.mine.mine'), profile_path(current_user), class: 'dropdown-item'
                 = link_to t('menu.orange.mine.edit'), edit_profile_path(current_user), class: 'dropdown-item'
                 .dropdown-divider
+                = link_to '#', class: 'dropdown-item'
+                  ' Messages
+                  span.badge.badge-primary 3
+                .dropdown-divider
                 = link_to t('menu.orange.mine.preferences'), preferences_path, class: 'dropdown-item'
                 = link_to t('menu.orange.mine.account'), account_path, class: 'dropdown-item'
+                = link_to 'Help & FAQs', '#', class: 'dropdown-item'
+                = link_to 'Report/Feedback', '#', class: 'dropdown-item'
                 .dropdown-divider
                 = link_to t('menu.logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item'
 
@@ -66,6 +90,7 @@ html lang=I18n.locale
 
     .container-fluid.site_main_cont
       .row
+        .col-12.col-md-8.offset-md-2.flash_msg = render 'flash_messages' unless content_for?(:no_render_flash)
         = yield
 
     footer.container-fluid.footer.pb-4
@@ -73,22 +98,22 @@ html lang=I18n.locale
         .col-12.text-center.pt-3.small
           ul.nav.justify-content-center
             li.nav-item
-              a.nav-link[href='http://facebook.com/conworkshop' target='_blank']
+              a.nav-link.px-1.px-md-3[href='http://facebook.com/conworkshop' target='_blank']
                 = image_tag 'social/facebook.png', size: '32x32', alt: t('footer.sociallinks.facebook')
             li.nav-item
-              a.nav-link[href='https://twitter.com/_conworkshop' target='_blank']
+              a.nav-link.px-1.px-md-3[href='https://twitter.com/_conworkshop' target='_blank']
                 = image_tag 'social/twitter.png', size: '32x32', alt: t('footer.sociallinks.twitter')
             li.nav-item
-              a.nav-link[href='https://www.youtube.com/channel/UCJMjntBcDJWrnwBXWot4HRQ' target='_blank']
+              a.nav-link.px-1.px-md-3[href='https://www.youtube.com/channel/UCJMjntBcDJWrnwBXWot4HRQ' target='_blank']
                 = image_tag 'social/youtube.png', size: '32x32', alt: t('footer.sociallinks.youtube')
             li.nav-item
-              a.nav-link[href='https://plus.google.com/103217402132925341355' target='_blank']
+              a.nav-link.px-1.px-md-3[href='https://plus.google.com/103217402132925341355' target='_blank']
                 = image_tag 'social/googleplus.png', size: '32x32', alt: t('footer.sociallinks.googleplus')
             li.nav-item
-              a.nav-link[href='https://www.instagram.com/conworkshop/' target='_blank']
+              a.nav-link.px-1.px-md-3[href='https://www.instagram.com/conworkshop/' target='_blank']
                 = image_tag 'social/instagram.png', size: '32x32', alt: t('footer.sociallinks.instagram')
             li.nav-item
-              a.nav-link[href='http://conworkshop.tumblr.com/' target='_blank']
+              a.nav-link.px-1.px-md-3[href='http://conworkshop.tumblr.com/' target='_blank']
                 = image_tag 'social/tumblr.png', size: '32x32', alt: t('footer.sociallinks.tumblr')
       .row.footer_links
         .col-12.text-center.small
