@@ -1,41 +1,42 @@
 - provide(:page_title, t('.title', name: @profile_user.display_name))
 - provide(:page_colour, 'orange')
 
-= link_to t('general.return.profile'), profile_path(params[:username]), class: 'button alert'
+= left_col class: 'bg-light' do
 
-h1= t('.h1', name: @profile_user.display_name)
+  h2 = t('.h1', name: @profile_user.display_name)
 
-= form_for @profile_user.profile, url: { controller: 'profiles', action: 'update' }, html: { multipart: true } do |f|
-  = render 'error_messages', cur_obj: @profile_user.profile
+  = link_to t('general.return.profile'), profile_path(params[:username]), class: 'btn btn-link'
 
-  .field.full_width
-    = Profile.human_attribute_name('avatar')
-    = hover_ico :info
-      = t('.avatarwarn')
-    br
-    .circle-avatar
-      = image_tag @profile_user.profile.avatar_url, alt: Profile.human_attribute_name('avatar')
+= right_col do
 
-    = f.file_field :avatar, style: 'display: inline-block; vertical-align: top;'
-    = f.hidden_field :avatar_cache
+  = form_for @profile_user.profile, url: { controller: 'profiles', action: 'update' }, html: { multipart: true } do |f|
+    = render 'error_messages', cur_obj: @profile_user.profile
 
-    - if current_user.profile.avatar?
-      br
-      => f.check_box :remove_avatar
-      = f.label :remove_avatar, t('.removeavatar')
+    .form-group
+      = f.label :avatar, Profile.human_attribute_name('avatar')
 
-  .field
-    = f.label :country
-    = f.country_select :country, include_blank: t('general.nocountry')
+      .circle-avatar
+        = image_tag @profile_user.profile.avatar_url, alt: Profile.human_attribute_name('avatar')
 
-  .field
-    = f.label :gender
-    = f.gender_select :gender, include_blank: t('general.gender.none')
+      = f.file_field :avatar, style: 'display: inline-block; vertical-align: top;', class: 'form-control-file'
+      = f.hidden_field :avatar_cache
 
-  .field.full_width
-    = f.label :about
-    = f.text_area :about, cols: 200, rows: 4, maxlength: CWS::Globals::MAX_ABOUT_CHARS,
-        'data-cws-char-limit': CWS::Globals::MAX_ABOUT_CHARS
+      - if current_user.profile.avatar?
+        br
+        => f.check_box :remove_avatar
+        = f.label :remove_avatar, t('.removeavatar')
 
-  .actions
-    = f.submit t('general.save'), class: 'button pass'
+    .form-group
+      = f.label :country
+      = f.country_select :country, {include_blank: t('general.nocountry')}, {class: 'form-control'}
+
+    .form-group
+      = f.label :gender
+      = f.gender_select :gender, {include_blank: t('general.gender.none')}, {class: 'form-control'}
+
+    .form-group
+      = f.label :about
+      = f.text_area :about, cols: 200, rows: 4, maxlength: CWS::Globals::MAX_ABOUT_CHARS,
+          'data-cws-char-limit': CWS::Globals::MAX_ABOUT_CHARS, class: 'form-control'
+
+    = f.submit t('general.save'), class: 'btn btn-primary'
