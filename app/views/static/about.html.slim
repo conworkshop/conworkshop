@@ -75,68 +75,73 @@ scss:
 
 / TODO: replace all the links with appropriate ones.
 
-h1#welcome-header[role='heading']= it('.welcome', b: It.tag(:b))
+= full_width do
 
-#welcome-subtext
-  | Welkom&emsp;欢迎光临&emsp;Vítáme vás&emsp;Benvido&emsp;Tikilluarit&emsp;પધારો&emsp;Benvenuto&emsp;ようこそ&emsp;
-  | Haere Mai&emsp;환영합니다&emsp;Добродошли&emsp;Willkommen&emsp;ยินดีต้อนรับ&emsp;Välkommen&emsp;Bem vindo
+  h1#welcome-header[role='heading']= it('.welcome', b: It.tag(:b))
 
-aside#intro-text[role='complementary']
-  .right[id='intro-video']
-    object[data='http://www.youtube.com/embed/vPThDwMrXlE' width='560' height='315']
-  p= it('.intro.text', link: new_user_session_path)
-  ol
-    li
-      a[href='#what']= it('.intro.points.what', b: It.tag(:b))
-    li
-      a[href='#more']= it('.intro.points.more', b: It.tag(:b))
-    li
-      a[href='#how']= it('.intro.points.how', b: It.tag(:b))
-    li
-      a[href='#why']= it('.intro.points.why', b: It.tag(:b))
+  #welcome-subtext
+    | Welkom&emsp;欢迎光临&emsp;Vítáme vás&emsp;Benvido&emsp;Tikilluarit&emsp;પધારો&emsp;Benvenuto&emsp;ようこそ&emsp;
+    | Haere Mai&emsp;환영합니다&emsp;Добродошли&emsp;Willkommen&emsp;ยินดีต้อนรับ&emsp;Välkommen&emsp;Bem vindo
 
-section#interest-points-section
-  article.faux
-    h2: a#what= t('.points.what.title')
-    p= it('.points.what.paragraph1', u: It.tag(:u))
-    p= it('.points.what.paragraph2', b: It.tag(:b))
-    p= t('.points.what.paragraph3')
+= left_col class: 'align-top' do
+  aside#intro-text[role='complementary']
+    /.right[id='intro-video']
+      object[data='http://www.youtube.com/embed/vPThDwMrXlE' width='560' height='315']
+    p= it('.intro.text', link: new_user_session_path)
+    ol
+      li
+        a[href='#what']= it('.intro.points.what', b: It.tag(:b))
+      li
+        a[href='#more']= it('.intro.points.more', b: It.tag(:b))
+      li
+        a[href='#how']= it('.intro.points.how', b: It.tag(:b))
+      li
+        a[href='#why']= it('.intro.points.why', b: It.tag(:b))
 
-  article.faux
-    h2: a#more= t('.points.more.title')
-    p= it('.points.more.text',
-          lib: It.plain('<b><span class="green">%s</span></b>'),
-          tools: It.plain('<b><span class="orange">%s</span></b>'),
-          com:   It.plain('<b><span class="blue">%s</span></b>'))
+= right_col do
 
-    h3.green= t('.points.more.library.title')
-    p= t('.points.more.library.text')
-    ul
-      li: a[href='#']= t('.points.more.library.list.summary')
-      li: a[href='#']= t('.points.more.library.list.word')
-      li= it('.points.more.library.list.text', link: '#')
-      li: a[href='#']= t('.points.more.library.list.article')
+  section#interest-points-section
+    article.faux
+      h2: a#what= t('.points.what.title')
+      p= it('.points.what.paragraph1', u: It.tag(:u))
+      p= it('.points.what.paragraph2', b: It.tag(:b))
+      p= t('.points.what.paragraph3')
 
-    h3.orange= t('.points.more.tools.title')
-    p= it('.points.more.tools.text', link: '#')
+    article.faux
+      h2: a#more= t('.points.more.title')
+      p= it('.points.more.text',
+            lib: It.plain('<b><span class="green">%s</span></b>'),
+            tools: It.plain('<b><span class="orange">%s</span></b>'),
+            com:   It.plain('<b><span class="blue">%s</span></b>'))
 
-    h3.blue= t('.points.more.community.title')
-    p= t('.points.more.community.text')
+      h3.green= t('.points.more.library.title')
+      p= t('.points.more.library.text')
+      ul
+        li: a[href='#']= t('.points.more.library.list.summary')
+        li: a[href='#']= t('.points.more.library.list.word')
+        li= it('.points.more.library.list.text', link: '#')
+        li: a[href='#']= t('.points.more.library.list.article')
 
-    h4= t('.points.more.events.title')
-    p= it('.points.more.events.text', link: '#')
+      h3.orange= t('.points.more.tools.title')
+      p= it('.points.more.tools.text', link: '#')
 
-    h4= t('.points.more.projects.title')
-    p= it('.points.more.projects.text', link: 'https://www.youtube.com/watch?v=Wqu1paieMFY')
+      h3.blue= t('.points.more.community.title')
+      p= t('.points.more.community.text')
 
-  article.faux
-    h2: a#how= t('.points.how.title')
-    p= it('.points.how.paragraph1', link: '#')
-    p= it('.points.how.paragraph2', link: new_user_registration_path)
-    p= it('.points.how.paragraph3', link: new_user_session_path)
+      h4= t('.points.more.events.title')
+      p= it('.points.more.events.text', link: '#')
 
-  article.faux
-    h2: a#why= t('.points.why.title')
-    p= t('.points.why.paragraph1')
-    p= t('.points.why.paragraph2')
-    p= t('.points.why.paragraph3')
+      h4= t('.points.more.projects.title')
+      p= it('.points.more.projects.text', link: 'https://www.youtube.com/watch?v=Wqu1paieMFY')
+
+    article.faux
+      h2: a#how= t('.points.how.title')
+      p= it('.points.how.paragraph1', link: '#')
+      p= it('.points.how.paragraph2', link: new_user_registration_path)
+      p= it('.points.how.paragraph3', link: new_user_session_path)
+
+    article.faux
+      h2: a#why= t('.points.why.title')
+      p= t('.points.why.paragraph1')
+      p= t('.points.why.paragraph2')
+      p= t('.points.why.paragraph3')

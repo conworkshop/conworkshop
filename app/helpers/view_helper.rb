@@ -13,8 +13,8 @@ module ViewHelper
                                                  " p-#{options[:padding]} #{options[:class]}"
   end
 
-  def full_width
+  def full_width(options={}, &block)
     options = options.reverse_merge(class: '', padding: 4)
-    raw tag.div capture(&block), class: "col-xs-12 p-#{options[:padding]} #{options[:class]}"
+    raw tag.div capture(&block), class: "col-12 p-#{options[:padding]} #{options[:class]}"
   end
 end

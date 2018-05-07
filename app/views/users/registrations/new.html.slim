@@ -5,47 +5,42 @@
   coffee:
     $(document).on('turbolinks:load', -> $('input#user_timezone').val(moment.tz.guess()))
 
-h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
+= left_col class: 'bg-light' do
 
-  / Hidden field for timezone detection
-  = f.hidden_field :timezone
+  h2 Sign up
+  = render 'users/shared/links'
 
-  .field
-    = f.label :username
-    = hover_ico :info
-      ' Maximum of #{User::USERNAME_LEN.end} characters, minimum of #{User::USERNAME_LEN.begin} characters.
-      | You will need this username to log in so make sure it's memorable.
+= right_col do
 
-    span.sbt You can only use these characters: A-Z, a-z, 0-9, dashes, underscores and dots.
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
 
-    = f.text_field :username, autofocus: true, size: 38
+    / Hidden field for timezone detection
+    = f.hidden_field :timezone
 
-  .field
-    = f.label :email
+    .form-label-group
+      = f.text_field :username, autofocus: true, placeholder: 'Username', size: 38, class: 'form-control'
+      = f.label :username
+      small.form-text.text-muted
+        ' Maximum of #{User::USERNAME_LEN.end} characters, minimum of #{User::USERNAME_LEN.begin} characters.
+        ' You can only use these characters: A-Z, a-z, 0-9, dashes, underscores and dots.
+        | You will need this username to log in so make sure it's memorable.
 
-    span.sbt Use a valid email, because we're going to send you a confirmation request.
+    .form-label-group
+      = f.email_field :email, size: 38, placeholder: 'Email', class: 'form-control'
+      = f.label :email
+      small.form-text.text-muted Use a valid email, because we're going to send you a confirmation request.
 
-    = f.email_field :email, size: 38
+    .form-label-group
+      = f.password_field :password, autocomplete: 'off', placeholder: 'Password', size: 38, class: 'form-control'
+      = f.label :password
+      small.form-text.text-muted #{@minimum_password_length} characters minimum. Choose something you'll easily remember. Don't use the same password you use on other websites!
 
-  .field
-    = f.label :password
-    = hover_ico :warn
-      ' Don't use the same password you use on other websites!
+    .form-label-group
+      = f.password_field :password_confirmation, placeholder: 'Password confirmation', autocomplete: 'off', size: 38, class: 'form-control'
+      = f.label :password_confirmation
+      small.form-text.text-muted Just type in your password again! Easy peasy.
 
-    span.sbt #{@minimum_password_length} characters minimum. Choose something you'll easily remember.
+    = f.submit 'Sign up', class: 'btn btn-primary'
 
-    = f.password_field :password, autocomplete: 'off', size: 38
 
-  .field
-    = f.label :password_confirmation
-
-    span.sbt Just type in your password again! Easy peasy.
-
-    = f.password_field :password_confirmation, autocomplete: 'off', size: 38
-
-  .actions
-    = f.submit '✔ Sign up', class: 'button pass'
-
-= render 'users/shared/links'
