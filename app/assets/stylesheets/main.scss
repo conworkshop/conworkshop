@@ -15,6 +15,40 @@ $smaller-font-size:  $font-size - .2;
 $smaller-font-size2: $smaller-font-size - .05;
 
 
+body {
+  background: #555;
+}
+.site_main_cont {
+  background: #fff;
+}
+.footer {
+  color: #fff;
+
+  ul li a.nav-link {
+    color: #ddd;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  .footer_social {
+    .nav-link img {
+      border: 2px solid #eee;
+      height: 34px;
+      width: 34px;
+      border-radius: 16px;
+      transition: border .1s ease-in-out;
+
+      &:hover {
+        height: 34px;
+        width: 34px;
+        border: 2px solid #999;
+      }
+    }
+  }
+}
+
 .nav {
   list-style-type: none;
 
