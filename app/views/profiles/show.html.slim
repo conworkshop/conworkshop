@@ -84,6 +84,9 @@
   - provide(:page_title, 'User not found - View Profile')
   - provide(:page_colour, 'red')
 
-  = banner :err
-    ' No such user:
-    b = params[:username]
+  = left_col class: 'bg-light text-center' do
+    h3 View Profile
+  = right_col do
+    = banner :error
+      ' No such user:
+      b = params[:username]

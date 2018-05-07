@@ -1,6 +1,4 @@
-aside[class="banner_#{type}"]
-  .banner_ico: span #{ico}
-  .banner_text
-    strong #{title}
+div class="alert alert-#{type}" role='alert'
+    strong #{ico} #{title}
     br
     = str || yield

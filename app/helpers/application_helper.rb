@@ -38,10 +38,10 @@ module ApplicationHelper
 
   BANNER_TYPES = {
     success: %w[✔ Success!],
-    err:     %w[✖ Oops!],
-    warn:    %w[! Warning!],
+    danger:  %w[✖ Oops!],
+    warning: %w[! Warning!],
     info:    %w[? FYI...],
-    timer:   %w[⌛ Tick-tock...]
+    dark:    %w[⌛ Tick-tock...]
   }.freeze
 
   def banner(type, str = nil, &block)
@@ -111,8 +111,9 @@ module ApplicationHelper
   private
 
   BANNER_DEVISE_CORRL = {
-    error:  :err,
-    alert:  :err,
+    timer:  :dark,
+    error:  :danger,
+    alert:  :warning,
     notice: :info
   }.freeze
 

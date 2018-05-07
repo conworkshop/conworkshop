@@ -31,12 +31,15 @@ html lang=I18n.locale
             li.nav-item.dropdown
               a.nav-link.dropdown-toggle#toggleLang href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
                 - if current_language
-                  = lang_handle(current_language)
+                  => image_tag current_language.flag_thumb_url, class: 'flag_thumb'
+                  = current_language.name
                 - else
                   | Language
-
               .dropdown-menu aria-labelledby='toggleLang'
-                = link_to 'New Language', new_language_path, class: 'dropdown-item'
+                = link_to 'New language', new_language_path, class: 'dropdown-item'
+                .dropdown-divider
+                = link_to 'Summary', language_path(current_language), class: 'dropdown-item'
+                = link_to 'Edit language', edit_language_path(current_language), class: 'dropdown-item'
 
           ul.navbar-nav.mt-2.mt-lg-0.navbar-right
             li.nav-item.dropdown

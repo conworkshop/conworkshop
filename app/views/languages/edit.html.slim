@@ -1,30 +1,33 @@
 - provide(:page_title, t('.title', name: @language.name))
 - provide(:page_colour, 'green')
 
-= link_to t('.back'), language_path(@language), class: 'button pass'
+= left_col class: 'bg-light' do
 
-h2= t('.settings', name: @language.name)
+  h2 = t('.settings', name: @language.name)
+  = link_to t('.back'), language_path(@language), class: 'btn btn-link'
 
-= form_for @language do |f|
-  = render 'error_messages', cur_obj: @language
+= right_col do
 
-  .field
-    = f.label :name
-    = f.text_field :name, size: 35
+  = form_for @language do |f|
+    = render 'error_messages', cur_obj: @language
 
-  .field
-    = f.label :nativename
-    = f.text_field :nativename, size: 35
+    .form-label-group
+      = f.text_field :name, size: 35, placeholder: 'Name', class: 'form-control'
+      = f.label :name
 
-  .field
-    = f.label :ipa
-    = f.text_field :ipa
-    span.sbt = it('.no_slashes', b: It.tag(:b))
+    .form-label-group
+      = f.text_field :nativename, size: 35, placeholder: 'Native name', class: 'form-control'
+      = f.label :nativename
 
-  .field
-    = f.label :lang_type
-    = f.langtype_select :lang_type
+    .form-label-group
+      = f.text_field :ipa, placeholder: 'Autonym pronunciation', class: 'form-control'
+      = f.label :ipa
+      small.form-text.text-muted = it('.no_slashes', b: It.tag(:b))
 
-  .field
-    = f.label :status
-    = f.select :status, Language.statuses.map { |s, _| [s.humanize, s] }
+    .form-group
+      = f.label :lang_type
+      = f.langtype_select :lang_type, {}, {class: 'form-control'}
+
+    .form-group
+      = f.label :status
+      = f.select :status, Language.statuses.map { |s, _| [s.humanize, s] }, {}, {class: 'form-control'}
