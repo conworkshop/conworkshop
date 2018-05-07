@@ -23,5 +23,21 @@ $(document).on("turbolinks:load", ->
   $('#language_select').change (e) -> Turbolinks.visit(e.target.selectedOptions[0].dataset['path'])
 
   $('.form_colour_select').minicolors({ inline: true });
-)
 
+  # Toggle disabled text field when unnamed language checked
+  $('input#unnamed').change(->
+    if $(this).is(':checked')
+      $('#language_name').prop('disabled', true).val('')
+    else
+      $('#language_name').prop('disabled', false)
+  )
+
+  # Allow only alphanumeric langcode
+  $('#language_code').keypress (e) ->
+    regex = new RegExp("^[a-zA-Z0-9]+$")
+    str = String.fromCharCode(if !e.charCode then e.which else e.charCode)
+    if regex.test(str)
+      return true
+    e.preventDefault()
+    return false
+)

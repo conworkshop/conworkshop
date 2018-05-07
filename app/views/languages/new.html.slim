@@ -20,36 +20,38 @@
         name_el.val('')
         natname_el.val('')
 
-h2= t('.title')
-= form_for @language do |f|
-  = render 'error_messages', cur_obj: @language
+= left_col class: 'bg-light' do
+  h2 = t('.title')
 
-  .field
-    = f.label :code
-    = hover_ico :info
-      = t('.code.length_limit')
+= right_col do
+  = form_for @language do |f|
+    = render 'error_messages', cur_obj: @language
 
-    span.sbt= it('.code.char_limit', b: It.tag(:b))
+    .form-row
+      .form-label-group.col-md-4
 
-    = f.text_field :code, size: Language::CODE_LENGTH.end + 3, maxlength: Language::CODE_LENGTH.end,
-          autocomplete: 'off', autofocus: true
+        = f.text_field :code, size: Language::CODE_LENGTH.end + 3, maxlength: Language::CODE_LENGTH.end,
+              autocomplete: 'off', autofocus: true, placeholder: 'Code', class: 'form-control text-uppercase'
+        = f.label :code
+        small.form-text.text-muted
+          => t('.code.length_limit')
+          = it('.code.char_limit', b: It.tag(:b))
 
-  .field
-    = f.label :name
 
-    div
-      => check_box_tag :unnamed
-      = label_tag :unnamed, t('.unnamed.label'), class: 'small'
+    .form-label-group
+      = f.text_field :name, autocomplete: 'off', size: 38, placeholder: 'Name', id: 'language_name', class:'form-control', disabled: false
+      = f.label :name
 
-    = f.text_field :name, autocomplete: 'off', size: 38
+      div
+        => check_box_tag :unnamed
+        = label_tag :unnamed, t('.unnamed.label'), class: 'small'
 
-  .field
-    = f.label :nativename
-    = f.text_field :nativename, autocomplete: 'off', size: 38
+    .form-label-group
+      = f.text_field :nativename, autocomplete: 'off', size: 38, placeholder: 'Native name', class: 'form-control'
+      = f.label :nativename
 
-  .field
-    = f.label :lang_type
-    = f.langtype_select :lang_type
+    .form-group
+      = f.label :lang_type
+      = f.langtype_select :lang_type, {}, {class: 'form-control'}
 
-  .actions
-    = f.submit '✔ ' + t('.submit'), class: 'button pass'
+    = f.submit '✔ ' + t('.submit'), class: 'btn btn-primary'
