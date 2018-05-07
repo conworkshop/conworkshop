@@ -30,6 +30,10 @@ class LanguagesController < ApplicationController
     end
 
     if @language.save
+      unless current_user.current_lang
+        current_user.current_lang = @language
+        current_user.save
+      end
       redirect_to @language
     else
       render 'new'
@@ -55,6 +59,7 @@ class LanguagesController < ApplicationController
   end
 
   def create_params
+    params[:language][:code].upcase!
     params.require(:language).permit(:code, :name, :nativename, :lang_type, :unnamed)
   end
 end

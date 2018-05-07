@@ -18,7 +18,7 @@ class Language < ApplicationRecord
 
   validates :code,
             presence: true,
-            uniqueness: true,
+            uniqueness: { case_sensitive: false },
             length: CODE_LENGTH,
             format: { with: /[A-Z0-9]/ }
 
