@@ -3,6 +3,21 @@
 /*           see the partials/_colors.scss file, it's easier to read.        */
 /* ========================================================================= */
 
+// New section colours
+$new-green:  #28a745;
+$new-blue:   #007bff;
+$new-orange: #f59e16;
+$new-red:    #f94e18;
+$new-purple: #c418f9;
+$new-yellow: #ecbd06;
+
+.bg-green { background-color: $new-green; }
+.bg-blue { background-color: $new-blue; }
+.bg-orange { background-color: $new-orange; }
+.bg-red { background-color: $new-red; }
+.bg-purple { background-color: $new-purple; }
+.bg-yellow { background-color: $new-yellow; }
+
 // Basic colors
 $basically-black:   #666;
 $basically-white:   #e9e9e9;
