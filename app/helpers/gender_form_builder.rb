@@ -34,12 +34,7 @@ module ActionView
         private
 
         def gender_option_tags
-          option_tags_options = {
-            selected: @options.fetch(:selected) { value(@object) },
-            disabled: @options[:disabled]
-          }
-
-          options_for_select(gender_codes_for_options, option_tags_options)
+          options_for_select(gender_codes_for_options, @options)
         end
 
         def gender_codes

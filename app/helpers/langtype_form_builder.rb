@@ -34,12 +34,7 @@ module ActionView
         private
 
         def langtype_option_tags
-          option_tags_options = {
-            selected: @options.fetch(:selected) { value(@object) },
-            disabled: @options[:disabled]
-          }
-
-          options_for_select(langtype_codes_for_options, option_tags_options)
+          options_for_select(langtype_codes_for_options, @options)
         end
 
         def langtype_codes
