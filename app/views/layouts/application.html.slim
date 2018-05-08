@@ -41,6 +41,15 @@ html lang=I18n.locale
                 .dropdown-divider
                 = link_to 'Summary', language_path(current_language), class: 'dropdown-item'
                 = link_to 'Edit language', edit_language_path(current_language), class: 'dropdown-item'
+                - if current_language
+                  .dropdown-divider
+                  .lang-menu-sect.py-2.px-3
+                    .lang-menu-flag => image_tag current_language.flag_url, class: 'lang-menu-image'
+                    .lang-menu-other
+                      span.lang-menu-name = current_language.name
+                      span.lang-menu-words.small 31 words
+                  .dropdown-divider
+                  = link_to 'Switch...', '#', class: 'dropdown-item'
 
             / COMMUNITY
             li.nav-item.dropdown

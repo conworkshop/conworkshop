@@ -43,6 +43,34 @@ body {
   }
 }
 
+.lang-menu-sect {
+  display: table;
+  table-layout: fixed;
+
+  .lang-menu-flag {
+    display: table-cell;
+    width: 60px;
+    vertical-align: middle;
+
+    .lang-menu-image {
+      width: 60px;
+    }
+  }
+  .lang-menu-other {
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 8px;
+
+    .lang-menu-name {
+      display: block;
+    }
+    .lang-menu-words {
+      color: #888;
+      display: block;
+    }
+  }
+}
+
 .alert {
   box-shadow: 0 0 8px rgba(28,  28, 28, 0.2);
 
