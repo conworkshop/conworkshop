@@ -4,7 +4,7 @@
 = left_col class: 'bg-light' do
   h2 = t('.title_main', count: languages_count)
 
-= right_col do
+= right_col class: 'table-responsive' do
   = paginate @languages
 
   table.table
