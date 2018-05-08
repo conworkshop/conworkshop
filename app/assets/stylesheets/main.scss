@@ -34,6 +34,15 @@ body {
   }
 }
 
+.head-rainbow {
+  background-color: #fff;
+
+  .row {
+    height: 12px;
+    opacity: 0.8;
+  }
+}
+
 .alert {
   box-shadow: 0 0 8px rgba(28,  28, 28, 0.2);
 

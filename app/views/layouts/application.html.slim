@@ -88,6 +88,15 @@ html lang=I18n.locale
             li.nav-item
               = link_to t('menu.basic.register'), new_user_registration_path, class: 'nav-link'
 
+    .container-fluid.head-rainbow
+      .row
+        .col-2.bg-green
+        .col-2.bg-yellow
+        .col-2.bg-blue
+        .col-2.bg-orange
+        .col-2.bg-purple
+        .col-2.bg-red
+
     .container-fluid.site_main_cont
       .row
         .col-12.col-md-8.offset-md-2.flash_msg = render 'flash_messages' unless content_for?(:no_render_flash)
