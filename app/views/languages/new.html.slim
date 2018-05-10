@@ -37,17 +37,16 @@
           => t('.code.length_limit')
           = it('.code.char_limit', b: It.tag(:b))
 
+    .form-check.mb-2
+      => check_box_tag :unnamed, '1', false, class: 'form-check-input'
+      = label_tag :unnamed, t('.unnamed.label'), class: 'form-check-label'
 
     .form-label-group
-      = f.text_field :name, autocomplete: 'off', size: 38, placeholder: 'Name', id: 'language_name', class:'form-control', disabled: false
+      = f.text_field :name, autocomplete: 'off', size: 38, placeholder: 'Name', class:'form-control noname-dis-prop'
       = f.label :name
 
-      div
-        => check_box_tag :unnamed
-        = label_tag :unnamed, t('.unnamed.label'), class: 'small'
-
     .form-label-group
-      = f.text_field :nativename, autocomplete: 'off', size: 38, placeholder: 'Native name', class: 'form-control'
+      = f.text_field :nativename, autocomplete: 'off', size: 38, placeholder: 'Native name', class: 'form-control noname-dis-prop'
       = f.label :nativename
 
     .form-group

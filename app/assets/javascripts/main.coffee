@@ -27,9 +27,9 @@ $(document).on("turbolinks:load", ->
   # Toggle disabled text field when unnamed language checked
   $('input#unnamed').change(->
     if $(this).is(':checked')
-      $('#language_name').prop('disabled', true).val('')
+      $('.noname-dis-prop').prop('disabled', true).val('')
     else
-      $('#language_name').prop('disabled', false)
+      $('.noname-dis-prop').prop('disabled', false)
   )
 
   # Close alert
