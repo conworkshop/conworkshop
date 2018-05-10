@@ -36,11 +36,36 @@ html lang=I18n.locale
                   = current_language.name
                 - else
                   | Language
-              .dropdown-menu aria-labelledby='toggleLang'
-                = link_to 'New language', new_language_path, class: 'dropdown-item'
+              ul.dropdown-menu aria-labelledby='toggleLang'
+                li = link_to 'New language', new_language_path, class: 'dropdown-item'
                 .dropdown-divider
-                = link_to 'Summary', language_path(current_language), class: 'dropdown-item'
-                = link_to 'Edit language', edit_language_path(current_language), class: 'dropdown-item'
+                li.dropdown-submenu
+                  a href='#' class='dropdown-item dropdown-toggle' Dictionary
+                  ul.dropdown-menu
+                    li = link_to 'Add word', '#', class: 'dropdown-item'
+                    li = link_to 'View dictionary', '#', class: 'dropdown-item'
+                    li = link_to 'Settings', '#', class: 'dropdown-item'
+                    li = link_to 'Tools', '#', class: 'dropdown-item'
+                    li: a href='#' class='dropdown-item' Statistics
+                li.dropdown-submenu
+                  a href='#' class='dropdown-item dropdown-toggle' Phonology
+                  ul.dropdown-menu
+                    li = link_to 'Inventory', '#', class: 'dropdown-item'
+                    li = link_to 'Phonotactics', '#', class: 'dropdown-item'
+                    li = link_to 'Pronunciation Estimation', '#', class: 'dropdown-item'
+                    li = link_to 'Orthography', '#', class: 'dropdown-item'
+                li.dropdown-submenu
+                  a href='#' class='dropdown-item dropdown-toggle' Grammar
+                  ul.dropdown-menu
+                    li = link_to 'Tables', '#', class: 'dropdown-item'
+                    li = link_to 'Forms', '#', class: 'dropdown-item'
+                    li = link_to 'Typology', '#', class: 'dropdown-item'
+                li.dropdown-submenu
+                  a href='#' class='dropdown-item dropdown-toggle' Literature
+                  ul.dropdown-menu
+                    li = link_to 'Translations', '#', class: 'dropdown-item'
+                    li = link_to 'Articles', '#', class: 'dropdown-item'
+                    li = link_to 'Namebase', '#', class: 'dropdown-item'
                 - if current_language
                   .dropdown-divider
                   .lang-menu-sect.py-2.px-3
@@ -49,22 +74,25 @@ html lang=I18n.locale
                       span.lang-menu-name = current_language.name
                       span.lang-menu-words.small 31 words
                   .dropdown-divider
+                  = link_to 'Summary', language_path(current_language), class: 'dropdown-item'
+                  = link_to 'Edit language', edit_language_path(current_language), class: 'dropdown-item'
                   = link_to 'Switch...', '#', class: 'dropdown-item'
 
             / COMMUNITY
             li.nav-item.dropdown
               a.nav-link.dropdown-toggle#toggleCommunity href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' Community
-              .dropdown-menu aria-labelledby='toggleCommunity'
-                = link_to 'Boards', '#', class: 'dropdown-item'
+              ul.dropdown-menu aria-labelledby='toggleCommunity'
+                li = link_to 'Boards', '#', class: 'dropdown-item'
                 .dropdown-divider
-                = link_to 'Conlangs', languages_path, class: 'dropdown-item'
-                = link_to 'Projects', '#', class: 'dropdown-item'
+                li = link_to 'Clans', clans_path, class: 'dropdown-item'
+                li = link_to 'Conlangs', languages_path, class: 'dropdown-item'
+                li = link_to 'Projects', '#', class: 'dropdown-item'
 
             / TOOLS
             li.nav-item.dropdown
               a.nav-link.dropdown-toggle#toggleCommunity href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' Tools
-              .dropdown-menu aria-labelledby='toggleCommunity'
-                = link_to 'PhoMo', '#', class: 'dropdown-item'
+              ul.dropdown-menu aria-labelledby='toggleCommunity'
+                li = link_to 'PhoMo', '#', class: 'dropdown-item'
 
           / PROFILE
           ul.navbar-nav.mt-2.mt-lg-0.navbar-right
@@ -73,20 +101,20 @@ html lang=I18n.locale
                 => image_tag current_user.profile.avatar_url, class: 'navbar-avatar'
                 = current_user.username
                 span.badge.badge-light< 3
-              .dropdown-menu.dropdown-menu-right aria-labelledby='toggleProfile'
-                = link_to t('menu.orange.mine.mine'), profile_path(current_user), class: 'dropdown-item'
-                = link_to t('menu.orange.mine.edit'), edit_profile_path(current_user), class: 'dropdown-item'
+              ul.dropdown-menu.dropdown-menu-right aria-labelledby='toggleProfile'
+                li = link_to t('menu.orange.mine.mine'), profile_path(current_user), class: 'dropdown-item'
+                li = link_to t('menu.orange.mine.edit'), edit_profile_path(current_user), class: 'dropdown-item'
                 .dropdown-divider
-                = link_to '#', class: 'dropdown-item'
+                li = link_to '#', class: 'dropdown-item'
                   ' Messages
                   span.badge.badge-primary 3
                 .dropdown-divider
-                = link_to t('menu.orange.mine.preferences'), preferences_path, class: 'dropdown-item'
-                = link_to t('menu.orange.mine.account'), account_path, class: 'dropdown-item'
-                = link_to 'Help & FAQs', '#', class: 'dropdown-item'
-                = link_to 'Report/Feedback', '#', class: 'dropdown-item'
+                li = link_to t('menu.orange.mine.preferences'), preferences_path, class: 'dropdown-item'
+                li = link_to t('menu.orange.mine.account'), account_path, class: 'dropdown-item'
+                li = link_to 'Help & FAQs', '#', class: 'dropdown-item'
+                li = link_to 'Report/Feedback', '#', class: 'dropdown-item'
                 .dropdown-divider
-                = link_to t('menu.logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item'
+                li = link_to t('menu.logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item'
 
         - else
           ul.navbar-nav.mr-auto.mt-2.mt-lg-0
