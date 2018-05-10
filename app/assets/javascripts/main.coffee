@@ -43,4 +43,15 @@ $(document).on("turbolinks:load", ->
       return true
     e.preventDefault()
     return false
+
+  # Open/close sidebar things
+  $('.side-button').click(->
+    elem = $(this).children('.side-screen')
+    if elem.is(':visible')
+      elem.hide()
+    else
+      $('.side-screen').hide()
+      elem.show()
+  ).children().click ->
+    return false
 )

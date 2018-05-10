@@ -5,11 +5,18 @@
 
 // New section colours
 $new-green:  #28a745;
-$new-blue:   #007bff;
+$new-blue:   #2ba2bd;
 $new-orange: #f59e16;
 $new-red:    #f94e18;
-$new-purple: #c418f9;
-$new-yellow: #ecbd06;
+$new-purple: #cb4df9;
+$new-yellow: #e7cd2f;
+
+$mute-green: #30c350;
+$mute-blue: #4acdf4;
+$mute-orange: #f5b353;
+$mute-red: #f96464;
+$mute-purple: #e779ff;
+$mute-yellow: #eee263;
 
 .bg-green { background-color: $new-green; }
 .bg-blue { background-color: $new-blue; }
@@ -17,6 +24,98 @@ $new-yellow: #ecbd06;
 .bg-red { background-color: $new-red; }
 .bg-purple { background-color: $new-purple; }
 .bg-yellow { background-color: $new-yellow; }
+
+.bgm-green { background-color: $mute-green; }
+.bgm-blue { background-color: $mute-blue; }
+.bgm-orange { background-color: $mute-orange; }
+.bgm-red { background-color: $mute-red; }
+.bgm-purple { background-color: $mute-purple; }
+.bgm-yellow { background-color: $mute-yellow; }
+
+.bram-green:after {
+  right: 100%;
+  top: 14px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(68, 68, 68, 0);
+  border-right-color: $mute-green;
+  border-width: 5px;
+  margin-top: -5px;
+}
+.bram-blue:after {
+  right: 100%;
+  top: 14px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(68, 68, 68, 0);
+  border-right-color: $mute-blue;
+  border-width: 5px;
+  margin-top: -5px;
+}
+.bram-orange:after {
+  right: 100%;
+  top: 14px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(68, 68, 68, 0);
+  border-right-color: $mute-orange;
+  border-width: 5px;
+  margin-top: -5px;
+}
+.bram-red:after {
+  right: 100%;
+  top: 14px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(68, 68, 68, 0);
+  border-right-color: $mute-red;
+  border-width: 5px;
+  margin-top: -5px;
+}
+.bram-purple:after {
+  right: 100%;
+  top: 14px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(68, 68, 68, 0);
+  border-right-color: $mute-purple;
+  border-width: 5px;
+  margin-top: -5px;
+}
+.bram-yellow:after {
+  right: 100%;
+  top: 14px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(68, 68, 68, 0);
+  border-right-color: $mute-yellow;
+  border-width: 5px;
+  margin-top: -5px;
+}
 
 // Basic colors
 $basically-black:   #666;

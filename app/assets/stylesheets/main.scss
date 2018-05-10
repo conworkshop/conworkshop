@@ -81,6 +81,60 @@ body {
   }
 }
 
+.sidebar {
+  position: fixed;
+  top: 30%;
+  left: -22px;
+  width: 32px;
+  z-index: 999;
+  opacity: 0.6;
+  transition: left .2s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+    left: 0;
+  }
+
+  .side-button {
+    color: #fff;
+    height: 32px;
+    line-height: 28px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+
+    &:first-child {
+      border-top-right-radius: 5px;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: 5px;
+    }
+
+    .side-screen {
+      position: absolute;
+      top: 2px;
+      left: 100%;
+      cursor: default;
+      display: none;
+
+      .ss-box {
+        margin-left: 5px;
+        border-radius: 3px;
+        width: 80vw;
+        position: relative;
+        padding: 6px;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .sidebar .side-button .side-screen .ss-box {
+    width: 420px;
+  }
+}
+
 .footer {
   color: #fff;
 
