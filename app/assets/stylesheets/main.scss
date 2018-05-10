@@ -34,6 +34,9 @@ body {
   }
 }
 
+.karma-arrow-up { color: $new-green; }
+.karma-arrow-down { color: $new-red; }
+
 .head-rainbow {
   background-color: #fff;
 
@@ -129,9 +132,27 @@ body {
   }
 }
 
+.profile-sidedata {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.faux {
+  border: 1px solid #eee;
+  margin: 4px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  background: #fafafa;
+  color: #333;
+}
+
 @include media-breakpoint-up(md) {
   .sidebar .side-button .side-screen .ss-box {
     width: 420px;
+  }
+
+  .faux {
+    padding: 8px 14px;
   }
 }
 

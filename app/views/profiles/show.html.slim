@@ -10,18 +10,17 @@
         = image_tag(@profile_user.profile.avatar_url)
       .profile-handle
         = user_handle(@profile_user)
-        .profile-extra
+        .profile-extra.small.mt-1
           => link_to t('.links.edit'), edit_profile_path(params[:username]) if current_user&.power_over?(@profile_user)
           => link_to t('.links.message'), '#'
 
-  = right_col do
+    .small.text-muted
+      .profile-sidedata
+        = t('.sidedata.genderandcountry',
+                gender: @profile_user.profile.display_gender,
+                country: @profile_user.profile.display_country)
 
-    .profile-sidedata
-      = t('.sidedata.genderandcountry',
-          gender: @profile_user.profile.display_gender,
-          country: @profile_user.profile.display_country)
-      br
-      span.profile-karma
+      .profile-karma
         span.karma-arrow-up> ▲
         ' 123
         span.karma-arrow-down> ▼
@@ -29,23 +28,28 @@
         / TODO: a linkamajig to the karmamajig
         a[href='#']= t('.sidedata.karmainfo')
 
-    dl
-      div
-        dt = t('.info.membersince')
-        dd = cws_local_time(@profile_user.created_at)
+  = right_col do
 
-      div
-        dt = t('.info.lastseen')
-        dd
-          - if @profile_user.user_track
-            => local_time_ago(@profile_user.user_track.tracked_at)
-            span.grey
-              | [#{route_path(@profile_user.user_track.route)}]
-          - else
-            | No idea!
-      div
-        dt = t('.info.boardposts')
-        dd No idea!
+    .row
+      .col-xs-12.col-md-6
+        dl
+          dt = t('.info.membersince')
+          dd = cws_local_time(@profile_user.created_at)
+
+      .col-xs-12.col-md-6
+        dl
+          dt = t('.info.lastseen')
+          dd
+            - if @profile_user.user_track
+              => local_time_ago(@profile_user.user_track.tracked_at)
+              span.grey
+                | [#{route_path(@profile_user.user_track.route)}]
+            - else
+              | No idea!
+      .col-xs-12.col-md-6
+        dl
+          dt = t('.info.boardposts')
+          dd No idea!
 
     / Admin data
     - if %w(A D).include?(@profile_user.group)
@@ -64,20 +68,30 @@
 
     - unless @profile_user.profile.about.blank?
       section#about
-        h2.like_text= t('.about', name: @profile_user.display_name)
+        h4 = t('.about', name: @profile_user.display_name)
         / TODO: Needs CWSMarkup!
         .faux = @profile_user.profile.about
 
     - if @profile_user.languages.any?
-      div.field.field-noleftmargin
-        h2.like_text= link_to t('.conlangs'), languages_path
-        - lang_list(@profile_user) do |language|
-          .list
-            span.small-size= "(#{language.code})"
-            span= language.nativename
-            span= language.name
-            span= lang_handle(language)
-            span: a[href="#"] [switch]
+      section.mt-3.table-responsive
+        h4 = link_to t('.conlangs'), languages_path
+        table.table.table-sm
+          thead
+            tr
+              th scope='col'
+              th scope='col' = Language.human_attribute_name('nativename')
+              th scope='col' = Language.human_attribute_name('name')
+          tbody
+          - lang_list(@profile_user) do |language|
+            tr
+              td.align-middle
+                = lang_handle(language)
+                br
+                .small.text-muted
+                  => language.code
+                  a[href="#"] [switch]
+              td.align-middle = language.nativename
+              td.align-middle = language.name
 
 - else
 
