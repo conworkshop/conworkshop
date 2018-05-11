@@ -30,13 +30,13 @@
 
   = right_col do
 
-    .row
-      .col-xs-12.col-md-6
+    .row.small
+      .col-xs-12.col-md-4
         dl
           dt = t('.info.membersince')
           dd = cws_local_time(@profile_user.created_at)
 
-      .col-xs-12.col-md-6
+      .col-xs-12.col-md-4
         dl
           dt = t('.info.lastseen')
           dd
@@ -46,25 +46,25 @@
                 | [#{route_path(@profile_user.user_track.route)}]
             - else
               | No idea!
-      .col-xs-12.col-md-6
+      .col-xs-12.col-md-4
         dl
           dt = t('.info.boardposts')
           dd No idea!
 
-    / Admin data
-    - if %w(A D).include?(@profile_user.group)
-      dl.grey
-        div
-          dt Last login's IP:
-          dd = @profile_user.last_sign_in_ip
-
-        div
-          dt Timezone:
-          dd = @profile_user.timezone
-
-        div
-          dt Group:
-          dd = @profile_user.group
+      / Admin data
+      - if %w(A D).include?(@profile_user.group)
+        .col-xs-12.col-md-4
+          dl
+            dt Last login's IP:
+            dd = @profile_user.last_sign_in_ip
+        .col-xs-12.col-md-4
+          dl
+            dt Timezone:
+            dd = @profile_user.timezone
+        .col-xs-12.col-md-4
+          dl
+            dt Group:
+            dd = @profile_user.group
 
     - unless @profile_user.profile.about.blank?
       section#about

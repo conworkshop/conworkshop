@@ -37,6 +37,16 @@ body {
   }
 }
 
+.online_mark {
+  background-color: $mute-green;
+  height: 7px;
+  width: 7px;
+  border-radius: 4px;
+  vertical-align: middle;
+  display: inline-block;
+  margin-left: 4px;
+}
+
 .karma-arrow-up { color: $new-green; }
 .karma-arrow-down { color: $new-red; }
 
@@ -84,6 +94,27 @@ body {
     position: absolute;
     top: 6px;
     right: 6px;
+  }
+}
+
+.user-wherenow {
+  display: inline-block;
+  margin-right: 24px;
+
+  .uwn-avatar {
+    height: 32px;
+    width: 32px;
+    margin-right: 8px;
+    border-radius: 16px;
+    vertical-align: middle;
+  }
+  .uwn-other {
+    display: inline-block;
+    vertical-align: middle;
+
+    .uwn-where {
+      color: #999;
+    }
   }
 }
 

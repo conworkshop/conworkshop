@@ -1,10 +1,25 @@
 - provide(:page_title, 'Feed')
 - provide(:page_colour, 'blue')
 
-= left_col class: 'bg-light' do
-  h3 Little thingie
-  p Hello darkness my old friend
-= right_col do
-  h2 Feed
-  p Something! Something!
-  p = user_handle(current_user)
+= full_width padding: 'p-4 px-md-5' do
+  h6 Online now
+  - UserTrack.where('tracked_at > ?', 5.minutes.ago).select([:user_id]).each do |ut|
+    .user-wherenow
+      = image_tag ut.user.profile.avatar_url, class: 'uwn-avatar'
+      small.uwn-other
+        = user_handle(ut.user, false, false)
+        .uwn-where somewhere
+
+= left_col width: 6, padding: 'pt-0 pb-2 pb-md-4 pr-4 pl-4 pl-md-5' do
+  h3.mb-5 Language of the month!
+  h3.mb-5 Translation of the day!
+  h3.mb-5 Random word!
+  h3.mb-5 Guess a word!
+  h3 Latest gallery pics!
+
+= right_col width: 6, padding: 'pt-0 pb-4 pl-4 pr-4 pr-md-5' do
+  .faux
+    | this person did this
+    br
+    | this person did that
+    div style='height: 380px'

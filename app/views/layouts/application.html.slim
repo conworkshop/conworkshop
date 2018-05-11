@@ -37,8 +37,6 @@ html lang=I18n.locale
                 - else
                   | Language
               ul.dropdown-menu aria-labelledby='toggleLang'
-                li = link_to 'New language', new_language_path, class: 'dropdown-item'
-                .dropdown-divider
                 li.dropdown-submenu
                   a href='#' class='dropdown-item dropdown-toggle' Dictionary
                   ul.dropdown-menu
@@ -76,10 +74,12 @@ html lang=I18n.locale
                       span.lang-menu-name = current_language.name
                       span.lang-menu-words.small 31 words
                   .dropdown-divider
-                  = link_to 'Summary', language_path(current_language), class: 'dropdown-item'
-                  = link_to 'Edit language', edit_language_path(current_language), class: 'dropdown-item'
-                  = link_to 'Compare', '#', class: 'dropdown-item'
-                  = link_to 'Switch...', '#', class: 'dropdown-item'
+                  li = link_to 'Summary', language_path(current_language), class: 'dropdown-item'
+                  li = link_to 'Edit language', edit_language_path(current_language), class: 'dropdown-item'
+                  li = link_to 'Compare', '#', class: 'dropdown-item'
+                  li = link_to 'Switch...', '#', class: 'dropdown-item'
+                  .dropdown-divider
+                  li = link_to 'New language', new_language_path, class: 'dropdown-item'
 
             / COMMUNITY
             li.nav-item.dropdown
@@ -114,7 +114,7 @@ html lang=I18n.locale
                     li = link_to 'Dictionary multi-search', '#', class: 'dropdown-item'
                     li = link_to 'WordBank', '#', class: 'dropdown-item'
                     li = link_to 'Wordlink database', '#', class: 'dropdown-item'
-                    li = link_to 'Swadesh list', '#', class: 'dropdown-item'
+                    li = link_to "Conlanger's Swadesh list", '#', class: 'dropdown-item'
                     li = link_to 'Numbers 1 to 10', '#', class: 'dropdown-item'
                 li.dropdown-submenu
                   a href='#' class='dropdown-item dropdown-toggle' Phonetics
