@@ -1,15 +1,19 @@
 - provide(:page_title, t('.title'))
 - provide(:page_colour, 'blue')
 
-= link_to t('clans.new.title'), new_clan_path, class: 'button pass'
+= left_col class: 'bg-light' do
 
-h2 = t('.title')
+  h2 = t('.title')
 
-- if @clans.any?
-  - @clans.each do |clan|
-    .list
-      .clan_blob[style="background:#{clan.colour}"]
-        = clan.symbol
-      = link_to clan.name, clan
-- else
-  | There are no clans!
+  = link_to t('clans.new.title'), new_clan_path, class: 'btn btn-link'
+
+= right_col do
+
+  - if @clans.any?
+    - @clans.each do |clan|
+      div
+        .clan_blob[style="background:#{clan.colour}"]
+          = clan.symbol
+        = link_to clan.name, clan
+  - else
+    | There are no clans!

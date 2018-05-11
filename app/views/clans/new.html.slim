@@ -1,54 +1,46 @@
 - provide(:page_title, t('.title'))
 - provide(:page_colour, 'blue')
 
-= link_to "« #{t('clans.index.title')}", clans_path, class: 'button idle'
+= left_col class: 'bg-light' do
 
-h2= t('.title')
-= form_for @clan, { builder: ClanFormBuilder } do |f|
-  = render 'error_messages', cur_obj: @clan
+  h2 = t('.title')
 
-  .field
-    = f.label :name
-    = f.text_field :name, autocomplete: 'off', autofocus: true, class: 'preview_field_name'
+  = link_to "« #{t('clans.index.title')}", clans_path, class: 'btn btn-link'
 
-  .field
-    = f.label :description
-    = f.text_field :description, autocomplete: 'off', size: 38
+  h4.mt-4 = t('.preview')
 
-  .field
-    = f.label :permission
-    = f.permission_select :permission
+  div[style='font-size:large']
+    .clan_blob#preview_blob[style='background:#009999']
+    span#preview_name[style='color:#009999; vertical-align:middle;'] = t('.preview_info')
 
-  .field
-    = f.label :symbol
-    = hover_ico :info, t('.symbol.info')
+= right_col do
 
-    = f.text_field :symbol, autocomplete: 'off', size: 5, class: 'preview_field_symbol'
+  = form_for @clan, { builder: ClanFormBuilder } do |f|
+    = render 'error_messages', cur_obj: @clan
 
-  .field
-    = f.label :colour
-    = hover_ico :info, t('.colour.info')
+    .form-label-group
+      = f.text_field :name, autocomplete: 'off', autofocus: true, placeholder: 'Name', class: 'form-control preview_field_name'
+      = f.label :name
 
-    .block_wrap
-      = f.text_field :colour, class: 'form_colour_select'
+    .form-label-group
+      = f.text_field :description, autocomplete: 'off', size: 38, placeholder: 'Description', class: 'form-control'
+      = f.label :description
 
-  .actions
-    = f.submit t('.submit'), class: 'button idle'
+    .form-group.mb-4
+      = f.label :permission
+      = f.permission_select :permission, {}, {class: 'form-control'}
 
-h3 = t('.preview')
+    .form-row
+      .form-label-group.col-md-4
+        = f.text_field :symbol, autocomplete: 'off', size: 5, placeholder: 'Symbol', class: 'form-control preview_field_symbol'
+        = f.label :symbol
+        small.form-text.text-muted = t('.symbol.info')
 
-div[style='font-size:large']
-  .clan_blob#preview_blob[style='background:#009999']
-  span#preview_name[style='color:#009999; vertical-align:middle;'] = t('.preview_info')
+    .form-group
+      = f.label :colour
+      div
+        = f.text_field :colour, class: 'form_colour_select'
+      small.form-text.text-muted = t('.colour.info')
 
-coffee:
-  d_name = $('#preview_name')
-  d_blob = $('#preview_blob')
+    = f.submit t('.submit'), class: 'btn btn-primary'
 
-  $('.form_colour_select').change ->
-    d_name.css('color', $(this).val())
-    d_blob.css('background', $(this).val())
-  $('.preview_field_name').on 'change keyup paste', ->
-    d_name.text($(this).val())
-  $('.preview_field_symbol').on 'change keyup paste', ->
-    d_blob.text($(this).val().substr(0,1))

@@ -67,4 +67,15 @@ $(document).on("turbolinks:load", ->
 
     return false
 
+  # Make clan preview auto-update
+  d_name = $('#preview_name')
+  d_blob = $('#preview_blob')
+  $('.form_colour_select').change ->
+    d_name.css('color', $(this).val())
+    d_blob.css('background', $(this).val())
+  $('.preview_field_name').on 'change keyup paste', ->
+    d_name.text($(this).val())
+  $('.preview_field_symbol').on 'change keyup paste', ->
+    d_blob.text($(this).val().substr(0,1))
+
 )

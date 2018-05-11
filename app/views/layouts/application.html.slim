@@ -38,6 +38,7 @@ html lang=I18n.locale
                   | Language
               ul.dropdown-menu aria-labelledby='toggleLang'
                 li = link_to 'New language', new_language_path, class: 'dropdown-item'
+                li = link_to 'My languages', '#', class: 'dropdown-item'
                 .dropdown-divider
                 li.dropdown-submenu
                   a href='#' class='dropdown-item dropdown-toggle' Dictionary
@@ -66,6 +67,7 @@ html lang=I18n.locale
                     li = link_to 'Translations', '#', class: 'dropdown-item'
                     li = link_to 'Articles', '#', class: 'dropdown-item'
                     li = link_to 'Namebase', '#', class: 'dropdown-item'
+                    li = link_to 'Phrasebook', '#', class: 'dropdown-item'
                 - if current_language
                   .dropdown-divider
                   .lang-menu-sect.py-2.px-3
@@ -181,6 +183,9 @@ html lang=I18n.locale
           = raw(t('footer.langsel',
                   seltag: select_tag('language_select', language_select_options(path_has_locale: params[:locale].present?),
                           id: 'language_select')))
+
+          = yield :foot
+
     aside.sidebar
       .side-button.bg-green.sb-dict
         | d

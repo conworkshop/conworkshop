@@ -89,7 +89,8 @@
                 br
                 .small.text-muted
                   => language.code
-                  a[href="#"] [switch]
+                  - if @profile_user == current_user
+                    a[href="#"] [switch]
               td.align-middle = language.nativename
               td.align-middle = language.name
 

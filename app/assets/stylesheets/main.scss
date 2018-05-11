@@ -267,6 +267,36 @@ dl {
 }
 
 
+.clan_blob {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 24px;
+  vertical-align: middle;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  line-height: 24px;
+  margin-right: 10px;
+}
+
+.clan_square {
+  display: inline-block;
+  vertical-align: middle;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  color: #fff;
+  margin-right: 15px;
+  font-size: 38px;
+}
+.clan_title {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
 /* Cool forrm input placeholder magick */
 :root {
   --input-padding-x: .75rem;
