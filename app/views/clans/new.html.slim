@@ -15,7 +15,7 @@
 
 = right_col do
 
-  = form_for @clan, { builder: ClanFormBuilder } do |f|
+  = form_for @clan do |f|
     = render 'error_messages', cur_obj: @clan
 
     .form-label-group
@@ -28,7 +28,7 @@
 
     .form-group.mb-4
       = f.label :permission
-      = f.permission_select :permission, {}, {class: 'form-control'}
+      = f.clan_perm_select :permission, {}, {class: 'form-control'}
 
     .form-row
       .form-label-group.col-md-4

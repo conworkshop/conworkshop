@@ -38,7 +38,6 @@ html lang=I18n.locale
                   | Language
               ul.dropdown-menu aria-labelledby='toggleLang'
                 li = link_to 'New language', new_language_path, class: 'dropdown-item'
-                li = link_to 'My languages', '#', class: 'dropdown-item'
                 .dropdown-divider
                 li.dropdown-submenu
                   a href='#' class='dropdown-item dropdown-toggle' Dictionary
@@ -61,6 +60,7 @@ html lang=I18n.locale
                     li = link_to 'Tables', '#', class: 'dropdown-item'
                     li = link_to 'Forms', '#', class: 'dropdown-item'
                     li = link_to 'Typology', '#', class: 'dropdown-item'
+                    li = link_to 'Grammar test', '#', class: 'dropdown-item'
                 li.dropdown-submenu
                   a href='#' class='dropdown-item dropdown-toggle' Literature
                   ul.dropdown-menu
@@ -78,6 +78,7 @@ html lang=I18n.locale
                   .dropdown-divider
                   = link_to 'Summary', language_path(current_language), class: 'dropdown-item'
                   = link_to 'Edit language', edit_language_path(current_language), class: 'dropdown-item'
+                  = link_to 'Compare', '#', class: 'dropdown-item'
                   = link_to 'Switch...', '#', class: 'dropdown-item'
 
             / COMMUNITY
@@ -88,13 +89,59 @@ html lang=I18n.locale
                 .dropdown-divider
                 li = link_to 'Clans', clans_path, class: 'dropdown-item'
                 li = link_to 'Conlangs', languages_path, class: 'dropdown-item'
-                li = link_to 'Projects', '#', class: 'dropdown-item'
+                li = link_to 'Members', '#', class: 'dropdown-item'
+                li.dropdown-submenu
+                  a href='#' class='dropdown-item dropdown-toggle' Projects
+                  ul.dropdown-menu
+                    li = link_to 'Song projects', '#', class: 'dropdown-item'
+                    li = link_to 'CWS Planet', '#', class: 'dropdown-item'
+                    li = link_to 'CWSP Wiki', '#', class: 'dropdown-item'
+                    li = link_to 'CWSP maps', '#', class: 'dropdown-item'
+                .dropdown-divider
+                li = link_to 'Resources', '#', class: 'dropdown-item'
 
             / TOOLS
             li.nav-item.dropdown
               a.nav-link.dropdown-toggle#toggleCommunity href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' Tools
               ul.dropdown-menu aria-labelledby='toggleCommunity'
                 li = link_to 'PhoMo', '#', class: 'dropdown-item'
+                .dropdown-divider
+                li.dropdown-submenu
+                  a href='#' class='dropdown-item dropdown-toggle' Lexicon
+                  ul.dropdown-menu
+                    li = link_to 'LexiBuild', '#', class: 'dropdown-item'
+                    li = link_to 'Word Generator', '#', class: 'dropdown-item'
+                    li = link_to 'Dictionary multi-search', '#', class: 'dropdown-item'
+                    li = link_to 'WordBank', '#', class: 'dropdown-item'
+                    li = link_to 'Wordlink database', '#', class: 'dropdown-item'
+                    li = link_to 'Swadesh list', '#', class: 'dropdown-item'
+                    li = link_to 'Numbers 1 to 10', '#', class: 'dropdown-item'
+                li.dropdown-submenu
+                  a href='#' class='dropdown-item dropdown-toggle' Phonetics
+                  ul.dropdown-menu
+                    li = link_to 'IPA chart', '#', class: 'dropdown-item'
+                    li = link_to 'X-SAMPA converter', '#', class: 'dropdown-item'
+                    li = link_to 'Phonological systems', '#', class: 'dropdown-item'
+                li.dropdown-submenu
+                  a href='#' class='dropdown-item dropdown-toggle' Orthography
+                  ul.dropdown-menu
+                    li = link_to 'Latin script map', '#', class: 'dropdown-item'
+                    li = link_to 'Frequency calculator', '#', class: 'dropdown-item'
+                    li = link_to 'Anagram generator', '#', class: 'dropdown-item'
+                    li = link_to 'Graphemes', '#', class: 'dropdown-item'
+                li.dropdown-submenu
+                  a href='#' class='dropdown-item dropdown-toggle' Numbers
+                  ul.dropdown-menu
+                    li = link_to 'Base converter', '#', class: 'dropdown-item'
+                    li = link_to 'System converter', '#', class: 'dropdown-item'
+                li.dropdown-submenu
+                  a href='#' class='dropdown-item dropdown-toggle' Grammar
+                  ul.dropdown-menu
+                    li = link_to 'Typological database', '#', class: 'dropdown-item'
+                    li = link_to 'Syntax trees', '#', class: 'dropdown-item'
+                    li = link_to 'Grammar forms', '#', class: 'dropdown-item'
+                .dropdown-divider
+                li = link_to 'Gallery', '#', class: 'dropdown-item'
 
           / PROFILE
           ul.navbar-nav.mt-2.mt-lg-0.navbar-right
@@ -115,6 +162,8 @@ html lang=I18n.locale
                 li = link_to t('menu.orange.mine.account'), account_path, class: 'dropdown-item'
                 li = link_to 'Help & FAQs', '#', class: 'dropdown-item'
                 li = link_to 'Report/Feedback', '#', class: 'dropdown-item'
+                .dropdown-divider
+                li = link_to 'Search...', '#', class: 'dropdown-item'
                 .dropdown-divider
                 li = link_to t('menu.logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item'
 
@@ -188,7 +237,7 @@ html lang=I18n.locale
 
     aside.sidebar
       .side-button.bg-green.sb-dict
-        | d
+        = image_tag 'qf_search.png'
         .side-screen
           .ss-box.bgm-green.bram-green
             form.form
@@ -197,24 +246,24 @@ html lang=I18n.locale
                 .input-group-append
                   button type='submit' class='btn bg-green mb-1' style='color: #fff' Go
             .qf-dict-results.small Results will appear here as you type
-      .side-button.bg-orange.sb-phono
-        | p
+      .side-button.bg-orange.sb-ortho
+        = image_tag 'qf_ortho.png'
         .side-screen
-          .ss-box.bgm-orange.bram-orange This is a phono thingie
+          .ss-box.bgm-orange.bram-orange This is an ortoguraphgy thingie
       .side-button.bg-yellow.sb-xsampa
-        | i
+        = image_tag 'qf_sampa.png'
         .side-screen
           .ss-box.bgm-yellow.bram-yellow Hello I convert XSAMPA to IPA
       .side-button.bg-purple.sb-estim
-        | e
+        = image_tag 'qf_estim.png'
         .side-screen
           .ss-box.bgm-purple.bram-purple Hello hello I estimate your wordies
       .side-button.bg-blue.sb-notes
-        | n
+        = image_tag 'qf_notes.png'
         .side-screen
           .ss-box.bgm-blue.bram-blue cheeky breeky i keep your notes safe bby
       .side-button.bg-red.sb-karma
-        | k
+        = image_tag 'qf_karma.png'
         .side-screen
           .ss-box.bgm-red.bram-red Your karma will appear here yay!
 

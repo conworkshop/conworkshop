@@ -52,7 +52,7 @@ $(document).on("turbolinks:load", ->
     else
       $('.side-screen').hide()
       elem.show()
-  ).children().click ->
+  ).children('.side-screen').click ->
     return false
 
   $('.dropdown-menu a.dropdown-toggle').click ->
