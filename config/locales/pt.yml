@@ -343,162 +343,99 @@ pt:
           text: Escolha o idioma em que o CWS estará por padrão.
 
   menu:
-    green:
+    language:
+      title: Language
       dictionary:
-        dictionary: Dicionário
-        add: Adicionar palavra
-        settings: Configurações
-        tools:
-          tools: Ferramentas do dicionário
-          massedit: Edição em massa
-          maintenance: Manutenção
-          import: Importar
-          export: Exportar
-          phomo: PhoMo no dicionário
-          compare: Comparar dicionários
-          homonym: Lista de homônimos
-        roots: Radicais conhecidos
-        distribution: Distribuição de palavras
-        pcdistribution: Distribuição de classes gramaticais
-      phonology:
-        phonology: Fonologia
-        inventory: Inventário
-        phonotactics: Fonotática
-        estimate: Estimativa de pronunciação
-        compare: Comparar inventórios
-      orthography:
-        orthography: Ortografia
-        categories: Categorias
-        conscript: Conscripts
-        distribution: Distribuição
-        azorder: Ordem alfabética
+        title: Dictionary
+        add: Add word
+        view: View dictionary
+        settings: Settings
+        tools: Tools
+        stats: Statistics
+      phono:
+        title: Phonology
+        inventory: Inventory
+        phonotactics: Phonotactics
+        estim: Pronunciation estimation
+        ortho: Orthography
       grammar:
-        grammar: Gramática
-        typology: Tipologia
-        forms: Definir formas
-        addtable: Adicionar tabela
-        tables: Tabelas gramáticas
-        irregular: Lista de formas irregulares
-        conjugator: Conjugador de palavras
-        test: Teste de gramática
-      literature:
-        literature: Literatura
-        translations: Traduções
-        contrans: 'Traduções de %{conlang}'
-        journal: Jornal
-        articles: 'Artigos de %{conlang}'
-        phrasebook: Livro de frases
-      namebase: Banco de nomes
-      summary: Sumário
-      settings: Configurações
-    yellow:
-      tools: Ferramentas
-      lexicon:
-        lexicon: Dicionário
-        lexibuild: LexiBuild
-        wordgen: Gerador de palavras
-        wordgen3: WordGen³
-        multisearch: Pesquisa em vários dicionários
-        wordbank: WordBank
-        phomo: Derivação pelo PhoMo
-        wordlinks: Banco de dados do WordLink
-        swadesh: Lista Swadesh do Conlanger
-        numbers: Números de 1 até 10
-      phonetics:
-        phonetics: Fonética
-        chart: Tabela API
-        converter: Conversor de X-SAMPA pra API
-        phomo: PhoMo
-        phonsystem: Sistemas fonológicos
-      orthography:
-        orthography: Ortografia
-        scriptmap: Mapa da escrita Latina
-        freqcalc: Calculador de frequência
-        anagram: Gerador de anagramas
-        graphemes: Grafemas
-      numbers:
-        numbers: Números
-        base: Conversor de bases
-        system: Conversor de sistema numérico
-      typological: Banco de dados tipológico
-      flash: Flash
-      trees: Árvores sintáticas
-      forms: Formas gramáticas
-      gallery: Galeria
-    blue:
-      community: Comunidade
-      boards:
-        boards: Fóruns
-        mine: Meus tópicos
-        subscribed: Tópicos em que estou inscrito
-        recent: Tópicos recentes
-      people:
-        people: Pessoas e clãs
-        clans: Clãs
-        conlangers: Conlangers
-        karma: Estatísticas de karma
-      languages:
-        languages: Línguas
-        list: Lista de conlangs
-        scripts: Conscripts
-        scriptbank: Banco de conscripts
-        browse: Navegar dicionários
-        flags: Bandeiras
-      articles:
-        articles: Artigos
-        all: Todos os artigos
-        new: Criar artigo
-        lotm: Língua do Mês
+        title: Grammar
+        tables: Tables
+        forms: Forms
+        typo: Typology
+        test: Grammar test
+      lit:
+        title: Literature
+        trans: Translations
+        articles: Articles
+        namebase: Namebase
+        phrases: Phrasebook
+      wordcount: "%{count} entries"
+      summary: Summary
+      edit: Edit language
+      compare: Compare
+      switch: Switch...
+      new: New language
+    community:
+      title: Community
+      boards: Boards
+      clans: Clans
+      conlangs: Conlangs
+      members: Members
       projects:
-        projects: Projetos
-        song: Projetos musicais
-        cwsp:
-          planet: CWS Planet
-          wiki: Wiki do CWS Planet
-          map: Mapa do CWS Planet (mais recente)
-          svg: Mapa em SVG
-      events: Eventos
-      resources: Recursos
-    orange:
-      profile: Perfil
-      mailbox:
-        mailbox: Caixa de mensagens
-        send: Enviar mensagem
-      mine:
-        mine: Meu perfil
-        karma: Meu karma
-        edit: Editar perfil
-        preferences: Preferências do site
-        account: Minha conta
-      languages:
-        languages: Línguas
-        families: Famílias de línguas
-        new: Criar nova língua
-        dialect: Criar novo dialeto
-        share: Compartilhar língua
-        checklist: Checklist da língua
-      awards: Prêmios
-    grey:
-      cws: CWS
-      search: Pesquisar
-      help: Artigos de ajuda
-      tutorials: Tutoriais
-      faqs: Perguntas frequentes
-      report: Relatar/feedback
-      stats: Estatísticas
-      donate: Doar
-    logout: Sair
-    basic:
-      login: Entrar
-      register: Registrar
-      about: Sobre
-      home: Home
-      green:
-        browse: Navegar
-        conlangs: Conlangs
-        dictionaries: Dicionários
-        articles: Todos os artigos
-        typological: Banco de dados tipológico
+        title: Projects
+        song: Song projects
+        cwsp: CWS Planet
+        cwspwiki: CWSP wiki
+        cwspmap: CWSP maps
+      resources: Resources
+    tools:
+      title: Tools
+      phomo: PhoMo
+      lex:
+        title: Lexicon
+        lexibuild: LexiBuild
+        wordgen: Word Generator
+        multisearch: Dictionary multi-search
+        wordbank: WordBank
+        wldb: Wordlink database
+        swadesh: Conlanger's Swadesh list
+        num: Numbers 1 to 10
+      phonetics:
+        title: Phonetics
+        ipa: IPA chart
+        sampa: X-SAMPA converter
+        systems: Phonological systems
+      ortho:
+        title: Orthography
+        scriptmap: Latin script map
+        freq: Frequency calculator
+        anagram: Anagram generator
+        graphemes: Graphemes
+      numbers:
+        title: Numbers
+        base: Base converter
+        system: System converter
+      grammar:
+        title: Grammar
+        typodb: Typological database
+        trees: Syntax trees
+        forms: Grammar forms
+      gallery: Gallery
+    profile:
+      myprof: My profile
+      editprof: Edit profile
+      mail: Messages
+      pref: Site preferences
+      account: My account
+      help: Help & FAQs
+      report: Report/Feedback
+      search: Search...
+      logout: Log out
+    anon:
+      about: About
+      login: Log in
+      register: Register
 
   time:
     formats:

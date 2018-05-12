@@ -375,162 +375,99 @@ fr:
           text: Choose the language you prefer CWS to be displayed in by default.
 
   menu:
-    green:
+    language:
+      title: Language
       dictionary:
-        dictionary: Dictionary
+        title: Dictionary
         add: Add word
+        view: View dictionary
         settings: Settings
-        tools:
-          tools: Dictionary tools
-          massedit: Mass edit
-          maintenance: Maintenance
-          import: Import
-          export: Export
-          phomo: Dictionary PhoMo
-          compare: Compare dictionaries
-          homonym: Homonyms list
-        roots: Known roots
-        distribution: Word distribution
-        pcdistribution: PoS/Class distribution
-      phonology:
-        phonology: Phonology
+        tools: Tools
+        stats: Statistics
+      phono:
+        title: Phonology
         inventory: Inventory
         phonotactics: Phonotactics
-        estimate: Pronunciation estimation
-        compare: Compare inventory
-      orthography:
-        orthography: Orthography
-        categories: Categories
-        conscript: Conscript
-        distribution: Distribution
-        azorder: Alphabetical order
+        estim: Pronunciation estimation
+        ortho: Orthography
       grammar:
-        grammar: Grammar
-        typology: Typology
-        forms: Define forms
-        addtable: Add table
-        tables: Grammar tables
-        irregular: Irregular forms list
-        conjugator: Word conjugator
+        title: Grammar
+        tables: Tables
+        forms: Forms
+        typo: Typology
         test: Grammar test
-      literature:
-        literature: Literature
-        translations: Translations
-        contrans: '%{conlang} translations'
-        journal: Journal
-        articles: '%{conlang} articles'
-        phrasebook: Phrasebook
-      namebase: Namebase
+      lit:
+        title: Literature
+        trans: Translations
+        articles: Articles
+        namebase: Namebase
+        phrases: Phrasebook
+      wordcount: "%{count} entries"
       summary: Summary
-      settings: Settings
-    yellow:
-      tools: Tools
-      lexicon:
-        lexicon: Lexicon
+      edit: Edit language
+      compare: Compare
+      switch: Switch...
+      new: New language
+    community:
+      title: Community
+      boards: Boards
+      clans: Clans
+      conlangs: Conlangs
+      members: Members
+      projects:
+        title: Projects
+        song: Song projects
+        cwsp: CWS Planet
+        cwspwiki: CWSP wiki
+        cwspmap: CWSP maps
+      resources: Resources
+    tools:
+      title: Tools
+      phomo: PhoMo
+      lex:
+        title: Lexicon
         lexibuild: LexiBuild
-        wordgen: Word generator
-        wordgen3: WordGen³
-        multisearch: Dict. multi-search
+        wordgen: Word Generator
+        multisearch: Dictionary multi-search
         wordbank: WordBank
-        phomo: PhoMo derivation
-        wordlinks: WordLink database
-        swadesh: Conlanger's Swadesh List
-        numbers: Numbers 1 to 10
+        wldb: Wordlink database
+        swadesh: Conlanger's Swadesh list
+        num: Numbers 1 to 10
       phonetics:
-        phonetics: Phonetics
-        chart: IPA and Phoneme chart
-        converter: X-SAMPA to IPA converter
-        phomo: PhoMo
-        phonsystem: Phonological systems
-      orthography:
-        orthography: Orthography
+        title: Phonetics
+        ipa: IPA chart
+        sampa: X-SAMPA converter
+        systems: Phonological systems
+      ortho:
+        title: Orthography
         scriptmap: Latin script map
-        freqcalc: Frequency calculator
+        freq: Frequency calculator
         anagram: Anagram generator
         graphemes: Graphemes
       numbers:
-        numbers: Numbers
+        title: Numbers
         base: Base converter
-        system: Number system converter
-      typological: Typological database
-      flash: Flash
-      trees: Syntax trees
-      forms: Grammar forms
+        system: System converter
+      grammar:
+        title: Grammar
+        typodb: Typological database
+        trees: Syntax trees
+        forms: Grammar forms
       gallery: Gallery
-    blue:
-      community: Community
-      boards:
-        boards: Boards
-        mine: My threads
-        subscribed: Subscribed threads
-        recent: Recent threads
-      people:
-        people: People and Clans
-        clans: Clans
-        conlangers: Conlangers
-        karma: Karma statistics
-      languages:
-        languages: Languages
-        list: Conlang list
-        scripts: Conscripts
-        scriptbank: Conscript bank
-        browse: Browse dictionaries
-        flags: Language flags
-      articles:
-        articles: Articles
-        all: All articles
-        new: New article
-        lotm: Language of the Month
-      projects:
-        projects: Projects
-        song: Song projects
-        cwsp:
-          planet: CWS Planet
-          wiki: CWSP Wiki
-          map: CWSP Map (latest)
-          svg: CWSP Map (SVG)
-      events: Events
-      resources: Resources
-    orange:
-      profile: Profile
-      mailbox:
-        mailbox: Mailbox
-        send: Send message
-      mine:
-        mine: My profile
-        karma: My karma
-        edit: Edit profile
-        preferences: Site preferences
-        account: My account
-      languages:
-        languages: Languages
-        families: Language families
-        new: New language
-        dialect: New dialect
-        share: Share language
-        checklist: Language checklist
-      awards: Awards
-    grey:
-      cws: CWS
-      search: Search
-      help: Help articles
-      tutorials: Tutorials
-      faqs: FAQs
-      report: Report/feedback
-      stats: Statistics
-      donate: Donate
-    logout: Log out
-    basic:
+    profile:
+      myprof: My profile
+      editprof: Edit profile
+      mail: Messages
+      pref: Site preferences
+      account: My account
+      help: Help & FAQs
+      report: Report/Feedback
+      search: Search...
+      logout: Log out
+    anon:
+      about: About
       login: Log in
       register: Register
-      about: About
-      home: Home
-      green:
-        browse: Browse
-        conlangs: Conlangs
-        dictionaries: Dictionaries
-        articles: All articles
-        typological: Typological database
 
   time:
     formats:

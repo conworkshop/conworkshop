@@ -1,296 +1,156 @@
-nav.menu[role='navigation']
-  ul.nav[role='tree']
+nav.navbar.navbar-expand-lg.navbar-dark class="bg-#{@phue}" style="z-index: 998; padding-left: 5%; padding-right: 5%;"
+  = link_to 'conworkshop', root_path, class: 'navbar-brand'
+  button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation"
+    span.navbar-toggler-icon
+
+  .collapse.navbar-collapse#navbarTogglerDemo01
     - if user_signed_in?
-      li[role='treeitem']
-        a.nav_item.nav_green[href='#'] = current_language_name
-        - if current_language
-          ul[role='tree']
-            li[role='treeitem']
-              a.nav_item.nav_green_l.nav_caret[href='#'] = t('menu.green.dictionary.dictionary')
-              ul[role='tree']
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.add')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.settings')
-                li
-                  a.nav_item.nav_green_l.nav_caret[href='#'] = t('menu.green.dictionary.tools.tools')
-                  ul[role='tree']
-                    li[role='treeitem']
-                      a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.tools.massedit')
-                    li[role='treeitem']
-                      a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.tools.maintenance')
-                    li[role='treeitem']
-                      a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.tools.import')
-                    li[role='treeitem']
-                      a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.tools.export')
-                    li[role='treeitem']
-                      a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.tools.phomo')
-                    li[role='treeitem']
-                      a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.tools.compare')
-                    li[role='treeitem']
-                      a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.tools.homonym')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.roots')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.distribution')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.dictionary.pcdistribution')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.literature.phrasebook')
-            li[role='treeitem']
-              a.nav_item.nav_green_l.nav_caret[href='#'] = t('menu.green.phonology.phonology')
-              ul[role='tree']
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.phonology.inventory')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.phonology.phonotactics')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.phonology.estimate')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.phonology.compare')
-            li[role='treeitem']
-              a.nav_item.nav_green_l.nav_caret[href='#'] = t('menu.green.orthography.orthography')
-              ul[role='tree']
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.orthography.categories')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.orthography.conscript')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.orthography.distribution')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.orthography.azorder')
-            li[role='treeitem']
-              a.nav_item.nav_green_l.nav_caret[href='#'] = t('menu.green.grammar.grammar')
-              ul[role='tree']
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.grammar.typology')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.grammar.forms')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.grammar.addtable')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.grammar.tables')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.grammar.irregular')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.grammar.conjugator')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.grammar.test')
-            li[role='treeitem']
-              a.nav_item.nav_green_l.nav_caret[href='#'] = t('menu.green.literature.literature')
-              ul[role='tree']
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.literature.translations')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#']
-                    = t('menu.green.literature.contrans', conlang: current_language_name)
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.literature.journal')
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#']
-                    = t('menu.green.literature.articles', conlang: current_language_name)
-                li[role='treeitem']
-                  a.nav_item.nav_green_l[href='#'] = t('menu.green.literature.phrasebook')
-            li[role='treeitem']
-              a.nav_item.nav_green_l[href='#'] = t('menu.green.namebase')
-            li[role='treeitem']
-              = link_to t('menu.green.summary'), language_path(current_language), class: 'nav_item nav_green_l'
-            li[role='treeitem']
-              = link_to t('menu.green.settings'), edit_language_path(current_language), class: 'nav_item nav_green_l'
-      li[role='treeitem']
-        a.nav_item.nav_yellow[href='#'] = t('menu.yellow.tools')
-        ul[role='tree']
-          li[role='treeitem']
-            a.nav_item.nav_yellow_l.nav_caret[href='#'] = t('menu.yellow.lexicon.lexicon')
-            ul[role='tree']
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.lexibuild')
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.wordgen')
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.wordgen3')
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.multisearch')
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.wordbank')
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.phomo')
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.wordlinks')
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.swadesh')
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.lexicon.numbers')
-          li[role='treeitem']
-            a.nav_item.nav_yellow_l.nav_caret[href='#'] = t('menu.yellow.phonetics.phonetics')
-            ul[role='tree']
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.phonetics.chart')
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.phonetics.converter')
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.phonetics.phomo')
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.phonetics.phonsystem')
-          li[role='treeitem']
-            a.nav_item.nav_yellow_l.nav_caret[href='#'] = t('menu.yellow.orthography.orthography')
-            ul[role='tree']
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.orthography.scriptmap')
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.orthography.freqcalc')
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.orthography.anagram')
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.orthography.graphemes')
-          li[role='treeitem']
-            a.nav_item.nav_yellow_l.nav_caret[href='#'] = t('menu.yellow.numbers.numbers')
-            ul[role='tree']
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.numbers.base')
-              li[role='treeitem']
-                a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.numbers.system')
-          li[role='treeitem']
-            a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.typological')
-          li[role='treeitem']
-            a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.flash')
-          li[role='treeitem']
-            a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.trees')
-          li[role='treeitem']
-            a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.forms')
-          li[role='treeitem']
-            a.nav_item.nav_yellow_l[href='#'] = t('menu.yellow.gallery')
-      li[role='treeitem']
-        a.nav_item.nav_blue[href='#'] = t('menu.blue.community')
-        ul[role='tree']
-          li[role='treeitem']
-            a.nav_item.nav_blue_l.nav_caret[href='#'] = t('menu.blue.boards.boards')
-            ul[role='tree']
-              li[role='treeitem']
-                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.boards.mine')
-              li[role='treeitem']
-                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.boards.subscribed')
-              li[role='treeitem']
-                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.boards.recent')
-          li[role='treeitem']
-            a.nav_item.nav_blue_l.nav_caret[href='#'] = t('menu.blue.people.people')
-            ul[role='tree']
-              li[role='treeitem']
-                = link_to t('menu.blue.people.clans'), clans_path, class: 'nav_item nav_blue_l'
-              li[role='treeitem']
-                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.people.conlangers')
-              li[role='treeitem']
-                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.people.karma')
-          li[role='treeitem']
-            a.nav_item.nav_blue_l.nav_caret[href='#'] = t('menu.blue.languages.languages')
-            ul[role='tree']
-              li[role='treeitem']
-                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.languages.list')
-              li[role='treeitem']
-                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.languages.scripts')
-              li[role='treeitem']
-                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.languages.scriptbank')
-              li[role='treeitem']
-                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.languages.browse')
-              li[role='treeitem']
-                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.languages.flags')
-          li[role='treeitem']
-            a.nav_item.nav_blue_l.nav_caret[href='#'] = t('menu.blue.articles.articles')
-            ul[role='tree']
-              li[role='treeitem']
-                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.articles.all')
-              li[role='treeitem']
-                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.articles.new')
-              li[role='treeitem']
-                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.articles.lotm')
-          li[role='treeitem']
-            a.nav_item.nav_blue_l.nav_caret[href='#'] = t('menu.blue.projects.projects')
-            ul[role='tree']
-              li[role='treeitem']
-                a.nav_item.nav_blue_l[href='#'] = t('menu.blue.projects.song')
-              li[role='treeitem']
-                a.nav_item.nav_blue_l.nav_caret[href='#'] = t('menu.blue.projects.cwsp.svg')
-                ul[role='tree']
-                  li[role='treeitem']
-                    a.nav_item.nav_blue_l[href='#'] = t('menu.blue.projects.cwsp.map')
-                  li[role='treeitem']
-                    a.nav_item.nav_blue_l[href='#'] = t('menu.blue.projects.cwsp.svg')
-                  li[role='treeitem']
-                    a.nav_item.nav_blue_l[href='#'] = t('menu.blue.projects.cwsp.wiki')
-          li[role='treeitem']
-            a.nav_item.nav_blue_l[href='#'] = t('menu.blue.events')
-          li[role='treeitem']
-            a.nav_item.nav_blue_l[href='#'] = t('menu.blue.resources')
-      li[role='treeitem']
-        a.nav_item.nav_orange[href='#'] = t('menu.orange.profile')
-        ul[role='tree']
-          li[role='treeitem']
-            a.nav_item.nav_orange_l.nav_caret[href='#'] = t('menu.orange.mailbox.mailbox')
-            ul[role='tree']
-              li[role='treeitem']
-                a.nav_item.nav_orange_l[href='#'] = t('menu.orange.mailbox.send')
-          li[role='treeitem']
-            = link_to t('menu.orange.mine.mine'), profile_path(current_user), class: 'nav_item nav_orange_l nav_caret'
-            ul[role='tree']
-              li[role='treeitem']
-                = link_to t('menu.orange.mine.edit'), edit_profile_path(current_user), class: 'nav_item nav_orange_l'
-              li[role='treeitem']
-                a.nav_item.nav_orange_l[href='#'] = t('menu.orange.mine.karma')
-              li[role='treeitem']
-                = link_to t('menu.orange.mine.preferences'), preferences_path, class: 'nav_item nav_orange_l'
-              li[role='treeitem']
-                = link_to t('menu.orange.mine.account'), account_path, class: 'nav_item nav_orange_l'
-          li[role='treeitem']
-            = link_to t('menu.orange.languages.languages'), languages_path, class: 'nav_item nav_orange_l nav_caret'
-            ul[role='tree']
-              li[role='treeitem']
-                = link_to t('menu.orange.languages.new'), new_language_path, class: 'nav_item nav_orange_l'
-              li[role='treeitem']
-                a.nav_item.nav_orange_l[href='#'] = t('menu.orange.languages.dialect')
-              li[role='treeitem']
-                a.nav_item.nav_orange_l[href='#'] = t('menu.orange.languages.share')
-              li[role='treeitem']
-                a.nav_item.nav_orange_l[href='#'] = t('menu.orange.languages.checklist')
-              li[role='treeitem']
-                a.nav_item.nav_orange_l[href='#'] = t('menu.orange.languages.families')
-      li[role='treeitem']
-        a.nav_item.nav_grey[href='#'] = t('menu.grey.cws')
-        ul[role='tree']
-          li[role='treeitem']
-            a.nav_item.nav_grey_l[href='#'] = t('menu.grey.search')
-          li[role='treeitem']
-            a.nav_item.nav_grey_l[href='#'] = t('menu.grey.help')
-          li[role='treeitem']
-            a.nav_item.nav_grey_l[href='#'] = t('menu.grey.tutorials')
-          li[role='treeitem']
-            a.nav_item.nav_grey_l[href='#'] = t('menu.grey.faqs')
-          li[role='treeitem']
-            a.nav_item.nav_grey_l[href='#'] = t('menu.grey.report')
-          li[role='treeitem']
-            a.nav_item.nav_grey_l[href='#'] = t('menu.grey.stats')
-          li[role='treeitem']
-            a.nav_item.nav_grey_l[href='#']
-              strong = t('menu.grey.donate')
-      li[role='treeitem']
-        = link_to t('menu.logout'), destroy_user_session_path, method: :delete, class: 'nav_item nav_red'
+      ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+
+        / LANGUAGE
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle#toggleLang href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
+            - if current_language
+              => image_tag current_language.flag_thumb_url, class: 'flag_thumb'
+              = current_language.name
+            - else
+              = t('menu.language.title')
+          ul.dropdown-menu aria-labelledby='toggleLang'
+            li.dropdown-submenu
+              a href='#' class='dropdown-item dropdown-toggle' = t('menu.language.dictionary.title')
+              ul.dropdown-menu
+                li = link_to t('menu.language.dictionary.add'), '#', class: 'dropdown-item'
+                li = link_to t('menu.language.dictionary.view'), '#', class: 'dropdown-item'
+                li = link_to t('menu.language.dictionary.settings'), '#', class: 'dropdown-item'
+                li = link_to t('menu.language.dictionary.tools'), '#', class: 'dropdown-item'
+                li = link_to t('menu.language.dictionary.stats'), '#', class: 'dropdown-item'
+            li.dropdown-submenu
+              a href='#' class='dropdown-item dropdown-toggle' = t('menu.language.phono.title')
+              ul.dropdown-menu
+                li = link_to t('menu.language.phono.inventory'), '#', class: 'dropdown-item'
+                li = link_to t('menu.language.phono.phonotactics'), '#', class: 'dropdown-item'
+                li = link_to t('menu.language.phono.estim'), '#', class: 'dropdown-item'
+                li = link_to t('menu.language.phono.ortho'), '#', class: 'dropdown-item'
+            li.dropdown-submenu
+              a href='#' class='dropdown-item dropdown-toggle' = t('menu.language.grammar.title')
+              ul.dropdown-menu
+                li = link_to t('menu.language.grammar.tables'), '#', class: 'dropdown-item'
+                li = link_to t('menu.language.grammar.forms'), '#', class: 'dropdown-item'
+                li = link_to t('menu.language.grammar.typo'), '#', class: 'dropdown-item'
+                li = link_to t('menu.language.grammar.test'), '#', class: 'dropdown-item'
+            li.dropdown-submenu
+              a href='#' class='dropdown-item dropdown-toggle' = t('menu.language.lit.title')
+              ul.dropdown-menu
+                li = link_to t('menu.language.lit.trans'), '#', class: 'dropdown-item'
+                li = link_to t('menu.language.lit.articles'), '#', class: 'dropdown-item'
+                li = link_to t('menu.language.lit.namebase'), '#', class: 'dropdown-item'
+                li = link_to t('menu.language.lit.phrases'), '#', class: 'dropdown-item'
+            - if current_language
+              .dropdown-divider
+              .lang-menu-sect.py-2.px-3
+                .lang-menu-flag => image_tag current_language.flag_url, class: 'lang-menu-image'
+                .lang-menu-other
+                  span.lang-menu-name = current_language.name
+                  span.lang-menu-words.small = t('menu.language.wordcount', count: 6)
+              .dropdown-divider
+              li = link_to t('menu.language.summary'), language_path(current_language), class: 'dropdown-item'
+              li = link_to t('menu.language.edit'), edit_language_path(current_language), class: 'dropdown-item'
+              li = link_to t('menu.language.compare'), '#', class: 'dropdown-item'
+              li = link_to t('menu.language.switch'), '#', class: 'dropdown-item'
+              .dropdown-divider
+              li = link_to t('menu.language.new'), new_language_path, class: 'dropdown-item'
+
+        / COMMUNITY
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle#toggleCommunity href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' = t('menu.community.title')
+          ul.dropdown-menu aria-labelledby='toggleCommunity'
+            li = link_to t('menu.community.boards'), '#', class: 'dropdown-item'
+            .dropdown-divider
+            li = link_to t('menu.community.clans'), clans_path, class: 'dropdown-item'
+            li = link_to t('menu.community.conlangs'), languages_path, class: 'dropdown-item'
+            li = link_to t('menu.community.members'), '#', class: 'dropdown-item'
+            li.dropdown-submenu
+              a href='#' class='dropdown-item dropdown-toggle' = t('menu.community.projects.title')
+              ul.dropdown-menu
+                li = link_to t('menu.community.projects.song'), '#', class: 'dropdown-item'
+                li = link_to t('menu.community.projects.cwsp'), '#', class: 'dropdown-item'
+                li = link_to t('menu.community.projects.cwspwiki'), '#', class: 'dropdown-item'
+                li = link_to t('menu.community.projects.cwspmap'), '#', class: 'dropdown-item'
+            .dropdown-divider
+            li = link_to t('menu.blue.resources'), '#', class: 'dropdown-item'
+
+          / TOOLS
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle#toggleCommunity href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' = t('menu.tools.title')
+          ul.dropdown-menu aria-labelledby='toggleCommunity'
+            li = link_to t('menu.tools.phomo'), '#', class: 'dropdown-item'
+            .dropdown-divider
+            li.dropdown-submenu
+              a href='#' class='dropdown-item dropdown-toggle' = t('menu.tools.lex.title')
+              ul.dropdown-menu
+                li = link_to t('menu.tools.lex.lexibuild'), '#', class: 'dropdown-item'
+                li = link_to t('menu.tools.lex.wordgen'), '#', class: 'dropdown-item'
+                li = link_to t('menu.tools.lex.multisearch'), '#', class: 'dropdown-item'
+                li = link_to t('menu.tools.lex.wordbank'), '#', class: 'dropdown-item'
+                li = link_to t('menu.tools.lex.wldb'), '#', class: 'dropdown-item'
+                li = link_to t('menu.tools.lex.swadesh'), '#', class: 'dropdown-item'
+                li = link_to t('menu.tools.lex.num'), '#', class: 'dropdown-item'
+            li.dropdown-submenu
+              a href='#' class='dropdown-item dropdown-toggle' = t('menu.tools.phonetics.title')
+              ul.dropdown-menu
+                li = link_to t('menu.tools.phonetics.ipa'), '#', class: 'dropdown-item'
+                li = link_to t('menu.tools.phonetics.sampa'), '#', class: 'dropdown-item'
+                li = link_to t('menu.tools.phonetics.systems'), '#', class: 'dropdown-item'
+            li.dropdown-submenu
+              a href='#' class='dropdown-item dropdown-toggle' = t('menu.tools.ortho.title')
+              ul.dropdown-menu
+                li = link_to t('menu.tools.ortho.scriptmap'), '#', class: 'dropdown-item'
+                li = link_to t('menu.tools.ortho.freq'), '#', class: 'dropdown-item'
+                li = link_to t('menu.tools.ortho.anagram'), '#', class: 'dropdown-item'
+                li = link_to t('menu.tools.ortho.graphemes'), '#', class: 'dropdown-item'
+            li.dropdown-submenu
+              a href='#' class='dropdown-item dropdown-toggle' = t('menu.tools.numbers.title')
+              ul.dropdown-menu
+                li = link_to t('menu.tools.numbers.base'), '#', class: 'dropdown-item'
+                li = link_to t('menu.tools.numbers.system'), '#', class: 'dropdown-item'
+            li.dropdown-submenu
+              a href='#' class='dropdown-item dropdown-toggle' = t('menu.tools.grammar.title')
+              ul.dropdown-menu
+                li = link_to t('menu.tools.grammar.typodb'), '#', class: 'dropdown-item'
+                li = link_to t('menu.tools.grammar.trees'), '#', class: 'dropdown-item'
+                li = link_to t('menu.tools.grammar.forms'), '#', class: 'dropdown-item'
+            .dropdown-divider
+            li = link_to t('menu.tools.gallery'), '#', class: 'dropdown-item'
+
+      / PROFILE
+      ul.navbar-nav.mt-2.mt-lg-0.navbar-right
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle.active#toggleProfile href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
+            => image_tag current_user.profile.avatar_url, class: 'navbar-avatar'
+            = current_user.username
+            span.badge.badge-light< 3
+          ul.dropdown-menu.dropdown-menu-right aria-labelledby='toggleProfile'
+            li = link_to t('menu.profile.myprof'), profile_path(current_user), class: 'dropdown-item'
+            li = link_to t('menu.profile.editprof'), edit_profile_path(current_user), class: 'dropdown-item'
+            .dropdown-divider
+            li = link_to '#', class: 'dropdown-item'
+              => t('menu.profile.mail')
+              span.badge.badge-primary 3
+            .dropdown-divider
+            li = link_to t('menu.profile.pref'), preferences_path, class: 'dropdown-item'
+            li = link_to t('menu.profile.account'), account_path, class: 'dropdown-item'
+            li = link_to t('menu.profile.help'), '#', class: 'dropdown-item'
+            li = link_to t('menu.profile.report'), '#', class: 'dropdown-item'
+            .dropdown-divider
+            li = link_to t('menu.profile.search'), '#', class: 'dropdown-item'
+            .dropdown-divider
+            li = link_to t('menu.profile.logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item'
 
     - else
-      li[role='treeitem']
-        = link_to t('menu.basic.home'), locale_root_path(locale: I18n.locale), class: 'nav_item nav_grey'
-      li[role='treeitem']
-        a.nav_item.nav_green[href='#']= t('menu.basic.green.browse')
-        ul[role='tree']
-          li[role='treeitem']
-            a.nav_item.nav_green_l[href='#']= t('menu.basic.green.conlangs')
-          li[role='treeitem']
-            a.nav_item.nav_green_l[href='#']= t('menu.basic.green.dictionaries')
-          li[role='treeitem']
-            a.nav_item.nav_green_l[href='#']= t('menu.basic.green.articles')
-          li[role='treeitem']
-            a.nav_item.nav_green_l[href='#']= t('menu.basic.green.articles')
-      li[role='treeitem']
-        = link_to t('menu.basic.about'), page_static_about_path, class: 'nav_item nav_yellow'
-      li[role='treeitem']
-        = link_to t('menu.basic.login'), new_user_session_path, class: 'nav_item nav_blue'
-      li[role='treeitem']
-        = link_to t('menu.basic.register'), new_user_registration_path, class: 'nav_item nav_orange'
+      ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+        li.nav-item
+          = link_to t('menu.anon.about'), page_static_about_path, class: 'nav-link'
+        li.nav-item
+          = link_to t('menu.anon.login'), new_user_session_path, class: 'nav-link'
+        li.nav-item
+          = link_to t('menu.anon.register'), new_user_registration_path, class: 'nav-link'

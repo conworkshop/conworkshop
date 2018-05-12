@@ -19,34 +19,34 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+de:
   language_names:
-    en: English
-    pt: Português (Portuguese)
-    it: Italiano (Italian)
-    fr: Français (French)
-    de: Deutsch (German)
+    en: English (Englisch)
+    pt: Português (Portugiesisch)
+    it: Italiano (Italienisch)
+    fr: Français (Französisch)
+    de: Deutsch
 
   general:
-    save: ✔ Save changes
-    report: ✎ Report an error
+    save: ✔ Änderungen speichern
+    report: ✎ Fehler melden
     return:
-      profile: « Return to profile
+      profile: « Zurück zum Profil
     status:
       online: online
-      away: away
+      away: weg
     minchars:
-      one: Minimum of one character.
-      other: Minimum of %{count} characters.
+      one: Mindestens ein Zeichen.
+      other: Mindestens %{count} Zeichen.
     nocountry: Nowhereland
     gender:
-      m: Male
-      f: Female
-      o: Other
+      m: Männlich
+      f: Weiblich
+      o: Anderer
       c: Cyborg
-      none: Not stated
+      none: Nicht genannt
     langtype:
-      NSP: Not specified
+      NSP: Nicht dargelegt
       APR: A priori
       APS: A posteriori
       ART: Artistic Language (Artlang)
@@ -60,31 +60,31 @@ en:
       JOK: Joke language
       MIX: Mixed
       OTH: Other
-    emailsig: ~The CWS Team
-    nolang: No language
+    emailsig: ~Die CWS Mannschaft
+    nolang: Keine Sprache
 
   activerecord:
     attributes:
       profile:
-        avatar: Profile picture
+        avatar: Profilbild
       language:
-        nativename: Native name
-        lang_type: Language type
-        ipa: Autonym pronounciation
+        nativename: Eigenbezeichnung
+        lang_type: Sprachart
+        ipa: Aussprache des Autonymes
     errors:
       models:
         language:
-          flag_dimension: The flag's width must be at least %{minw}px wide.
+          flag_dimension: Die Breite der Flagge muss mindestens %{minw}px sein.
 
   header:
     quicklinks:
-      bots: '[bots]'
-      search: '[search]'
-      report: '[report/feedback]'
-      help: '[help index]'
+      bots: '[roboter]'
+      search: '[suchen]'
+      report: '[melden/feedback]'
+      help: '[hilfe index]'
     greetings:
       - Hi
-      - Hello
+      - Hallo
       - Hey
       - Salutations
       - Good day
@@ -100,12 +100,12 @@ en:
 
   footer:
     links:
-      privacy: privacy
+      privacy: Privatsphäre
       faqs: FAQs
-      rules: rules
-      statistics: statistics
-      graphs: graphs
-      api: API (in development)
+      rules: Regeln
+      statistics: Statistiken
+      graphs: Graphen
+      api: API (unter Entwicklung)
     sociallinks:
       facebook: Facebook page
       twitter: Twitter profile
@@ -113,105 +113,107 @@ en:
       googleplus: Google+ profile
       instagram: Instagram profile
       tumblr: Tumblr profile
-    langsel: 'Viewing CWS in: %{seltag}'
+    langsel: 'Du siehst CWS auf: %{seltag}'
 
   application:
     :403:
-      title: Unauthorized
-      denied: Oops! Access denied!
+      title: Unerlaubt
+      denied: Ups! Zutritt verboten!
       banned:
-        title: Your account has been banned.
+        title: Dein Konto wurde verbannt.
         paragraph1: >
-          CWS Staff have decided for some reason to ban your account - probably because you have breached one of CWS's
-          rules. Any attempts to circumvent this ban will result in all new accounts being removed without warning.
+          Die CWS-Personal hat sich entschlossen, Ihr Konto aus irgendeinem Grund zu verbannen - wahrscheinlich,
+          weil Sie eine der CWS-Regeln gebrochen haben. Jeder Versuch, dieses Verbot zu umgehen, wird ohne Warnung zum
+          Entfernen aller neuen Konten führen.
         paragraph2: >
-          If you wish to discuss this with us, you may contact us at %{link:conworkshop@gmail.com} and we will respond
-          when we can.
+          Wenn Sie darüber mit uns diskutieren wollen, können Sie unter %{link:conworkshop@gmail.com} mit uns Kontakt
+          aufnehmen und wir werden Ihnen schnellstmöglich unsere Antwort zusenden.
       maintenance:
         text: >
-          Access to this page has temporarily been restricted by admin. This could be due to one of the following
-          reasons:
+          Zugriff auf diese Seite ist zeitweilig von einem Administrator beschränkt worden. Das könnte aus den
+          folgenden Gründen sein:
         reasons:
           maintenance:
-            pretext: '%{b:We are doing some small maintenance work}, in which case:'
+            pretext: '%{b:Wir führen kleinere Wartungsarbeiten durch}, in welchem Fall:'
             text: >
-              please be patient (hopefully shouldn't be long). This is so that we can ensure the page is working as best
-              as possible first;
+              bitte haben Sie Geduld (das sollte hoffentlich nicht so lange dauern). Damit können wir zuerst
+              sicherstellen, dass diese Seite so gut wie möglich fuktioniert;
           development:
-            pretext: '%{b:This is a new page under development}, in which case:'
+            pretext: '%{b:Das ist eine neue Seite, die unter Entwicklung steht}, in welchem Fall:'
             text: >
-              please be patient (could be a while). We're still working on this page and might take a while for it to be
-              functional.
+              bitte haben Sie Geduld (das könnte eine Weile dauern). Wir arbeiten noch an dieser Seite und es
+              könnte eine Weile dauern, bevor es funktional ist.
           other:
-            pretext: '%{b:Something else went wrong} (unlikely), in which case:'
+            pretext: '%{b:Etwas anderes ist schief gelaufen} (unwahrscheinlich), in welchem Fall:'
             text: >
-              please %{report_link:report this}, if you think the lock-out is incorrect, or contact us on the
-              %{email_link:conworkshop@gmail.com} email.
+              bitte %{report_link:melden Sie das}, wenn Sie glauben, dass diese Beschränkung unrichtig ist, oder
+              nehmen Sie per E-Mail unter %{email_link:conworkshop@gmail.com} mit uns Kontakt auf.
       other: >
-        It appears that the page you tried to navigate to has restricted access. This may be because you're trying to
-        edit information that is not yours, access a private part of the site, or access administrator or staff pages.
-        You should probably %{link:go back} and do something else. If you believe this is a genuine mistake, please
-        report an error using the button below. Sorry for the inconvenience!
+        Diese Seite, die Sie öffnen wollten, hat offenbar beschränkten Zugriff. Das könnte sein, weil Sie
+        versuchten, Informationen zu verändern, die Ihnen nicht gehört, oder einen privaten Teil der Website, zum
+        Beispiel Administrator- oder Personalsiten, zu vergreifen. Sie sollten wahrscheinlich %{link:zurück gehen}
+        und etwas anderes machen. Wenn Sie glauben, dass das ein echter Fehler ist, melden Sie bitte diesen Fehler
+        mit der folgenden Schaltfläche. Entschuldigen Sie die Störung!
 
   users:
     sessions:
       new:
-        title: Log in
-        fblogin: Log in with Facebook instead
-        login: ✔ Let me in!
-        remember: Remember me
+        title: Einloggen
+        fblogin: Mit Facebook einloggen
+        login: ✔ Logg mich ein!
+        remember: Erinnere mich
     mailer:
       confirmation_instructions:
-        welcome: Welcome to CWS, %{b:%{email}}!
-        confirm: 'You can confirm your account using the link below:'
-        confirm_link: Confirm my account
+        welcome: Willkommen auf CWS, %{b:%{email}}!
+        confirm: 'Sie können Ihr Konto mit dem Link unten bestätigen:'
+        confirm_link: Mein Konto bestätigen
       email_changed:
-        hello: Hello, %{b:%{email}}!
-        changing: We're contacting you to notify you that your email is being changed to %{b:%{email}}.
-        changed: We're contacting you to notify you that your email has been changed to %{b:%{email}}.
+        hello: Hallo, %{b:%{email}}!
+        changing: Wir kontaktieren Sie, um Sie zu benachrichtigen, dass Ihr E-Mail-Adresse zu %{b:%{email}} geändert wird.
+        changed: Wir kontaktieren Sie, um Sie zu benachrichtigen, dass Ihr E-Mail-Adresse zu %{b:%{email}} geändert wurde.
       password_change:
-        hello: Hello, %{b:%{email}}!
-        changed: We're contacting you to notify you that your password has been changed.
+        hello: Hallo, %{b:%{email}}!
+        changed: Wir kontaktieren Sie, um Sie zu benachrichtigen, dass Ihr Passwort geändert wurde.
     shared:
       links:
-        alreadyacct: Already have an account? %{link:Log in}
-        new: New to CWS? %{link:Sign up}
-        forgot: Oops! %{link:Forgot your password?}
+        alreadyacct: Haben Sie schon ein Konto? %{link:Einloggen}
+        new: Neu in CWS? %{link:Registrieren}
+        forgot: Ups! %{link:Passwort vergessen?}
         omniauth:
-          facebook: Log in with Facebook
+          facebook: Mit Facebook einloggen
 
   languages:
     index:
-      title: Conlangs
-      title_main: Conlangs of ConWorkShop (%{count})
+      title: Kunstsprachen
+      title_main: Kunstspachen von ConWorkShop (%{count})
     show:
       notfound:
-        title: Language not found
-        text: No language with the code "%{code}" was found.
-      flag_alt: "%{name}'s flag"
+        title: Sprache nicht gefunden
+        text: Keine Sprache mit dem Code "%{code}" wurde gefunden.
+      flag_alt: "%{name}s Flagge"
       registered_by:
-        title: Registered by
-        text: '%{b:%{name}} on %{date}'
+        title: Registriert von
+        text: '%{b:%{name}} am %{date}'
       place_n_speakers:
-        title: Place & Speakers
-        text: '%{b:%{name}} is spoken in %{place}.'
-      species: Species
-      about: About %{name}
-      edit: "✎ Edit information"
+        title: Ort & Sprecher
+        text: '%{b:%{name}} wird in %{place} gesprochen'
+      species: Art
+      about: Über %{name}
+      edit: "✎ Information bearbeiten"
     edit:
-      title: Editing %{name}
-      back: "« View language page"
-      settings: "%{name} settings"
-      no_slashes: "(You do %{b:not} need to add brackets or slashes)"
+      title: "%{name} bearbetien"
+      back: "« Sprachseite sehen"
+      settings: "%{name} Einstellungen"
+      no_slashes: "(Sie müssen %{b:keine} Klammern oder Bruchstriche hinzufügen)"
     new:
-      title: Add new language
+      title: Neue Sprache hinzufügen
       code:
-        length_limit: A unique three to six-letter code to identify your language.
-        char_limit: Letters %{b:A-Z} and numbers %{b:0-9} only!
+        length_limit: Ein einzigartiger Code mit drei bis sechs Buchstaben, um Ihre Sprache zu identifizieren.
+        char_limit: Nur Buchstaben %{b:A-Z} und Nummern %{b:0-9}!
       unnamed:
-        label: I don't have a name for this language yet.
-        text: Unnamed
-      submit: Add language
+        label: Ich habe noch keinen Namen für diese Sprache.
+        text: Unbenannte
+      submit: Sprache hinzufügen
 
   account:
     edit:
