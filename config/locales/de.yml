@@ -416,98 +416,98 @@ de:
 
   menu:
     language:
-      title: Language
+      title: Sprache
       dictionary:
-        title: Dictionary
-        add: Add word
-        view: View dictionary
-        settings: Settings
-        tools: Tools
-        stats: Statistics
+        title: Wörterbuch
+        add: Wort hinzufügen
+        view: Wörterbuch sehen
+        settings: Einstellungen
+        tools: Werkzeuge
+        stats: Statistik
       phono:
-        title: Phonology
-        inventory: Inventory
-        phonotactics: Phonotactics
-        estim: Pronunciation estimation
-        ortho: Orthography
+        title: Phonologie
+        inventory: Phoneminventar
+        phonotactics: Phonotaktik
+        estim: Schätzung der Aussprache
+        ortho: Orthographie
       grammar:
-        title: Grammar
-        tables: Tables
-        forms: Forms
-        typo: Typology
-        test: Grammar test
+        title: Grammatik
+        tables: Tabellen
+        forms: Formen
+        typo: Typologie
+        test: Grammatiktest
       lit:
-        title: Literature
-        trans: Translations
-        articles: Articles
+        title: Literatur
+        trans: Übersetzungen
+        articles: Artikel
         namebase: Namebase
-        phrases: Phrasebook
-      wordcount: "%{count} entries"
-      summary: Summary
-      edit: Edit language
-      compare: Compare
-      switch: Switch...
-      new: New language
+        phrases: Sprachführer
+      wordcount: "%{count} Einträge"
+      summary: Zusammenfassung
+      edit: Sprache bearbeiten
+      compare: Vergleichen
+      switch: Tauschen...
+      new: Neue Sprache
     community:
-      title: Community
+      title: Gemeinschaft
       boards: Boards
       clans: Clans
-      conlangs: Conlangs
-      members: Members
+      conlangs: Kunstsprachen
+      members: Mitglieder
       projects:
-        title: Projects
-        song: Song projects
-        cwsp: CWS Planet
-        cwspwiki: CWSP wiki
-        cwspmap: CWSP maps
-      resources: Resources
+        title: Projekte
+        song: Liedprojekte
+        cwsp: CWS-Planet
+        cwspwiki: CWSP-Wiki
+        cwspmap: CWSP-Karten
+      resources: Ressourcen
     tools:
-      title: Tools
+      title: Werkzeuge
       phomo: PhoMo
       lex:
         title: Lexicon
         lexibuild: LexiBuild
-        wordgen: Word Generator
-        multisearch: Dictionary multi-search
+        wordgen: Wortschöpfer
+        multisearch: Wörterbuch Multi-Suche
         wordbank: WordBank
-        wldb: Wordlink database
-        swadesh: Conlanger's Swadesh list
-        num: Numbers 1 to 10
+        wldb: Wordlink-Datenbank
+        swadesh: Swadesh-Liste des Kunstsprachlers
+        num: Nummern 1 bis 10
       phonetics:
-        title: Phonetics
-        ipa: IPA chart
-        sampa: X-SAMPA converter
-        systems: Phonological systems
+        title: Phonetik
+        ipa: IPA-Tabelle
+        sampa: X-SAMPA-Konverter
+        systems: Phoologische Systeme
       ortho:
-        title: Orthography
-        scriptmap: Latin script map
-        freq: Frequency calculator
-        anagram: Anagram generator
-        graphemes: Graphemes
+        title: Orthographie
+        scriptmap: Lateinischer Schrift-Tabelle
+        freq: Häufigkeit berechnen
+        anagram: Anagramm-Macher
+        graphemes: Grapheme
       numbers:
-        title: Numbers
-        base: Base converter
-        system: System converter
+        title: Nummern
+        base: Grundzahl-Konverter
+        system: System-Konverter
       grammar:
-        title: Grammar
-        typodb: Typological database
-        trees: Syntax trees
-        forms: Grammar forms
-      gallery: Gallery
+        title: Grammatik
+        typodb: Typologische Datenbank
+        trees: Syntaxbäume
+        forms: Grammatische Formen
+      gallery: Galerie
     profile:
-      myprof: My profile
-      editprof: Edit profile
-      mail: Messages
-      pref: Site preferences
-      account: My account
-      help: Help & FAQs
-      report: Report/Feedback
-      search: Search...
-      logout: Log out
+      myprof: Mein Profil
+      editprof: Profil bearbeiten
+      mail: Nachrichten
+      pref: Seite-Einstellungen
+      account: Mein Konto
+      help: Hilfe & FAQs
+      report: Melden/Feedback
+      search: Suchen...
+      logout: Abmelden
     anon:
-      about: About
-      login: Log in
-      register: Register
+      about: Über CWS
+      login: Einloggen
+      register: Registrieren
 
   time:
     formats:
