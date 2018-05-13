@@ -104,7 +104,7 @@ class User < ApplicationRecord
     ClanMembership.exists?(user: self, clan: c)
   end
 
-  def rank?(rank)
+  def rank?(rank=1)
     RANK_HIERARCHY[group.to_sym] >= rank
   end
 

@@ -50,6 +50,9 @@ Rails.application.routes.draw do
     # Language
     resources :languages
 
+    # Phones
+    resources :phones
+
     # Admin
     namespace :admin do
       # Admin::Langtypes

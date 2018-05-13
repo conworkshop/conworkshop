@@ -412,6 +412,62 @@ en:
           title: Language
           text: Choose the language you prefer CWS to be displayed in by default.
 
+  phones:
+    index:
+      title: Global phones
+    new:
+      title: New global phone
+    show:
+      title: View global phone
+    articulations:
+      C: consonant
+      V: vowel
+    place:
+      B: bilabial
+      L: labio-dental
+      D: dental
+      A: alveolar
+      P: post-alveolar
+      R: retroflex
+      Y: alveo-palatal
+      J: palatal
+      W: labio-velar
+      V: velar
+      U: uvular
+      H: pharyngeal
+      X: epiglottal
+      G: glottal
+      I: other
+    manner:
+      N: nasal
+      P: plosive
+      I: implosive
+      J: affricate
+      Q: lateral affricate
+      F: fricative
+      Z: lateral fricative
+      X: tap
+      R: flap
+      T: trill
+      L: lateral approximant
+      A: approximant
+      C: click
+    back:
+      F: front
+      N: near-front
+      C: central
+      K: near-back
+      B: back
+    height:
+      C: high
+      N: near-high
+      L: high-mid
+      M: mid
+      I: low-mid
+      P: near-low
+      O: low
+
+
   menu:
     language:
       title: Language

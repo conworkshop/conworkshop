@@ -78,4 +78,16 @@ $(document).on("turbolinks:load", ->
   $('.preview_field_symbol').on 'change keyup paste', ->
     d_blob.text($(this).val().substr(0,1))
 
+  # Appearance of vowel/consonant selects in admin phono page
+  $('.articulationDropdown').change ->
+    le = $(this).val()
+    if le == 'V'
+      $('.formCons').hide()
+      $('.formVowel').show()
+    else if le == 'C'
+      $('.formCons').show()
+      $('.formVowel').hide()
+    else
+      $('.formCons, .formVowel').hide()
+
 )
