@@ -23,11 +23,15 @@
       = f.label      :code
       small.form-text.text-muted
         ' A unique code to identify the phone.
-        ' It's probably most logical to base it on the values of row, col, voice and articulation
-        ' (ordered ACRV, where V is H for voiced and absent for voiceless).
+        ' It's probably most logical to base it on the values of row, col, voice/roundedness and articulation.
+        ' For consonants, this is ordered ACRV, where V is H for voiced and absent for voiceless.
         ' Example:
         b> CBFH
-        | for voiced bilabial fricative
+        ' for voiced bilabial fricative (/v/).
+        ' For vowels, this is ordered ARCV, where V is R for rounded and absent for unrounded.
+        ' Example:
+        b> VNN
+        | for unrounded near-high near-front (/ɪ/).
 
     .form-label-group
       = f.text_field :name, placeholder: 'Name', class: 'form-control'
@@ -54,8 +58,12 @@
       = f.label :vrow, 'Manner of articulation'
       = f.select :row, height_select_options, {}, {class: 'form-control', name: 'phone[vrow]', id: 'phone_vrow'}
 
-    .form-check.mb-3
+    .form-check.mb-2
       => f.check_box :voiceless, class: 'form-check-input'
       = f.label :voiceless
+
+    .form-check.mb-3
+      => f.check_box :rounded, class: 'form-check-input'
+      = f.label :rounded
 
     = f.submit 'Add phone', class: 'btn btn-primary'

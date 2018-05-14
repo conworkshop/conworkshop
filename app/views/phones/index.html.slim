@@ -1,38 +1,35 @@
 - provide(:page_title, t('.title'))
 - provide(:page_colour, 'yellow')
 
-= left_col class: 'bg-light' do
+= full_width class: 'bg-light text-center' do
   h3 = t('.title')
 
   - if current_user.rank?
     = link_to 'New phone', new_phone_path, class: 'btn btn-link'
 
-= right_col do
-  table.table
+= full_width class: 'table-responsive' do
+  table.table.table-sm.table-bordered
     thead
       tr
-        th scope='col' Code
-        th scope='col' Name
-        th scope='col' IPA
-        th scope='col' X-SAMPA
-        th scope='col' V/C?
-        th scope='col' Attributes
+        th
+        - @poa.each do |poa|
+          th scope='col' = t(poa.col, scope: 'phones.place')
     tbody
-    - @phones.each do |phone|
+      - @consonants.each do |row, data|
+        tr
+          th scope='row' = t(row, scope: 'phones.manner')
+          - @poa.each do |poa|
+            td.ipa.text-center = data.select { |d| d.col == poa.col }.map(&:ipa).join(' · ')
+
+  table.table.table-sm.table-bordered
+    thead
       tr
-        th scope='row' = phone.code
-        td = link_to phone.name, phone_path(phone)
-        td = phone.ipa
-        td = phone.sampa
-        td = phone.articulation
-        td
-          - if phone.articulation == 'C'
-            = t(phone.row, scope: 'phones.manner')
-            ' ,
-            = t(phone.col, scope: 'phones.place')
-          - elsif phone.articulation == 'V'
-            = t(phone.row, scope: 'phones.height')
-            ' ,
-            = t(phone.col, scope: 'phones.back')
-          ' ,
-          = phone.voiceless? ? 'voiceless' : 'voiced'
+        th
+        - @back.each do |poa|
+          th scope='col' = t(poa.col, scope: 'phones.back')
+    tbody
+      - @vowels.each do |row, data|
+        tr
+          th scope='row' = t(row, scope: 'phones.height')
+          - @back.each do |poa|
+            td.ipa.text-center = data.select {|d| d.col == poa.col}.map(&:ipa).join(' · ')

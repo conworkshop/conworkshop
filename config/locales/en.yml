@@ -437,7 +437,6 @@ en:
       H: pharyngeal
       X: epiglottal
       G: glottal
-      I: other
     manner:
       N: nasal
       P: plosive
@@ -447,17 +446,12 @@ en:
       F: fricative
       Z: lateral fricative
       X: tap
-      R: flap
+      R: lateral flap
       T: trill
       L: lateral approximant
       A: approximant
       C: click
-    back:
-      F: front
-      N: near-front
-      C: central
-      K: near-back
-      B: back
+      K: lateral click
     height:
       C: high
       N: near-high
@@ -466,6 +460,12 @@ en:
       I: low-mid
       P: near-low
       O: low
+    back:
+      F: front
+      N: near-front
+      C: central
+      K: near-back
+      B: back
 
 
   menu:

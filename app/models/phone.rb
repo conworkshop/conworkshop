@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Phone < ApplicationRecord
-  CONS_PLACE   = %w[B L D A P R Y J W V U H X G I].freeze
-  CONS_MANNER  = %w[N P I J Q F Z X R T L A C].freeze
+  CONS_PLACE   = %w[B L D A P R Y J W V U H X G].freeze
+  CONS_MANNER  = %w[N P I J Q F Z X R T L A C K].freeze
 
   VOWEL_BACK   = %w[F N C K B].freeze
   VOWEL_HEIGHT = %w[C N L M I P O].freeze

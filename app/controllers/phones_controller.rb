@@ -2,7 +2,10 @@
 
 class PhonesController < ApplicationController
   def index
-    @phones = Phone.all
+    @poa = Phone.where(articulation: 'C').group(:col).select(:col).sort_by { |c| Phone::CONS_PLACE.index(c.col) }
+    @back = Phone.where(articulation: 'V').group(:col).select(:col).sort_by { |c| Phone::VOWEL_BACK.index(c.col) }
+    @consonants = Phone.where(articulation: 'C').group_by(&:row)
+    @vowels = Phone.where(articulation: 'V').group_by(&:row)
   end
 
   def show
@@ -36,6 +39,6 @@ class PhonesController < ApplicationController
       params[:phone][:row] = params[:phone][:vrow]
       params[:phone][:col] = params[:phone][:vcol]
     end
-    params.require(:phone).permit(:code, :ipa, :sampa, :col, :row, :voiceless, :articulation, :name)
+    params.require(:phone).permit(:code, :ipa, :sampa, :col, :row, :voiceless, :rounded, :articulation, :name)
   end
 end
