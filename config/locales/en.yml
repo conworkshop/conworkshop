@@ -496,10 +496,12 @@ en:
         articles: Articles
         namebase: Namebase
         phrases: Phrasebook
-      wordcount: "%{count} entries"
+      wordcount: "%{count} entries • %{total} total"
+      publicwordcount: "%{count} total entries"
       summary: Summary
       edit: Edit language
       compare: Compare
+      share: Share
       switch: Switch...
       new: New language
     community:

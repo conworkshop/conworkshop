@@ -1,5 +1,11 @@
 nav.navbar.navbar-expand-lg.navbar-dark class="bg-#{@phue}" style="z-index: 998; padding-left: 5%; padding-right: 5%;"
-  = link_to 'conworkshop', root_path, class: 'navbar-brand'
+  = link_to root_path, class: 'navbar-brand'
+    .brand-main conworkshop
+    .brand-words
+      - if current_language
+        = t('menu.language.wordcount', count: 6, total: '3,794')
+      - else
+        = t('menu.language.publicwordcount', count: '3,794')
   button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation"
     span.navbar-toggler-icon
 
@@ -9,11 +15,12 @@ nav.navbar.navbar-expand-lg.navbar-dark class="bg-#{@phue}" style="z-index: 998;
 
         / LANGUAGE
         li.nav-item.dropdown
-          a.nav-link.dropdown-toggle#toggleLang href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
-            - if current_language
+          - if current_language
+            a.nav-link.nav-link-tall.dropdown-toggle#toggleLang href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
               => image_tag current_language.flag_thumb_url, class: 'flag_thumb'
               = current_language.name
-            - else
+          - else
+            a.nav-link.dropdown-toggle#toggleLang href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
               = t('menu.language.title')
           ul.dropdown-menu aria-labelledby='toggleLang'
             li.dropdown-submenu
@@ -45,17 +52,11 @@ nav.navbar.navbar-expand-lg.navbar-dark class="bg-#{@phue}" style="z-index: 998;
                 li = link_to t('menu.language.lit.articles'), '#', class: 'dropdown-item'
                 li = link_to t('menu.language.lit.namebase'), '#', class: 'dropdown-item'
                 li = link_to t('menu.language.lit.phrases'), '#', class: 'dropdown-item'
-            - if current_language
-              .dropdown-divider
-              .lang-menu-sect.py-2.px-3
-                .lang-menu-flag => image_tag current_language.flag_url, class: 'lang-menu-image'
-                .lang-menu-other
-                  span.lang-menu-name = current_language.name
-                  span.lang-menu-words.small = t('menu.language.wordcount', count: 6)
               .dropdown-divider
               li = link_to t('menu.language.summary'), language_path(current_language), class: 'dropdown-item'
               li = link_to t('menu.language.edit'), edit_language_path(current_language), class: 'dropdown-item'
               li = link_to t('menu.language.compare'), '#', class: 'dropdown-item'
+              li = link_to t('menu.language.share'), '#', class: 'dropdown-item'
               li = link_to t('menu.language.switch'), '#', class: 'dropdown-item'
               .dropdown-divider
               li = link_to t('menu.language.new'), new_language_path, class: 'dropdown-item'
@@ -121,6 +122,11 @@ nav.navbar.navbar-expand-lg.navbar-dark class="bg-#{@phue}" style="z-index: 998;
                 li = link_to t('menu.tools.grammar.forms'), '#', class: 'dropdown-item'
             .dropdown-divider
             li = link_to t('menu.tools.gallery'), '#', class: 'dropdown-item'
+
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle#toggleStaff href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' Staff
+          ul.dropdown-menu aria-labelledby='toggleStaff'
+            li = link_to 'some random staff shit', '#', class: 'dropdown-item'
 
       / PROFILE
       ul.navbar-nav.mt-2.mt-lg-0.navbar-right

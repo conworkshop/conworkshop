@@ -247,7 +247,17 @@ body {
 
 // conworkshop logo
 .navbar-brand {
-  font-weight: bold;
+  padding-right: 1.5em;
+  text-align: right;
+
+  .brand-main {
+    font-weight: bold;
+  }
+  .brand-words {
+    font-size: small;
+    margin-top: -4px;
+    opacity: .8;
+  }
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -263,6 +273,33 @@ body {
     span {
       display: none;
     }
+  }
+}
+
+.nav-link-tall {
+  display: table-row;
+}
+.flag_flag {
+  display: table-cell;
+  vertical-align: middle;
+}
+.flag_info {
+  display: table-cell;
+  padding-left: 6px;
+
+  .flag_words {
+    font-size: small;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .navbar-nav {
+    display: table-row;
+  }
+  .navbar-nav > li {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 10px;
   }
 }
 
