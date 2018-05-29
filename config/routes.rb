@@ -53,6 +53,9 @@ Rails.application.routes.draw do
     # Phones
     resources :phones
 
+    # Wordlinks
+    resources :wordlinks
+
     # Admin
     namespace :admin do
       # Admin::Langtypes

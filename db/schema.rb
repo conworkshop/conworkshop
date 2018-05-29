@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_14_105658) do
+ActiveRecord::Schema.define(version: 2018_05_29_082547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,6 +147,25 @@ ActiveRecord::Schema.define(version: 2018_05_14_105658) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid"], name: "index_users_on_uid", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
+  end
+
+  create_table "wordlinks", force: :cascade do |t|
+    t.string "wlid"
+    t.string "english"
+    t.string "american"
+    t.string "class"
+    t.string "hint"
+    t.text "notes"
+    t.text "locale"
+    t.bigint "user_id"
+    t.boolean "locked"
+    t.integer "count"
+    t.bigint "last_update_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["last_update_user_id"], name: "index_wordlinks_on_last_update_user_id"
+    t.index ["user_id"], name: "index_wordlinks_on_user_id"
+    t.index ["wlid"], name: "index_wordlinks_on_wlid", unique: true
   end
 
   add_foreign_key "users", "languages", column: "current_lang_id", on_delete: :nullify
