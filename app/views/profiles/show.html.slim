@@ -43,7 +43,8 @@
             - if @profile_user.user_track
               => local_time_ago(@profile_user.user_track.tracked_at)
               span.grey
-                | [#{route_path(@profile_user.user_track.route)}]
+                /| [#{route_path(@profile_user.user_track.route)}]
+                | [#{@profile_user.user_track.route}]
             - else
               | No idea!
       .col-xs-12.col-md-4
@@ -82,12 +83,11 @@
               th scope='col' = Language.human_attribute_name('nativename')
               th scope='col' = Language.human_attribute_name('name')
           tbody
-          - lang_list(@profile_user) do |language|
+          - @profile_user.languages.each do |language|
             tr
               td.align-middle
                 = lang_handle(language)
-                br
-                .small.text-muted
+                span.small.text-muted.pl-1
                   => language.code
                   - if @profile_user == current_user
                     a[href="#"] [switch]
