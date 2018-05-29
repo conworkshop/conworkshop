@@ -7,7 +7,7 @@ class User < ApplicationRecord
     A: 2, D: 2
   }.freeze
 
-  USERNAME_LEN = (4..16).freeze
+  USERNAME_LEN = (3..16).freeze
 
   has_one :profile
   has_one :user_track

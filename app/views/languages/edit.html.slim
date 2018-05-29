@@ -31,3 +31,5 @@
     .form-group
       = f.label :status
       = f.select :status, Language.statuses.map { |s, _| [s.humanize, s] }, {}, {class: 'form-control'}
+
+    = f.submit t('.submit'), class: 'btn btn-primary'

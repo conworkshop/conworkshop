@@ -203,6 +203,7 @@ en:
       back: "« View language page"
       settings: "%{name} settings"
       no_slashes: "(You do %{b:not} need to add brackets or slashes)"
+      submit: Save changes
     new:
       title: Add new language
       code:

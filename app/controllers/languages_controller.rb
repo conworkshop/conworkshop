@@ -42,11 +42,22 @@ class LanguagesController < ApplicationController
 
   def edit
     @language = find_language_for_code(params[:id])
-
     redirect_to language_path(id: params[:id]) unless @language && current_user.power_over?(@language&.user)
   end
 
   def update
+    @language = find_language_for_code(params[:id])
+    redirect_to language_path(id: params[:id]) unless @language && current_user.power_over?(@language&.user)
+
+    p = update_params
+    p[:lang_type] = LangType.find_by(code: p[:lang_type])
+
+    if @language.update_attributes(p)
+      flash[:success] = 'Language updated successfully'
+      redirect_to language_path(@language)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -56,6 +67,10 @@ class LanguagesController < ApplicationController
 
   def find_language_for_code(code)
     Language.includes(:lang_type, user: [:default_clan]).find_by(code: code)
+  end
+
+  def update_params
+    params.require(:language).permit(:name, :nativename, :lang_type, :ipa, :status)
   end
 
   def create_params

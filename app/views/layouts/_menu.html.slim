@@ -53,10 +53,11 @@ nav.navbar.navbar-expand-lg.navbar-dark class="bg-#{@phue}" style="z-index: 998;
                 li = link_to t('menu.language.lit.namebase'), '#', class: 'dropdown-item'
                 li = link_to t('menu.language.lit.phrases'), '#', class: 'dropdown-item'
               .dropdown-divider
-              li = link_to t('menu.language.summary'), language_path(current_language), class: 'dropdown-item'
-              li = link_to t('menu.language.edit'), edit_language_path(current_language), class: 'dropdown-item'
+              - if current_language
+                li = link_to t('menu.language.summary'), language_path(current_language), class: 'dropdown-item'
+                li = link_to t('menu.language.edit'), edit_language_path(current_language), class: 'dropdown-item'
+                li = link_to t('menu.language.share'), '#', class: 'dropdown-item'
               li = link_to t('menu.language.compare'), '#', class: 'dropdown-item'
-              li = link_to t('menu.language.share'), '#', class: 'dropdown-item'
               li = link_to t('menu.language.switch'), '#', class: 'dropdown-item'
               .dropdown-divider
               li = link_to t('menu.language.new'), new_language_path, class: 'dropdown-item'
