@@ -3,8 +3,6 @@
 Rails.application.routes.draw do
   get '/:locale', locale: Regexp.union(I18n.available_locales.map(&:to_s)), to: 'static#feed', as: :locale_root
 
-  root 'static#feed'
-
   # Devise omniauth callbacks can't be scoped
   devise_for :users,
              only: :omniauth_callbacks,
@@ -12,6 +10,8 @@ Rails.application.routes.draw do
              path: ''
 
   scope '(:locale)', locale: Regexp.union(I18n.available_locales.map(&:to_s)) do
+    root 'static#feed'
+    
     # Devise
     devise_for :users,
                controllers: {

@@ -129,10 +129,11 @@ nav.navbar.navbar-expand-lg.navbar-dark class="bg-#{@phue}" style="z-index: 998;
             .dropdown-divider
             li = link_to t('menu.tools.gallery'), '#', class: 'dropdown-item'
 
-        li.nav-item.dropdown
-          a.nav-link.dropdown-toggle#toggleStaff href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' Staff
-          ul.dropdown-menu aria-labelledby='toggleStaff'
-            li = link_to 'some random staff shit', '#', class: 'dropdown-item'
+        - if current_user.rank?
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle#toggleStaff href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' Staff
+            ul.dropdown-menu aria-labelledby='toggleStaff'
+              li = link_to 'some random staff shit', '#', class: 'dropdown-item'
 
       / PROFILE
       ul.navbar-nav.mt-2.mt-lg-0.navbar-right

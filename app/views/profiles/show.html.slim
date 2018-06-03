@@ -7,16 +7,6 @@
     .profile-banner-avatar = image_tag(@profile_user.profile.avatar_url)
 
   = full_width class: 'profile-strip', padding: '' do
-    .profile-strip-data
-      .profile-handle
-        = user_handle(@profile_user)
-      .profile-karma.small.mt-1
-        span.karma-arrow-up> ▲
-        ' 123
-        span.karma-arrow-down> ▼
-        ' 321
-        / TODO: a linkamajig to the karmamajig
-        a[href='#']= t('.sidedata.karmainfo')
 
   = left_col class: 'bg-light text-center profile-info-col', padding: 'px-4 pb-4' do
     .profile-info-data
@@ -83,14 +73,14 @@
             dd = @profile_user.group
 
     - unless @profile_user.profile.about.blank?
-      section#about
-        h4 = t('.about', name: @profile_user.display_name)
+      section.mt-1#about
+        h5 = t('.about', name: @profile_user.display_name)
         / TODO: Needs CWSMarkup!
         .faux = @profile_user.profile.about
 
     - if @profile_user.languages.any?
-      section.mt-3.table-responsive
-        h4 = link_to t('.conlangs'), languages_path
+      section.mt-4.table-responsive
+        h5 = link_to t('.conlangs'), languages_path
         table.table.table-sm
           thead
             tr
