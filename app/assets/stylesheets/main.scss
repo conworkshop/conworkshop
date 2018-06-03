@@ -25,6 +25,129 @@ body {
   font-family: $ipa-font-stack;
 }
 
+.inline-minicircle {
+  display: inline-block;
+  height: 19px;
+  width: 19px;
+  text-align: center;
+  border-radius: 10px;
+  padding: none;
+  border: none;
+}
+
+.append-none {
+  -webkit-appearance: none;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.prepend-none {
+  -webkit-appearance: none;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+#wlDefinitions {
+  padding-left: 1em;
+}
+
+
+.profile-banner {
+  height: 190px;
+  background-color: #b39dab;
+  position: relative;
+
+  .profile-banner-avatar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 994;
+
+    img {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: -56px;
+      border: 3px solid #fff;
+      height: 112px;
+      width: 112px;
+      border-radius: 56px;
+    }
+  }
+}
+.profile-strip {
+  display: none;
+  background: #eee;
+
+  .profile-strip-data {
+    margin-left: 21vw;
+    padding: 14px 0;
+  }
+}
+.profile-info-col {
+  padding-top: 65px;
+}
+
+@include media-breakpoint-up(md) {
+  .profile-banner {
+    height: 240px;
+
+    .profile-banner-avatar {
+      width: 25vw;
+    }
+  }
+  .profile-strip {
+    display: block;
+  }
+  .profile-info-col {
+    padding-top: 1.5rem;
+  }
+  .profile-info-data {
+    display: none;
+  }
+}
+
+.ui-autocomplete {
+  list-style-type: none;
+  padding: 0;
+  background: #fff;
+  border: 1px solid #aaa;
+  max-height: 320px;
+  overflow-y: auto;
+
+  li {
+    padding: 4px 8px;
+
+    &.nopick {
+      padding: 6px 8px;
+      color: #777;
+
+      &:hover {
+        background: none;
+        color: #777;
+      }
+    }
+
+    small {
+      display: block;
+      color: #777;
+
+      .ui-state-active {
+        border: none !important;
+        background: none !important;
+      }
+    }
+
+    &:hover {
+      background: $new-green;
+      color: #fff;
+
+      small {
+        color: #eee;
+      }
+    }
+  }
+}
+
 .site_main_cont {
   background: #fff;
   box-shadow: 0 0 10px #333;
@@ -39,6 +162,13 @@ body {
       z-index: 999;
     }
   }
+}
+
+.little-label {
+  color: #666;
+  font-size: small;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .formCons, .formVowel {

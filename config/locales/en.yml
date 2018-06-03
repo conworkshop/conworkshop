@@ -468,6 +468,44 @@ en:
       K: near-back
       B: back
 
+  words:
+    classes:
+      X: Select part of speech...
+      ABB: Abbreviation
+      ADJ: Adjective
+      ADP: Adposition
+      ADV: Adverb
+      AFF: Affix
+      AUX: Auxiliary
+      C: Conjunction
+      DET: Determiner
+      I: Interjection
+      N: Noun
+      NUM: Numeral
+      PTC: Particle
+      PHR: Phrase
+      P: Pronoun
+      PPR: Proper noun
+      V: Verb
+    registers:
+      N: Neutral
+      ARCH: Archaic
+      CASL: Casual
+      DATD: Dated
+      EUPH: Euphemistic
+      FORM: Formal/Polite
+      HONR: Honorific
+      HUMB: Humble
+      HMRS: Humorous/Sarcastic
+      INTM: Intimate
+      JRGN: Jargon
+      POET: Poetic
+      RELG: Religious/Pious
+      SLNG: Slang
+      TBOO: Taboo
+      VULG: Vulgar
+      OTHR: Other (see notes)
+
 
   menu:
     language:

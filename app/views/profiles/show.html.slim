@@ -3,16 +3,37 @@
   - provide(:page_title, t('.title', name: @profile_user.display_name))
   - provide(:page_colour, 'orange')
 
-  = left_col class: 'bg-light text-center' do
+  = full_width class: 'profile-banner', padding: '' do
+    .profile-banner-avatar = image_tag(@profile_user.profile.avatar_url)
 
-    .profile-username
-      .circle-avatar
-        = image_tag(@profile_user.profile.avatar_url)
+  = full_width class: 'profile-strip', padding: '' do
+    .profile-strip-data
       .profile-handle
         = user_handle(@profile_user)
-        .profile-extra.small.mt-1
-          => link_to t('.links.edit'), edit_profile_path(params[:username]) if current_user&.power_over?(@profile_user)
-          => link_to t('.links.message'), '#'
+      .profile-karma.small.mt-1
+        span.karma-arrow-up> ▲
+        ' 123
+        span.karma-arrow-down> ▼
+        ' 321
+        / TODO: a linkamajig to the karmamajig
+        a[href='#']= t('.sidedata.karmainfo')
+
+  = left_col class: 'bg-light text-center profile-info-col', padding: 'px-4 pb-4' do
+    .profile-info-data
+      .profile-handle
+        = user_handle(@profile_user)
+      .profile-karma.small.mt-1
+        span.karma-arrow-up> ▲
+        ' 123
+        span.karma-arrow-down> ▼
+        ' 321
+        / TODO: a linkamajig to the karmamajig
+        a[href='#']= t('.sidedata.karmainfo')
+
+    .small.mt-3.mt-md-1
+      => link_to t('.links.edit'), edit_profile_path(params[:username]) if current_user&.power_over?(@profile_user)
+      ' ·
+      => link_to t('.links.message'), '#'
 
     .small.text-muted
       .profile-sidedata
@@ -20,13 +41,7 @@
                 gender: @profile_user.profile.display_gender,
                 country: @profile_user.profile.display_country)
 
-      .profile-karma
-        span.karma-arrow-up> ▲
-        ' 123
-        span.karma-arrow-down> ▼
-        ' 321
-        / TODO: a linkamajig to the karmamajig
-        a[href='#']= t('.sidedata.karmainfo')
+
 
   = right_col do
 

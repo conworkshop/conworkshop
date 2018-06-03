@@ -3,6 +3,7 @@
 require 'gender_form_builder'
 require 'langtype_form_builder'
 require 'clan_form_builder'
+require 'word_class_form_builder'
 
 module ApplicationHelper
   # @return [Language] the current language

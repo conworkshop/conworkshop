@@ -1,0 +1,14 @@
+- provide(:page_title, 'WordLink database')
+- provide(:page_colour, 'yellow')
+
+= left_col class: 'bg-light' do
+  h3 WordLink database
+  = link_to 'New WordLink', new_wordlink_path, class: 'btn btn-link'
+
+= right_col do
+  - @wordlinks.each do |wl|
+    p
+      => wl.english
+      | (
+      = wl.wlid
+      | )

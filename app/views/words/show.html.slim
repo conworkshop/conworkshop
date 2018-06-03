@@ -1,0 +1,23 @@
+- if @word
+  - provide(:page_title, @word.head)
+  - provide(:page_colour, 'green')
+
+  = left_col class: 'bg-light' do
+    h3 = @word.head
+    ul
+    - @word.wordlinks.each do |wl|
+      li = Wordlink.find_by(wlid: wl).select(:english).english
+
+  = right_col do
+    | shitty testicle
+
+- else
+  - provide(:page_title, 'Word not found')
+  - provide(:page_colour, 'red')
+
+  = left_col class: 'bg-light' do
+    h3 Word not found
+    = link_to 'Back to language page', language_path(@language), class: 'btn btn-link'
+
+  = right_col do
+    = banner :error, "That doesn't appear to be a word in this language!"

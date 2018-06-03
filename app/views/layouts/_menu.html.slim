@@ -23,44 +23,49 @@ nav.navbar.navbar-expand-lg.navbar-dark class="bg-#{@phue}" style="z-index: 998;
             a.nav-link.dropdown-toggle#toggleLang href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
               = t('menu.language.title')
           ul.dropdown-menu aria-labelledby='toggleLang'
-            li.dropdown-submenu
-              a href='#' class='dropdown-item dropdown-toggle' = t('menu.language.dictionary.title')
-              ul.dropdown-menu
-                li = link_to t('menu.language.dictionary.add'), '#', class: 'dropdown-item'
-                li = link_to t('menu.language.dictionary.view'), '#', class: 'dropdown-item'
-                li = link_to t('menu.language.dictionary.settings'), '#', class: 'dropdown-item'
-                li = link_to t('menu.language.dictionary.tools'), '#', class: 'dropdown-item'
-                li = link_to t('menu.language.dictionary.stats'), '#', class: 'dropdown-item'
-            li.dropdown-submenu
-              a href='#' class='dropdown-item dropdown-toggle' = t('menu.language.phono.title')
-              ul.dropdown-menu
-                li = link_to t('menu.language.phono.inventory'), '#', class: 'dropdown-item'
-                li = link_to t('menu.language.phono.phonotactics'), '#', class: 'dropdown-item'
-                li = link_to t('menu.language.phono.estim'), '#', class: 'dropdown-item'
-                li = link_to t('menu.language.phono.ortho'), '#', class: 'dropdown-item'
-            li.dropdown-submenu
-              a href='#' class='dropdown-item dropdown-toggle' = t('menu.language.grammar.title')
-              ul.dropdown-menu
-                li = link_to t('menu.language.grammar.tables'), '#', class: 'dropdown-item'
-                li = link_to t('menu.language.grammar.forms'), '#', class: 'dropdown-item'
-                li = link_to t('menu.language.grammar.typo'), '#', class: 'dropdown-item'
-                li = link_to t('menu.language.grammar.test'), '#', class: 'dropdown-item'
-            li.dropdown-submenu
-              a href='#' class='dropdown-item dropdown-toggle' = t('menu.language.lit.title')
-              ul.dropdown-menu
-                li = link_to t('menu.language.lit.trans'), '#', class: 'dropdown-item'
-                li = link_to t('menu.language.lit.articles'), '#', class: 'dropdown-item'
-                li = link_to t('menu.language.lit.namebase'), '#', class: 'dropdown-item'
-                li = link_to t('menu.language.lit.phrases'), '#', class: 'dropdown-item'
+            - if current_language
+              li.dropdown-submenu
+                a href='#' class='dropdown-item dropdown-toggle' = t('menu.language.dictionary.title')
+                ul.dropdown-menu
+                  li = link_to t('menu.language.dictionary.add'), new_language_word_path(current_language), class: 'dropdown-item'
+                  li = link_to t('menu.language.dictionary.view'), language_words_path(current_language), class: 'dropdown-item'
+                  li = link_to t('menu.language.dictionary.settings'), '#', class: 'dropdown-item'
+                  li = link_to t('menu.language.dictionary.tools'), '#', class: 'dropdown-item'
+                  li = link_to t('menu.language.dictionary.stats'), '#', class: 'dropdown-item'
+              li.dropdown-submenu
+                a href='#' class='dropdown-item dropdown-toggle' = t('menu.language.phono.title')
+                ul.dropdown-menu
+                  li = link_to t('menu.language.phono.inventory'), '#', class: 'dropdown-item'
+                  li = link_to t('menu.language.phono.phonotactics'), '#', class: 'dropdown-item'
+                  li = link_to t('menu.language.phono.estim'), '#', class: 'dropdown-item'
+                  li = link_to t('menu.language.phono.ortho'), '#', class: 'dropdown-item'
+              li.dropdown-submenu
+                a href='#' class='dropdown-item dropdown-toggle' = t('menu.language.grammar.title')
+                ul.dropdown-menu
+                  li = link_to t('menu.language.grammar.tables'), '#', class: 'dropdown-item'
+                  li = link_to t('menu.language.grammar.forms'), '#', class: 'dropdown-item'
+                  li = link_to t('menu.language.grammar.typo'), '#', class: 'dropdown-item'
+                  li = link_to t('menu.language.grammar.test'), '#', class: 'dropdown-item'
+              li.dropdown-submenu
+                a href='#' class='dropdown-item dropdown-toggle' = t('menu.language.lit.title')
+                ul.dropdown-menu
+                  li = link_to t('menu.language.lit.trans'), '#', class: 'dropdown-item'
+                  li = link_to t('menu.language.lit.articles'), '#', class: 'dropdown-item'
+                  li = link_to t('menu.language.lit.namebase'), '#', class: 'dropdown-item'
+                  li = link_to t('menu.language.lit.phrases'), '#', class: 'dropdown-item'
               .dropdown-divider
-              - if current_language
-                li = link_to t('menu.language.summary'), language_path(current_language), class: 'dropdown-item'
-                li = link_to t('menu.language.edit'), edit_language_path(current_language), class: 'dropdown-item'
-                li = link_to t('menu.language.share'), '#', class: 'dropdown-item'
+              li = link_to t('menu.language.summary'), language_path(current_language), class: 'dropdown-item'
+              li = link_to t('menu.language.edit'), edit_language_path(current_language), class: 'dropdown-item'
+              li = link_to t('menu.language.share'), '#', class: 'dropdown-item'
               li = link_to t('menu.language.compare'), '#', class: 'dropdown-item'
               li = link_to t('menu.language.switch'), '#', class: 'dropdown-item'
               .dropdown-divider
               li = link_to t('menu.language.new'), new_language_path, class: 'dropdown-item'
+            - else
+              li = link_to t('menu.language.new'), new_language_path, class: 'dropdown-item'
+              .dropdown-divider
+              li = link_to t('menu.language.lit.trans'), '#', class: 'dropdown-item'
+              li = link_to t('menu.language.lit.articles'), '#', class: 'dropdown-item'
 
         / COMMUNITY
         li.nav-item.dropdown

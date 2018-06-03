@@ -17,7 +17,7 @@ html lang=I18n.locale
 
     = yield :head
 
-  body
+  body class="#{controller_name} #{action_name}"
 
     = render 'layouts/menu'
 

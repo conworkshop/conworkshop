@@ -1,0 +1,42 @@
+- provide(:page_title, 'New WordLink')
+- provide(:page_colour, 'yellow')
+
+= left_col class: 'bg-light' do
+  h3 New WordLink
+  = link_to 'Back to WordLinks', wordlinks_path, class: 'btn btn-link'
+
+= right_col do
+  = form_for @wordlink do |f|
+    = render 'error_messages', cur_obj: @wordlink
+
+    .form-row
+      .col-12.col-md-6
+        .form-label-group
+          = f.text_field :english, placeholder: 'English', class: 'form-control'
+          = f.label :english
+
+      .col-12.col-md-6
+        .form-label-group
+          = f.text_field :american, placeholder: 'American', class: 'form-control'
+          = f.label :american
+
+    .form-row
+      .col-12.col-md-6
+        .form-group.pt-md-1
+          = f.word_class_select :wc, {}, {class: 'form-control'}
+
+      .col-12.col-md-6
+        .form-label-group
+          = f.text_field :hint, placeholder: 'Hint', class: 'form-control'
+          = f.label :hint
+
+    .form-row
+      .col-12.col-md-6
+        .form-group
+          = f.text_area :notes, placeholder: 'Notes', rows: 4, class: 'form-control'
+
+      .col-12.col-md-6
+        .form-group
+          = f.text_area :locale, placeholder: 'Natlang translations', rows: 4, class: 'form-control'
+
+    = f.submit 'Add WordLink', class: 'btn btn-primary'

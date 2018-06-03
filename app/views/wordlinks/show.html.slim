@@ -1,0 +1,25 @@
+- if @wordlink
+  - provide(:page_title, "#{@wordlink.english} (WordLink)")
+  - provide(:page_colour, 'yellow')
+
+  = left_col class: 'bg-light' do
+    h3
+      ' WordLink
+      small = @wordlink.english
+
+    = link_to 'Back to WordLink database', wordlinks_path, class: 'btn btn-link'
+
+  = right_col do
+    h2
+      => @wordlink.english
+      - unless @wordlink.american.blank?
+        small = "(#{@wordlink.american})"
+
+    dl
+      dt Hint
+      dd = @wordlink.hint
+
+    - unless @wordlink.notes.blank?
+      dl
+        dt Notes
+        dd = @wordlink.notes

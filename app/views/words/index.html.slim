@@ -1,0 +1,11 @@
+- provide(:page_title, "#{@language.name} words")
+- provide(:page_colour, 'green')
+
+= left_col class: 'bg-light' do
+  h3 = "#{@language.name} dictionary"
+  = link_to 'Back to language page', language_path(@language), class: 'btn btn-link'
+  - if current_user == @language.user
+    = link_to 'Add word', new_language_word_path(@language), class: 'btn btn-link'
+
+= right_col do
+  | Some words?????? i thin

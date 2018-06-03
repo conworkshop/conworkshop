@@ -1,0 +1,144 @@
+- provide(:page_title, 'New word')
+- provide(:page_colour, 'green')
+
+= left_col width: 4, class: 'bg-light' do
+  h3 Add word
+  = link_to 'Back to dictionary', language_words_path(@language), class: 'btn btn-link mb-3'
+
+  .pl-md-3.pt-2
+    dl
+      dt Adding words to
+      dd = lang_handle @language
+
+    dl
+      dt Pronunciation estimation
+      dd.ipa
+        | /əkˈsɑːmpəʊ̯͑/
+
+    dl
+      dt Definitions
+      dd
+        ol#wlDefinitions
+          .wlDefPretext No definitions defined yet
+
+
+= right_col width: 8 do
+
+  = form_for @word, url: language_words_path do |f|
+    = render 'error_messages', cur_obj: @word
+
+    .form-row
+      .col-12.col-md-6
+        .form-group
+          = f.label :head, "Word in #{@language.code}", class: 'little-label'
+          = f.text_field :head, class: 'form-control'
+          small.form-text.text-muted Double check you don't already have this word!
+
+      .col-12.col-md-6
+        .form-group
+          = f.label :wc, 'Part of speech', class: 'little-label'
+          = f.word_class_select :wc, {}, class: 'form-control'
+          small.form-text.text-muted
+            ' If not specified, this will default to the part of speech of the first WordLink definition.
+            ' If this word has classes set, changing the part of speech may reset the classes field.
+
+      .col-12
+        .form-group
+          #wlHiddenFields
+          = f.label :wordlinks, 'Register & Definition', class: 'little-label'
+          .input-group
+            .input-group-prepend
+              select.form-control.bg-light.prepend-none#wlFormRegister
+                = options_for_select Word::WORD_REG.map {|c| [I18n.t("words.registers.#{c}"), c]}
+            input type='text' id='autoWordlink' class='form-control' placeholder='Add definition...'
+          small.form-text.text-muted
+            ' Select the register of the definition from the dropdown on the left,
+            ' then begin typing in the adjacent text field to search for a definition.
+            | You can see the definitions you have so far at the left or the very top of this page.
+
+      .col-12.col-md-6
+        .form-group
+          = f.label :ipa, 'IPA', class: 'little-label'
+          .input-group
+            .input-group-prepend
+              span.input-group-text = "/"
+            = f.text_field :ipa, class: 'form-control'
+            .input-group-append
+              span.input-group-text = "/"
+          small.form-text.text-muted Enter only IPA here. You do not need to add any slashes or brackets.
+
+      .col-12.col-md-6
+        .form-group
+          = f.label :sampa, 'X-SAMPA', class: 'little-label'
+          .input-group
+            .input-group-prepend
+              span.input-group-text = "/"
+            = f.text_field :sampa, class: 'form-control'
+            .input-group-append
+              span.input-group-text = "/"
+          small.form-text.text-muted
+            ' Enter as X-SAMPA only.
+            | This will be automatically converted to IPA when the word is saved.
+
+      .col-12.col-md-6
+        .form-group
+          = f.label :althead, 'Alternate word', class: 'little-label'
+          = f.text_field :althead, class: 'form-control'
+          small.form-text.text-muted Useful if your conlang has multiple scripts.
+
+      .col-12.col-md-6
+        .form-group
+          = f.label :sourcelang, 'Source language', class: 'little-label'
+          = f.text_field :sourcelang, class: 'form-control'
+          small.form-text.text-muted
+            ' Specify the origin of this word.
+            | For more detailed information, use the etymology field.
+
+      .col-12.col-md-6
+        .form-group
+          = f.label :etym, 'Etymology', class: 'little-label'
+          = f.text_area :etym, rows: 3, class: 'form-control'
+
+      .col-12.col-md-6
+        .form-group
+          = f.label :notes, class: 'little-label'
+          = f.text_area :notes, rows: 3, class: 'form-control'
+
+      .col-12.col-md-6
+        .form-group
+          = f.label :sample, class: 'little-label'
+          = f.text_area :sample, rows: 3, class: 'form-control'
+
+      .col-12.col-md-6
+        .form-group
+          = f.label :imgurl, 'Image URL', class: 'little-label'
+          = f.text_field :imgurl, class: 'form-control'
+          small.form-text.text-muted
+            ' You can use this to display an image for the word summary.
+            ' Useful for conscripts and signed languages.
+            a href='http://photobucket.com/' target='_blank' Click here to go to a free image host.
+
+    = f.submit 'Add word', class: 'btn btn-primary'
+
+.modal tabindex='-1' role='dialog' id='wlAddModal'
+  .modal-dialog role='document'
+    .modal-content
+      .modal-header
+        h5.modal-title Add definition
+        button type='button' class='close' data-dismiss='modal' aria-label='Close'
+          span aria-hidden='true' &times;
+      .modal-body
+        form
+          input type='hidden' id='wlTempWLID'
+          input type='hidden' id='wlTempEnglish'
+          input type='hidden' id='wlTempHint'
+          h3.mb-3
+            span#wlModalEnglish> english
+            small.text-muted#wlModalHint hint
+          .form-group
+            label.little-label for='wlFormAction' Action
+            select.form-control#wlFormAction
+              option value='def' Add as separate definition
+      .modal-footer
+        button type='button' class='btn btn-success' id='btnAddDef' Add definition
+        button type='button' class='btn btn-secondary' data-dismiss='modal' Close

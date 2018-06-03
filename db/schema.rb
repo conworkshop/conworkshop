@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_29_082547) do
+ActiveRecord::Schema.define(version: 2018_06_02_172135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,12 +48,29 @@ ActiveRecord::Schema.define(version: 2018_05_29_082547) do
     t.index ["slug"], name: "index_clans_on_slug"
   end
 
+  create_table "definitions", force: :cascade do |t|
+    t.bigint "word_id"
+    t.string "wordlinks", default: [], array: true
+    t.string "register"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["word_id"], name: "index_definitions_on_word_id"
+  end
+
   create_table "lang_types", force: :cascade do |t|
     t.string "code"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["code"], name: "index_lang_types_on_code"
+  end
+
+  create_table "langclasses", force: :cascade do |t|
+    t.bigint "language_id"
+    t.string "name"
+    t.string "classcode"
+    t.string "wc"
+    t.index ["language_id"], name: "index_langclasses_on_language_id"
   end
 
   create_table "languages", force: :cascade do |t|
@@ -153,7 +170,7 @@ ActiveRecord::Schema.define(version: 2018_05_29_082547) do
     t.string "wlid"
     t.string "english"
     t.string "american"
-    t.string "class"
+    t.string "wc"
     t.string "hint"
     t.text "notes"
     t.text "locale"
@@ -168,5 +185,33 @@ ActiveRecord::Schema.define(version: 2018_05_29_082547) do
     t.index ["wlid"], name: "index_wordlinks_on_wlid", unique: true
   end
 
+  create_table "words", force: :cascade do |t|
+    t.string "wid"
+    t.bigint "language_id"
+    t.bigint "user_id"
+    t.string "head"
+    t.string "althead"
+    t.string "register"
+    t.string "sampa"
+    t.string "ipa"
+    t.text "etym"
+    t.text "notes"
+    t.text "sample"
+    t.text "imgurl"
+    t.string "sourcelang"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "wc"
+    t.string "langclass", default: [], array: true
+    t.string "wlmeta"
+    t.index ["language_id"], name: "index_words_on_language_id"
+    t.index ["user_id"], name: "index_words_on_user_id"
+    t.index ["wid"], name: "index_words_on_wid", unique: true
+  end
+
+  add_foreign_key "definitions", "words"
+  add_foreign_key "langclasses", "languages"
   add_foreign_key "users", "languages", column: "current_lang_id", on_delete: :nullify
+  add_foreign_key "words", "languages"
+  add_foreign_key "words", "users"
 end

@@ -16,6 +16,8 @@ class Language < ApplicationRecord
   belongs_to :user
   belongs_to :lang_type
 
+  has_many :words
+
   validates :code,
             presence: true,
             uniqueness: { case_sensitive: false },
