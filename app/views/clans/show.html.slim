@@ -6,10 +6,12 @@
   .clan_header
     .clan_square[style="background: #{@clan.colour}"] = @clan.symbol
     .clan_title
-      h5.mt-2.mb-0 = @clan.name
+      h5.mt-3.mb-1 = @clan.name
       .small.text-muted = @clan.description
 
-  => link_to "« #{t('clans.index.title')}", clans_path, class: 'btn btn-link mt-3'
+  => link_to clans_path, class: 'btn btn-link mt-3'
+    i.fas.fa-chevron-circle-left
+    = t('.return')
 
   - if current_user
     - if current_user.user_clan == @clan
@@ -40,7 +42,7 @@
     .faux = @clan.page_text
 
   - if @clan.concrete_members?
-    h4 = t('.members')
+    h5.mt-2 = t('.members')
     - if @clan.clan_memberships.any?
       table.table.table-sm
         thead

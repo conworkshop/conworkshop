@@ -3,7 +3,7 @@
 - provide(:page_title, t('.title'))
 
 = left_col class: 'bg-light' do
-  h2 = t('.title')
+  h2.mb-4 = t('.title')
   = render 'users/shared/links'
 
 = right_col do
@@ -23,6 +23,8 @@
       => f.check_box :remember_me, class: 'form-check-input'
       = f.label :remember_me, t('.remember'), class: 'small'
 
-    = f.submit t('.login'), class: 'btn btn-primary mt-2'
+    = f.button :submit, class: 'btn btn-primary mt-2'
+      i.fas.fa-sign-in-alt
+      = t('.login')
 
 

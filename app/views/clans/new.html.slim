@@ -5,7 +5,9 @@
 
   h2 = t('.title')
 
-  = link_to "« #{t('clans.index.title')}", clans_path, class: 'btn btn-link'
+  = link_to clans_path, class: 'btn btn-link'
+    i.fas.fa-chevron-circle-left
+    = t('.return')
 
   h4.mt-4 = t('.preview')
 
@@ -18,29 +20,35 @@
   = form_for @clan do |f|
     = render 'error_messages', cur_obj: @clan
 
-    .form-label-group
-      = f.text_field :name, autocomplete: 'off', autofocus: true, placeholder: 'Name', class: 'form-control preview_field_name'
-      = f.label :name
-
-    .form-label-group
-      = f.text_field :description, autocomplete: 'off', size: 38, placeholder: 'Description', class: 'form-control'
-      = f.label :description
-
-    .form-group.mb-4
-      = f.label :permission
-      = f.clan_perm_select :permission, {}, {class: 'form-control'}
-
     .form-row
-      .form-label-group.col-md-4
-        = f.text_field :symbol, autocomplete: 'off', size: 5, placeholder: 'Symbol', class: 'form-control preview_field_symbol'
-        = f.label :symbol
-        small.form-text.text-muted = t('.symbol.info')
+      .col-12.col-md-6
+        .form-group
+          = f.label :name, class: 'little-label'
+          = f.text_field :name, autocomplete: 'off', autofocus: true, class: 'form-control preview_field_name'
 
-    .form-group
-      = f.label :colour
-      div
-        = f.text_field :colour, class: 'form_colour_select'
-      small.form-text.text-muted = t('.colour.info')
+      .col-12.col-md-6
+        .form-group
+          = f.label :description, class: 'little-label'
+          = f.text_field :description, autocomplete: 'off', size: 38, class: 'form-control'
 
-    = f.submit t('.submit'), class: 'btn btn-primary'
+      .col-12.col-md-6
+        .form-group
+          = f.label :permission, class: 'little-label'
+          = f.clan_perm_select :permission, {}, {class: 'form-control'}
 
+      .col-12.col-md-4
+        .form-group
+          = f.label :symbol, class: 'little-label'
+          = f.text_field :symbol, autocomplete: 'off', size: 5, class: 'form-control preview_field_symbol'
+          small.form-text.text-muted = t('.symbol.info')
+
+      .col-12.col-md-6
+        .form-group
+          = f.label :colour, class: 'little-label'
+          div
+            = f.text_field :colour, class: 'form_colour_select'
+          small.form-text.text-muted = t('.colour.info')
+
+    = f.button :submit, class: 'btn btn-primary mt-2'
+      i.far.fa-plus-square
+      = t '.submit'

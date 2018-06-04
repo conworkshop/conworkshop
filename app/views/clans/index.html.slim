@@ -5,7 +5,9 @@
 
   h2 = t('.title')
 
-  = link_to t('clans.new.title'), new_clan_path, class: 'btn btn-link'
+  = link_to new_clan_path, class: 'btn btn-link'
+    i.far.fa-plus-square
+    = t('clans.new.title')
 
 = right_col do
 

@@ -25,6 +25,12 @@ body {
   font-family: $ipa-font-stack;
 }
 
+.btn, a {
+  i.fas, i.far, i.fab {
+    margin-right: 0.5em;
+  }
+}
+
 .inline-minicircle {
   display: inline-block;
   height: 19px;

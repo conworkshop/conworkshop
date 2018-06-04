@@ -5,7 +5,9 @@
 
   h2 = t('.h1', name: @profile_user.display_name)
 
-  = link_to t('general.return.profile'), profile_path(params[:username]), class: 'btn btn-link'
+  = link_to profile_path(params[:username]), class: 'btn btn-link'
+    i.fas.fa-chevron-circle-left
+    = t('general.return.profile')
 
 = right_col do
 
@@ -13,7 +15,7 @@
     = render 'error_messages', cur_obj: @profile_user.profile
 
     .form-group
-      = f.label :avatar, Profile.human_attribute_name('avatar')
+      = f.label :avatar, Profile.human_attribute_name('avatar'), class: 'little-label'
 
       .circle-avatar
         = image_tag @profile_user.profile.avatar_url, alt: Profile.human_attribute_name('avatar')
@@ -22,21 +24,23 @@
       = f.hidden_field :avatar_cache
 
       - if current_user.profile.avatar?
-        br
-        => f.check_box :remove_avatar
-        = f.label :remove_avatar, t('.removeavatar')
+        .mt-2
+          => f.check_box :remove_avatar
+          = f.label :remove_avatar, t('.removeavatar')
 
     .form-group
-      = f.label :country
+      = f.label :country, class: 'little-label'
       = f.country_select :country, {include_blank: t('general.nocountry')}, {class: 'form-control'}
 
     .form-group
-      = f.label :gender
+      = f.label :gender, class: 'little-label'
       = f.gender_select :gender, {include_blank: t('general.gender.none')}, {class: 'form-control'}
 
     .form-group
-      = f.label :about
+      = f.label :about, class: 'little-label'
       = f.text_area :about, cols: 200, rows: 4, maxlength: CWS::Globals::MAX_ABOUT_CHARS,
           'data-cws-char-limit': CWS::Globals::MAX_ABOUT_CHARS, class: 'form-control'
 
-    = f.submit t('general.save'), class: 'btn btn-primary'
+    = f.button :submit, class: 'btn btn-primary'
+      i.fas.fa-edit
+      = t('general.save')

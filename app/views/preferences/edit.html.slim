@@ -6,7 +6,9 @@
 
   h2 = t('.title')
 
-  = link_to t('general.return.profile'), profile_path(current_user), class: 'btn btn-link'
+  = link_to profile_path(current_user), class: 'btn btn-link'
+    i.fas.fa-chevron-circle-left
+    = t('general.return.profile')
 
 = right_col do
 
@@ -16,11 +18,13 @@
 
     = f.fields_for :preferences do |fp|
       .form-group
-        = fp.label :locale, t('.preference.locale.title')
+        = fp.label :locale, t('.preference.locale.title'), class: 'little-label'
         = fp.select :locale, language_select_options(with_path: false, selected: current_user.locale), {}, {class: 'form-control'}
         small.form-text.text-muted
           = t('.preference.locale.text')
           br
           => t('.default_value')
           strong = t("language_names.#{I18n.default_locale}")
-    = f.submit t('general.save'), class: 'btn btn-primary'
+    = f.button :submit, class: 'btn btn-primary mt-2'
+      i.far.fa-save
+      = t('general.save')

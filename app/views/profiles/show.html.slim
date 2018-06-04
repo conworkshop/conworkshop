@@ -12,7 +12,7 @@
     .profile-info-data
       .profile-handle
         = user_handle(@profile_user)
-      .profile-karma.small.mt-1
+      .profile-karma.small.mt-2
         span.karma-arrow-up> ▲
         ' 123
         span.karma-arrow-down> ▼
@@ -21,9 +21,15 @@
         a[href='#']= t('.sidedata.karmainfo')
 
     .small.mt-3.mt-md-1
-      => link_to t('.links.edit'), edit_profile_path(params[:username]) if current_user&.power_over?(@profile_user)
-      ' ·
-      => link_to t('.links.message'), '#'
+      .mt-3.mb-2
+        - if current_user&.power_over?(@profile_user)
+          = link_to edit_profile_path(params[:username])
+            i.fas.fa-pencil-alt
+            = t('.links.edit')
+      .mb-3
+        = link_to '#'
+          i.far.fa-envelope
+          = t('.links.message')
 
     .small.text-muted
       .profile-sidedata
@@ -92,8 +98,8 @@
             tr
               td.align-middle
                 = lang_handle(language)
-                span.small.text-muted.pl-1
-                  => language.code
+                span.small.text-muted.pl-2
+                  span.pr-1 => language.code
                   - if @profile_user == current_user
                     a[href="#"] [switch]
               td.align-middle = language.nativename
@@ -101,12 +107,10 @@
 
 - else
 
-  - provide(:page_title, 'User not found - View Profile')
+  - provide(:page_title, t('.notfound.title'))
   - provide(:page_colour, 'red')
 
   = left_col class: 'bg-light text-center' do
-    h3 View Profile
+    h3 = t '.notfound.page'
   = right_col do
-    = banner :error
-      ' No such user:
-      b = params[:username]
+    = banner :error, t('profiles.show.notfound.text', name: params[:username])

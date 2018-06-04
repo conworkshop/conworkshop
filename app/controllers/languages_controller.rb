@@ -13,7 +13,7 @@ class LanguagesController < ApplicationController
   end
 
   def new
-    @language = Language.new
+    @language = Language.new lang_type: LangType.first
   end
 
   def create

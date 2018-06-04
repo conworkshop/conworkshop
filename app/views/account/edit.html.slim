@@ -5,7 +5,9 @@
 
   h2 = t('.info.title')
 
-  = link_to t('general.return.profile'), profile_path(current_user), class: 'btn btn-link'
+  = link_to profile_path(current_user), class: 'btn btn-link mb-3'
+    i.fas.fa-chevron-circle-left
+    = t('general.return.profile')
 
   dl
     dt = t('.info.registered')
@@ -44,35 +46,37 @@
 
 = right_col width: 8 do
 
-  h1= t('.settings.title')
+  h3.mb-3 = t('.settings.title')
 
   = form_for current_user, url: { controller: 'account', action: 'update' } do |f|
     = render 'error_messages', cur_obj: current_user
 
     .form-group
-      = f.label :pseudonym
+      = f.label :pseudonym, class: 'little-label'
       = f.text_field :pseudonym, size: 38, class: 'form-control'
       small.form-text.text-muted
         => t('general.minchars', count: User::USERNAME_LEN.begin)
         = t('.settings.revertuname')
 
-    .form-label-group
-      = f.email_field :email, size: 38, placeholder: 'Email', class: 'form-control'
-      = f.label :email
+    .form-group
+      = f.label :email, class: 'little-label'
+      = f.email_field :email, size: 38, class: 'form-control'
       small.form-text.text-muted = t('.settings.emailwarn')
 
-    h2 = t('.settings.changepass')
+    h4.mt-4.mb-3 = t('.settings.changepass')
 
-    .form-label-group
-      = f.password_field :password, autocomplete: 'off', size: 38, placeholder: 'Password', class: 'form-control'
-      = f.label :password
+    .form-group
+      = f.label :password, class: 'little-label'
+      = f.password_field :password, autocomplete: 'off', size: 38, class: 'form-control'
       small.form-text.text-muted
         => t('.settings.passwarn', count: Devise.password_length.begin)
         = t('.settings.passblank')
 
-    .form-label-group
-      = f.password_field :password_confirmation, autocomplete: 'off', size: 38, placeholder: 'Password confirmation', class: 'form-control'
-      = f.label :password_confirmation
+    .form-group
+      = f.label :password_confirmation, class: 'little-label'
+      = f.password_field :password_confirmation, autocomplete: 'off', size: 38, class: 'form-control'
       small.form-text.text-muted = t('.settings.passconfirm')
 
-    = f.submit t('general.save'), class: 'btn btn-primary'
+    = f.button :submit, class: 'btn btn-primary mt-2'
+      i.far.fa-save
+      = t('general.save')

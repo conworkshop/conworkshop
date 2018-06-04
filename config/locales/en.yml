@@ -28,10 +28,10 @@ en:
     de: Deutsch (German)
 
   general:
-    save: ✔ Save changes
-    report: ✎ Report an error
+    save: Save changes
+    report: Report an error
     return:
-      profile: « Return to profile
+      profile: Return to profile
     status:
       online: online
       away: away
@@ -158,7 +158,7 @@ en:
       new:
         title: Log in
         fblogin: Log in with Facebook instead
-        login: ✔ Let me in!
+        login: Let me in!
         remember: Remember me
     mailer:
       confirmation_instructions:
@@ -187,6 +187,7 @@ en:
     show:
       notfound:
         title: Language not found
+        page: View language
         text: No language with the code "%{code}" was found.
       flag_alt: "%{name}'s flag"
       registered_by:
@@ -197,10 +198,10 @@ en:
         text: '%{b:%{name}} is spoken in %{place}.'
       species: Species
       about: About %{name}
-      edit: "✎ Edit information"
+      edit: "Edit information"
     edit:
       title: Editing %{name}
-      back: "« View language page"
+      back: "View language page"
       settings: "%{name} settings"
       no_slashes: "(You do %{b:not} need to add brackets or slashes)"
       submit: Save changes
@@ -247,14 +248,15 @@ en:
     show:
       notfound:
         title: User not found
-        text: No user with username "%{name}" was found.
+        page: View profile
+        text: "No user with username '%{name}' was found."
       title: "%{name}'s profile"
       sidedata:
         genderandcountry: '%{gender}, from %{country}'
         karmainfo: '[info]'
       links:
-        edit: '[edit profile]'
-        message: '[message]'
+        edit: 'Edit profile'
+        message: 'Message'
       info:
         membersince: 'Member since:'
         lastseen: 'Last seen:'
@@ -271,6 +273,7 @@ en:
     show:
       title: View clan
       join: Join clan
+      return: Back to clans
       request: Request membership
       primary: This is your primary clan!
       make_primary: Make primary clan
@@ -286,6 +289,7 @@ en:
       title: Clans
     new:
       title: Create a clan
+      return: Back to clans
       submit: Create clan
       symbol:
         info: Each clan has a symbol they can use to denote their members. One character only.
@@ -505,6 +509,61 @@ en:
       TBOO: Taboo
       VULG: Vulgar
       OTHR: Other (see notes)
+    estim: Pronunciation estimation
+    definition:
+      title: Definitions
+      none: No definitions added yet
+      add:
+        title: Add definition
+        action:
+          label: Action
+          default: Add as separate definition
+          append: "Append to %{def}"
+        confirm: Add definition
+        close: Close
+    new:
+      title: Add word
+      language: Adding words to
+      return: Back to dictionary
+      confirm: Add word
+      head:
+        label: "Word in %{code}"
+        help: Double check you don't already have this word!
+      pos:
+        label: Part of speech
+        help: >
+          If not specified, this will default to the part of speech of the first WordLink definition. If
+          this word has classes set, changing the part of speech may reset the classes field.
+      regdef:
+        label: Register & definition
+        placeholder: Add definition...
+        help: >
+          Select the register of the definition from the dropdown on the left, then begin typing in the
+          adjacent text field to search for a definition. You can see the definitions you have so far
+          at the left or the very top of this page.
+      ipa:
+        label: IPA
+        help: Enter only IPA here. You do not need to add any slashes or brackets.
+      sampa:
+        label: X-SAMPA
+        help: Enter as X-SAMPA only. This will be automatically converted to IPA when the word is saved.
+      althead:
+        label: Alternative word
+        help: Useful if your conlang has multiple scripts. Do not add English definitions here.
+      source:
+        label: Source language
+        help: Specify the origin of this word. For more detailed information, use the etymology field.
+      etym: Etymology
+      notes: Notes
+      sample: Sample
+      image:
+        label: Image URL
+        help: You can use this to display an image for the word summary. Useful for conscripts and signed languages.
+        link: Click here to go to a free image host.
+    index:
+      title: "%{language} dictionary"
+      return: Back to language page
+      add: Add word
 
 
   menu:

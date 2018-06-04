@@ -9,29 +9,36 @@
     = render 'error_messages', cur_obj: @language
 
     .form-row
-      .form-label-group.col-md-4
+      .col-12.col-md-4
+        .form-label-group
+          = f.text_field :code, size: Language::CODE_LENGTH.end + 3, maxlength: Language::CODE_LENGTH.end,
+                autocomplete: 'off', autofocus: true, placeholder: 'Code', class: 'form-control text-uppercase'
+          = f.label :code
+          small.form-text.text-muted
+            => t('.code.length_limit')
+            = it('.code.char_limit', b: It.tag(:b))
 
-        = f.text_field :code, size: Language::CODE_LENGTH.end + 3, maxlength: Language::CODE_LENGTH.end,
-              autocomplete: 'off', autofocus: true, placeholder: 'Code', class: 'form-control text-uppercase'
-        = f.label :code
-        small.form-text.text-muted
-          => t('.code.length_limit')
-          = it('.code.char_limit', b: It.tag(:b))
+    .form-row
+      .col-12
+        .form-check.mb-2
+          => check_box_tag :unnamed, '1', false, class: 'form-check-input'
+          = label_tag :unnamed, t('.unnamed.label'), class: 'form-check-label'
 
-    .form-check.mb-2
-      => check_box_tag :unnamed, '1', false, class: 'form-check-input'
-      = label_tag :unnamed, t('.unnamed.label'), class: 'form-check-label'
+      .col-12.col-md-6
+        .form-group
+          = f.label :name, class: 'little-label'
+          = f.text_field :name, autocomplete: 'off', size: 38, placeholder: 'Name', class:'form-control noname-dis-prop'
 
-    .form-label-group
-      = f.text_field :name, autocomplete: 'off', size: 38, placeholder: 'Name', class:'form-control noname-dis-prop'
-      = f.label :name
+      .col-12.col-md-6
+        .form-group
+          = f.label :nativename, class: 'little-label'
+          = f.text_field :nativename, autocomplete: 'off', size: 38, placeholder: 'Native name', class: 'form-control noname-dis-prop'
 
-    .form-label-group
-      = f.text_field :nativename, autocomplete: 'off', size: 38, placeholder: 'Native name', class: 'form-control noname-dis-prop'
-      = f.label :nativename
+      .col-12.col-md-6
+        .form-group
+          = f.label :lang_type, class: 'little-label'
+          = f.langtype_select :lang_type, {}, {class: 'form-control'}
 
-    .form-group
-      = f.label :lang_type
-      = f.langtype_select :lang_type, {}, {class: 'form-control'}
-
-    = f.submit '✔ ' + t('.submit'), class: 'btn btn-primary'
+    = f.button :submit, class: 'btn btn-primary mt-2' do
+      i.fas.fa-plus
+      | Add language

@@ -7,10 +7,12 @@
 
     h2
       => @language.name
-      small = @language.code
+      small.text-muted = @language.code
 
     - if current_user.power_over?(@language.user)
-      = link_to t('.edit'), edit_language_path(@language), class: 'btn btn-link'
+      = link_to edit_language_path(@language), class: 'btn btn-link'
+        i.fas.fa-pencil-alt
+        = t('.edit')
 
   = right_col do
 
@@ -60,7 +62,7 @@
   - provide(:page_colour, 'red')
 
   = left_col class: 'bg-light text-center' do
-    h3 View Language
+    h3 = t '.notfound.page'
 
   = right_col do
     = banner :error, t('.notfound.text', code: params[:id])

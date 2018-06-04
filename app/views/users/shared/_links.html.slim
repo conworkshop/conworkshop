@@ -19,6 +19,8 @@ small
 p
   - if devise_mapping.omniauthable?
     - resource_class.omniauth_providers.each_with_index do |provider, i|
-      = link_to t(".omniauth.#{provider}"), omniauth_authorize_path(resource_name, provider)
+      = link_to omniauth_authorize_path(resource_name, provider)
+        i class="fab fa-#{provider}"
+        = t(".omniauth.#{provider}")
       - if resource_class.omniauth_providers.length != i + 1
         br

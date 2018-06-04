@@ -4,32 +4,47 @@
 = left_col class: 'bg-light' do
 
   h2 = t('.settings', name: @language.name)
-  = link_to t('.back'), language_path(@language), class: 'btn btn-link'
+  = link_to language_path(@language), class: 'btn btn-link'
+    i.fas.fa-chevron-circle-left
+    = t('.back')
 
 = right_col do
 
   = form_for @language do |f|
     = render 'error_messages', cur_obj: @language
 
-    .form-label-group
-      = f.text_field :name, size: 35, placeholder: 'Name', class: 'form-control'
-      = f.label :name
+    .form-row
+      .col-12.col-md-6
+        .form-group
+          = f.label :name, class: 'little-label'
+          = f.text_field :name, size: 35, placeholder: 'Name', class: 'form-control'
 
-    .form-label-group
-      = f.text_field :nativename, size: 35, placeholder: 'Native name', class: 'form-control'
-      = f.label :nativename
+      .col-12.col-md-6
+        .form-group
+          = f.label :nativename, class: 'little-label'
+          = f.text_field :nativename, size: 35, placeholder: 'Native name', class: 'form-control'
 
-    .form-label-group
-      = f.text_field :ipa, placeholder: 'Autonym pronunciation', class: 'form-control'
-      = f.label :ipa
-      small.form-text.text-muted = it('.no_slashes', b: It.tag(:b))
+      .col-12.col-md-6
+        .form-group
+          = f.label :ipa, class: 'little-label'
+          .input-group
+            .input-group-prepend
+              .input-group-text = "/"
+            = f.text_field :ipa, placeholder: 'Autonym pronunciation', class: 'form-control'
+            .input-group-append
+              .input-group-text = "/"
+          small.form-text.text-muted = it('.no_slashes', b: It.tag(:b))
 
-    .form-group
-      = f.label :lang_type
-      = f.langtype_select :lang_type, {}, {class: 'form-control'}
+      .col-12.col-md-6
+        .form-group
+          = f.label :lang_type, class: 'little-label'
+          = f.langtype_select :lang_type, {}, {class: 'form-control'}
 
-    .form-group
-      = f.label :status
-      = f.select :status, Language.statuses.map { |s, _| [s.humanize, s] }, {}, {class: 'form-control'}
+      .col-12.col-md-6
+        .form-group
+          = f.label :status, class: 'little-label'
+          = f.select :status, Language.statuses.map { |s, _| [s.humanize, s] }, {}, {class: 'form-control'}
 
-    = f.submit t('.submit'), class: 'btn btn-primary'
+    = f.button :submit, class: 'btn btn-primary mt-2' do
+      i.fas.fa-edit
+      = t('.submit')
