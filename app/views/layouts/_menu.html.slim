@@ -138,6 +138,16 @@ nav.navbar.navbar-expand-lg.navbar-dark class="bg-#{@phue}" style="z-index: 998;
       / PROFILE
       ul.navbar-nav.mt-2.mt-lg-0.navbar-right
         li.nav-item.dropdown
+          a.notif-bell-link.active#toggleNotif href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
+            i.fas.fa-bell.notif-bell
+              .notif-badge 2
+          ul.dropdown-menu.dropdown-menu-right aria-labelledby='toggleNotif'
+            .notif-inner
+              i.fas.fa-poo
+              .notif-none-title Oops! No notifications
+              .notif-none-muted Looks like you have no friends
+
+        li.nav-item.dropdown
           a.nav-link.dropdown-toggle.active#toggleProfile href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
             => image_tag current_user.profile.avatar_url, class: 'navbar-avatar'
             = current_user.username

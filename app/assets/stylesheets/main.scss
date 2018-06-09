@@ -31,6 +31,62 @@ body {
   }
 }
 
+.notif-bell-link {
+  color: #fff;
+  opacity: .8;
+
+  &:hover {
+    color: #fff;
+    opacity: 1;
+  }
+
+  .notif-bell {
+    font-size: 22px;
+    vertical-align: middle;
+    position: relative;
+
+    .notif-badge {
+      position: absolute;
+      font-family: $font-stack;
+      display: block;
+      top: -9px;
+      right: -9px;
+      font-size: small;
+      color: #fff;
+      background: #007bff;
+      height: 17px;
+      width: 17px;
+      line-height: 17px;
+      text-align: center;
+      vertical-align: middle;
+      border-radius: 17px;
+    }
+  }
+}
+
+.notif-inner {
+  text-align: center;
+  padding: 12px 28px;
+
+  i {
+    font-size: 28px;
+    color: #333;
+  }
+
+  .notif-none-title {
+    font-size: large;
+    color: #444;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 6px;
+  }
+
+  .notif-none-muted {
+    color: #777;
+    text-align: center;
+  }
+}
+
 .inline-minicircle {
   display: inline-block;
   height: 19px;
