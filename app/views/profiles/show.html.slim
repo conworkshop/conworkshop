@@ -82,7 +82,7 @@
       section.mt-1#about
         h5 = t('.about', name: @profile_user.display_name)
         / TODO: Needs CWSMarkup!
-        .faux = @profile_user.profile.about
+        .faux = cws_markup @profile_user.profile.about
 
     - if @profile_user.languages.any?
       section.mt-4.table-responsive

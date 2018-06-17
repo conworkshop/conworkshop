@@ -82,6 +82,10 @@ module ApplicationHelper
     local_time(time, options ? options : :long_notime)
   end
 
+  def cws_markup(str)
+    raw strip_tags(str).bbcode_to_html
+  end
+
   # Transforms the route shorthand controller#action into a proper url.
   # @param [String] route the route in controller#action form
   # @return [String] the url
