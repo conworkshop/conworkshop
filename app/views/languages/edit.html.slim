@@ -10,7 +10,7 @@
 
 = right_col do
 
-  = form_for @language do |f|
+  = form_with model: @language, local: true do |f|
     = render 'error_messages', cur_obj: @language
 
     .form-row
