@@ -51,18 +51,25 @@ app.Wordlinks.prototype = {
     }
 };
 
-$('.words.new').ready(function() {
-   new app.Wordlinks;
-
-   $('#btnAddDef').click(function(){
-       var action = $('#wlFormAction').val();
-       if(action == 'def'){
-           add_wl_default_options();
-       }
-       clear_autocomplete();
-       $('#wlAddModal').modal('hide');
-   });
+$(document).ready(function(){
+    init_wl_dropdown();
+    document.addEventListener("turbolinks:load", init_wl_dropdown);
 });
+
+function init_wl_dropdown() {
+    if($("body").hasClass("words new")) {
+        new app.Wordlinks;
+
+        $('#btnAddDef').click(function () {
+            var action = $('#wlFormAction').val();
+            if (action == 'def') {
+                add_wl_default_options();
+            }
+            clear_autocomplete();
+            $('#wlAddModal').modal('hide');
+        });
+    }
+}
 
 function beginAddword(){
     if ($('#wlHiddenFields input.wlMainVal').length > 0) {
