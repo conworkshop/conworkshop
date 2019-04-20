@@ -22,6 +22,6 @@
 //= require jquery.sticky-kit
 //= require jquery.minicolors
 //= require jquery-ui/widgets/autocomplete
-//= require local_time
+//= require local-time
 
 //= require_tree .
