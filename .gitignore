@@ -46,3 +46,4 @@
 # Ignore secret-y stuff.
 /config/database.yml
 /config/secrets.yml
+package.json

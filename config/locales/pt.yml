@@ -332,6 +332,17 @@ pt:
           paragraph3: >
             O CWS pode ser encontrado, também, nas mídias sociais se você tem o desejo nos seguir or curtir lá. Veja o
             rodapé do site para os links!
+    feed:
+      lotm: > 
+        Language of the month!
+      dailytranslation: >
+        Translation of the day!
+      randomword: >
+        Random word!
+      guessaword: >
+        Guess a word!
+      gallerypics: >
+        Latest gallery pics!
 
   preferences:
     edit:
