@@ -2,7 +2,7 @@
   - provide(:page_title, @word.head)
   - provide(:page_colour, 'green')
 
-  = left_col class: 'bg-light' do
+  = left_col class: 'cws-sidebar' do
     h3 = @word.head
     ul
     - @word.wordlinks.each do |wl|

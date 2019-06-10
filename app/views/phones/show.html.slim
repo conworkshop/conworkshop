@@ -3,14 +3,14 @@
 
 - if @phone
 
-  = full_width class: 'bg-light text-center' do
+  = left_col class: 'cws-sidebar text-center' do
     h2 = @phone.name
 
     = link_to 'Back to phones', phones_path, class: 'btn btn-link'
     - if current_user.rank?
       = link_to 'Edit phone', edit_phone_path(@phone), class: 'btn btn-link'
 
-  = full_width class: 'pb-5 text-center' do
+  = right_col class: 'text-center' do
     ' Registered on
     => @phone.created_at
     | under the IPA symbol /

@@ -5,7 +5,7 @@
   coffee:
     $(document).on('turbolinks:load', -> $('input#user_timezone').val(moment.tz.guess()))
 
-= left_col class: 'bg-light' do
+= left_col do
 
   h2 Sign up
   = render 'users/shared/links'
