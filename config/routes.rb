@@ -48,8 +48,8 @@ Rails.application.routes.draw do
     patch '/preferences', to: 'preferences#update'
 
     # Language
-    resources :languages do
-      resources :words, path: 'dictionary', path_names: { new: 'add' } do
+    resources :languages, path: 'langs' do
+      resources :words, path: 'dict', path_names: { new: 'add' } do
         get 'settings', on: :member
       end
     end

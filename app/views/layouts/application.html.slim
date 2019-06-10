@@ -33,10 +33,11 @@ html lang=I18n.locale
         .col-2.bg-red
 
     .container-fluid.site_main_cont
-      .row
-        .col-12.col-md-8.offset-md-2.flash_msg = render 'flash_messages' unless content_for?(:no_render_flash)
-        = yield
-
+      .container
+        .row
+          .col-12.col-md-8.offset-md-2.flash_msg = render 'flash_messages' unless content_for?(:no_render_flash)
+          = yield
+ 
     footer.container-fluid.footer.pb-4
       .row.footer_social
         .col-12.text-center.pt-3.small
