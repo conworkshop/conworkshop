@@ -33,7 +33,7 @@ html lang=I18n.locale
         .col-2.bg-red
 
     .container-fluid.site_main_cont
-      .container
+      div class=(content_for?(:full_width) ? 'inner_content inner_content_fullwidth' : 'inner_content inner_content_dynamic')
         .row
           .col-12.col-md-8.offset-md-2.flash_msg = render 'flash_messages' unless content_for?(:no_render_flash)
           = yield

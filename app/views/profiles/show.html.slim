@@ -2,108 +2,112 @@
 
   - provide(:page_title, t('.title', name: @profile_user.display_name))
   - provide(:page_colour, 'orange')
+  - provide(:full_width, true)
 
   = full_width class: 'profile-banner', padding: '' do
-    .profile-banner-avatar = image_tag(@profile_user.profile.avatar_url)
 
   = full_width class: 'profile-strip', padding: '' do
 
-  = left_col class: 'bg-light text-center profile-info-col', padding: 'px-4 pb-4' do
-    .profile-info-data
-      .profile-handle
-        = user_handle(@profile_user)
-      .profile-karma.small.mt-2
-        span.karma-arrow-up> ▲
-        ' 123
-        span.karma-arrow-down> ▼
-        ' 321
-        / TODO: a linkamajig to the karmamajig
-        a[href='#']= t('.sidedata.karmainfo')
+  .col-12
+    .inner_content_dynamic
+      .row
+        = left_col class: 'text-center profile-info-col', padding: 'px-4 pb-4' do
+          .profile-info-avatar = image_tag(@profile_user.profile.avatar_url)
+          .profile-info-data
+            .profile-handle
+              = user_handle(@profile_user)
+            .profile-karma.small.mt-2
+              span.karma-arrow-up> ▲
+              ' 123
+              span.karma-arrow-down> ▼
+              ' 321
+              / TODO: a linkamajig to the karmamajig
+              a[href='#']= t('.sidedata.karmainfo')
 
-    .small.mt-3.mt-md-1
-      .mt-3.mb-2
-        - if current_user&.power_over?(@profile_user)
-          = link_to edit_profile_path(params[:username])
-            i.fas.fa-pencil-alt
-            = t('.links.edit')
-      .mb-3
-        = link_to '#'
-          i.far.fa-envelope
-          = t('.links.message')
+          .small.mt-3.mt-md-1
+            .mt-3.mb-2
+              - if current_user&.power_over?(@profile_user)
+                = link_to edit_profile_path(params[:username])
+                  i.fas.fa-pencil-alt
+                  = t('.links.edit')
+            .mb-3
+              = link_to '#'
+                i.far.fa-envelope
+                = t('.links.message')
 
-    .small.text-muted
-      .profile-sidedata
-        = t('.sidedata.genderandcountry',
-                gender: @profile_user.profile.display_gender,
-                country: @profile_user.profile.display_country)
+          .small.text-muted
+            .profile-sidedata
+              = t('.sidedata.genderandcountry',
+                      gender: @profile_user.profile.display_gender,
+                      country: @profile_user.profile.display_country)
 
 
 
-  = right_col do
+        = right_col do
 
-    .row.small
-      .col-xs-12.col-md-4
-        dl
-          dt = t('.info.membersince')
-          dd = cws_local_time(@profile_user.created_at)
+          .row.small
+            .col-xs-12.col-md-4
+              dl
+                dt = t('.info.membersince')
+                dd = cws_local_time(@profile_user.created_at)
 
-      .col-xs-12.col-md-4
-        dl
-          dt = t('.info.lastseen')
-          dd
-            - if @profile_user.user_track
-              => local_time_ago(@profile_user.user_track.tracked_at)
-              span.grey
-                /| [#{route_path(@profile_user.user_track.route)}]
-                | [#{@profile_user.user_track.route}]
-            - else
-              | No idea!
-      .col-xs-12.col-md-4
-        dl
-          dt = t('.info.boardposts')
-          dd No idea!
+            .col-xs-12.col-md-4
+              dl
+                dt = t('.info.lastseen')
+                dd
+                  - if @profile_user.user_track
+                    => local_time_ago(@profile_user.user_track.tracked_at)
+                    span.grey
+                      /| [#{route_path(@profile_user.user_track.route)}]
+                      | [#{@profile_user.user_track.route}]
+                  - else
+                    | No idea!
+            .col-xs-12.col-md-4
+              dl
+                dt = t('.info.boardposts')
+                dd No idea!
 
-      / Admin data
-      - if %w(A D).include?(@profile_user.group)
-        .col-xs-12.col-md-4
-          dl
-            dt Last login's IP:
-            dd = @profile_user.last_sign_in_ip
-        .col-xs-12.col-md-4
-          dl
-            dt Timezone:
-            dd = @profile_user.timezone
-        .col-xs-12.col-md-4
-          dl
-            dt Group:
-            dd = @profile_user.group
+            / Admin data
+            - if %w(A D).include?(@profile_user.group)
+              .col-xs-12.col-md-4
+                dl
+                  dt Last login's IP:
+                  dd = @profile_user.last_sign_in_ip
+              .col-xs-12.col-md-4
+                dl
+                  dt Timezone:
+                  dd = @profile_user.timezone
+              .col-xs-12.col-md-4
+                dl
+                  dt Group:
+                  dd = @profile_user.group
 
-    - unless @profile_user.profile.about.blank?
-      section.mt-1#about
-        h5 = t('.about', name: @profile_user.display_name)
-        / TODO: Needs CWSMarkup!
-        .faux = @profile_user.profile.about
+          - unless @profile_user.profile.about.blank?
+            section.mt-1#about
+              h5 = t('.about', name: @profile_user.display_name)
+              / TODO: Needs CWSMarkup!
+              .faux = @profile_user.profile.about
 
-    - if @profile_user.languages.any?
-      section.mt-4.table-responsive
-        h5 = link_to t('.conlangs'), languages_path
-        table.table.table-sm
-          thead
-            tr
-              th scope='col'
-              th scope='col' = Language.human_attribute_name('nativename')
-              th scope='col' = Language.human_attribute_name('name')
-          tbody
-          - @profile_user.languages.each do |language|
-            tr
-              td.align-middle
-                = lang_handle(language)
-                span.small.text-muted.pl-2
-                  span.pr-1 => language.code
-                  - if @profile_user == current_user
-                    a[href="#"] [switch]
-              td.align-middle = language.nativename
-              td.align-middle = language.name
+          - if @profile_user.languages.any?
+            section.mt-4.table-responsive
+              h5 = link_to t('.conlangs'), languages_path
+              table.table.table-sm
+                thead
+                  tr
+                    th scope='col'
+                    th scope='col' = Language.human_attribute_name('nativename')
+                    th scope='col' = Language.human_attribute_name('name')
+                tbody
+                - @profile_user.languages.each do |language|
+                  tr
+                    td.align-middle
+                      = lang_handle(language)
+                      span.small.text-muted.pl-2
+                        span.pr-1 => language.code
+                        - if @profile_user == current_user
+                          a[href="#"] [switch]
+                    td.align-middle = language.nativename
+                    td.align-middle = language.name
 
 - else
 

@@ -15,6 +15,6 @@ module ViewHelper
 
   def full_width(options={}, &block)
     options = options.reverse_merge(class: '', padding: 'p-4')
-    raw tag.div capture(&block), class: "col-12 #{options[:padding]} #{options[:class]}"
+    raw tag.div capture(&block), class: "col-12 cws-page-full #{options[:padding]} #{options[:class]}"
   end
 end
