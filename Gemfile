@@ -67,8 +67,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
-gem 'autoprefixer-rails', '~> 7.2.3'
-gem 'bootstrap', '~> 4.1.1'
+gem 'autoprefixer-rails', '>= 9.1.0'
+gem 'bootstrap', '>= 4.3.1'
 gem 'carrierwave', '~> 1.0'
 gem 'country_select'
 gem 'devise'
