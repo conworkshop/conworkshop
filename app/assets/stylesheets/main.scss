@@ -584,6 +584,43 @@ dl {
   vertical-align: middle;
 }
 
+/* character count input */
+input.cntr {
+  display: block;
+  margin-top: 6px;
+  margin-left: auto;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  text-align: center;
+  color: #333;
+  cursor: default;
+}
+
+/* page-sensitive form focus colours */
+.body-blue .form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.body-green .form-control:focus {
+  border-color: #4bbd67;
+  box-shadow: 0 0 0 0.2rem rgba(35, 168, 68, 0.25);
+}
+.body-purple .form-control:focus {
+  border-color: #b04bbd;
+  box-shadow: 0 0 0 0.2rem rgba(165, 50, 175, 0.25);
+}
+.body-orange .form-control:focus {
+  border-color: #c5963e;
+  box-shadow: 0 0 0 0.2rem rgba(197, 136, 45, 0.25);
+}
+.body-yellow .form-control:focus {
+  border-color: #cbd44c;
+  box-shadow: 0 0 0 0.2rem rgba(202, 191, 41, 0.25);
+}
+.body-red .form-control:focus {
+  border-color: #d14444;
+  box-shadow: 0 0 0 0.2rem rgba(201, 47, 47, 0.25);
+}
 
 /* Cool forrm input placeholder magick */
 :root {
@@ -599,6 +636,7 @@ dl {
 .form-label-group > input,
 .form-label-group > label {
   padding: var(--input-padding-y) var(--input-padding-x);
+  height: auto;
 }
 
 .form-label-group > label {
