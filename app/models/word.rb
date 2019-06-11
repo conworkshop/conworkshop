@@ -7,8 +7,6 @@ class Word < ApplicationRecord
   belongs_to :language
   belongs_to :user
 
-  has_many :definitions
-
   validates :wid,  presence: true, uniqueness: true
   validates :user, presence: true
 
@@ -28,20 +26,22 @@ class Word < ApplicationRecord
   private
 
   def update_wlmeta
-    self.wlmeta = wordlinks.map do |wl|
-      wl.map { |c| Wordlink.find_by(wlid: c) }.compact.join ', '
-    end.join('; ')
+    # TODO
+    # Obtain the glosses for wordlinks and put them nicely into DB for quick access
+    # Maybe need new column? (bring back wlmeta lol)
   end
 
   def generate_uuid
-    begin
-      self.wid ||= SecureRandom.hex
-    end while Word.where(wid: self.wid).exists?
+    unless self.wid
+      begin
+        self.wid ||= SecureRandom.hex
+      end while Word.where(wid: self.wid).exists?
+    end
   end
 
   def functional_wordlinks
-    self.wordlinks.each do |wlid|
-      unless Wordlink.exists?(wlid: wlid)
+    self.wordlinks.each do |wl|
+      unless Wordlink.exists?(wlid: wl.wlid)
         errors.add(:wordlinks, 'could not be found')
         break
       end

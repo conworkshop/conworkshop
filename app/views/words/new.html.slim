@@ -17,12 +17,6 @@
       dd.ipa
         | /əkˈsɑːmpəʊ̯͑/
 
-    dl
-      dt = t('words.definition.title')
-      dd
-        ol#wlDefinitions
-          .wlDefPretext = t('words.definition.none')
-
 
 = right_col width: 8 do
 
@@ -50,8 +44,27 @@
             .input-group-prepend
               select.form-control.bg-light.prepend-none#wlFormRegister
                 = options_for_select Word::WORD_REG.map {|c| [I18n.t("words.registers.#{c}"), c]}
-            input type='text' id='autoWordlink' class='form-control' placeholder=t('.regdef.placeholder')
+            .tag-input.tag-input-append
+              .tag-input-tag
+                .tag-gloss potato
+                a.tag-remove-btn href='#'
+                  i.fas.fa-times
+              .tag-input-tag
+                .tag-register
+                  | (casual)
+                .tag-gloss potato salad
+                a.tag-remove-btn href='#'
+                  i.fas.fa-times
+              input type='text' id='autoWordlink' placeholder=t('.regdef.placeholder')
           small.form-text.text-muted = t('.regdef.help')
+
+      .col-12
+        .form-group
+          = f.label :gloss, 'Gloss', class: 'little-label'
+          = f.text_area :gloss, rows: 2, class: 'form-control'
+          small.form-text.text-muted
+            ' Type a gloss here if you'd like to show something different to the wordlinks you've added.
+            | Leave this field blank if you'd like to just show the auto-generated gloss based on your wordlinks.
 
       .col-12.col-md-6
         .form-group
