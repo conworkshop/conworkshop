@@ -4,7 +4,7 @@
 @import 'partials/colors';
 @import 'partials/mixins';
 
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700&subset=cyrillic,cyrillic-ext,devanagari,greek,greek-ext,latin-ext,vietnamese');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap&subset=cyrillic,cyrillic-ext,devanagari,greek,greek-ext,latin-ext,vietnamese');
 
 /* ========================================================================= */
 /*                           MAIN FILE STARTS HERE                           */
@@ -12,6 +12,7 @@
 /* ========================================================================= */
 
 $font-stack: 'Noto Sans', 'Helvetica', sans-serif;
+$header-font-stack: $font-stack;
 $ipa-font-stack: 'Arial', sans-serif;
 $font-size: 1em;
 $smaller-font-size:  $font-size - .2;
@@ -29,6 +30,29 @@ body {
   i.fas, i.far, i.fab {
     margin-right: 0.5em;
   }
+}
+
+h1, h2, h3, h4, .brand-main {
+  font-family: $header-font-stack;
+}
+
+.body-green ::selection {
+  background: $mute-green;
+}
+.body-blue ::selection {
+  background: $mute-blue;
+}
+.body-purple ::selection {
+  background: $mute-purple;
+}
+.body-red ::selection {
+  background: $mute-red;
+}
+.body-yellow ::selection {
+  background: $mute-yellow;
+}
+.body-orange ::selection {
+  background: $mute-orange;
 }
 
 .inner_content_dynamic {
