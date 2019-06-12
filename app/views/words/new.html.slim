@@ -39,7 +39,8 @@
       .col-12
         .form-group
           #wlHiddenFields
-          = f.label :wordlinks, t('.regdef.label'), class: 'little-label'
+            
+          = f.label :add_wl_input, t('.regdef.label'), class: 'little-label'
           .input-group
             .input-group-prepend
               select.form-control.bg-light.prepend-none#wlFormRegister
@@ -55,16 +56,14 @@
                 .tag-gloss potato salad
                 a.tag-remove-btn href='#'
                   i.fas.fa-times
-              input type='text' id='autoWordlink' placeholder=t('.regdef.placeholder')
+              input type='text' id='word_add_wl_input' placeholder=t('.regdef.placeholder')
           small.form-text.text-muted = t('.regdef.help')
 
       .col-12
         .form-group
-          = f.label :gloss, 'Gloss', class: 'little-label'
+          = f.label :gloss, t('.gloss.label'), class: 'little-label'
           = f.text_area :gloss, rows: 2, class: 'form-control'
-          small.form-text.text-muted
-            ' Type a gloss here if you'd like to show something different to the wordlinks you've added.
-            | Leave this field blank if you'd like to just show the auto-generated gloss based on your wordlinks.
+          small.form-text.text-muted = t('.gloss.help')
 
       .col-12.col-md-6
         .form-group

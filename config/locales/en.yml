@@ -535,12 +535,18 @@ en:
           If not specified, this will default to the part of speech of the first WordLink definition. If
           this word has classes set, changing the part of speech may reset the classes field.
       regdef:
-        label: Register & definition
+        label: Wordlinks
         placeholder: Add definition...
         help: >
           Select the register of the definition from the dropdown on the left, then begin typing in the
-          adjacent text field to search for a definition. You can see the definitions you have so far
-          at the left or the very top of this page.
+          adjacent text field to search for a definition. As you add wordlinks, they will appear as tags
+          in the text box. Click the small cross next to a wordlink to get rid of it. The register you
+          select will only apply to wordlinks you add, not all definitions of a word.
+      gloss:
+        label: Gloss
+        help: >
+          Type a gloss here if you'd like to show something different to the wordlinks you've added. Leave
+          this field blank if you'd just like to show the auto-generated gloss based on your wordlinks.
       ipa:
         label: IPA
         help: Enter only IPA here. You do not need to add any slashes or brackets.
