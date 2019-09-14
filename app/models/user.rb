@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   has_one :profile
   has_one :user_track
+  attr_accessor :notes
 
   has_many :languages
   belongs_to :current_lang, class_name: 'Language', optional: true

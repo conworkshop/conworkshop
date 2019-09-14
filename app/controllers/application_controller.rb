@@ -58,4 +58,10 @@ class ApplicationController < ActionController::Base
   def locale_from_accept_language
     http_accept_language.compatible_language_from(I18n.available_locales)
   end
+
+  def set_saved_notes(notes)
+    print(notes)
+    print('aa')
+    current_user&.notes = notes
+  end
 end

@@ -83,34 +83,39 @@ html lang=I18n.locale
 
           = yield :foot
 
-    aside.sidebar
-      .side-button.bg-green.sb-dict
-        = image_tag 'qf_search.png'
-        .side-screen
-          .ss-box.bgm-green.bram-green
-            form.form
-              .input-group
-                input type='text' class='form-control mb-1' placeholder='Search...' aria-label='Search Dictionary' id='qfDictionaryInput'
-                .input-group-append
-                  button type='submit' class='btn bg-green mb-1' style='color: #fff' Go
-            .qf-dict-results.small Results will appear here as you type
-      .side-button.bg-orange.sb-ortho
-        = image_tag 'qf_ortho.png'
-        .side-screen
-          .ss-box.bgm-orange.bram-orange This is an ortoguraphgy thingie
-      .side-button.bg-yellow.sb-xsampa
-        = image_tag 'qf_sampa.png'
-        .side-screen
-          .ss-box.bgm-yellow.bram-yellow Hello I convert XSAMPA to IPA
-      .side-button.bg-purple.sb-estim
-        = image_tag 'qf_estim.png'
-        .side-screen
-          .ss-box.bgm-purple.bram-purple Hello hello I estimate your wordies
-      .side-button.bg-blue.sb-notes
-        = image_tag 'qf_notes.png'
-        .side-screen
-          .ss-box.bgm-blue.bram-blue cheeky breeky i keep your notes safe bby
-      .side-button.bg-red.sb-karma
-        = image_tag 'qf_karma.png'
-        .side-screen
-          .ss-box.bgm-red.bram-red Your karma will appear here yay!
+    - if @current_user 
+      aside.sidebar
+        .side-button.bg-green.sb-dict
+          = image_tag 'qf_search.png'
+          .side-screen
+            .ss-box.bgm-green.bram-green
+              form.form
+                .input-group
+                  input type='text' class='form-control mb-1' placeholder='Search...' aria-label='Search Dictionary' id='qfDictionaryInput'
+                  .input-group-append
+                    button type='submit' class='btn bg-green mb-1' style='color: #fff' Go
+              .qf-dict-results.small Results will appear here as you type
+        .side-button.bg-orange.sb-ortho
+          = image_tag 'qf_ortho.png'
+          .side-screen
+            .ss-box.bgm-orange.bram-orange This is an ortoguraphgy thingie
+        .side-button.bg-yellow.sb-xsampa
+          = image_tag 'qf_sampa.png'
+          .side-screen
+            .ss-box.bgm-yellow.bram-yellow Hello I convert XSAMPA to IPA
+        .side-button.bg-purple.sb-estim
+          = image_tag 'qf_estim.png'
+          .side-screen
+            .ss-box.bgm-purple.bram-purple Hello hello I estimate your wordies
+        .side-button.bg-blue.sb-notes
+          = image_tag 'qf_notes.png'
+          .side-screen
+            .ss-box.bgm-blue.bram-blue
+              | cheeky breeky i keep your notes safe bby
+              = form_for @current_user, url: set_saved_notes_path do |f|
+                = f.text_area :notes, rows: 2, class: 'form-control note-input', value: ((defined? @current_user.notes) ? @current_user.notes : 'You are not logged in')
+                = f.submit "Save"
+        .side-button.bg-red.sb-karma
+          = image_tag 'qf_karma.png'
+          .side-screen
+            .ss-box.bgm-red.bram-red Your karma will appear here yay!

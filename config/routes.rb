@@ -47,6 +47,9 @@ Rails.application.routes.draw do
     get '/preferences',   to: 'preferences#edit'
     patch '/preferences', to: 'preferences#update'
 
+    # Set saved notes sidebar
+    post '/set_saved_notes', to: 'application#set_saved_notes'
+
     # Language
     resources :languages, path: 'langs' do
       resources :words, path: 'dict', path_names: { new: 'add' } do
