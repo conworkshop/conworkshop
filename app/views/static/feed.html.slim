@@ -11,11 +11,11 @@
         .uwn-where somewhere
 
 = left_col width: 6, padding: 'pt-0 pb-2 pb-md-4 pr-4 pl-4 pl-md-5' do
-  h3.mb-5 Language of the month!
-  h3.mb-5 Translation of the day!
-  h3.mb-5 Random word!
-  h3.mb-5 Guess a word!
-  h3 Latest gallery pics!
+  h3.mb-5= t('static.feed.lotm')
+  h3.mb-5= t('static.feed.dailytranslation')
+  h3.mb-5= t('static.feed.randomword')
+  h3.mb-5= t('static.feed.guessaword')
+  h3= t('static.feed.gallerypics')
 
 = right_col width: 6, padding: 'pt-0 pb-4 pl-4 pr-4 pr-md-5' do
   .faux

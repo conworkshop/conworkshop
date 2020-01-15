@@ -404,6 +404,17 @@ de:
           paragraph3: >
             CWS can also be found on Social Media if you have the urge to follow or like us there. See the site footer
             for the links!
+    feed:
+      lotm: > 
+        Sprache vom Monat!
+      dailytranslation: >
+        Übersetzung vom Tag!
+      randomword: >
+        Zufälliges Wort!
+      guessaword: >
+        Erraten Sie ein Wort!
+      gallerypics: >
+        Latest gallery pics!
 
   preferences:
     edit:
