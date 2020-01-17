@@ -109,6 +109,50 @@ module ApplicationHelper
     options_for_select(options, selected || I18n.locale.to_s)
   end
 
+  def x_sampa_to_ipa(input: '')
+    input_chars = input.split('')
+    ipa_str = ''
+    working_data = nil
+    count = 0
+    
+
+    while count < input.length do
+      c = input[count]
+      found = false
+      working_data = Phone.where('sampa LIKE ?', "#{c}%").to_a().sort_by{|x| x.sampa.length}.reverse!
+
+      working_data.each do |p|
+        if input[count..(count + p.sampa.length - 1)] == p.sampa
+          ipa_str += p.ipa
+          count += p.sampa.length
+          found = true
+          break
+        end
+      end
+
+      if !found
+        #it might be a diacritical mark, check again
+        working_data = Diacritic.where('sampa LIKE ?', "#{c}%").to_a().sort_by{|x| x.sampa.length}.reverse!
+        working_data.each do |q|
+          if input[count..(count + q.sampa.length - 1)] == q.sampa
+            ipa_str += q.ipa
+            count += q.sampa.length
+            found = true
+            break
+          end
+        end
+        #at this point, nothing was found, so we give up
+        if !found
+          ipa_str += c
+          count += 1
+        end
+      end
+    end
+    
+    ipa_str
+
+  end
+
   private
 
   BANNER_DEVISE_CORRL = {

@@ -161,7 +161,7 @@ seed_if_needed(
   { code: 'CAZH', ipa: 'ɮ', sampa: 'K\\', articulation: 'C', col: 'A', row: 'Z', voiceless: false, name: 'Voiced alveolar lateral fricative' },
   { code: 'CRZ', ipa: 'ꞎ', sampa: 'l`_0_r', articulation: 'C', col: 'R', row: 'Z', voiceless: true, name: 'Voiceless retroflex lateral fricative' },
   # Taps (X)
-  { code: 'CLXH', ipa: 'ⱱ', articulation: 'C', col: 'L', row: 'X', voiceless: false, name: 'Labio-dental tap' },
+  { code: 'CLXH', ipa: 'ⱱ', sampa: 'v`', articulation: 'C', col: 'L', row: 'X', voiceless: false, name: 'Labio-dental tap' },
   { code: 'CAXH', ipa: 'ɾ', sampa: '4', articulation: 'C', col: 'A', row: 'X', voiceless: false, name: 'Alveolar tap' },
   { code: 'CRXH', ipa: 'ɽ', sampa: 'r`', articulation: 'C', col: 'R', row: 'X', voiceless: false, name: 'Retroflex tap' },
   # Lateral flaps (R)
@@ -229,4 +229,67 @@ seed_if_needed(
   { code: 'VOC', ipa: 'a', sampa: 'a', articulation: 'V', col: 'C', row: 'O', rounded: false, name: 'Low central unrounded vowel' },
   { code: 'VOB', ipa: 'ɑ', sampa: 'A', articulation: 'V', col: 'B', row: 'O', rounded: false, name: 'Low back unrounded vowel' },
   { code: 'VOBR', ipa: 'ɒ', sampa: 'Q', articulation: 'V', col: 'B', row: 'O', rounded: true, name: 'Low back rounded vowel' }
+)
+
+#more soon, diacritics are also useful for phonology modifiers like in the old CWS
+# these are from the wikipedia page, names equal to the old CWS where they coincide (in case we want to import the languages)
+# to-do: add all the rest from the original website such as labio-palatized. may need to come up with fake X-sampa
+seed_if_needed(
+  Diacritic,
+  :name,
+
+  {sampa: '"', ipa: 'ˈ', name:'Primary stress', modifier:false},
+  {sampa: '%', ipa: 'ˌ', name:'Secondary stress', modifier:false},
+  {sampa: ':', ipa: 'ː', name:'Long', modifier:true},
+  {sampa: ':\\', ipa: 'ˑ', name:'Half-long', modifier:true},
+  {sampa: '_"', ipa: '̈', name:'Centralised', modifier:true},
+  {sampa: '_+', ipa: '̟', name:'Advanced', modifier:true},
+  {sampa: '_-', ipa: '̠', name:'Retracted', modifier:true},
+  {sampa: '_/', ipa: '̌', name:'Tone - Rising', modifier:true},
+  {sampa: '_0', ipa: '̥', name:'Voiceless', modifier:true},
+  {sampa: '_=', ipa: '̩', name:'Syllabic', modifier:true},
+  {sampa: '_>', ipa: 'ʼ', name:'Ejective', modifier:true},
+  {sampa: '_?\\', ipa: 'ˤ', name:'Pharyngealised', modifier:true},
+  {sampa: '_\\', ipa: '̂', name:'Tone - Falling', modifier:true},
+  {sampa: '_^', ipa: '̯', name:'Non-syllabic', modifier:true},
+  {sampa: '_}', ipa: '̚', name:'No audible release', modifier:true},
+  {sampa: '`', ipa: '˞', name:'Rhotacised', modifier:true},
+  {sampa: '_~', ipa: '̃', name:'Nasalised', modifier:true},
+  {sampa: '_A', ipa: '̘', name:'Advanced tongue root', modifier:true},
+  {sampa: '_a', ipa: '̺', name:'Apical', modifier:true},
+  {sampa: '_B', ipa: '̏', name:'Tone - Extra low', modifier:true},
+  {sampa: '_B_L', ipa: '᷅', name:'Tone - Low rising', modifier:true},
+  {sampa: '_c', ipa: '̜', name:'Less rounded', modifier:true},
+  {sampa: '_d', ipa: '̪', name:'Dental', modifier:true},
+  {sampa: '_e', ipa: '̴', name:'Velopharyngeal', modifier:true},
+  {sampa: '<F>', ipa: '↘', name:'Global fall', modifier:false},
+  {sampa: '_F', ipa: '̂', name:'Tone -  Falling', modifier:true},
+  {sampa: '_G', ipa: 'ˠ', name:'Velarized', modifier:true},
+  {sampa: '_H', ipa: '́', name:'Tone - High', modifier:true},
+  {sampa: '_H_T', ipa: '᷄', name:'Tone - High rising', modifier:true},
+  {sampa: '_h', ipa: 'ʰ', name:'Aspirated', modifier:true},
+  {sampa: "'", ipa: 'ʲ', name:'Palatalised', modifier:true},
+  {sampa: '_k', ipa: '̰', name:'Creaky voiced', modifier:true},
+  {sampa: '_L', ipa: '̀', name:'Tone - Low', modifier:true},
+  {sampa: '_l', ipa: 'ˡ', name:'Lateral release', modifier:true},
+  {sampa: '_M', ipa: '̄', name:'Tone - Mid', modifier:true},
+  {sampa: '_m', ipa: '̻', name:'Laminal', modifier:true},
+  {sampa: '_N', ipa: '̼', name:'Linguolabial', modifier:true},
+  {sampa: '_n', ipa: 'ⁿ', name:'Nasal release', modifier:true},
+  {sampa: '_O', ipa: '̹', name:'More rounded', modifier:true},
+  {sampa: '_o', ipa: '̞', name:'Lowered', modifier:true},
+  {sampa: '_q', ipa: '̙', name:'Retracted tongue root', modifier:true},
+  {sampa: '<R>', ipa: '↗', name:'Global rise', modifier:false},
+  {sampa: '_R', ipa: '̌', name:'Tone - Rising', modifier:true},
+  {sampa: '_R_F', ipa: '᷈', name:'Tone - Rising Falling', modifier:true},
+  {sampa: '_r', ipa: '̝', name:'Raised', modifier:true},
+  {sampa: '_T', ipa: '̋', name:'Tone - Extra high', modifier:true},
+  {sampa: '_t', ipa: '̤', name:'Breathy voiced', modifier:true},
+  {sampa: '_v', ipa: '̬', name:'Voiced', modifier:true},
+  {sampa: '_w', ipa: 'ʷ', name:'Labialised', modifier:true},
+  {sampa: '_X', ipa: '̆', name:'Short consonant', modifier:true},
+  {sampa: '_x', ipa: '̽', name:'Mid-centralised', modifier:true},
+
+
+  {sampa: '-\\', ipa: '‿', name:'Linking mark', modifier:false}
 )

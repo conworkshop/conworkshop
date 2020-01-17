@@ -91,6 +91,7 @@ it:
       googleplus: Profilo Google+
       instagram: Profilo Instagram
       tumblr: Profilo Tumblr
+      discord: Discord server
     langsel: 'Visualizzando CWS in: %{seltag}'
 
   application:

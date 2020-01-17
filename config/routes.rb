@@ -57,6 +57,11 @@ Rails.application.routes.draw do
     # Phones
     resources :phones
 
+	# Sidebar functions
+	resources :sidebar do
+	  get :xs_to_ipa, on: :member
+	end
+	
     # Wordlinks
     resources :wordlinks
 

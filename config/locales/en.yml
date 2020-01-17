@@ -113,6 +113,7 @@ en:
       googleplus: Google+ profile
       instagram: Instagram profile
       tumblr: Tumblr profile
+      discord: Discord server
     langsel: 'Viewing CWS in: %{seltag}'
 
   application:

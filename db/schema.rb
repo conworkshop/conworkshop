@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_02_172135) do
+ActiveRecord::Schema.define(version: 2019_05_01_152108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(version: 2018_06_02_172135) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["word_id"], name: "index_definitions_on_word_id"
+  end
+
+  create_table "diacritics", force: :cascade do |t|
+    t.string "ipa"
+    t.string "sampa"
+    t.string "name"
+    t.boolean "modifier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_diacritics_on_name", unique: true
   end
 
   create_table "lang_types", force: :cascade do |t|

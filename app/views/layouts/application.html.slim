@@ -59,6 +59,9 @@ html lang=I18n.locale
             li.nav-item
               a.nav-link.px-1.px-md-3[href='http://conworkshop.tumblr.com/' target='_blank']
                 = image_tag 'social/tumblr.png', size: '32x32', alt: t('footer.sociallinks.tumblr')
+			li.nav-item
+              a.nav-link.px-1.px-md-3[href='https://discord.gg/QtdctqM' target='_blank']
+                = image_tag 'social/discord.png', size: '32x32', alt: t('footer.sociallinks.discord')
       .row.footer_links
         .col-12.text-center.small
           ul.nav.justify-content-center[role='contentinfo']
@@ -100,7 +103,11 @@ html lang=I18n.locale
       .side-button.bg-yellow.sb-xsampa
         = image_tag 'qf_sampa.png'
         .side-screen
-          .ss-box.bgm-yellow.bram-yellow Hello I convert XSAMPA to IPA
+          .ss-box.bgm-yellow.bram-yellow
+		    form.form
+			  .input-group
+			    input[type='text' class='form-control mb-1' placeholder='Type X-Sampa here' aria-label='X-Sampa Field' id='xSampaToIPAInput' maxlength=100]
+		      div[class='faux' style='text-align:left' id='xSampaToIPAOutput']= ''
       .side-button.bg-purple.sb-estim
         = image_tag 'qf_estim.png'
         .side-screen
@@ -113,3 +120,7 @@ html lang=I18n.locale
         = image_tag 'qf_karma.png'
         .side-screen
           .ss-box.bgm-red.bram-red Your karma will appear here yay!
+    
+    script type='text/javascript' src='/assets/xs_to_ipa.js'
+      
+
