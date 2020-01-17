@@ -26,6 +26,12 @@
           - if @language.ipa.present?
             span.lang-ipa
               | [#{@language.ipa}]
+        .lang-words-and-status
+          span.lang-words class = 'bg-red' id = 'lang-words'
+            = pluralize(@language.words.count, 'word', plural: 'words')
+          span.lang-status class = 'bg-red' id = 'lang-status'
+            = @language.status.capitalize.gsub('_',' ').gsub(' language','')
+          script type='text/javascript' src='/assets/lang_status_block_color.js'
       .row.mt-4
         .col-xs-12.col-md-6
           dl
@@ -66,3 +72,4 @@
 
   = right_col do
     = banner :error, t('.notfound.text', code: params[:id])
+

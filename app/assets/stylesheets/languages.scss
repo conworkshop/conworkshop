@@ -31,3 +31,30 @@ div.lang-names {
     color: $weird-black;
   }
 }
+
+div.lang-words-and-status {
+  display: inline-flex;
+  vertical-align: top;
+  flex: 0 0 50%;
+  margin-left: 20px;
+
+  span.lang-words {
+    padding: 8px;
+    margin-left: 10px;
+    margin-top: 20px;
+    color: $main-bg-color;
+    background-color: #c96c21;
+    transition:background-color 1s ease-in-out;
+    border-radius: 4px;
+  }
+
+  span.lang-status {
+    padding: 8px;
+    margin-left: 10px;
+    margin-top: 20px;
+    color: $main-bg-color;
+    background-color: #c96c21;
+    transition:background-color 1s ease-in-out;
+    border-radius: 4px;
+  }
+}
